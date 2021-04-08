@@ -1,0 +1,40 @@
+_start
+push rwxdata
+call Ordinal_MSVBVM60_100
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+xor [ eax ] al
+add [ eax ] al
+inc eax
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax - 0x17758831 ] ah
+test dh ch
+dec esp
+xchg esp eax
+or al 0x18
+sub al 0xaf
+cli
+lds edx [ ebx ]
+add [ eax ] al
+add [ eax ] al
+add [ ecx ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax + 0x72 ] dl
+outsd
+push 0x65
+arpl [ ecx + esi ] si
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add bh bh
+int3
+Ordinal_MSVBVM60_100
+jmp [ Ordinal_MSVBVM60_100@IAT ]

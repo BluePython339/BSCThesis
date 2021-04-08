@@ -1,0 +1,145 @@
+_start
+pushad
+mov esi rwxdata
+lea edi [ esi - 0x9000 ]
+push edi
+or ebp 0xffffffff
+jmp rwxdata
+mov ebx [ esi ]
+sub esi 0xfffffffc
+adc ebx ebx
+mov al [ esi ]
+inc esi
+mov [ edi ] al
+inc edi
+mov eax 0x1
+jb rwxdata
+adc eax eax
+add ebx ebx
+jae rwxdata
+mov ebx [ esi ]
+sub esi 0xfffffffc
+adc ebx ebx
+add ebx ebx
+jne rwxdata
+jne rwxdata
+xor ecx ecx
+sub eax 0x3
+jb rwxdata
+mov ebx [ esi ]
+sub esi 0xfffffffc
+adc ebx ebx
+jae rwxdata
+add ebx ebx
+jne rwxdata
+shl eax 0x8
+mov al [ esi ]
+inc esi
+xor eax 0xffffffff
+je rwxdata
+adc ecx ecx
+add ebx ebx
+jne rwxdata
+mov ebx [ esi ]
+sub esi 0xfffffffc
+adc ebx ebx
+pop esi
+mov edi esi
+mov ecx 0xc9
+mov ebp eax
+adc ecx ecx
+jne rwxdata
+mov ebx [ esi ]
+sub esi 0xfffffffc
+adc ebx ebx
+mov al [ edi ]
+inc edi
+sub al 0xe8
+cmp [ edi ] 0x1
+jne rwxdata
+cmp ebp 0xfffff300
+adc ecx 0x1
+lea edx [ edi + ebp ]
+cmp ebp 0xfffffffc
+jbe rwxdata
+inc ecx
+mov eax [ edi ]
+mov bl [ edi + 0x4 ]
+shr ax 0x8
+rol eax 0x10
+xchg ah al
+sub eax edi
+sub bl 0xe8
+add eax esi
+mov [ edi ] eax
+add edi 0x5
+mov eax ebx
+loop rwxdata
+mov eax [ edx ]
+add edx 0x4
+mov [ edi ] eax
+add edi 0x4
+sub ecx 0x4
+ja rwxdata
+mov al [ edx ]
+inc edx
+mov [ edi ] al
+inc edi
+dec ecx
+jne rwxdata
+adc ecx ecx
+add ebx ebx
+jae rwxdata
+mov ebx [ esi ]
+sub esi 0xfffffffc
+adc ebx ebx
+cmp al 0x1
+ja rwxdata
+lea edi [ esi + 0xb000 ]
+add edi ecx
+jmp rwxdata
+jmp rwxdata
+add ebx ebx
+jne rwxdata
+jne rwxdata
+popad
+jmp rwxdata
+mov ebx [ edi + 0x4 ]
+lea eax [ eax + esi + 0xe54c ]
+add ebx esi
+push eax
+add edi 0x8
+call [ esi + 0xe5d8 ]
+xchg ebp eax
+add ebx ebx
+jne rwxdata
+add ecx 0x2
+mov ebx [ esi ]
+sub esi 0xfffffffc
+adc ebx ebx
+jae rwxdata
+mov eax [ edi ]
+or eax eax
+je rwxdata
+mov ecx edi
+jns rwxdata
+push edi
+dec eax
+[ edi ]
+push ebp
+call [ esi + 0xe5dc ]
+or eax eax
+je rwxdata
+movzx eax [ edi ]
+inc edi
+push eax
+inc edi
+mov ecx 0xaef24857
+call [ esi + 0xe5e0 ]
+mov [ ebx ] eax
+add ebx 0x4
+jmp rwxdata
+mov al [ edi ]
+inc edi
+or al al
+je rwxdata

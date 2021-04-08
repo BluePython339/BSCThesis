@@ -1,0 +1,2560 @@
+sub_11030
+mov [ rsp + 0x8 ] rbx
+push rdi
+sub rsp 0x20
+mov rax [ rdx + 0xb8 ]
+mov rdi rdx
+cmp [ rax + 0x18 ] 0x8000c004
+je 0x1105b
+mov edx [ rax + 0x10 ]
+mov rcx [ rdi + 0x18 ]
+call 0x11d94
+neg al
+sbb ecx ecx
+not ecx
+and ecx 0xc0000001
+mov [ rdi + 0x30 ] ecx
+and [ rdx + 0x38 ] 0x0
+mov [ rdx + 0x30 ] 0xc0000010
+jmp 0x11076
+mov ebx [ rdi + 0x30 ]
+xor edx edx
+mov rcx rdi
+call [ 0x14018 ]
+mov eax ebx
+mov rbx [ rsp + 0x30 ]
+add rsp 0x20
+pop rdi
+retn
+sub_11098
+push rbx
+sub rsp 0x20
+mov rax [ 0x15120 ]
+mov rbx [ rax + 0x8 ]
+mov rax [ 0x14000 ]
+cmp [ rax ] 0x1770
+jb 0x11115
+mov rcx [ 0x151d0 ]
+test rcx rcx
+je 0x1112f
+mov rax [ 0x15128 ]
+test rax rax
+je 0x11160
+mov rcx [ 0x151c0 ]
+test rcx rcx
+je 0x11141
+mov rax [ 0x151c8 ]
+xchg [ rax + 0xe0 ] rcx
+test rbx rbx
+jne 0x11153
+mov rcx [ 0x15130 ]
+test rcx rcx
+je 0x11160
+and [ 0x151c0 ] 0x0
+and [ 0x151c8 ] 0x0
+jmp 0x11160
+call [ 0x14060 ]
+mov rcx rbx
+mov rbx [ rbx + 0x10 ]
+call [ 0x14010 ]
+add rsp 0x20
+pop rbx
+retn
+mov [ rsp + 0x38 ] 0xfffffffffd050f80
+xchg [ rcx + 0xe0 ] rax
+mov rcx [ 0x15130 ]
+call [ 0x14060 ]
+and [ 0x15130 ] 0x0
+and [ 0x15128 ] 0x0
+lea r8 [ rsp + 0x38 ]
+xor edx edx
+xor ecx ecx
+call [ 0x14040 ]
+jmp 0x11160
+sub_11174
+mov r11 rsp
+mov [ r11 + 0x10 ] rbx
+mov [ r11 + 0x18 ] rbp
+mov [ r11 + 0x20 ] rsi
+push rdi
+sub rsp 0x90
+mov rax [ 0x15100 ]
+xor rax rsp
+mov [ rsp + 0x88 ] rax
+mov rax [ 0x14000 ]
+xor esi esi
+lea r8 [ 0x15110 ]
+movzx edi [ rax ]
+lea rax [ r11 - 0x30 ]
+lea r9d [ rsi + 0x22 ]
+mov [ r11 - 0x68 ] rax
+xor edx edx
+mov [ rsp + 0x28 ] sil
+mov [ rsp + 0x20 ] 0x100
+mov rbx rcx
+mov [ r11 - 0x30 ] rsi
+mov [ 0x15120 ] rcx
+call [ 0x14020 ]
+cmp eax esi
+jl 0x11403
+mov rcx [ rsp + 0x88 ]
+xor rcx rsp
+call 0x13150
+lea r11 [ rsp + 0x90 ]
+mov rbx [ r11 + 0x18 ]
+mov rbp [ r11 + 0x20 ]
+mov rsi [ r11 + 0x28 ]
+mov rsp r11
+pop rdi
+retn
+lea ebp [ rsi + 0x1 ]
+cmp [ 0x15139 ] sil
+jne 0x11201
+xor eax eax
+cmp edi 0x1770
+jb 0x112f8
+mov [ 0x151b8 ] rsi
+mov [ 0x15139 ] bpl
+mov [ rsp + 0x5a ] rax
+mov [ rsp + 0x62 ] eax
+mov [ rsp + 0x66 ] ax
+mov rax [ 0x136b0 ]
+lea rcx [ rsp + 0x70 ]
+lea rdx [ rsp + 0x70 ]
+mov [ rcx ] rax
+mov rax [ 0x136b8 ]
+mov [ rsp + 0x50 ] rsi
+mov [ rcx + 0x8 ] rax
+mov rax [ 0x136c0 ]
+mov [ rsp + 0x58 ] si
+mov [ rcx + 0x10 ] rax
+lea rcx [ rsp + 0x58 ]
+call [ 0x14008 ]
+lea r9 [ rsp + 0x50 ]
+lea r8 [ 0x151c0 ]
+lea rcx [ rsp + 0x58 ]
+mov edx ebp
+call [ 0x140b0 ]
+cmp eax esi
+jl 0x113f3
+lea rdx [ 0x13680 ]
+lea rcx [ rsp + 0x40 ]
+mov [ rsp + 0x40 ] si
+mov [ rsp + 0x42 ] rax
+mov [ rsp + 0x4a ] eax
+mov [ rsp + 0x4e ] ax
+call [ 0x14008 ]
+mov rax [ 0x14048 ]
+lea r11 [ 0x15130 ]
+mov rcx [ rax ]
+mov [ rsp + 0x38 ] r11
+xor r9d r9d
+mov [ rsp + 0x30 ] rsi
+mov [ rsp + 0x28 ] sil
+mov [ rsp + 0x20 ] rcx
+lea rcx [ rsp + 0x40 ]
+lea edx [ r9 + 0x40 ]
+xor r8d r8d
+call 0x134ea
+cmp eax esi
+jl 0x113f3
+mov rcx [ rsp + 0x68 ]
+call [ 0x14010 ]
+mov eax 0xc0000001
+mov rax [ rsp + 0x50 ]
+mov rcx [ rax + 0x8 ]
+mov [ 0x151c8 ] rcx
+mov rdx [ rcx + 0xe0 ]
+mov [ 0x151d0 ] rdx
+mov rax [ rax + 0x8 ]
+cmp rdx rsi
+je 0x113ec
+mov rdx [ 0x15130 ]
+mov cl sil
+mov r8 [ rdx + 0xe0 ]
+mov [ 0x15128 ] r8
+cmp r8 rsi
+je 0x112b4
+mov [ 0x151d0 ] rsi
+cmp rax rsi
+je 0x113ec
+cmp cl sil
+jne 0x112c2
+cmp [ rdx + 0x28 ] rsi
+je 0x112b4
+mov rax [ rax + 0x28 ]
+cmp rax rsi
+je 0x113ec
+mov rax [ 0x14000 ]
+movzx ecx [ rax ]
+lea rax [ 0x11ad4 ]
+cmp ecx 0x1db1
+mov cl bpl
+setb [ 0x15138 ]
+xchg [ rdx + 0xe0 ] rax
+mov [ 0x15128 ] rsi
+jmp 0x112ea
+mov rax [ rdx + 0x28 ]
+mov r9 [ rax + 0x30 ]
+cmp r8 r9
+jb 0x112b4
+mov r8 [ rax + 0x30 ]
+cmp rdx r8
+jb 0x113ec
+lea rax [ 0x11008 ]
+mov [ rbx + 0x80 ] rax
+mov [ rbx + 0x70 ] rax
+lea rax [ 0x11030 ]
+mov [ rbx + 0xe0 ] rax
+lea rax [ 0x11098 ]
+mov [ rbx + 0x68 ] rax
+xor eax eax
+jmp 0x11403
+jmp 0x113f3
+cmp cl sil
+jne 0x113bd
+mov eax [ rax + 0x40 ]
+movzx ecx cl
+add rax r9
+cmp r8 rax
+cmovb ecx ebp
+mov eax [ rax + 0x40 ]
+add rax r8
+cmp rdx rax
+jae 0x113ec
+lea rax [ 0x1209c ]
+xchg [ rcx + 0xe0 ] rax
+sub_11434
+mov rax rsp
+mov [ rax + 0x8 ] rbx
+mov [ rax + 0x10 ] rbp
+mov [ rax + 0x18 ] rsi
+mov [ rax + 0x20 ] rdi
+push r12
+sub rsp 0x20
+mov rdi [ rdx + 0xb8 ]
+mov rsi r8
+mov rbx rdx
+sub rdi 0x48
+cmp [ rdx + 0x30 ] 0x0
+mov r12 rcx
+jl 0x11481
+xor bpl bpl
+test rdi rdi
+je 0x1149c
+cmp [ r8 + 0x11 ] 0x0
+mov rdx [ rdx + 0x70 ]
+mov rcx r8
+je 0x1147c
+xor edx edx
+mov rcx rsi
+call [ 0x14030 ]
+test bpl bpl
+je 0x114c8
+mov rax [ rsi + 0x8 ]
+mov bpl [ rsi + 0x10 ]
+mov [ rdi + 0x40 ] rax
+mov rax [ rsi ]
+mov [ rdi + 0x38 ] rax
+call 0x117f4
+call 0x11500
+jmp 0x11481
+cmp [ rbx + 0x41 ] 0x0
+je 0x114d9
+test rdi rdi
+je 0x114c8
+mov eax [ rbx + 0x30 ]
+mov rax [ rbx + 0xb8 ]
+or [ rax + 0x3 ] 0x1
+mov rax [ rdi + 0x38 ]
+test rax rax
+je 0x114c8
+mov r8 [ rdi + 0x40 ]
+mov rdx rbx
+mov rcx r12
+call rax
+jmp 0x114dc
+mov rbx [ rsp + 0x30 ]
+mov rbp [ rsp + 0x38 ]
+mov rsi [ rsp + 0x40 ]
+mov rdi [ rsp + 0x48 ]
+add rsp 0x20
+pop r12
+retn
+sub_11500
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rdx
+push rbp
+push rsi
+push rdi
+push r12
+push r13
+push r14
+push r15
+sub rsp 0x90
+mov rbx rcx
+mov ecx [ rdx + 0x18 ]
+mov rbp rdx
+xor edi edi
+call [ 0x14058 ]
+cmp al dil
+je 0x117cf
+mov al dil
+mov rbx [ rsp + 0xd0 ]
+add rsp 0x90
+pop r15
+pop r14
+pop r13
+pop r12
+pop rdi
+pop rsi
+pop rbp
+retn
+mov ecx [ rbp + 0x28 ]
+call [ 0x14058 ]
+cmp al dil
+je 0x117cf
+mov ecx [ rbp + 0x30 ]
+call [ 0x14058 ]
+cmp al dil
+je 0x117cf
+cmp [ rbp + 0x1c ] 0x38
+jne 0x117cf
+lea r8d [ rdi + 0x28 ]
+lea rcx [ rsp + 0x60 ]
+xor edx edx
+mov [ rsp + 0x58 ] rdi
+call 0x13500
+mov r13d [ rbp + 0x28 ]
+mov r15d [ rbp + 0x18 ]
+mov eax [ rbp + 0x30 ]
+mov rcx [ rbx + 0x12 ]
+mov r12d [ rbp + 0x38 ]
+lea rdx [ rsp + 0x58 ]
+mov [ rsp + 0x50 ] r13
+mov [ rsp + 0x38 ] r15
+mov [ rsp + 0x40 ] rax
+call [ 0x14070 ]
+mov r14 rdi
+mov rsi r12
+cmp r12 rdi
+jbe 0x11749
+mov esi [ rbp + 0x38 ]
+sub esi r12d
+cmp rsi rdi
+jbe 0x117c1
+mov rax [ rsp + 0x40 ]
+mov rcx r15
+mov rbp r13
+mov [ rsp + 0x30 ] rax
+add rax 0x20
+add rcx 0x38
+mov [ rsp + 0x20 ] rax
+lea rax [ r13 + 0x10 ]
+mov [ rsp + 0x28 ] rcx
+mov [ rsp + 0xe8 ] rax
+lea rax [ r13 + 0xc ]
+mov [ rsp + 0xe0 ] rax
+lea rcx [ rsp + 0x58 ]
+call [ 0x14038 ]
+mov dil 0x1
+mov ecx r12d
+mov r8 rsi
+xor edx edx
+mov ebx r12d
+imul rcx rcx 0x38
+imul r8 r8 0x38
+add rcx r15
+call 0x13500
+xor edx edx
+cmp [ 0x15138 ] dil
+je 0x1178d
+sub rsi r14
+mov rcx r15
+lea rbx [ rsi - 0x1 ]
+mov rsi [ rsp + 0x28 ]
+mov r8 rbx
+mov rdx rsi
+imul r8 r8 0x38
+call 0x131b0
+cmp [ 0x15138 ] dil
+je 0x1165d
+cmp al dil
+je 0x116ca
+mov rcx rbx
+mov r8 rsi
+shl rcx 0x4
+shl r8 0x4
+add rcx r13
+lea rax [ r12 + r12 * 2 ]
+lea r8 [ rsi + rsi * 2 ]
+lea rcx [ r13 + rax * 4 ]
+shl r8 0x2
+jmp 0x1179e
+mov rdx [ rsp + 0xe8 ]
+mov r8 rbx
+mov rcx r13
+shl r8 0x4
+mov rdx [ rsp + 0xe0 ]
+lea r8 [ rbx + rbx * 2 ]
+mov rcx rbp
+shl r8 0x2
+jmp 0x1166f
+mov rax [ rsp + 0xe8 ]
+mov rcx [ rsp + 0xe0 ]
+mov rsi [ rsp + 0x28 ]
+mov rbx [ rsp + 0x30 ]
+mov rdx [ rsp + 0x20 ]
+call 0x13500
+shl rbx 0x5
+shl rsi 0x5
+add rbx [ rsp + 0x40 ]
+mov r8 rsi
+xor edx edx
+mov rcx rbx
+call 0x13500
+mov [ rbp + 0x38 ] r12d
+add rsi 0x38
+add rcx 0xc
+add rax 0x10
+add rbx 0x20
+add rdx 0x20
+mov [ rsp + 0x28 ] rsi
+inc r14
+mov esi r12d
+add r15 0x38
+add rbp 0xc
+add r13 0x10
+mov [ rsp + 0xe0 ] rcx
+mov [ rsp + 0xe8 ] rax
+mov [ rsp + 0x30 ] rbx
+mov [ rsp + 0x20 ] rdx
+cmp r14 rsi
+jb 0x115ef
+call 0x131b0
+mov rdx [ rsp + 0x20 ]
+shl rbx 0x5
+mov r8 rbx
+mov rbx [ rsp + 0x30 ]
+mov rcx rbx
+call 0x131b0
+mov rcx [ rsp + 0xe0 ]
+mov rax [ rsp + 0xe8 ]
+mov rdx [ rsp + 0x20 ]
+sub rcx 0xc
+sub rax 0x10
+dec r12d
+dec r14
+sub r15 0x38
+sub rsi 0x38
+sub rbp 0xc
+sub r13 0x10
+sub rbx 0x20
+sub rdx 0x20
+jmp 0x116e9
+movzx edx [ r15 + 0x2 ]
+mov ecx [ r15 + 0x4 ]
+mov r8b 0x1
+call 0x12010
+movzx edx [ r15 + 0x1e ]
+mov ecx [ r15 + 0x20 ]
+xor r8d r8d
+mov bl al
+call 0x12010
+cmp bl dil
+jne 0x11621
+mov rbp [ rsp + 0xd8 ]
+mov r13 [ rsp + 0x50 ]
+mov r15 [ rsp + 0x38 ]
+sub_117f4
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rdx
+push rbp
+push rsi
+push rdi
+push r12
+push r13
+push r14
+push r15
+sub rsp 0x80
+mov rbx rcx
+mov rcx [ rdx + 0x28 ]
+mov rbp rdx
+xor edi edi
+call [ 0x14058 ]
+cmp al dil
+je 0x11aaf
+mov al dil
+mov rbx [ rsp + 0xc0 ]
+add rsp 0x80
+pop r15
+pop r14
+pop r13
+pop r12
+pop rdi
+pop rsi
+pop rbp
+retn
+mov rcx [ rbp + 0x48 ]
+call [ 0x14058 ]
+cmp al dil
+je 0x11aaf
+mov rcx [ rbp + 0x58 ]
+call [ 0x14058 ]
+cmp al dil
+je 0x11aaf
+cmp [ rbp + 0x30 ] 0x38
+jne 0x11aaf
+lea r8d [ rdi + 0x28 ]
+lea rcx [ rsp + 0x58 ]
+xor edx edx
+mov [ rsp + 0x50 ] rdi
+call 0x13500
+mov r12 [ rbp + 0x48 ]
+mov r14 [ rbp + 0x28 ]
+mov r15 [ rbp + 0x58 ]
+mov rcx [ rbx + 0x12 ]
+mov rsi [ rbp + 0x68 ]
+lea rdx [ rsp + 0x50 ]
+mov [ rsp + 0x48 ] r12
+mov [ rsp + 0x38 ] r14
+mov [ rsp + 0x30 ] r15
+call [ 0x14070 ]
+mov r13 rdi
+cmp rsi rdi
+jbe 0x11a31
+mov rbx [ rbp + 0x68 ]
+sub rbx rsi
+je 0x11aa1
+mov rax [ rsp + 0x30 ]
+mov [ rsp + 0x28 ] r15
+lea rbp [ r12 + 0x10 ]
+add rax 0x20
+mov r15 r12
+mov [ rsp + 0x20 ] rax
+lea rax [ r12 + 0xc ]
+mov [ rsp + 0xd8 ] rax
+mov rax r14
+add rax 0x38
+mov [ rsp + 0xd0 ] rax
+lea rcx [ rsp + 0x50 ]
+call [ 0x14038 ]
+mov dil 0x1
+mov rcx rsi
+mov r8 rbx
+xor edx edx
+imul rcx rcx 0x38
+imul r8 r8 0x38
+add rcx r14
+call 0x13500
+xor edx edx
+cmp [ 0x15138 ] dil
+je 0x11a6f
+mov rdx [ rsp + 0xd0 ]
+mov rbx rsi
+mov rcx r14
+sub rbx r13
+dec rbx
+mov r8 rbx
+imul r8 r8 0x38
+call 0x131b0
+cmp [ 0x15138 ] dil
+je 0x11952
+cmp al dil
+je 0x119ba
+mov rcx rsi
+mov r8 rbx
+shl rcx 0x4
+shl r8 0x4
+add rcx r12
+lea rax [ rsi + rsi * 2 ]
+lea r8 [ rbx + rbx * 2 ]
+lea rcx [ r12 + rax * 4 ]
+shl r8 0x2
+jmp 0x11a80
+mov r8 rbx
+mov rdx rbp
+mov rcx r15
+shl r8 0x4
+mov rdx [ rsp + 0xd8 ]
+lea r8 [ rbx + rbx * 2 ]
+mov rcx r12
+shl r8 0x2
+jmp 0x1195f
+mov rax [ rsp + 0xd8 ]
+mov rcx [ rsp + 0xd0 ]
+mov rbx [ rsp + 0x28 ]
+mov rdx [ rsp + 0x20 ]
+call 0x13500
+shl rbx 0x5
+mov rcx rsi
+shl rcx 0x5
+mov r8 rbx
+xor edx edx
+add rcx r15
+call 0x13500
+mov [ rbp + 0x68 ] rsi
+add rcx 0x38
+add rax 0xc
+add rbx 0x20
+add rdx 0x20
+inc r13
+add r14 0x38
+add r12 0xc
+add r15 0x10
+add rbp 0x10
+mov [ rsp + 0xd0 ] rcx
+mov [ rsp + 0xd8 ] rax
+mov [ rsp + 0x28 ] rbx
+mov [ rsp + 0x20 ] rdx
+cmp r13 rsi
+jb 0x118e2
+call 0x131b0
+mov rdx [ rsp + 0x20 ]
+shl rbx 0x5
+mov r8 rbx
+mov rbx [ rsp + 0x28 ]
+mov rcx rbx
+call 0x131b0
+mov rcx [ rsp + 0xd0 ]
+mov rax [ rsp + 0xd8 ]
+mov rdx [ rsp + 0x20 ]
+sub rcx 0x38
+sub rax 0xc
+dec rsi
+dec r13
+sub r14 0x38
+sub r12 0xc
+sub r15 0x10
+sub rbp 0x10
+sub rbx 0x20
+sub rdx 0x20
+jmp 0x119d4
+movzx edx [ r14 + 0x2 ]
+mov ecx [ r14 + 0x4 ]
+mov r8b 0x1
+call 0x12010
+movzx edx [ r14 + 0x1e ]
+mov ecx [ r14 + 0x20 ]
+xor r8d r8d
+mov bl al
+call 0x12010
+cmp bl dil
+jne 0x11914
+mov rbp [ rsp + 0xc8 ]
+mov r12 [ rsp + 0x48 ]
+mov r14 [ rsp + 0x38 ]
+mov r15 [ rsp + 0x30 ]
+sub_11ad4
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rbp
+mov [ rsp + 0x18 ] rsi
+push rdi
+push r12
+push r13
+sub rsp 0x20
+mov rbx [ rdx + 0xb8 ]
+xor r13d r13d
+mov r12 rcx
+cmp [ rbx + 0x18 ] 0x12001b
+mov rcx [ rdx + 0x70 ]
+mov rdi rdx
+mov bpl r13b
+jne 0x11b7d
+mov rdx rdi
+mov rcx r12
+call [ 0x15128 ]
+cmp rcx r13
+je 0x11b7d
+cmp [ rbx + 0x8 ] 0x3c
+jne 0x11ba2
+cmp [ rbx + 0x8 ] 0x70
+jne 0x11b7d
+cmp [ rcx + 0x1c ] 0x38
+mov bpl 0x1
+jne 0x11b7d
+cmp [ rcx + 0x30 ] 0x38
+jne 0x11b7d
+mov r8d edx
+xor ecx ecx
+mov edx 0x1a
+and r8d ebx
+call [ 0x14028 ]
+mov rsi rax
+cmp rax r13
+je 0x11b7d
+cmp [ rcx + 0x68 ] 0x1
+jne 0x11b24
+mov [ rax + 0x11 ] bpl
+mov rcx [ rbx + 0x38 ]
+mov [ rax ] rcx
+mov rcx [ rbx + 0x40 ]
+mov [ rax + 0x8 ] rcx
+lea rax [ 0x11434 ]
+mov [ rbx + 0x40 ] rsi
+mov [ rbx + 0x38 ] rax
+call [ 0x14050 ]
+mov cl 0x40
+mov [ rsi + 0x12 ] rax
+mov al [ rbx + 0x3 ]
+and al cl
+cmp al cl
+sete al
+mov [ rsi + 0x10 ] al
+or [ rbx + 0x3 ] cl
+cmp [ rcx + 0x20 ] 0x752
+jne 0x11b24
+cmp [ rcx + 0x24 ] 0x2537
+jne 0x11b24
+mov edx [ rcx + 0x60 ]
+mov rcx [ rcx + 0x58 ]
+mov ebx 0xc000000d
+call 0x11d94
+mov rcx rdi
+mov [ rdi + 0x38 ] r13
+cmp al r13b
+cmovne ebx r13d
+xor edx edx
+mov [ rdi + 0x30 ] ebx
+call [ 0x14018 ]
+mov eax ebx
+jmp 0x11b89
+mov rbx [ rsp + 0x40 ]
+mov rbp [ rsp + 0x48 ]
+mov rsi [ rsp + 0x50 ]
+add rsp 0x20
+pop r13
+pop r12
+pop rdi
+retn
+sub_11c08
+mov rax rsp
+mov [ rax + 0x8 ] rbx
+mov [ rax + 0x10 ] rbp
+mov [ rax + 0x18 ] rsi
+mov [ rax + 0x20 ] rdi
+push r14
+sub rsp 0x30
+mov ebp edx
+mov rdi rcx
+mov ebx 0xc0000001
+call [ 0x14058 ]
+test al al
+je 0x11d24
+mov rbp [ rsp + 0x48 ]
+mov rsi [ rsp + 0x50 ]
+mov rdi [ rsp + 0x58 ]
+mov eax ebx
+mov rbx [ rsp + 0x40 ]
+add rsp 0x30
+pop r14
+retn
+test ebp ebp
+je 0x11d24
+and [ rsp + 0x20 ] 0x0
+xor r9d r9d
+xor r8d r8d
+mov edx ebp
+mov rcx rdi
+call [ 0x14098 ]
+mov rdi rax
+test rax rax
+je 0x11d24
+mov rcx rax
+call [ 0x14080 ]
+mov r8d 0x1
+xor r9d r9d
+or [ rdi + 0xa ] r8w
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] 0x10
+and [ rsp + 0x20 ] 0x0
+call [ 0x14090 ]
+mov rsi rax
+mov r14d 0x2
+test rax rax
+jne 0x11ceb
+mov rbx cr8
+mov cr8 r14
+mov r8 rbp
+xor edx edx
+mov rcx rsi
+call 0x13500
+movzx r11d bl
+mov cr8 r11
+and [ rdi + 0xa ] 0xfffe
+mov rdx rdi
+mov rcx rsi
+call [ 0x14078 ]
+xor ebx ebx
+xor r9d r9d
+mov r8d r14d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] 0x10
+and [ rsp + 0x20 ] eax
+call [ 0x14090 ]
+mov rsi rax
+test rax rax
+jne 0x11ceb
+xor r9d r9d
+xor r8d r8d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] 0x10
+and [ rsp + 0x20 ] eax
+call [ 0x14090 ]
+mov rsi rax
+test rax rax
+je 0x11d1b
+mov rcx rdi
+call [ 0x14088 ]
+sub_11d48
+mov [ rsp + 0x8 ] rbx
+push rdi
+sub rsp 0x20
+mov rdi rcx
+xor ebx ebx
+call [ 0x14058 ]
+cmp al bl
+je 0x11d7f
+mov rax rbx
+mov rbx [ rsp + 0x30 ]
+add rsp 0x20
+pop rdi
+retn
+mov eax 0x5a4d
+cmp ax [ rdi ]
+jne 0x11d7f
+movsxd rdx [ rdi + 0x3c ]
+add rdx rdi
+cmp [ rdx ] 0x4550
+cmovne rdx rbx
+mov rbx rdx
+sub_11d94
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rsi
+push rdi
+sub rsp 0x20
+xor ebx ebx
+mov esi edx
+mov rdi rcx
+cmp rcx rbx
+je 0x11e20
+mov rsi [ rsp + 0x38 ]
+mov al bl
+mov rbx [ rsp + 0x30 ]
+add rsp 0x20
+pop rdi
+retn
+cmp esi 0x4
+jb 0x11e20
+call [ 0x14058 ]
+cmp al bl
+je 0x11e20
+movzx edx [ rdi + 0x2 ]
+lea rcx [ rdx + 0x4 ]
+cmp rcx rsi
+ja 0x11e20
+movzx eax [ rdi ]
+cmp eax 0x1000
+je 0x11e15
+lea rcx [ rdi + 0x4 ]
+call 0x11e38
+cmp eax 0x2000
+jne 0x11e20
+mov al [ 0x1513a ]
+cmp al bl
+jne 0x11e1e
+mov bl al
+mov rcx [ 0x15120 ]
+cmp rcx rbx
+jne 0x11df6
+call 0x12504
+mov rcx [ 0x15120 ]
+call 0x12d98
+mov rcx [ 0x15120 ]
+call 0x12ea4
+jmp 0x11e1e
+mov al bl
+jmp 0x11e1e
+sub_11e38
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rbp
+mov [ rsp + 0x18 ] rsi
+push rdi
+push r12
+push r13
+sub rsp 0x20
+xor edi edi
+cmp rcx rdi
+je 0x11fed
+mov rbx [ rsp + 0x40 ]
+mov rbp [ rsp + 0x48 ]
+mov rsi [ rsp + 0x50 ]
+mov al dil
+add rsp 0x20
+pop r13
+pop r12
+pop rdi
+retn
+cmp edx 0x8
+jb 0x11fed
+movzx edx [ rcx + 0x6 ]
+lea r13d [ rdi + 0x1 ]
+sub edx r13d
+je 0x11f41
+movzx ebx [ rcx + 0x4 ]
+mov sil [ rcx + 0x7 ]
+mov ebp [ rcx ]
+rol bx 0x8
+cmp bx r13w
+jb 0x11fed
+sub edx r13d
+je 0x11eae
+cmp sil dil
+jne 0x11f67
+movzx ebx [ rcx + 0x4 ]
+mov bpl [ rcx + 0x7 ]
+mov r12d [ rcx ]
+rol bx 0x8
+cmp bx r13w
+jb 0x11fed
+cmp edx r13d
+jne 0x11fed
+lea rcx [ 0x151b8 ]
+mov r12d edi
+call [ 0x140a8 ]
+mov edx r13d
+lea rcx [ 0x15147 ]
+mov r11b al
+cmp ebp r13d
+jb 0x11fed
+lea rcx [ 0x151b8 ]
+mov sil dil
+call [ 0x140a8 ]
+mov edx r13d
+lea rcx [ 0x15147 ]
+mov r11b al
+lea rcx [ 0x151b8 ]
+mov dil r13b
+call [ 0x140a8 ]
+lea r8d [ r13 + 0x76 ]
+lea rcx [ 0x15140 ]
+xor edx edx
+mov bl al
+call 0x13500
+mov dl bl
+jmp 0x11fe0
+cmp r12d r13d
+jae 0x11fa7
+cmp [ rcx + 0x4 ] bx
+jne 0x11f94
+lea rax [ 0x151b7 ]
+add rcx 0x7
+add edx r13d
+cmp rcx rax
+jge 0x11f29
+cmp r12d [ rcx ]
+jne 0x11ef5
+lea rcx [ 0x151b8 ]
+call [ 0x140a0 ]
+add edx r13d
+add rcx 0x7
+cmp edx 0x11
+jl 0x11f84
+cmp [ rcx ] edi
+jne 0x11fa7
+cmp sil [ rcx + 0x6 ]
+je 0x11fda
+lea rcx [ 0x151b8 ]
+mov dl r11b
+call [ 0x140a0 ]
+mov dil sil
+jmp 0x11fed
+jmp 0x11ee4
+cmp bpl [ rcx + 0x6 ]
+je 0x11f0a
+cmp [ rcx ] ebp
+jne 0x11f94
+cmp r12d r13d
+jb 0x11fdd
+xor eax eax
+cmp ax [ rcx + 0x4 ]
+cmove r12d edx
+mov dil r13b
+cmp bx [ rcx + 0x4 ]
+jne 0x11ef5
+lea rcx [ 0x15140 ]
+movsxd rax edx
+mov sil r13b
+imul rax rax 0x7
+mov [ rax + rcx ] edi
+mov [ rax + rcx + 0x4 ] di
+dec [ 0x15140 ]
+mov dl r11b
+lea rcx [ 0x15140 ]
+mov eax r12d
+imul rax rax 0x7
+mov [ rax + rcx + 0x6 ] sil
+mov [ rax + rcx ] ebp
+mov [ rax + rcx + 0x4 ] bx
+add [ 0x15140 ] r13d
+sub_12010
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rbp
+mov [ rsp + 0x18 ] rsi
+push rdi
+sub rsp 0x20
+mov sil r8b
+mov edi edx
+mov ebp ecx
+cmp edx 0x1
+jae 0x12034
+lea rcx [ 0x151b8 ]
+xor bl bl
+call [ 0x140a8 ]
+lea rcx [ 0x15147 ]
+mov dl al
+xor al al
+jmp 0x12081
+lea rax [ 0x151b7 ]
+add rcx 0x7
+cmp rcx rax
+jge 0x12072
+cmp ebp [ rcx ]
+jne 0x1205e
+mov rbx [ rsp + 0x30 ]
+mov rbp [ rsp + 0x38 ]
+mov rsi [ rsp + 0x40 ]
+add rsp 0x20
+pop rdi
+retn
+lea rcx [ 0x151b8 ]
+call [ 0x140a0 ]
+mov al bl
+jmp 0x1204c
+cmp sil [ rcx + 0x6 ]
+je 0x12070
+movzx eax [ rcx + 0x4 ]
+cmp edi eax
+jne 0x1205e
+mov bl 0x1
+sub_1209c
+mov rax rsp
+mov [ rax + 0x8 ] rbx
+mov [ rax + 0x10 ] rbp
+mov [ rax + 0x18 ] rsi
+mov [ rax + 0x20 ] rdi
+push r12
+sub rsp 0x20
+mov rdi [ rdx + 0xb8 ]
+xor r12d r12d
+mov rsi rdx
+mov rbp rcx
+cmp [ rdi + 0x1 ] r12b
+jne 0x121a6
+mov rdx rsi
+mov rcx rbp
+call [ 0x151d0 ]
+cmp [ rdi + 0x18 ] 0x120003
+jne 0x121a6
+mov rbx [ rdi + 0x20 ]
+cmp rbx r12
+je 0x121a6
+cmp [ rbx ] 0x400
+jne 0x121a6
+mov eax [ rbx + 0x10 ]
+cmp eax 0x101
+je 0x12153
+mov r8d [ rdx + 0x70 ]
+xor ecx ecx
+mov edx 0x15
+xor r8d edi
+call [ 0x14028 ]
+mov r11 rax
+cmp rax r12
+je 0x121a6
+cmp eax 0x102
+je 0x12153
+mov rcx [ rdi + 0x40 ]
+mov dl 0x40
+mov [ rax + 0x8 ] rcx
+mov rcx [ rdi + 0x38 ]
+mov [ rax ] rcx
+mov ecx [ rbx + 0x10 ]
+mov [ rax + 0x10 ] ecx
+mov cl [ rdi + 0x3 ]
+and cl dl
+cmp cl dl
+sete al
+mov [ r11 + 0x14 ] al
+or [ rdi + 0x3 ] dl
+lea rax [ 0x121d4 ]
+mov [ rdi + 0x38 ] rax
+mov [ rdi + 0x40 ] r11
+cmp eax 0x110
+je 0x12153
+cmp eax 0x250
+jne 0x121a6
+cmp [ rbx + 0x8 ] 0x4400
+jne 0x121a6
+mov edx [ rdi + 0x8 ]
+mov rcx [ rsi + 0x70 ]
+mov ebx 0xc000000d
+call 0x11d94
+mov rcx rsi
+mov [ rsi + 0x38 ] r12
+cmp al r12b
+cmovne ebx r12d
+xor edx edx
+mov [ rsi + 0x30 ] ebx
+call [ 0x14018 ]
+mov eax ebx
+jmp 0x121b2
+mov rbx [ rsp + 0x30 ]
+mov rbp [ rsp + 0x38 ]
+mov rsi [ rsp + 0x40 ]
+mov rdi [ rsp + 0x48 ]
+add rsp 0x20
+pop r12
+retn
+sub_121d4
+mov [ rsp + 0x10 ] rbx
+mov [ rsp + 0x18 ] r8
+mov [ rsp + 0x8 ] rcx
+push rbp
+push rsi
+push rdi
+push r12
+push r13
+push r14
+push r15
+sub rsp 0x20
+mov rbp [ rdx + 0x70 ]
+mov r12 r8
+mov rdi rdx
+test rbp rbp
+je 0x124e4
+mov eax [ rdx + 0x30 ]
+test r8 r8
+je 0x124e4
+cmp [ r8 + 0x10 ] 0x101
+jne 0x122cf
+cmp [ r8 + 0x10 ] 0x102
+jne 0x1239f
+mov rax 0xcccccccccccccccd
+xor r13d r13d
+mul [ rdx + 0x38 ]
+mov rsi rdx
+shr rsi 0x4
+mov rcx rsi
+mov [ rsp + 0x70 ] rcx
+test rsi rsi
+je 0x122b1
+cmp [ r8 + 0x10 ] 0x110
+jne 0x12477
+mov rax 0xaaaaaaaaaaaaaaab
+xor r13d r13d
+mul [ rdx + 0x38 ]
+mov rsi rdx
+shr rsi 0x4
+mov rcx rsi
+mov [ rsp + 0x70 ] rcx
+test rsi rsi
+je 0x12372
+sub rcx rsi
+je 0x12477
+mov r14 rbp
+lea r15 [ rbp + 0x14 ]
+mov rbx [ rdi + 0xb8 ]
+mov sil [ r12 + 0x14 ]
+sub rbx 0x48
+je 0x1249a
+mov rsi [ rdx + 0x38 ]
+mov rax 0x8618618618618619
+xor r14d r14d
+mul rsi
+sub rsi rdx
+shr rsi 0x1
+add rsi rdx
+shr rsi 0x7
+mov r15 rsi
+test rsi rsi
+je 0x12452
+sub rcx rsi
+je 0x12477
+mov r14 rbp
+lea r15 [ rbp + 0x18 ]
+lea rbx [ rsi + rsi * 4 ]
+lea r8 [ rcx + rcx * 4 ]
+shl rbx 0x2
+shl r8 0x2
+jmp 0x1238b
+mov rax rsi
+mov rdx r15
+mov rcx r14
+sub rax r13
+lea r8 [ rax + rax * 4 - 0x5 ]
+shl r8 0x2
+call 0x131b0
+dec rsi
+dec r13
+sub r14 0x14
+sub r15 0x14
+test al al
+je 0x1229c
+xor edx edx
+mov rcx r12
+call [ 0x14030 ]
+cmp [ rdi + 0x42 ] 0x1
+jle 0x124ce
+mov rax [ r12 + 0x8 ]
+mov [ rbx + 0x40 ] rax
+mov rax [ r12 ]
+mov [ rbx + 0x38 ] rax
+sub r15 rsi
+je 0x12477
+mov r13 rbp
+lea r12 [ rbp + 0xa8 ]
+lea rbx [ rsi + rsi * 2 ]
+lea r8 [ rcx + rcx * 2 ]
+shl rbx 0x3
+shl r8 0x3
+mov rax rsi
+mov rdx r15
+mov rcx r14
+sub rax r13
+lea r8 [ rax + rax * 2 - 0x3 ]
+shl r8 0x3
+call 0x131b0
+dec rsi
+dec r13
+sub r14 0x18
+sub r15 0x18
+test al al
+je 0x1235d
+lea rcx [ rbx + rbp ]
+xor edx edx
+call 0x13500
+mov [ rdi + 0x38 ] rbx
+jmp 0x12477
+movzx edx [ r14 + 0x8 ]
+mov ecx [ r14 + 0x4 ]
+mov r8b 0x1
+call 0x12010
+movzx edx [ r14 + 0x10 ]
+mov ecx [ r14 + 0xc ]
+xor r8d r8d
+mov bl al
+call 0x12010
+test bl bl
+jne 0x12274
+mov rcx [ rsp + 0x70 ]
+inc r13
+add r14 0x14
+add r15 0x14
+cmp r13 rsi
+jb 0x12248
+cmp [ rdi + 0x41 ] 0x0
+je 0x124df
+test rbx rbx
+je 0x124ce
+imul rsi rsi 0xa8
+imul r15 r15 0xa8
+xor edx edx
+mov r8 r15
+lea rcx [ rsi + rbp ]
+call 0x13500
+mov [ rdi + 0x38 ] rsi
+mov r8 rsi
+mov rdx r12
+mov rcx r13
+sub r8 r14
+dec r8
+imul r8 r8 0xa8
+call 0x131b0
+mov eax 0xa8
+dec rsi
+sub r13 rax
+dec r14
+sub r12 rax
+jmp 0x1243f
+test al al
+je 0x1243a
+movzx edx [ r14 + 0x8 ]
+mov ecx [ r14 + 0x4 ]
+mov r8b 0x1
+call 0x12010
+movzx edx [ r14 + 0x10 ]
+mov ecx [ r14 + 0xc ]
+xor r8d r8d
+mov bl al
+call 0x12010
+test bl bl
+jne 0x12335
+mov rcx [ rsp + 0x70 ]
+inc r13
+add r14 0x18
+add r15 0x18
+cmp r13 rsi
+jb 0x12309
+mov eax [ rdi + 0x30 ]
+jmp 0x124e7
+mov rax [ rdi + 0xb8 ]
+or [ rax + 0x3 ] 0x1
+test sil sil
+je 0x124ce
+inc r14
+add r13 rax
+add r12 rax
+cmp r14 rsi
+jb 0x123e0
+mov eax 0xa8
+mov rbx [ rsp + 0x68 ]
+add rsp 0x20
+pop r15
+pop r14
+pop r13
+pop r12
+pop rdi
+pop rsi
+pop rbp
+retn
+mov rax [ rbx + 0x38 ]
+test rax rax
+je 0x124ce
+movzx edx [ r13 + 0xc ]
+mov ecx [ r13 + 0x8 ]
+mov r8b 0x1
+call 0x12010
+movzx edx [ r13 + 0x14 ]
+mov ecx [ r13 + 0x10 ]
+xor r8d r8d
+mov bl al
+call 0x12010
+test bl bl
+jne 0x1240c
+mov r12 [ rsp + 0x70 ]
+mov r8 [ rbx + 0x40 ]
+mov rcx [ rsp + 0x60 ]
+mov rdx rdi
+call rax
+jmp 0x124e7
+sub_12504
+mov rax rsp
+mov [ rax + 0x8 ] rbx
+mov [ rax + 0x10 ] rbp
+mov [ rax + 0x18 ] rsi
+mov [ rax + 0x20 ] rdi
+push r12
+push r13
+push r14
+sub rsp 0x30
+mov rbx [ 0x15120 ]
+xor r12d r12d
+mov sil r12b
+cmp rbx r12
+je 0x12aba
+mov rbx [ rsp + 0x50 ]
+mov rbp [ rsp + 0x58 ]
+mov rdi [ rsp + 0x68 ]
+mov al sil
+mov rsi [ rsp + 0x60 ]
+add rsp 0x30
+pop r14
+pop r13
+pop r12
+retn
+mov rbx [ rbx + 0x28 ]
+cmp rbx r12
+je 0x12aba
+mov rcx [ rbx + 0x8 ]
+mov rax [ rbx ]
+cmp rcx r12
+je 0x12aba
+cmp rax r12
+je 0x12aba
+mov [ rcx ] rax
+mov [ rax + 0x8 ] rcx
+movzx edx [ rbx + 0x48 ]
+mov rcx [ rbx + 0x50 ]
+call 0x11c08
+movzx edx [ rbx + 0x58 ]
+mov rcx [ rbx + 0x60 ]
+call 0x11c08
+lea rcx [ rbx + 0x48 ]
+call [ 0x14058 ]
+lea esi [ r12 + 0x1 ]
+lea r14d [ r12 + 0x2 ]
+lea r13d [ r12 + 0x10 ]
+cmp al r12b
+je 0x12665
+lea rcx [ rbx + 0x58 ]
+call [ 0x14058 ]
+cmp al r12b
+je 0x1273d
+lea rcx [ rbx + 0x48 ]
+xor r9d r9d
+xor r8d r8d
+mov edx r14d
+mov [ rsp + 0x20 ] r12
+call [ 0x14098 ]
+mov rdi rax
+cmp rax r12
+je 0x12665
+lea rcx [ rbx + 0x30 ]
+call [ 0x14058 ]
+mov ebp 0x8
+cmp al r12b
+je 0x12819
+lea rcx [ rbx + 0x58 ]
+xor r9d r9d
+xor r8d r8d
+mov edx r14d
+mov [ rsp + 0x20 ] r12
+call [ 0x14098 ]
+mov rdi rax
+cmp rax r12
+je 0x1273d
+mov rcx rax
+call [ 0x14080 ]
+or [ rdi + 0xa ] si
+xor r9d r9d
+mov r8d esi
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x1263a
+lea rcx [ rbx + 0x38 ]
+call [ 0x14058 ]
+cmp al r12b
+je 0x128f0
+lea rcx [ rbx + 0x30 ]
+xor r9d r9d
+xor r8d r8d
+mov edx ebp
+mov [ rsp + 0x20 ] r12
+call [ 0x14098 ]
+mov rdi rax
+cmp rax r12
+je 0x12819
+mov rcx rax
+call [ 0x14080 ]
+or [ rdi + 0xa ] si
+xor r9d r9d
+mov r8d esi
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x12712
+mov rax cr8
+mov cr8 r14
+xor edx edx
+movzx eax al
+mov [ rcx ] dx
+mov cr8 rax
+and [ rdi + 0xa ] 0xfffe
+mov rdx rdi
+call [ 0x14078 ]
+xor r9d r9d
+mov r8d r14d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x1263a
+lea rcx [ rbx + 0x70 ]
+call [ 0x14058 ]
+cmp al r12b
+je 0x129c7
+lea rcx [ rbx + 0x38 ]
+xor r9d r9d
+xor r8d r8d
+mov edx ebp
+mov [ rsp + 0x20 ] r12
+call [ 0x14098 ]
+mov rdi rax
+cmp rax r12
+je 0x128f0
+mov rcx rax
+call [ 0x14080 ]
+or [ rdi + 0xa ] si
+xor r9d r9d
+mov r8d esi
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x127ee
+mov rax cr8
+mov cr8 r14
+xor edx edx
+movzx eax al
+mov [ rcx ] dx
+mov cr8 rax
+and [ rdi + 0xa ] 0xfffe
+mov rdx rdi
+call [ 0x14078 ]
+xor r9d r9d
+mov r8d r14d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x12712
+xor r9d r9d
+xor r8d r8d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+je 0x1265c
+mov rcx rbx
+call [ 0x14058 ]
+cmp al r12b
+je 0x12aa1
+lea rcx [ rbx + 0x70 ]
+xor r9d r9d
+xor r8d r8d
+mov edx ebp
+mov [ rsp + 0x20 ] r12
+call [ 0x14098 ]
+mov rdi rax
+cmp rax r12
+je 0x129c7
+mov rcx rax
+call [ 0x14080 ]
+or [ rdi + 0xa ] si
+xor r9d r9d
+mov r8d esi
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x128c5
+mov rax cr8
+mov cr8 r14
+xor edx edx
+movzx eax al
+mov [ rcx ] rdx
+mov cr8 rax
+and [ rdi + 0xa ] 0xfffe
+mov rdx rdi
+call [ 0x14078 ]
+xor r9d r9d
+mov r8d r14d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x127ee
+xor r9d r9d
+xor r8d r8d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+je 0x12734
+mov rcx rdi
+call [ 0x14088 ]
+mov rdx [ rbx + 0x28 ]
+mov rcx [ rbx + 0x20 ]
+cmp rdx r12
+je 0x12aba
+xor r9d r9d
+xor r8d r8d
+mov edx r13d
+mov rcx rbx
+mov [ rsp + 0x20 ] r12
+call [ 0x14098 ]
+mov rdi rax
+cmp rax r12
+je 0x12aa1
+mov rcx rax
+call [ 0x14080 ]
+or [ rdi + 0xa ] si
+xor r9d r9d
+mov r8d esi
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x1299c
+mov rax cr8
+mov cr8 r14
+xor edx edx
+movzx eax al
+mov [ rcx ] rdx
+mov cr8 rax
+and [ rdi + 0xa ] 0xfffe
+mov rdx rdi
+call [ 0x14078 ]
+xor r9d r9d
+mov r8d r14d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x128c5
+xor r9d r9d
+xor r8d r8d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+je 0x12810
+mov rcx rdi
+call [ 0x14088 ]
+cmp rcx r12
+je 0x12aba
+mov rcx rax
+call [ 0x14080 ]
+or [ rdi + 0xa ] si
+xor r9d r9d
+mov r8d esi
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x12a72
+mov rax cr8
+mov cr8 r14
+xor edx edx
+movzx eax al
+mov [ rcx ] rdx
+mov cr8 rax
+and [ rdi + 0xa ] 0xfffe
+mov rdx rdi
+call [ 0x14078 ]
+xor r9d r9d
+mov r8d r14d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x1299c
+xor r9d r9d
+xor r8d r8d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+je 0x128e7
+mov rcx rdi
+call [ 0x14088 ]
+mov [ rdx ] rcx
+mov [ rcx + 0x8 ] rdx
+mov rax cr8
+mov cr8 r14
+xor edx edx
+movzx eax al
+mov [ rcx ] rdx
+mov [ rcx + 0x8 ] rdx
+mov cr8 rax
+and [ rdi + 0xa ] 0xfffe
+mov rdx rdi
+call [ 0x14078 ]
+xor r9d r9d
+mov r8d r14d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+jne 0x12a72
+xor r9d r9d
+xor r8d r8d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+je 0x129be
+mov rcx rdi
+call [ 0x14088 ]
+xor r9d r9d
+xor r8d r8d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r12d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r12
+je 0x12a98
+mov rcx rdi
+call [ 0x14088 ]
+mov rcx rdi
+call [ 0x14088 ]
+sub_12ae4
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rbp
+mov [ rsp + 0x18 ] rsi
+push rdi
+push r12
+push r13
+push r14
+push r15
+sub rsp 0x20
+xor edi edi
+mov rbp rcx
+cmp rcx rdi
+je 0x12c26
+or eax 0xffffffff
+mov rsi [ rcx + 0x8 ]
+cmp rsi rdi
+je 0x12c26
+lea r15d [ rdi + 0x2 ]
+cmp [ rcx ] r15w
+jb 0x12c26
+movzx eax [ rcx ]
+shr eax 0x3
+cmp eax edi
+jbe 0x12bba
+movzx eax [ rbp ]
+mov rbx rdi
+shr rbx 0x20
+shr eax 0x1
+add ebx edi
+and eax 0x3
+jbe 0x12c0b
+mov r14d eax
+mov ecx ebx
+mov eax 0xbacf914d
+mul ebx
+sub ecx edx
+shr ecx 0x1
+add ecx edx
+shr ecx 0x5
+imul ecx ecx 0x25
+sub ebx ecx
+mov eax ebx
+jmp 0x12c29
+mov edi eax
+mov r12 rsi
+mov r13d 0x4
+mov rax 0xffdfffdfffdfffdf
+and rbx rax
+jmp 0x12ba0
+mov rbx [ rsp + 0x50 ]
+mov rbp [ rsp + 0x58 ]
+mov rsi [ rsp + 0x60 ]
+add rsp 0x20
+pop r15
+pop r14
+pop r13
+pop r12
+pop rdi
+retn
+cmp eax 0x7a
+jbe 0x12bfe
+add ebx eax
+jmp 0x12c02
+add r12 r15
+sub r13 0x1
+jne 0x12b64
+cmp eax 0x7a
+jbe 0x12b81
+mov rax rdi
+lea rdi [ rdi + rdi * 2 ]
+add rsi 0x8
+shr rax 0x1
+add rax rbx
+add rdi rax
+sub r14 0x1
+jne 0x12b3a
+lea ebx [ rcx + rax - 0x20 ]
+movzx ecx ax
+call [ 0x140d0 ]
+movzx r11d ax
+add ebx r11d
+jmp 0x12c02
+add rsi r15
+sub rdi 0x1
+jne 0x12bd0
+movzx eax [ r12 ]
+cmp eax 0x61
+jb 0x12b84
+mov ecx eax
+mov rax rbx
+shl rcx 0x30
+shr rax 0x10
+mov rbx rcx
+or rbx rax
+add eax 0xffffffe0
+movzx ecx ax
+call [ 0x140d0 ]
+movzx eax ax
+jmp 0x12b84
+mov rbx [ rsi ]
+mov rax 0xff80ff80ff80ff80
+test rax rbx
+jne 0x12b5b
+lea eax [ rbx + rbx * 2 ]
+mov ecx ebx
+shr ecx 0x1
+add ecx eax
+movzx eax [ rsi ]
+mov ebx ecx
+cmp eax 0x61
+jae 0x12be7
+sub_12c4c
+mov r11 rsp
+mov [ r11 + 0x8 ] rbx
+push rbp
+push rsi
+push rdi
+sub rsp 0x70
+xor ebx ebx
+xor eax eax
+mov rsi r8
+mov rdi rcx
+mov ebp edx
+lea r8d [ rbx + 0x28 ]
+lea rcx [ r11 - 0x40 ]
+mov [ rsp + 0x30 ] bx
+mov [ r11 - 0x56 ] rax
+xor edx edx
+mov [ r11 + 0x20 ] rbx
+mov [ r11 + 0x18 ] rbx
+mov [ rsp + 0x3a ] eax
+mov [ rsp + 0x3e ] ax
+mov [ rsp + 0x40 ] ebx
+call 0x13500
+cmp rsi rbx
+je 0x12d63
+mov rcx [ rsp + 0xa0 ]
+call [ 0x14060 ]
+mov rcx [ rsp + 0xa8 ]
+call [ 0x140c0 ]
+mov al bl
+mov rbx [ rsp + 0x90 ]
+add rsp 0x70
+pop rdi
+pop rsi
+pop rbp
+retn
+cmp rdi rbx
+je 0x12d63
+lea rcx [ rsp + 0x30 ]
+mov rdx rdi
+call [ 0x14008 ]
+lea rax [ rsp + 0x30 ]
+lea edi [ rbx + 0x1 ]
+lea r8 [ rsp + 0x40 ]
+lea rcx [ rsp + 0xa8 ]
+mov edx edi
+mov [ rsp + 0x40 ] 0x30
+mov [ rsp + 0x48 ] rbx
+mov [ rsp + 0x58 ] 0x240
+mov [ rsp + 0x50 ] rax
+mov [ rsp + 0x60 ] rbx
+mov [ rsp + 0x68 ] rbx
+call [ 0x140b8 ]
+cmp eax ebx
+jl 0x12d63
+mov rcx [ rsp + 0xa8 ]
+lea rax [ rsp + 0xa0 ]
+xor r9d r9d
+xor r8d r8d
+mov edx edi
+mov [ rsp + 0x28 ] rbx
+mov [ rsp + 0x20 ] rax
+call [ 0x140c8 ]
+cmp eax ebx
+jl 0x12d63
+mov r8 [ rsp + 0xa0 ]
+mov rcx [ r8 + rbp * 8 ]
+mov rax rcx
+cmp rcx rbx
+je 0x12d63
+cmp rsi [ rax + 0x8 ]
+je 0x12d49
+cmp rax rbx
+je 0x12d63
+mov rcx rax
+mov rax [ rax ]
+cmp rax rbx
+jne 0x12d38
+cmp rax [ r8 + rbp * 8 ]
+mov rax [ rax ]
+jne 0x12d5d
+mov [ rcx ] rax
+mov [ r8 + rbp * 8 ] rax
+jmp 0x12d60
+mov bl dil
+sub_12d98
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rsi
+push rdi
+sub rsp 0x30
+mov rdi [ 0x15120 ]
+xor esi esi
+mov bl sil
+cmp rdi rsi
+je 0x12e8c
+mov rsi [ rsp + 0x48 ]
+mov al bl
+mov rbx [ rsp + 0x40 ]
+add rsp 0x30
+pop rdi
+retn
+mov rcx [ rdi + 0x30 ]
+add rcx 0x18
+call 0x12ae4
+cmp eax 0x25
+jae 0x12e8c
+lea rcx [ 0x136d0 ]
+mov r8 rdi
+mov edx eax
+call 0x12c4c
+mov bl al
+cmp al sil
+je 0x12e8c
+movzx r8d [ 0x15110 ]
+xor eax eax
+lea r11d [ rsi + 0x1 ]
+movzx r9d r8w
+mov [ rsp + 0x20 ] si
+mov [ rsp + 0x22 ] rax
+shr r9w 0x1
+mov [ rsp + 0x2a ] eax
+mov [ rsp + 0x2e ] ax
+movzx edx r11w
+cmp r11w r9w
+jae 0x12e69
+lea rcx [ rsp + 0x20 ]
+call 0x12ae4
+cmp eax 0x25
+jae 0x12e8c
+mov rcx [ 0x15118 ]
+mov r8 [ rdi + 0x8 ]
+lea rcx [ 0x136e0 ]
+mov edx eax
+call 0x12c4c
+mov bl al
+movzx eax dx
+add dx dx
+sub r8w dx
+lea rcx [ rcx + rax * 2 + 0x2 ]
+sub r8w 0x2
+mov [ rsp + 0x28 ] rcx
+mov [ rsp + 0x22 ] r8w
+mov [ rsp + 0x20 ] r8w
+add dx r11w
+cmp dx r9w
+jb 0x12e28
+movzx eax dx
+mov r10d 0x5c
+cmp r10w [ rcx + rax * 2 ]
+je 0x12e44
+jmp 0x12e69
+sub_12ea4
+mov [ rsp + 0x8 ] rbx
+mov [ rsp + 0x10 ] rbp
+mov [ rsp + 0x18 ] rsi
+push rdi
+push r12
+push r13
+push r14
+push r15
+sub rsp 0x30
+mov rbp [ 0x15120 ]
+mov bl [ 0x1513a ]
+xor r15d r15d
+cmp rbp r15
+je 0x13119
+mov rbp [ rsp + 0x68 ]
+mov rsi [ rsp + 0x70 ]
+mov al bl
+mov rbx [ rsp + 0x60 ]
+add rsp 0x30
+pop r15
+pop r14
+pop r13
+pop r12
+pop rdi
+retn
+cmp bl r15b
+jne 0x13119
+mov r13 [ rbp + 0x18 ]
+mov r14d r15d
+mov rsi r15
+mov rcx r13
+call 0x11d48
+lea ebx [ r15 + 0x1 ]
+mov r12 rax
+cmp rax r15
+je 0x12fb9
+mov rcx [ rbp + 0x18 ]
+mov r12d r15d
+call 0x11d48
+cmp rax r15
+je 0x12fce
+cmp [ rax + 0xbc ] ebx
+jb 0x12fb9
+movzx edx [ rbp + 0x38 ]
+mov rcx [ rbp + 0x40 ]
+call 0x11c08
+lea rcx [ rbp + 0x38 ]
+call [ 0x14058 ]
+cmp al r15b
+je 0x130c0
+mov r12d [ rax + 0x54 ]
+mov eax [ rax + 0xb8 ]
+cmp eax r15d
+je 0x12fb9
+mov rcx [ rbp + 0x30 ]
+movzx edx [ rcx + 0x18 ]
+mov rcx [ rcx + 0x20 ]
+call 0x11c08
+lea rcx [ rsi + 0x18 ]
+mov edx r14d
+call 0x11c08
+mov rcx [ rbp + 0x18 ]
+mov edx r12d
+call 0x11c08
+mov rax [ rbp + 0x8 ]
+mov [ rbp ] r15w
+mov [ rbp + 0x18 ] r15
+mov [ rbp + 0x20 ] r15d
+mov [ rax ] r15w
+mov rax [ rbp + 0x8 ]
+mov [ rax + 0x2 ] r15w
+mov rax [ rbp + 0x8 ]
+mov [ rax + 0x48 ] r15d
+mov [ rbp + 0x48 ] r15
+mov [ 0x1513a ] bl
+xor r9d r9d
+lea rcx [ rbp + 0x38 ]
+xor r8d r8d
+lea edx [ r9 + 0x2 ]
+mov [ rsp + 0x20 ] r15
+call [ 0x14098 ]
+mov rdi rax
+cmp rax r15
+je 0x130c0
+lea rdi [ r13 + rax ]
+mov rcx rdi
+call [ 0x14058 ]
+cmp al r15b
+je 0x12fb9
+mov rcx rax
+call [ 0x14080 ]
+or [ rdi + 0xa ] bx
+mov r13d 0x10
+xor r9d r9d
+mov r8d ebx
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r15d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r15
+jne 0x13090
+mov ecx [ r12 + 0xbc ]
+mov rax 0x2492492492492493
+mov r8d r15d
+mul rcx
+sub rcx rdx
+shr rcx 0x1
+add rcx rdx
+shr rcx 0x4
+cmp ecx r15d
+jbe 0x12fb9
+mov rax cr8
+mov edx 0x2
+mov cr8 rdx
+xor edx edx
+movzx eax al
+mov [ rcx ] dx
+mov cr8 rax
+and [ rdi + 0xa ] 0xfffe
+mov rdx rdi
+call [ 0x14078 ]
+lea r8d [ r13 - 0xe ]
+xor r9d r9d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r15d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r15
+jne 0x13090
+lea edx [ rbx + 0x1 ]
+xor r9d r9d
+xor r8d r8d
+xor edx edx
+mov rcx rdi
+mov [ rsp + 0x28 ] r13d
+mov [ rsp + 0x20 ] r15d
+call [ 0x14090 ]
+mov rcx rax
+cmp rax r15
+je 0x130b7
+cmp r8d ecx
+jae 0x12fb9
+add r8d ebx
+add rdi 0x1c
+cmp r8d ecx
+jb 0x12f63
+mov rcx rdi
+call [ 0x14088 ]
+cmp [ rdi + 0x14 ] ebx
+jb 0x12fb9
+cmp [ rdi + 0xc ] edx
+je 0x12f74
+mov esi [ rdi + 0x14 ]
+add rsi r13
+mov rcx rsi
+call [ 0x14058 ]
+cmp al r15b
+jne 0x12f97
+cmp rsi r15
+je 0x12fb9
+mov rsi r15
+jmp 0x12fb9
+cmp [ rsi ] 0x53445352
+jne 0x12fb9
+or rcx 0xffffffffffffffff
+xor eax eax
+lea rdi [ rsi + 0x18 ]
+[ rdi ]
+not rcx
+sub rcx rbx
+mov r14 rcx
+sub_131b0
+mov r11 rcx
+sub rdx rcx
+jb 0x1335a
+add rcx r8
+cmp r8 0x8
+jb 0x133c4
+cmp r8 0x8
+jb 0x13224
+test r8 r8
+jne 0x133d0
+test cl 0x7
+je 0x1339e
+test r8 r8
+jne 0x13230
+test cl 0x7
+je 0x131fe
+dec rcx
+mov al [ rdx + rcx ]
+dec r8
+mov [ rcx ] al
+jne 0x133d0
+mov rax r11
+retn
+mov r9 r8
+shr r9 0x5
+jne 0x133f7
+test cl 0x1
+je 0x13378
+mov al [ rdx + rcx ]
+mov [ rcx ] al
+inc rcx
+dec r8
+jne 0x13230
+mov rax r11
+retn
+mov r9 r8
+shr r9 0x5
+jne 0x13257
+test cl 0x1
+je 0x131d8
+mov rax r11
+retn
+cmp r9 0x2000
+jae 0x13442
+mov r9 r8
+shr r9 0x3
+je 0x133c4
+test cl 0x2
+je 0x1338c
+dec rcx
+mov al [ rdx + rcx ]
+dec r8
+mov [ rcx ] al
+mov rax r11
+retn
+cmp r9 0x2000
+jae 0x132a2
+mov r9 r8
+shr r9 0x3
+je 0x13224
+test cl 0x2
+je 0x131ec
+mov al [ rdx + rcx ]
+dec r8
+mov [ rcx ] al
+add rcx 0x1
+cmp rdx 0xfffffffffffff000
+ja 0x13400
+mov rax [ rdx + rcx - 0x8 ]
+mov r10 [ rdx + rcx - 0x10 ]
+sub rcx 0x20
+mov [ rcx + 0x18 ] rax
+mov [ rcx + 0x10 ] r10
+mov rax [ rdx + rcx + 0x8 ]
+mov r10 [ rdx + rcx ]
+dec r9
+mov [ rcx + 0x8 ] rax
+mov [ rcx ] r10
+jne 0x13400
+sub rcx 0x8
+mov rax [ rdx + rcx ]
+dec r9
+mov [ rcx ] rax
+jne 0x133b0
+test cl 0x4
+je 0x1339e
+sub rcx 0x2
+mov ax [ rdx + rcx ]
+sub r8 0x2
+mov [ rcx ] ax
+cmp rdx 0x1000
+jb 0x13260
+mov rax [ rdx + rcx ]
+mov r10 [ rdx + rcx + 0x8 ]
+add rcx 0x20
+mov [ rcx - 0x20 ] rax
+mov [ rcx - 0x18 ] r10
+mov rax [ rdx + rcx - 0x10 ]
+mov r10 [ rdx + rcx - 0x8 ]
+dec r9
+mov [ rcx - 0x10 ] rax
+mov [ rcx - 0x8 ] r10
+jne 0x13260
+mov rax [ rdx + rcx ]
+mov [ rcx ] rax
+add rcx 0x8
+dec r9
+jne 0x13210
+test cl 0x4
+je 0x131fe
+mov ax [ rdx + rcx ]
+sub r8 0x2
+mov [ rcx ] ax
+add rcx 0x2
+mov eax 0x20
+and r8 0x1f
+jmp 0x133a7
+and r8 0x7
+sub rcx 0x4
+mov eax [ rdx + rcx ]
+sub r8 0x4
+mov [ rcx ] eax
+mov eax 0x20
+and r8 0x1f
+jmp 0x13207
+and r8 0x7
+mov eax [ rdx + rcx ]
+sub r8 0x4
+mov [ rcx ] eax
+add rcx 0x4
+sub rcx 0x80
+prefetchnta [ rdx + rcx ]
+prefetchnta [ rdx + rcx + 0x40 ]
+dec eax
+jne 0x13450
+add rcx 0x1000
+mov eax 0x40
+prefetchnta [ rdx + rcx ]
+prefetchnta [ rdx + rcx + 0x40 ]
+add rcx 0x80
+dec eax
+jne 0x132b0
+sub rcx 0x1000
+mov eax 0x40
+mov r9 [ rdx + rcx - 0x8 ]
+mov r10 [ rdx + rcx - 0x10 ]
+movnti [ rcx - 0x8 ] r9
+movnti [ rcx - 0x10 ] r10
+mov r9 [ rdx + rcx - 0x18 ]
+mov r10 [ rdx + rcx - 0x20 ]
+movnti [ rcx - 0x18 ] r9
+movnti [ rcx - 0x20 ] r10
+mov r9 [ rdx + rcx - 0x28 ]
+mov r10 [ rdx + rcx - 0x30 ]
+sub rcx 0x40
+movnti [ rcx + 0x18 ] r9
+movnti [ rcx + 0x10 ] r10
+mov r9 [ rdx + rcx + 0x8 ]
+mov r10 [ rdx + rcx ]
+dec eax
+movnti [ rcx + 0x8 ] r9
+movnti [ rcx ] r10
+jne 0x13470
+sub r8 0x1000
+cmp r8 0x1000
+jae 0x1344b
+mov r9 [ rdx + rcx ]
+mov r10 [ rdx + rcx + 0x8 ]
+movnti [ rcx ] r9
+movnti [ rcx + 0x8 ] r10
+mov r9 [ rdx + rcx + 0x10 ]
+mov r10 [ rdx + rcx + 0x18 ]
+movnti [ rcx + 0x10 ] r9
+movnti [ rcx + 0x18 ] r10
+mov r9 [ rdx + rcx + 0x20 ]
+mov r10 [ rdx + rcx + 0x28 ]
+add rcx 0x40
+movnti [ rcx - 0x20 ] r9
+movnti [ rcx - 0x18 ] r10
+mov r9 [ rdx + rcx - 0x10 ]
+mov r10 [ rdx + rcx - 0x8 ]
+dec eax
+movnti [ rcx - 0x10 ] r9
+movnti [ rcx - 0x8 ] r10
+jne 0x132d0
+sub r8 0x1000
+cmp r8 0x1000
+jae 0x132ab
+[ rsp ] 0x0
+jmp 0x1339e
+[ rsp ] 0x0
+jmp 0x131fe
+sub_13500
+mov rax rcx
+cmp r8 0x8
+jb 0x1355c
+test r8 r8
+je 0x1356b
+movzx edx dl
+mov r9 0x101010101010101
+imul rdx r9
+cmp r8 0x40
+jb 0x1353e
+retn 0x0
+mov [ rcx ] dl
+inc rcx
+dec r8
+jne 0x13561
+mov r9 r8
+and r8 0x7
+shr r9 0x3
+je 0x1355c
+neg rcx
+and ecx 0x7
+je 0x1352e
+nop
+nop
+add rcx rax
+mov r9 r8
+and r8 0x3f
+shr r9 0x6
+jne 0x13577
+sub r8 rcx
+mov [ rax ] rdx
+mov [ rcx ] rdx
+add rcx 0x8
+dec r9
+jne 0x13550
+cmp r9 0x1c00
+jae 0x135b0
+movnti [ rcx ] rdx
+movnti [ rcx + 0x8 ] rdx
+movnti [ rcx + 0x10 ] rdx
+add rcx 0x40
+movnti [ rcx - 0x28 ] rdx
+movnti [ rcx - 0x20 ] rdx
+dec r9
+movnti [ rcx - 0x18 ] rdx
+movnti [ rcx - 0x10 ] rdx
+movnti [ rcx - 0x8 ] rdx
+jne 0x135b0
+mov [ rcx ] rdx
+mov [ rcx + 0x8 ] rdx
+mov [ rcx + 0x10 ] rdx
+add rcx 0x40
+mov [ rcx - 0x28 ] rdx
+mov [ rcx - 0x20 ] rdx
+dec r9
+mov [ rcx - 0x18 ] rdx
+mov [ rcx - 0x10 ] rdx
+mov [ rcx - 0x8 ] rdx
+jne 0x13580
+[ rsp ] 0x0
+jmp 0x1353e
+jmp 0x1353e
+sub_135f0
+push rbx
+sub rsp 0x20
+mov r11d [ r8 ]
+mov rbx rdx
+mov r9 rcx
+and r11d 0xfffffff8
+test [ r8 ] 0x4
+mov r10 rcx
+je 0x1361f
+movsxd rax r11d
+mov rdx [ rax + r10 ]
+mov rax [ rbx + 0x10 ]
+mov ecx [ rax + 0x8 ]
+add rcx [ rbx + 0x8 ]
+test [ rcx + 0x3 ] 0xf
+je 0x13643
+mov eax [ r8 + 0x8 ]
+movsxd r10 [ r8 + 0x4 ]
+neg eax
+add r10 rcx
+movsxd rcx eax
+and r10 rcx
+xor r9 rdx
+mov rcx r9
+add rsp 0x20
+pop rbx
+jmp 0x13150
+movzx eax [ rcx + 0x3 ]
+and eax 0xfffffff0
+cdqe
+add r9 rax
+sub_13680
+pop rsp
+add [ rax + rax + 0x72 ] al
+add [ rcx ] ch
+jbe 0x1368a
+add [ gs : rdx ] dh
+pop rsp
+add [ rsi ] ch
+jae 0x13694
+imul eax [ rax ] 0x720070
+outsd
+add [ rax ] bh
+jns 0x136a0
+add [ rax ] al
+int3
+sub_17008
+mov rax [ 0x15100 ]
+mov rdx 0x2b992ddfa232
+test rax rax
+je 0x17023
+lea rcx [ 0x15100 ]
+mov rax 0xfffff78000000320
+mov rax [ rax ]
+xor rax rcx
+mov rcx 0xffffffffffff
+and rax rcx
+cmove rax rdx
+mov [ 0x15100 ] rax
+cmp rax rdx
+jne 0x17052
+not rax
+mov [ 0x15108 ] rax
+retn
+sub_11008
+sub rsp 0x28
+and [ rdx + 0x30 ] 0x0
+and [ rdx + 0x38 ] 0x0
+mov rcx rdx
+xor edx edx
+call [ 0x14018 ]
+xor eax eax
+add rsp 0x28
+retn
+sub_13150
+cmp rcx [ 0x15100 ]
+jne 0x1316b
+jmp 0x13178
+rol rcx 0x10
+test cx 0xffff
+jne 0x13167
+ror rcx 0x10
+retn 0x0
+sub_13178
+sub rsp 0x38
+mov r9 [ 0x15108 ]
+mov r8 [ 0x15100 ]
+and [ rsp + 0x20 ] 0x0
+mov rdx rcx
+mov ecx 0xf7
+call [ 0x140d8 ]
+int3
+ObReferenceObjectByName
+jmp [ 0x14068 ]
+sub_1365c
+sub rsp 0x28
+mov r8 [ r9 + 0x38 ]
+mov rcx rdx
+mov rdx r9
+call 0x135f0
+mov eax 0x1
+add rsp 0x28
+retn
+sub_136d0
+pop rsp
+add [ rax + rax + 0x72 ] al
+add [ rcx ] ch
+jbe 0x136da
+add [ gs : rdx ] dh
+add [ rax ] al
+pop rsp
+add [ rax + rax + 0x65 ] al
+add [ rsi ] dh
+imul eax [ rax ] 0x650063
+add [ rax ] al
+_start
+sub rsp 0x28
+mov r8 rdx
+mov r9 rcx
+call 0x17008
+mov rdx r8
+mov rcx r9
+add rsp 0x28
+jmp 0x11174

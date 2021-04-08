@@ -1,0 +1,2950 @@
+sub_401010
+sub rsp 0x38
+mov eax [ rw-data ]
+mov r9d [ rw-data ]
+lea r8 [ rw-data ]
+lea rdx [ rw-data ]
+lea rcx [ rw-data ]
+mov [ rw-data ] eax
+lea rax [ rw-data ]
+mov [ rsp + 0x20 ] rax
+call __getmainargs
+mov [ rw-data ] eax
+add rsp 0x38
+retn
+sub_401060
+sub rsp 0x28
+xor eax eax
+cmp [ __dos_header ] 0x5a4d
+mov [ rw-data ] 0x1
+mov [ rw-data ] 0x1
+mov [ rw-data ] 0x1
+mov [ rw-data ] 0x1
+je r-xdata
+movsxd rcx [ r--data ]
+lea rdx [ __dos_header ]
+add rdx rcx
+cmp [ rdx ] 0x4550
+jne r-xdata
+mov [ rw-data ] eax
+mov eax [ rw-data ]
+test eax eax
+je r-xdata
+movzx ecx [ rdx + 0x18 ]
+cmp cx 0x10b
+je r-xdata
+mov ecx 0x1
+call __set_app_type
+jmp r-xdata
+mov ecx 0x2
+call __set_app_type
+cmp [ rdx + 0x74 ] 0xe
+jbe r-xdata
+cmp cx 0x20b
+jne r-xdata
+mov rcx 0xffffffffffffffff
+call sub_4027c0
+mov edx [ rw-data ]
+mov [ rw-data ] rax
+mov [ rw-data ] rax
+mov rax [ _fmode@IAT ]
+mov [ rax ] edx
+call sub_402e90
+cmp [ rw-data ] 0x1
+je r-xdata
+lea rcx [ sub_402db0 ]
+call sub_402da0
+xor eax eax
+add rsp 0x28
+retn
+xor eax eax
+add rsp 0x28
+retn
+mov ecx [ rdx + 0xe8 ]
+xor eax eax
+test ecx ecx
+setne al
+jmp r-xdata
+cmp [ rdx + 0x84 ] 0xe
+jbe r-xdata
+mov edx [ rdx + 0xf8 ]
+xor eax eax
+test edx edx
+setne al
+jmp r-xdata
+sub_401180
+push r12
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x90
+mov r11d [ rw-data ]
+xor eax eax
+mov ecx 0xd
+lea rdx [ rsp + 0x20 ]
+test r11d r11d
+mov rdi rdx
+[ rdi ]
+jne r-xdata
+mov rcx rdx
+call [ GetStartupInfoA@IAT ]
+jmp r-xdata
+mov rax [ gs : 0x30 ]
+mov rbx [ rax + 0x8 ]
+xor eax eax
+[ rw-data ] rbx
+xor esi esi
+test rax rax
+je r-xdata
+mov eax [ rw-data ]
+cmp eax 0x1
+je r-xdata
+cmp rbx rax
+mov sil 0x1
+je r-xdata
+mov ecx 0x1f
+call _amsg_exit
+mov eax [ rw-data ]
+cmp eax 0x1
+jne r-xdata
+mov eax [ rw-data ]
+test eax eax
+je r-xdata
+mov rdi [ Sleep@IAT ]
+xor esi esi
+jmp r-xdata
+test esi esi
+jne r-xdata
+nop [ rax ] eax
+lea rdx [ rw-data ]
+lea rcx [ rw-data ]
+mov [ rw-data ] 0x1
+call _initterm
+jmp r-xdata
+mov [ rw-data ] 0x1
+mov ecx 0x3e8
+call rdi
+mov rax rsi
+[ rw-data ] rbx
+test rax rax
+jne r-xdata
+mov rax [ rw-data ]
+test rax rax
+je r-xdata
+xor eax eax
+[ rw-data ] rax
+mov eax [ rw-data ]
+cmp eax 0x1
+je r-xdata
+lea rdx [ rw-data ]
+lea rcx [ rw-data ]
+call _initterm
+mov [ rw-data ] 0x2
+jmp r-xdata
+cmp rbx rax
+je r-xdata
+xor esi esi
+call sub_403160
+lea rcx [ sub_402b50 ]
+call [ SetUnhandledExceptionFilter@IAT ]
+mov [ rw-data ] rax
+call sub_402a40
+call sub_403790
+lea rdx [ r--data ]
+mov rcx rax
+call [ GetProcAddress@IAT ]
+test rax rax
+je r-xdata
+xor r8d r8d
+mov edx 0x2
+xor ecx ecx
+call rax
+mov eax [ rw-data ]
+mov esi 0x1
+cmp eax 0x1
+jne r-xdata
+call sub_403860
+mov r10d [ rw-data ]
+test r10d r10d
+je r-xdata
+lea rcx [ sub_401000 ]
+call rax
+mov edi [ rw-data ]
+lea ecx [ rdi + 0x1 ]
+movsxd rcx ecx
+shl rcx 0x3
+call malloc
+mov rbp rax
+xor eax eax
+test edi edi
+mov rsi [ rw-data ]
+jle r-xdata
+mov rax [ _acmdln@IAT ]
+xor ecx ecx
+mov rax [ rax ]
+jmp r-xdata
+mov [ rbp + rax ] 0x0
+mov [ rw-data ] rbp
+call sub_403910
+mov rdx [ rw-data ]
+mov rax [ __initenv@IAT ]
+mov ecx [ rw-data ]
+mov [ rax ] rdx
+mov r8 [ rw-data ]
+mov rdx [ rw-data ]
+call sub_404060
+mov r9d [ rw-data ]
+mov [ rw-data ] eax
+test r9d r9d
+je r-xdata
+xor ebx ebx
+nop [ rax + rax ] ax
+movzx edx [ rax ]
+cmp dl 0x20
+jle r-xdata
+mov ecx eax
+call exit
+mov r8d [ rw-data ]
+test r8d r8d
+jne r-xdata
+mov rcx [ rsi + rbx * 8 ]
+call strlen
+lea r12d [ rax + 0x1 ]
+movsxd r12 r12d
+mov rcx r12
+call malloc
+mov [ rbp + rbx * 8 ] rax
+mov rdx [ rsi + rbx * 8 ]
+mov r8 r12
+mov rcx rax
+add rbx 0x1
+call memcpy
+cmp edi ebx
+jg r-xdata
+movsxd rdi edi
+lea rax [ rdi * 8 ]
+test dl dl
+je r-xdata
+mov r8d ecx
+xor r8d 0x1
+cmp dl 0x22
+cmove ecx r8d
+jmp r-xdata
+add rsp 0x90
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+retn
+call _cexit
+test [ rsp + 0x5c ] 0x1
+lea rdx [ __dos_header ]
+mov [ rw-data ] rax
+mov eax 0xa
+mov [ rw-data ] rdx
+jne r-xdata
+test cl cl
+je r-xdata
+add rax 0x1
+movzx eax [ rsp + 0x60 ]
+jmp r-xdata
+mov [ rw-data ] eax
+add rax 0x1
+movzx edx [ rax ]
+cmp dl 0x20
+jle r-xdata
+test dl dl
+je r-xdata
+sub_4014f0
+sub rsp 0x38
+mov [ rw-data ] 0x30
+mov [ rw-data ] 0x2
+lea rdx [ sub_401630 ]
+mov [ rw-data ] 0x3
+mov [ rw-data ] 0x0
+lea rcx [ r--data ]
+mov [ rw-data ] 0x0
+mov [ rw-data ] 0x0
+mov [ rw-data ] 0x0
+call [ RegisterServiceCtrlHandlerA@IAT ]
+test rax rax
+mov [ rw-data ] rax
+je r-xdata
+add rsp 0x38
+retn
+xor r9d r9d
+xor edx edx
+xor ecx ecx
+mov [ rsp + 0x28 ] 0x0
+mov [ rsp + 0x20 ] 0x0
+lea r8 [ sub_4023b0 ]
+call [ CreateThread@IAT ]
+test rax rax
+je r-xdata
+mov rcx [ rw-data ]
+mov rax [ SetServiceStatus@IAT ]
+lea rdx [ rw-data ]
+mov [ rw-data ] 0x1
+mov [ rw-data ] 0x0
+mov [ rw-data ] 0x0
+mov [ rw-data ] 0x1
+mov [ rw-data ] 0x0
+add rsp 0x38
+jmp rax
+mov rcx rax
+call [ CloseHandle@IAT ]
+mov [ rw-data ] 0x4
+mov [ rw-data ] 0x0
+lea rdx [ rw-data ]
+mov [ rw-data ] 0x0
+mov rcx [ rw-data ]
+call [ SetServiceStatus@IAT ]
+test eax eax
+je r-xdata
+mov rax [ GetLastError@IAT ]
+add rsp 0x38
+jmp rax
+sub_401630
+sub rsp 0x28
+cmp ecx 0x2
+je r-xdata
+mov [ rw-data ] 0x7
+jmp r-xdata
+cmp ecx 0x3
+je r-xdata
+lea rdx [ rw-data ]
+mov rcx [ rw-data ]
+call [ SetServiceStatus@IAT ]
+test eax eax
+je r-xdata
+mov [ rw-data ] 0x4
+jmp r-xdata
+cmp ecx 0x1
+je r-xdata
+mov rax [ GetLastError@IAT ]
+add rsp 0x28
+jmp rax
+add rsp 0x28
+retn
+mov [ rw-data ] 0x0
+mov [ rw-data ] 0x1
+mov [ rw-data ] 0x0
+mov [ rw-data ] 0x0
+jmp r-xdata
+sub_4016c0
+push rdi
+push rsi
+push rbx
+sub rsp 0x440
+mov rsi rcx
+mov [ rsp + 0x478 ] r9
+lea rbx [ rsp + 0x30 ]
+lea r9 [ rsp + 0x470 ]
+lea rdi [ rsi + 0x8 ]
+mov [ rsp + 0x470 ] r8
+mov rcx rbx
+mov r8 rdx
+mov edx 0x400
+mov [ rsp + 0x430 ] r9
+call [ _vsnprintf@IAT ]
+mov r8 rbx
+mov edx [ r8 ]
+add r8 0x4
+lea eax [ rdx - 0x1010101 ]
+not edx
+and eax edx
+and eax 0x80808080
+je r-xdata
+mov edx eax
+mov [ rsp + 0x20 ] rdi
+mov rcx [ rsi ]
+shr edx 0x10
+test eax 0x8080
+cmove eax edx
+lea rdx [ r8 + 0x2 ]
+cmove r8 rdx
+add al al
+mov rdx rbx
+sbb r8 0x3
+xor r9d r9d
+sub r8d ebx
+call [ WriteFile@IAT ]
+test eax eax
+je r-xdata
+call [ GetLastError@IAT ]
+cmp eax 0x3e5
+jne r-xdata
+mov rcx [ rsi ]
+call [ FlushFileBuffers@IAT ]
+mov eax [ rsp + 0x43c ]
+add rsp 0x440
+pop rbx
+pop rsi
+pop rdi
+retn
+mov r9d 0x1
+lea r8 [ rsp + 0x43c ]
+mov rdx rdi
+mov rcx [ rsi ]
+call [ GetOverlappedResult@IAT ]
+jmp r-xdata
+sub_4017a0
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x28
+mov rbp [ rcx + 0x8 ]
+mov edx 0x20
+mov rbx rcx
+mov rcx rbp
+call strchr
+mov rdi rax
+xor eax eax
+test rdi rdi
+je r-xdata
+add rsp 0x28
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+retn
+lea rsi [ rdi + 0x1 ]
+lea rdx [ r--data ]
+mov rcx rsi
+call strstr
+cmp rax rsi
+je r-xdata
+cmp [ rdi + 0x8 ] 0x0
+jne r-xdata
+lea rdx [ r--data ]
+mov rcx rsi
+call strstr
+cmp rax rsi
+je r-xdata
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8d 0x65
+call sub_4016c0
+mov eax 0x1
+jmp r-xdata
+cmp [ rdi + 0x9 ] 0x0
+jne r-xdata
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8 rbp
+call sub_4016c0
+xor eax eax
+call [ GetOEMCP@IAT ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8d eax
+call sub_4016c0
+mov eax 0x1
+jmp r-xdata
+sub_401860
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x28
+mov rbp [ rcx + 0x8 ]
+mov edx 0x20
+mov rbx rcx
+mov rcx rbp
+call strchr
+mov rdi rax
+xor eax eax
+test rdi rdi
+je r-xdata
+add rsp 0x28
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+retn
+lea rsi [ rdi + 0x1 ]
+lea rdx [ r--data ]
+mov rcx rsi
+call strstr
+cmp rax rsi
+je r-xdata
+cmp [ rdi + 0x7 ] 0x20
+jne r-xdata
+lea rdx [ r--data ]
+mov rcx rsi
+call strstr
+cmp rax rsi
+je r-xdata
+lea rcx [ rdi + 0x8 ]
+call atoi
+mov [ rbx + 0x34 ] eax
+mov eax 0x1
+jmp r-xdata
+cmp [ rdi + 0x9 ] 0x20
+jne r-xdata
+lea rdx [ r--data ]
+mov rcx rsi
+call strstr
+cmp rax rsi
+je r-xdata
+lea rcx [ rdi + 0xa ]
+call atoi
+mov [ rbx + 0x30 ] eax
+mov eax 0x1
+jmp r-xdata
+cmp [ rdi + 0x8 ] 0x20
+jne r-xdata
+lea rdx [ r--data ]
+mov rcx rsi
+call strstr
+cmp rax rsi
+je r-xdata
+lea rcx [ rdi + 0x9 ]
+call atoi
+mov [ rbx + 0x38 ] eax
+mov eax 0x1
+jmp r-xdata
+cmp [ rdi + 0x6 ] 0x20
+jne r-xdata
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8 rbp
+call sub_4016c0
+xor eax eax
+lea rcx [ rdi + 0x7 ]
+call _strdup
+mov [ rbx + 0x40 ] rax
+mov eax 0x1
+jmp r-xdata
+sub_401980
+push rbp
+mov rbp rsp
+push rdi
+push rsi
+push rbx
+sub rsp 0x178
+xor eax eax
+lea rdi [ rbp - 0x60 ]
+mov rbx rcx
+mov ecx 0x7
+lea rsi [ rsp + 0x20 ]
+lea rdx [ rbp - 0x24 ]
+mov [ rbp - 0x24 ] 0x100
+[ rdi ]
+mov rcx rsi
+mov [ rbp - 0x60 ] 0x38
+call [ GetUserNameA@IAT ]
+mov rcx [ rbx ]
+lea rdx [ rbp - 0x60 ]
+mov [ rbp - 0x58 ] rsi
+call [ LoadUserProfileA@IAT ]
+lea rsp [ rbp - 0x18 ]
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+retn
+sub_4019e0
+push r12
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x210
+mov edx 0x20
+mov rbx rcx
+mov rcx [ rcx + 0x8 ]
+call strchr
+test rax rax
+mov rbp rax
+je r-xdata
+xor eax eax
+add rsp 0x210
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+retn
+mov rdi [ rbx + 0x40 ]
+test rdi rdi
+je r-xdata
+mov ecx [ rbx + 0x34 ]
+test ecx ecx
+je r-xdata
+mov edx 0x2f
+mov rcx rdi
+call strchr
+test rax rax
+je r-xdata
+mov rax [ rbx ]
+mov rcx [ rax ]
+call [ ImpersonateNamedPipeClient@IAT ]
+test eax eax
+je r-xdata
+call [ GetCurrentProcess@IAT ]
+lea r8 [ rsp + 0x200 ]
+mov edx 0xf01ff
+mov rcx rax
+call [ OpenProcessToken@IAT ]
+test eax eax
+je r-xdata
+mov edx 0x5c
+mov rcx rdi
+call strchr
+test rax rax
+jne r-xdata
+lea r12 [ rax + 0x1 ]
+mov [ rax ] 0x0
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8d eax
+call sub_4016c0
+jmp r-xdata
+call [ GetCurrentThread@IAT ]
+xor r8d r8d
+lea r9 [ rsp + 0x200 ]
+mov edx 0xf01ff
+mov rcx rax
+call [ OpenThreadToken@IAT ]
+test eax eax
+jne r-xdata
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8d eax
+call sub_4016c0
+jmp r-xdata
+lea rax [ rbx + 0x28 ]
+xor r8d r8d
+mov r9d [ rbx + 0x30 ]
+mov [ rsp + 0x20 ] 0x1
+mov edx 0x2000000
+mov rcx [ rsp + 0x200 ]
+mov [ rsp + 0x28 ] rax
+mov esi 0x1
+call [ DuplicateTokenEx@IAT ]
+test eax eax
+je r-xdata
+mov r12 rdi
+lea rdi [ r--data ]
+jmp r-xdata
+lea rax [ rbx + 0x28 ]
+mov [ rsp + 0x20 ] 0x0
+mov r9d 0x2
+mov r8 rsi
+mov rdx rdi
+mov rcx r12
+mov [ rsp + 0x28 ] rax
+call [ LogonUserA@IAT ]
+test eax eax
+je r-xdata
+mov [ rax ] 0x0
+add rsi 0x1
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8d eax
+xor esi esi
+call sub_4016c0
+jmp r-xdata
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8d eax
+xor sil sil
+call sub_4016c0
+jmp r-xdata
+mov rcx [ rsp + 0x200 ]
+call [ CloseHandle@IAT ]
+mov edx 0x25
+mov rcx r12
+call strchr
+test rax rax
+mov rsi rax
+je r-xdata
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r9 rdi
+mov r8 r12
+mov [ rsp + 0x28 ] eax
+mov [ rsp + 0x20 ] rsi
+call sub_4016c0
+xor eax eax
+add rsp 0x210
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+retn
+call [ GetCurrentProcessId@IAT ]
+mov edi eax
+lea rdx [ r--data ]
+lea rcx [ rsp + 0x60 ]
+shl edi 0x10
+add edi [ rbx + 0x48 ]
+mov r8d edi
+call sprintf
+lea rax [ rw-data ]
+xor r8d r8d
+mov [ rsp + 0x30 ] 0x0
+mov [ rsp + 0x28 ] 0x100
+mov [ rsp + 0x20 ] 0x100
+mov r9d 0x1
+mov [ rsp + 0x38 ] rax
+mov edx 0x3
+lea rcx [ rsp + 0x60 ]
+mov rsi [ CreateNamedPipeA@IAT ]
+call rsi
+cmp rax 0xffffffffffffffff
+mov [ rbx + 0x10 ] rax
+je r-xdata
+mov edx [ rbx + 0x34 ]
+test edx edx
+je r-xdata
+call [ RevertToSelf@IAT ]
+test eax eax
+jne r-xdata
+test esi esi
+je r-xdata
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea r8 [ rsp + 0x60 ]
+lea rdx [ r--data ]
+mov r9d eax
+call sub_4016c0
+mov rsi [ CloseHandle@IAT ]
+jmp r-xdata
+lea rdx [ r--data ]
+lea rcx [ rsp + 0x60 ]
+mov r8d edi
+call sprintf
+lea rax [ rw-data ]
+xor r8d r8d
+mov [ rsp + 0x30 ] 0x0
+mov [ rsp + 0x28 ] 0x100
+mov [ rsp + 0x20 ] 0x100
+mov r9d 0x1
+mov [ rsp + 0x38 ] rax
+mov edx 0x3
+lea rcx [ rsp + 0x60 ]
+call rsi
+cmp rax 0xffffffffffffffff
+mov [ rbx + 0x18 ] rax
+je r-xdata
+nop
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8d eax
+call sub_4016c0
+jmp r-xdata
+jmp r-xdata
+mov rcx [ rbx + 0x28 ]
+call rsi
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea r8 [ rsp + 0x60 ]
+lea rdx [ r--data ]
+mov r9d eax
+call sub_4016c0
+mov rsi [ CloseHandle@IAT ]
+jmp r-xdata
+lea rdx [ r--data ]
+lea rcx [ rsp + 0x60 ]
+mov r8d edi
+call sprintf
+lea rax [ rw-data ]
+xor r8d r8d
+mov [ rsp + 0x30 ] 0x0
+mov [ rsp + 0x28 ] 0x100
+mov [ rsp + 0x20 ] 0x100
+mov r9d 0x1
+mov [ rsp + 0x38 ] rax
+mov edx 0x3
+lea rcx [ rsp + 0x60 ]
+call rsi
+cmp rax 0xffffffffffffffff
+mov [ rbx + 0x20 ] rax
+je r-xdata
+mov rcx [ rbx + 0x10 ]
+call rsi
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea r8 [ rsp + 0x60 ]
+lea rdx [ r--data ]
+mov r9d eax
+call sub_4016c0
+mov rsi [ CloseHandle@IAT ]
+jmp r-xdata
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8d edi
+call sub_4016c0
+xor edx edx
+mov rcx [ rbx + 0x10 ]
+mov rsi [ ConnectNamedPipe@IAT ]
+call rsi
+test eax eax
+je r-xdata
+mov rcx [ rbx + 0x18 ]
+call rsi
+call [ GetLastError@IAT ]
+cmp eax 0x217
+nop
+je r-xdata
+xor edx edx
+mov rcx [ rbx + 0x18 ]
+call rsi
+test eax eax
+je r-xdata
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+call sub_4016c0
+mov rsi [ CloseHandle@IAT ]
+call [ GetLastError@IAT ]
+cmp eax 0x217
+je r-xdata
+xor edx edx
+mov rcx [ rbx + 0x20 ]
+call rsi
+test eax eax
+je r-xdata
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+call sub_4016c0
+mov rsi [ CloseHandle@IAT ]
+mov rdi [ DisconnectNamedPipe@IAT ]
+jmp r-xdata
+call [ GetLastError@IAT ]
+cmp eax 0x217
+je r-xdata
+mov rsi [ SetHandleInformation@IAT ]
+mov rcx [ rbx + 0x10 ]
+mov r8d 0x1
+mov edx 0x1
+call rsi
+mov rcx [ rbx + 0x18 ]
+mov r8d 0x1
+mov edx 0x1
+call rsi
+mov rcx [ rbx + 0x20 ]
+mov r8d 0x1
+mov edx 0x1
+call rsi
+mov eax [ rbx + 0x38 ]
+test eax eax
+jne r-xdata
+mov rcx [ rbx + 0x10 ]
+call rdi
+jmp r-xdata
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+call sub_4016c0
+mov rsi [ CloseHandle@IAT ]
+mov rdi [ DisconnectNamedPipe@IAT ]
+jmp r-xdata
+lea rcx [ rbx + 0x28 ]
+call sub_401980
+jmp r-xdata
+lea rdx [ rsp + 0x160 ]
+xor eax eax
+mov ecx 0xd
+lea r8 [ rsp + 0x1d0 ]
+lea rsi [ rbp + 0x1 ]
+xor r9d r9d
+mov rdi rdx
+mov [ rsp + 0x1d0 ] 0x0
+mov [ rsp + 0x1d8 ] 0x0
+[ rdi ]
+mov [ rsp + 0x1e0 ] 0x0
+mov [ rsp + 0x50 ] r8
+mov r8 rsi
+mov [ rsp + 0x48 ] rdx
+mov [ rsp + 0x160 ] 0x68
+xor edx edx
+mov rax [ rbx + 0x10 ]
+mov [ rsp + 0x19c ] 0x100
+mov rcx [ rbx + 0x28 ]
+mov [ rsp + 0x40 ] 0x0
+mov [ rsp + 0x38 ] 0x0
+mov [ rsp + 0x30 ] 0x0
+mov [ rsp + 0x1b0 ] rax
+mov rax [ rbx + 0x18 ]
+mov [ rsp + 0x28 ] 0x1
+mov [ rsp + 0x20 ] 0x0
+mov [ rsp + 0x1b8 ] rax
+mov rax [ rbx + 0x20 ]
+mov [ rsp + 0x1c0 ] rax
+call [ CreateProcessAsUserA@IAT ]
+test eax eax
+je r-xdata
+mov rcx [ rbx + 0x20 ]
+call rsi
+mov rcx [ rbx + 0x18 ]
+call rdi
+call [ GetLastError@IAT ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+mov r8 rsi
+mov r9d eax
+call sub_4016c0
+mov rsi [ CloseHandle@IAT ]
+jmp r-xdata
+mov rax [ rbx ]
+mov rcx [ rax + 0x20 ]
+mov rax [ rsp + 0x1d0 ]
+mov [ rsp + 0x1f0 ] rcx
+mov [ rsp + 0x1f8 ] rax
+call [ ResetEvent@IAT ]
+mov rax [ rbx ]
+xor r9d r9d
+mov r8d 0x1
+lea rdx [ rax + 0x8 ]
+mov [ rsp + 0x20 ] rdx
+lea rdx [ rsp + 0x20f ]
+mov rcx [ rax ]
+call [ ReadFile@IAT ]
+test eax eax
+je r-xdata
+mov rcx [ rbx + 0x20 ]
+mov rdi [ DisconnectNamedPipe@IAT ]
+call rdi
+call [ GetLastError@IAT ]
+jmp r-xdata
+xor r8d r8d
+mov r9d 0xffffffff
+lea rdx [ rsp + 0x1f0 ]
+mov ecx 0x2
+call [ WaitForMultipleObjects@IAT ]
+test eax eax
+mov [ rsp + 0x208 ] eax
+je r-xdata
+mov [ rsp + 0x208 ] 0x1234
+mov edx 0x1234
+mov rcx [ rsp + 0x1d0 ]
+call [ TerminateProcess@IAT ]
+jmp r-xdata
+lea rdx [ rsp + 0x208 ]
+mov rcx [ rsp + 0x1d0 ]
+call [ GetExitCodeProcess@IAT ]
+mov rsi [ FlushFileBuffers@IAT ]
+mov rcx [ rbx + 0x18 ]
+call rsi
+mov rcx [ rbx + 0x20 ]
+call rsi
+mov rcx [ rsp + 0x1d0 ]
+mov rsi [ CloseHandle@IAT ]
+call rsi
+mov rcx [ rsp + 0x1d8 ]
+call rsi
+mov r8d [ rsp + 0x208 ]
+mov rcx [ rbx ]
+lea rdx [ r--data ]
+call sub_4016c0
+sub_402180
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0xa8
+mov rsi rcx
+mov ecx 0x8000
+call malloc
+test rax rax
+mov rbx rax
+je r-xdata
+mov rcx [ rsi ]
+lea rdx [ r--data ]
+call sub_4016c0
+nop
+add rsp 0xa8
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+retn
+mov r8d 0x8000
+xor edx edx
+mov rcx rax
+call memset
+lea rax [ rsp + 0x40 ]
+mov ecx 0xa
+xor r13d r13d
+mov [ rsp + 0x38 ] rax
+mov rdi [ rsp + 0x38 ]
+xor eax eax
+[ rdi ]
+mov rcx rsi
+mov [ rsp + 0x48 ] rbx
+mov edi 0x7ffe
+mov rbp [ rsi ]
+mov eax [ rsi + 0x8 ]
+mov rsi rbx
+mov [ rsp + 0x40 ] rbp
+mov [ rsp + 0x88 ] eax
+lea r12 [ rbp + 0x8 ]
+call free
+mov r14 [ ReadFile@IAT ]
+mov r15 [ GetOverlappedResult@IAT ]
+jmp r-xdata
+mov [ rsp + 0x20 ] r12
+xor r9d r9d
+mov r8d 0x1
+mov rdx rsi
+mov rcx [ rbp ]
+call r14
+test eax eax
+jne r-xdata
+mov r9d 0x1
+lea r8 [ rsp + 0x9c ]
+mov rdx r12
+mov rcx [ rbp ]
+call r15
+test eax eax
+jne r-xdata
+call [ GetLastError@IAT ]
+cmp eax 0x3e5
+jne r-xdata
+mov r8d [ rsp + 0x9c ]
+test r8d r8d
+je r-xdata
+test r13d r13d
+mov [ rsi ] 0x0
+je r-xdata
+cmp [ rsi ] 0xa
+je r-xdata
+mov rax [ rsp + 0x40 ]
+mov rcx [ rax ]
+call [ FlushFileBuffers@IAT ]
+mov rax [ rsp + 0x40 ]
+mov rcx [ rax ]
+call [ DisconnectNamedPipe@IAT ]
+mov rax [ rsp + 0x40 ]
+mov rsi [ CloseHandle@IAT ]
+mov rcx [ rax ]
+call rsi
+mov rax [ rsp + 0x40 ]
+mov rcx [ rax + 0x20 ]
+call rsi
+mov rcx [ rsp + 0x40 ]
+call free
+mov rcx rbx
+add rsp 0xa8
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp free
+mov rsi [ rw-data ]
+lea rbp [ rw-data ]
+test rsi rsi
+je r-xdata
+sub edi 0x1
+add r13d 0x1
+add rsi 0x1
+cmp edi 0xffffffff
+je r-xdata
+mov rcx [ rsp + 0x40 ]
+lea rdx [ r--data ]
+mov r8 rbx
+call sub_4016c0
+jmp r-xdata
+mov rdi rbp
+jmp r-xdata
+mov rbp [ rsp + 0x40 ]
+mov rsi rbx
+mov edi 0x7ffe
+xor r13d r13d
+lea r12 [ rbp + 0x8 ]
+jmp r-xdata
+mov rdx rsi
+mov rcx rbx
+call strstr
+cmp rax rbx
+jne r-xdata
+add rdi 0x10
+lea rdx [ rw-data ]
+mov rax rdi
+sub rax rbp
+mov rsi [ rdx + rax - 0x10 ]
+test rsi rsi
+je r-xdata
+mov rcx rsi
+call strlen
+movzx eax [ rbx + rax ]
+cmp al 0x20
+je r-xdata
+test rsi rsi
+je r-xdata
+test al al
+jne r-xdata
+lea rcx [ rsp + 0x40 ]
+call [ rdi + 0x8 ]
+test eax eax
+je r-xdata
+sub_4023b0
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0xb8
+mov r9d 0x220
+mov r8d 0x20
+mov edx 0x2
+lea rax [ rsp + 0x90 ]
+mov [ rsp + 0x90 ] 0x0
+mov [ rsp + 0x98 ] 0x0
+mov [ rsp + 0xa0 ] 0x0
+mov [ rsp + 0xa1 ] 0x0
+lea rcx [ rsp + 0xa0 ]
+mov [ rsp + 0xa2 ] 0x0
+mov [ rsp + 0xa3 ] 0x0
+mov ebx 0xffffffff
+mov [ rsp + 0xa4 ] 0x0
+mov [ rsp + 0xa5 ] 0x5
+mov [ rsp + 0x50 ] rax
+mov [ rsp + 0x48 ] 0x0
+mov [ rsp + 0x40 ] 0x0
+mov [ rsp + 0x38 ] 0x0
+mov [ rsp + 0x30 ] 0x0
+mov [ rsp + 0x28 ] 0x0
+mov [ rsp + 0x20 ] 0x0
+call [ AllocateAndInitializeSid@IAT ]
+test eax eax
+jne r-xdata
+mov rax [ rsp + 0x90 ]
+xor r8d r8d
+mov [ rsp + 0x60 ] 0x1f01ff
+mov [ rsp + 0x64 ] 0x2
+mov [ rsp + 0x68 ] 0x0
+lea r9 [ rsp + 0x98 ]
+mov [ rsp + 0x7c ] 0x0
+mov [ rsp + 0x80 ] 0x2
+lea rdx [ rsp + 0x60 ]
+mov [ rsp + 0x88 ] rax
+mov ecx 0x1
+call [ SetEntriesInAclA@IAT ]
+test eax eax
+jne r-xdata
+mov eax ebx
+add rsp 0xb8
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+retn
+mov edx 0x28
+mov ecx 0x40
+call [ LocalAlloc@IAT ]
+test rax rax
+mov rsi rax
+je r-xdata
+mov edx 0x1
+mov rcx rax
+call [ InitializeSecurityDescriptor@IAT ]
+test eax eax
+je r-xdata
+xor r9d r9d
+mov r8 [ rsp + 0x98 ]
+mov edx 0x1
+mov rcx rsi
+call [ SetSecurityDescriptorDacl@IAT ]
+test eax eax
+je r-xdata
+mov r12 [ CreateEventA@IAT ]
+mov rbp [ CreateNamedPipeA@IAT ]
+mov rdi [ CloseHandle@IAT ]
+mov r13 [ ConnectNamedPipe@IAT ]
+mov r15 [ GetLastError@IAT ]
+mov r14 [ CreateThread@IAT ]
+mov [ rw-data ] 0x18
+mov [ rw-data ] rsi
+mov [ rw-data ] 0x0
+mov rcx [ rbx + 0x20 ]
+call rdi
+mov rcx rbx
+xor ebx ebx
+call free
+jmp r-xdata
+mov rdx rsi
+mov rcx rax
+call r13
+test eax eax
+je r-xdata
+call r15
+cmp eax 0x217
+je r-xdata
+mov rcx [ rbx ]
+call rdi
+mov rcx [ rbx + 0x20 ]
+call rdi
+mov rcx rbx
+call free
+jmp r-xdata
+mov ecx 0x10
+call malloc
+mov [ rax ] rbx
+mov r9 rax
+mov eax [ rw-data ]
+xor edx edx
+xor ecx ecx
+lea r8 [ sub_402180 ]
+add eax 0x1
+mov [ r9 + 0x8 ] eax
+mov [ rw-data ] eax
+mov [ rsp + 0x28 ] 0x0
+mov [ rsp + 0x20 ] 0x0
+call r14
+test rax rax
+je r-xdata
+cmp eax 0x3e5
+jne r-xdata
+mov ecx 0x28
+call malloc
+lea rsi [ rax + 0x8 ]
+mov rbx rax
+mov [ rax + 0x8 ] 0x0
+xor r9d r9d
+xor ecx ecx
+mov r8d 0x1
+mov edx 0x1
+mov [ rsi + 0x8 ] 0x0
+mov [ rsi + 0x10 ] 0x0
+mov [ rsi + 0x18 ] 0x0
+call r12
+mov [ rbx + 0x20 ] rax
+lea rax [ rw-data ]
+xor r8d r8d
+mov [ rsp + 0x30 ] 0x0
+mov [ rsp + 0x28 ] 0x100
+mov r9d 0xff
+mov [ rsp + 0x38 ] rax
+mov [ rsp + 0x20 ] 0x100
+mov edx 0x40000003
+lea rcx [ r--data ]
+call rbp
+cmp rax 0xffffffffffffffff
+mov [ rbx ] rax
+je r-xdata
+mov rcx rax
+call rdi
+nop
+jmp r-xdata
+mov r9d 0x1
+lea r8 [ rsp + 0xac ]
+mov rdx rsi
+mov rcx [ rbx ]
+call [ GetOverlappedResult@IAT ]
+test eax eax
+je r-xdata
+_TLS_Entry_0
+push rsi
+push rbx
+sub rsp 0x28
+cmp [ rw-data ] 0x2
+je r-xdata
+cmp edx 0x2
+je r-xdata
+mov [ rw-data ] 0x2
+lea rbx [ rw-data ]
+lea rsi [ rw-data ]
+cmp rbx rsi
+je r-xdata
+cmp edx 0x1
+je r-xdata
+mov eax 0x1
+add rsp 0x28
+pop rbx
+pop rsi
+retn
+mov rax [ rbx ]
+test rax rax
+je r-xdata
+call sub_403c90
+jmp r-xdata
+add rbx 0x8
+cmp rsi rbx
+jne r-xdata
+call rax
+mov eax 0x1
+add rsp 0x28
+pop rbx
+pop rsi
+retn
+sub_4027d0
+push rbx
+sub rsp 0x30
+mov rbx rcx
+mov rcx [ rw-data ]
+call sub_4027b0
+cmp rax 0xffffffffffffffff
+mov [ rsp + 0x20 ] rax
+je r-xdata
+mov rcx rbx
+call [ _onexit@IAT ]
+mov rbx rax
+mov rax rbx
+add rsp 0x30
+pop rbx
+retn
+mov ecx 0x8
+call _lock
+mov rcx [ rw-data ]
+call sub_4027b0
+mov rcx [ rw-data ]
+mov [ rsp + 0x20 ] rax
+call sub_4027b0
+lea r8 [ rsp + 0x28 ]
+lea rdx [ rsp + 0x20 ]
+mov rcx rbx
+mov [ rsp + 0x28 ] rax
+call __dllonexit
+mov rcx [ rsp + 0x20 ]
+mov rbx rax
+call sub_4027c0
+mov rcx [ rsp + 0x28 ]
+mov [ rw-data ] rax
+call sub_4027c0
+mov ecx 0x8
+mov [ rw-data ] rax
+call _unlock
+mov rax rbx
+add rsp 0x30
+pop rbx
+retn
+sub_4028a0
+push rbx
+sub rsp 0x30
+mov eax [ rcx ]
+cmp eax 0xc0000091
+ja r-xdata
+cmp eax 0xc0000094
+je r-xdata
+cmp eax 0xc000008d
+jb r-xdata
+xor ebx ebx
+jmp r-xdata
+ja r-xdata
+cmp eax 0xc0000008
+je r-xdata
+mov ebx 0x1
+xor edx edx
+mov ecx 0x8
+call signal
+cmp rax 0x1
+mov rdx rax
+je r-xdata
+cmp eax 0xc0000095
+je r-xdata
+cmp eax 0xc0000092
+je r-xdata
+xor eax eax
+add rsp 0x30
+pop rbx
+retn
+ja r-xdata
+mov ecx 0x8
+call signal
+xor eax eax
+test ebx ebx
+je r-xdata
+test rdx rdx
+mov eax 0x1
+je r-xdata
+cmp eax 0xc0000096
+jne r-xdata
+cmp eax 0xc0000093
+je r-xdata
+cmp eax 0xc000001d
+je r-xdata
+cmp eax 0x80000002
+je r-xdata
+add rsp 0x30
+pop rbx
+retn
+mov [ rsp + 0x28 ] eax
+call sub_403860
+mov eax [ rsp + 0x28 ]
+jmp r-xdata
+mov ecx 0x8
+call rdx
+xor eax eax
+mov eax 0x1
+add rsp 0x30
+pop rbx
+retn
+xor edx edx
+mov ecx 0x4
+call signal
+cmp rax 0x1
+mov rdx rax
+je r-xdata
+cmp eax 0xc000008c
+jne r-xdata
+cmp eax 0xc0000005
+jne r-xdata
+mov ecx 0x4
+call signal
+xor eax eax
+jmp r-xdata
+test rdx rdx
+mov eax 0x4
+je r-xdata
+xor edx edx
+mov ecx 0xb
+call signal
+cmp rax 0x1
+mov rdx rax
+je r-xdata
+mov ecx 0x4
+call rdx
+xor eax eax
+jmp r-xdata
+mov ecx 0xb
+call signal
+xor eax eax
+jmp r-xdata
+test rdx rdx
+mov eax 0x4
+je r-xdata
+mov ecx 0xb
+call rdx
+xor eax eax
+jmp r-xdata
+sub_402a40
+push r12
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x20
+call sub_403680
+mov rbx rax
+mov eax [ rw-data ]
+test rbx rbx
+jne r-xdata
+test eax eax
+jne r-xdata
+add rsp 0x20
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+retn
+lea rcx [ r--data ]
+mov [ rw-data ] 0x1
+call sub_4034f0
+mov r8 rax
+mov eax 0x1
+test r8 r8
+jne r-xdata
+lea rdx [ rw-data ]
+mov rax r8
+mov ecx 0x30
+lea rsi [ rw-data ]
+lea r12 [ sub_4028a0 ]
+mov rdi rdx
+mov rbp rdx
+[ rdi ]
+mov rdi rsi
+sub r12 rbx
+mov cl 0x20
+[ rdi ]
+xor edi edi
+jmp r-xdata
+mov rcx rdi
+call sub_403600
+test rax rax
+jne r-xdata
+lea rdx [ rw-data ]
+mov [ rsi + rdi * 8 ] 0x9
+mov [ rdx + rdi * 8 ] r12d
+mov edx [ rax + 0xc ]
+mov [ rbp ] edx
+add edx [ rax + 0x8 ]
+lea rax [ rsi + rdi * 8 ]
+add rdi 0x1
+sub rax rbx
+mov [ rbp + 0x8 ] eax
+mov [ rbp + 0x4 ] edx
+add rbp 0xc
+cmp rdi 0x20
+je r-xdata
+test rdi rdi
+jne r-xdata
+mov edx 0x20
+mov edx edi
+jmp r-xdata
+mov eax 0x1
+jmp r-xdata
+mov r8 rbx
+lea rcx [ rw-data ]
+call [ RtlAddFunctionTable@IAT ]
+mov eax 0x1
+jmp r-xdata
+sub_402b50
+push rsi
+push rbx
+sub rsp 0x38
+mov rdx [ rcx ]
+mov rbx rcx
+mov eax [ rdx ]
+mov ecx eax
+and ecx 0x20ffffff
+cmp ecx 0x20474343
+je r-xdata
+test [ rdx + 0x4 ] 0x1
+jne r-xdata
+cmp eax 0xc0000091
+jbe r-xdata
+nop [ rax + rax ] ax
+cmp eax 0xc000008d
+jb r-xdata
+cmp eax 0xc0000094
+je r-xdata
+cmp eax 0xc0000008
+je r-xdata
+mov esi 0x1
+xor esi esi
+jmp r-xdata
+ja r-xdata
+mov eax 0xffffffff
+add rsp 0x38
+pop rbx
+pop rsi
+retn
+ja r-xdata
+mov edx 0x1
+mov ecx 0x8
+call signal
+test esi esi
+mov eax 0xffffffff
+je r-xdata
+test rax rax
+je r-xdata
+xor edx edx
+mov ecx 0x8
+call signal
+cmp rax 0x1
+je r-xdata
+cmp eax 0xc0000095
+je r-xdata
+cmp eax 0xc0000092
+je r-xdata
+cmp eax 0xc000001d
+je r-xdata
+cmp eax 0x80000002
+je r-xdata
+add rsp 0x38
+pop rbx
+pop rsi
+retn
+mov [ rsp + 0x28 ] eax
+call sub_403860
+mov eax [ rsp + 0x28 ]
+jmp r-xdata
+mov rax [ rw-data ]
+test rax rax
+je r-xdata
+mov ecx 0x8
+call rax
+mov eax 0xffffffff
+cmp eax 0xc0000096
+jne r-xdata
+cmp eax 0xc0000093
+je r-xdata
+xor edx edx
+mov ecx 0x4
+call signal
+cmp rax 0x1
+je r-xdata
+cmp eax 0xc000008c
+jne r-xdata
+cmp eax 0xc0000005
+jne r-xdata
+xor eax eax
+jmp r-xdata
+mov rcx rbx
+add rsp 0x38
+pop rbx
+pop rsi
+jmp rax
+nop [ rax + rax ] eax
+mov edx 0x1
+mov ecx 0x4
+call signal
+mov eax 0xffffffff
+jmp r-xdata
+test rax rax
+je r-xdata
+jmp r-xdata
+xor edx edx
+mov ecx 0xb
+call signal
+cmp rax 0x1
+je r-xdata
+mov ecx 0x4
+call rax
+mov eax 0xffffffff
+add rsp 0x38
+pop rbx
+pop rsi
+retn
+mov edx 0x1
+mov ecx 0xb
+call signal
+mov eax 0xffffffff
+jmp r-xdata
+test rax rax
+je r-xdata
+mov ecx 0xb
+call rax
+mov eax 0xffffffff
+add rsp 0x38
+pop rbx
+pop rsi
+retn
+sub_402d60
+sub rsp 0x58
+mov rax [ rw-data ]
+test rax rax
+je r-xdata
+add rsp 0x58
+retn
+mov [ rsp + 0x28 ] rdx
+mov rdx [ rsp + 0x80 ]
+movsd [ rsp + 0x30 ] xmm2
+mov [ rsp + 0x20 ] ecx
+movsd [ rsp + 0x38 ] xmm3
+lea rcx [ rsp + 0x20 ]
+mov [ rsp + 0x40 ] rdx
+call rax
+nop
+sub_402db0
+push r12
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x40
+cmp [ rcx ] 0x6
+jbe r-xdata
+mov edx [ rcx ]
+lea rax [ r--data ]
+movsxd rdx [ rax + rdx * 4 ]
+add rax rdx
+jmp rax
+lea rbx [ r--data ]
+nop [ rax + rax ] ax
+mov rsi [ rcx + 0x8 ]
+mov r12 [ rcx + 0x20 ]
+mov rbp [ rcx + 0x18 ]
+mov rdi [ rcx + 0x10 ]
+call __iob_func
+lea rdx [ r--data ]
+lea rcx [ rax + 0x60 ]
+mov r9 rsi
+mov r8 rbx
+mov [ rsp + 0x30 ] r12
+mov [ rsp + 0x28 ] rbp
+mov [ rsp + 0x20 ] rdi
+call fprintf
+xor eax eax
+add rsp 0x40
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+retn
+sub_402ea0
+push rsi
+push rbx
+sub rsp 0x38
+lea rax [ rsp + 0x58 ]
+mov rbx rcx
+mov [ rsp + 0x58 ] rdx
+mov [ rsp + 0x60 ] r8
+mov [ rsp + 0x68 ] r9
+mov [ rsp + 0x28 ] rax
+call __iob_func
+lea rcx [ r--data ]
+lea r9 [ rax + 0x60 ]
+mov r8d 0x1b
+mov edx 0x1
+call fwrite
+mov rsi [ rsp + 0x28 ]
+call __iob_func
+lea rcx [ rax + 0x60 ]
+mov rdx rbx
+mov r8 rsi
+call vfprintf
+call abort
+sub_402f10
+push r13
+push r12
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x98
+test r8 r8
+mov rbx rcx
+mov rdi rdx
+mov rsi r8
+jne r-xdata
+mov ecx [ rw-data ]
+test ecx ecx
+jle r-xdata
+add rsp 0x98
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+pop r13
+retn
+xor ebp ebp
+jmp r-xdata
+mov rax [ rw-data ]
+xor ebp ebp
+nop [ rax + rax ] ax
+mov rcx rbx
+call sub_403590
+test rax rax
+mov r12 rax
+je r-xdata
+add ebp 0x1
+add rax 0x18
+cmp ebp ecx
+jne r-xdata
+mov r8 [ rax + 0x10 ]
+mov r8d [ r8 + 0x8 ]
+add rdx r8
+cmp rbx rdx
+jb r-xdata
+lea rcx [ r--data ]
+mov rdx rbx
+call sub_402ea0
+movsxd rbp ebp
+lea r13 [ rbp + rbp * 2 ]
+shl r13 0x3
+mov rbp r13
+add rbp [ rw-data ]
+mov [ rbp + 0x10 ] rax
+mov [ rbp ] 0x0
+call sub_403680
+mov edx [ r12 + 0xc ]
+mov r8d 0x30
+add rax rdx
+lea rdx [ rsp + 0x50 ]
+mov [ rbp + 0x8 ] rax
+mov rax [ rw-data ]
+mov rbp [ VirtualQuery@IAT ]
+mov rcx [ rax + r13 + 0x8 ]
+call rbp
+test rax rax
+je r-xdata
+mov rdx [ rax + 0x8 ]
+cmp rbx rdx
+jb r-xdata
+mov rbp [ VirtualQuery@IAT ]
+jmp r-xdata
+mov rax [ rw-data ]
+mov edx [ r12 + 0x8 ]
+lea rcx [ r--data ]
+mov r8 [ rax + r13 + 0x8 ]
+call sub_402ea0
+mov eax [ rsp + 0x74 ]
+cmp eax 0x4
+jne r-xdata
+mov r8d 0x30
+lea rdx [ rsp + 0x20 ]
+mov rcx rbx
+call rbp
+test rax rax
+je r-xdata
+cmp eax 0x40
+je r-xdata
+add [ rw-data ] 0x1
+lea rcx [ r--data ]
+mov r8 rbx
+mov edx 0x30
+call sub_402ea0
+mov eax [ rsp + 0x44 ]
+cmp eax 0x4
+jne r-xdata
+mov r9 [ rw-data ]
+mov r8d 0x40
+mov rdx [ rsp + 0x68 ]
+mov rcx [ rsp + 0x50 ]
+add r9 r13
+call [ VirtualProtect@IAT ]
+test eax eax
+jne r-xdata
+cmp eax 0x40
+je r-xdata
+mov r8 rsi
+mov rdx rdi
+mov rcx rbx
+add rsp 0x98
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+pop r13
+jmp memcpy
+call [ GetLastError@IAT ]
+lea rcx [ r--data ]
+mov edx eax
+call sub_402ea0
+lea r9 [ rsp + 0x8c ]
+mov r8d 0x40
+mov rdx [ rsp + 0x38 ]
+mov rcx [ rsp + 0x20 ]
+mov rbp [ VirtualProtect@IAT ]
+call rbp
+mov r8 rsi
+mov rdx rdi
+mov rcx rbx
+call memcpy
+mov eax [ rsp + 0x44 ]
+cmp eax 0x40
+je r-xdata
+cmp eax 0x4
+je r-xdata
+mov r8d [ rsp + 0x8c ]
+mov rdx [ rsp + 0x38 ]
+lea r9 [ rsp + 0x8c ]
+mov rcx [ rsp + 0x20 ]
+call rbp
+nop
+add rsp 0x98
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+pop r13
+retn
+sub_403160
+push rbp
+mov rbp rsp
+push r12
+push rdi
+push rsi
+push rbx
+sub rsp 0x60
+mov r12d [ rw-data ]
+test r12d r12d
+je r-xdata
+mov [ rw-data ] 0x1
+call sub_4035d0
+cdqe
+lea rax [ rax + rax * 2 ]
+lea rax [ rax * 8 + 0x1e ]
+and rax 0xfffffffffffffff0
+call sub_403d30
+lea rsi [ 0x406630 ]
+lea rbx [ 0x406630 ]
+mov [ rw-data ] 0x0
+sub rsp rax
+lea rax [ rsp + 0x20 ]
+mov [ rw-data ] rax
+mov rax rsi
+sub rax rbx
+cmp rax 0x7
+jle r-xdata
+lea rsp [ rbp - 0x20 ]
+pop rbx
+pop rsi
+pop rdi
+pop r12
+pop rbp
+retn
+cmp rax 0xb
+jle r-xdata
+mov r9d [ rbx ]
+test r9d r9d
+jne r-xdata
+mov edi [ 0x406630 ]
+test edi edi
+jne r-xdata
+cmp rbx rsi
+jae r-xdata
+mov r8d [ rbx + 0x4 ]
+test r8d r8d
+jne r-xdata
+mov r11d [ 0x406634 ]
+test r11d r11d
+je r-xdata
+lea rdi [ __dos_header ]
+mov edx [ rbx + 0x8 ]
+cmp edx 0x1
+jne r-xdata
+mov r10d [ 0x406638 ]
+test r10d r10d
+jne r-xdata
+mov ecx [ rbx + 0x4 ]
+lea rdx [ rbp - 0x24 ]
+mov r8d 0x4
+add rcx rdi
+mov eax [ rcx ]
+add eax [ rbx ]
+add rbx 0x8
+mov [ rbp - 0x24 ] eax
+call sub_402f10
+cmp rbx rsi
+jb r-xdata
+mov ecx [ rw-data ]
+test ecx ecx
+jle r-xdata
+lea rcx [ r--data ]
+call sub_402ea0
+add rbx 0xc
+cmp rbx rsi
+jae r-xdata
+lea rbx [ 0x40663c ]
+nop [ rax + rax ] eax
+xor ebx ebx
+xor esi esi
+mov r12 [ VirtualQuery@IAT ]
+mov rdi [ VirtualProtect@IAT ]
+jmp r-xdata
+lea rdi [ __dos_header ]
+mov r12 0xffffffff00000000
+mov rax rbx
+add rax [ rw-data ]
+mov edx [ rax ]
+test edx edx
+je r-xdata
+movzx r8d [ rcx ]
+test r8d 0x8000
+je r-xdata
+ja r-xdata
+add esi 0x1
+add rbx 0x18
+cmp esi [ rw-data ]
+jge r-xdata
+mov rcx [ rax + 0x8 ]
+mov r8d 0x30
+lea rdx [ rbp - 0x60 ]
+call r12
+test rax rax
+je r-xdata
+sub r8 rdx
+add r9 r8
+cmp eax 0x10
+mov [ rbp - 0x30 ] r9
+je r-xdata
+or r8 0xffffffffffff0000
+sub r8 rdx
+add r8 r9
+mov [ rbp - 0x30 ] r8
+cmp eax 0x20
+je r-xdata
+cmp eax 0x8
+je r-xdata
+add rbx [ rw-data ]
+lea rcx [ r--data ]
+mov rax [ rbx + 0x10 ]
+mov r8 [ rbx + 0x8 ]
+mov edx [ rax + 0x8 ]
+call sub_402ea0
+mov rax [ rw-data ]
+lea r9 [ rbp - 0x24 ]
+mov rdx [ rbp - 0x48 ]
+mov rcx [ rbp - 0x60 ]
+mov r8d [ rax + rbx ]
+call rdi
+jmp r-xdata
+lea rdx [ rbp - 0x30 ]
+mov r8d 0x2
+call sub_402f10
+jmp r-xdata
+ja r-xdata
+add rbx 0xc
+cmp rbx rsi
+jb r-xdata
+mov r8d [ rcx ]
+test r8d 0x80000000
+je r-xdata
+cmp eax 0x40
+jne r-xdata
+movzx r8d [ rcx ]
+test r8b 0x80
+je r-xdata
+lea rcx [ r--data ]
+movzx edx r8b
+mov [ rbp - 0x30 ] 0x0
+call sub_402ea0
+cmp eax 0x20
+je r-xdata
+cmp eax 0x8
+jne r-xdata
+mov ecx [ rbx + 0x4 ]
+mov edx [ rbx ]
+mov r8d [ rbx + 0x8 ]
+movzx eax r8b
+add rdx rdi
+add rcx rdi
+cmp eax 0x10
+mov r9 [ rdx ]
+je r-xdata
+jmp r-xdata
+or r8 r12
+sub r8 rdx
+add r8 r9
+mov [ rbp - 0x30 ] r8
+sub r9 rdx
+add r9 [ rcx ]
+mov [ rbp - 0x30 ] r9
+or r8 0xffffffffffffff00
+sub r8 rdx
+add r8 r9
+mov [ rbp - 0x30 ] r8
+jmp r-xdata
+lea rdx [ rbp - 0x30 ]
+mov r8d 0x4
+call sub_402f10
+jmp r-xdata
+cmp eax 0x40
+jne r-xdata
+lea rdx [ rbp - 0x30 ]
+mov r8d 0x1
+call sub_402f10
+jmp r-xdata
+jmp r-xdata
+lea rdx [ rbp - 0x30 ]
+mov r8d 0x8
+call sub_402f10
+sub_4034a0
+movsxd rax [ rcx + 0x3c ]
+add rcx rax
+xor eax eax
+movzx r8d [ rcx + 0x6 ]
+movzx r9d [ rcx + 0x14 ]
+test r8d r8d
+je r-xdata
+retn
+movzx r9d r9w
+sub r8d 0x1
+lea rax [ rcx + r9 + 0x18 ]
+lea rcx [ r8 + r8 * 4 ]
+lea r9 [ rax + rcx * 8 + 0x28 ]
+nop
+add rax 0x28
+cmp rax r9
+jne r-xdata
+add ecx [ rax + 0x8 ]
+cmp rdx rcx
+jb r-xdata
+mov ecx [ rax + 0xc ]
+mov r8d ecx
+cmp r8 rdx
+ja r-xdata
+xor eax eax
+sub_4034f0
+push rdi
+push rsi
+push rbx
+sub rsp 0x20
+xor ebx ebx
+mov rsi rcx
+call strlen
+cmp rax 0x8
+ja r-xdata
+mov rax rbx
+add rsp 0x20
+pop rbx
+pop rsi
+pop rdi
+retn
+lea rcx [ __dos_header ]
+call sub_403470
+test eax eax
+je r-xdata
+movsxd rdx [ r--data ]
+lea rax [ __dos_header ]
+add rax rdx
+movzx edx [ rax + 0x6 ]
+movzx ecx [ rax + 0x14 ]
+test edx edx
+je r-xdata
+movzx ecx cx
+sub edx 0x1
+lea rbx [ rax + rcx + 0x18 ]
+lea rax [ rdx + rdx * 4 ]
+lea rdi [ rbx + rax * 8 + 0x28 ]
+jmp r-xdata
+mov r8d 0x8
+mov rdx rsi
+mov rcx rbx
+call strncmp
+test eax eax
+jne r-xdata
+add rbx 0x28
+cmp rbx rdi
+je r-xdata
+xor ebx ebx
+mov rax rbx
+add rsp 0x20
+pop rbx
+pop rsi
+pop rdi
+retn
+sub_403590
+push rbx
+sub rsp 0x20
+mov rbx rcx
+lea rcx [ __dos_header ]
+call sub_403470
+test eax eax
+je r-xdata
+xor eax eax
+add rsp 0x20
+pop rbx
+retn
+lea rcx [ __dos_header ]
+mov rdx rbx
+sub rdx rcx
+add rsp 0x20
+pop rbx
+jmp sub_4034a0
+sub_403600
+push rbx
+sub rsp 0x20
+mov rbx rcx
+lea rcx [ __dos_header ]
+call sub_403470
+xor edx edx
+test eax eax
+je r-xdata
+mov rax rdx
+add rsp 0x20
+pop rbx
+retn
+movsxd rcx [ r--data ]
+lea rax [ __dos_header ]
+add rax rcx
+movzx ecx [ rax + 0x6 ]
+movzx r8d [ rax + 0x14 ]
+test ecx ecx
+je r-xdata
+movzx r8d r8w
+sub ecx 0x1
+lea rdx [ rax + r8 + 0x18 ]
+lea rax [ rcx + rcx * 4 ]
+lea rax [ rdx + rax * 8 + 0x28 ]
+nop [ rax ] eax
+add rdx 0x28
+cmp rdx rax
+jne r-xdata
+test rbx rbx
+je r-xdata
+test [ rdx + 0x27 ] 0x20
+je r-xdata
+xor edx edx
+sub rbx 0x1
+sub_4036b0
+push rsi
+push rbx
+sub rsp 0x28
+xor ebx ebx
+mov rsi rcx
+lea rcx [ __dos_header ]
+call sub_403470
+test eax eax
+jne r-xdata
+lea rcx [ __dos_header ]
+mov rdx rsi
+sub rdx rcx
+call sub_4034a0
+test rax rax
+je r-xdata
+mov eax ebx
+add rsp 0x28
+pop rbx
+pop rsi
+retn
+mov ebx [ rax + 0x24 ]
+not ebx
+shr ebx 0x1f
+mov eax ebx
+add rsp 0x28
+pop rbx
+pop rsi
+retn
+sub_403700
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x28
+xor ebp ebp
+mov ebx ecx
+lea rcx [ __dos_header ]
+call sub_403470
+test eax eax
+je r-xdata
+mov rax rbp
+add rsp 0x28
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+retn
+movsxd rax [ r--data ]
+lea rsi [ __dos_header ]
+mov edi [ rsi + rax + 0x90 ]
+test edi edi
+je r-xdata
+mov rdx rdi
+mov rcx rsi
+call sub_4034a0
+test rax rax
+je r-xdata
+add rdi rsi
+jne r-xdata
+mov edx [ rdi + 0x4 ]
+test edx edx
+jne r-xdata
+jmp r-xdata
+test ebx ebx
+jg r-xdata
+mov eax [ rdi + 0xc ]
+test eax eax
+je r-xdata
+sub ebx 0x1
+add rdi 0x14
+mov ebp [ rdi + 0xc ]
+add rbp rsi
+xor ebp ebp
+mov rax rbp
+add rsp 0x28
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+retn
+sub_403790
+push rbx
+sub rsp 0x20
+mov rax [ rw-data ]
+test rax rax
+je r-xdata
+xor ecx ecx
+add rsp 0x20
+pop rbx
+retn
+lea rcx [ r--data ]
+call [ LoadLibraryW@IAT ]
+mov [ rw-data ] rax
+jmp r-xdata
+movzx edx [ rax ]
+cmp dl 0x4d
+je r-xdata
+movzx edx [ rax + 0x1 ]
+cmp dl 0x53
+je r-xdata
+cmp dl 0x6d
+jne r-xdata
+movzx edx [ rax + 0x2 ]
+cmp dl 0x56
+je r-xdata
+cmp dl 0x73
+jne r-xdata
+mov ecx ebx
+jmp r-xdata
+movzx edx [ rax + 0x3 ]
+cmp dl 0x43
+je r-xdata
+cmp dl 0x76
+jne r-xdata
+lea ebx [ rcx + 0x1 ]
+call sub_403700
+test rax rax
+je r-xdata
+movzx edx [ rax + 0x4 ]
+cmp dl 0x52
+je r-xdata
+cmp dl 0x63
+jne r-xdata
+movzx edx [ rax + 0x5 ]
+cmp dl 0x54
+je r-xdata
+cmp dl 0x72
+jne r-xdata
+mov rcx rax
+call [ GetModuleHandleA@IAT ]
+test rax rax
+mov [ rw-data ] rax
+jne r-xdata
+cmp dl 0x74
+je r-xdata
+nop [ rax ] eax
+sub edx 0x30
+cmp dl 0x9
+jbe r-xdata
+nop
+sub_403870
+sub rsp 0x28
+mov rax [ rw-data ]
+mov rax [ rax ]
+test rax rax
+je r-xdata
+add rsp 0x28
+retn
+call rax
+mov rax [ rw-data ]
+lea rdx [ rax + 0x8 ]
+mov rax [ rax + 0x8 ]
+mov [ rw-data ] rdx
+test rax rax
+jne r-xdata
+sub_4038b0
+push rsi
+push rbx
+sub rsp 0x28
+mov rax [ r-xdata ]
+cmp eax 0xffffffff
+mov ebx eax
+je r-xdata
+xor ebx ebx
+lea rsi [ r-xdata ]
+jmp r-xdata
+test ebx ebx
+je r-xdata
+lea eax [ rbx + 0x1 ]
+mov edx eax
+cmp [ rsi + rdx * 8 ] 0x0
+jne r-xdata
+lea rcx [ sub_403870 ]
+add rsp 0x28
+pop rbx
+pop rsi
+jmp sub_402880
+lea rsi [ r-xdata ]
+nop
+mov ebx eax
+jmp r-xdata
+mov eax ebx
+call [ rsi + rax * 8 ]
+sub ebx 0x1
+jne r-xdata
+sub_403930
+push r12
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x40
+mov rbx [ rw-data ]
+mov rax 0x2b992ddfa232
+mov [ rsp + 0x20 ] 0x0
+cmp rbx rax
+je r-xdata
+lea rcx [ rsp + 0x20 ]
+call [ GetSystemTimeAsFileTime@IAT ]
+mov r12 [ rsp + 0x20 ]
+call [ GetCurrentProcessId@IAT ]
+mov ebp eax
+call [ GetCurrentThreadId@IAT ]
+mov edi eax
+call [ GetTickCount@IAT ]
+lea rcx [ rsp + 0x30 ]
+mov esi eax
+call [ QueryPerformanceCounter@IAT ]
+xor r12 [ rsp + 0x30 ]
+mov rax 0xffffffffffff
+xor r12 rbp
+xor r12 rdi
+xor r12 rsi
+and r12 rax
+mov rax r12
+cmp r12 rbx
+not rax
+je r-xdata
+not rbx
+mov [ rw-data ] rbx
+add rsp 0x40
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+retn
+mov rax 0xffffd466d2205dcc
+mov r12 0x2b992ddfa233
+jmp r-xdata
+mov [ rw-data ] r12
+mov [ rw-data ] rax
+add rsp 0x40
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+pop r12
+retn
+sub_403a00
+push rbp
+mov rbp rsp
+push rsi
+push rbx
+sub rsp 0x70
+mov rsi rcx
+lea rcx [ rw-data ]
+call [ RtlCaptureContext@IAT ]
+mov rbx [ rw-data ]
+xor r8d r8d
+lea rdx [ rbp - 0x28 ]
+mov rcx rbx
+call [ RtlLookupFunctionEntry@IAT ]
+test rax rax
+mov r9 rax
+je r-xdata
+mov rax [ rbp + 0x8 ]
+mov [ rw-data ] rax
+lea rax [ rbp + 0x8 ]
+mov [ rw-data ] rax
+jmp r-xdata
+lea rax [ rbp - 0x20 ]
+mov [ rsp + 0x38 ] 0x0
+mov r8 rbx
+mov rdx [ rbp - 0x28 ]
+xor ecx ecx
+mov [ rsp + 0x30 ] rax
+lea rax [ rbp - 0x18 ]
+mov [ rsp + 0x28 ] rax
+lea rax [ rw-data ]
+mov [ rsp + 0x20 ] rax
+call [ RtlVirtualUnwind@IAT ]
+mov rax [ rw-data ]
+xor ecx ecx
+mov [ rw-data ] rsi
+mov [ rw-data ] 0xc0000409
+mov [ rw-data ] 0x1
+mov [ rw-data ] rax
+mov rax [ rw-data ]
+mov [ rbp - 0x40 ] rax
+mov rax [ rw-data ]
+mov [ rbp - 0x38 ] rax
+call [ SetUnhandledExceptionFilter@IAT ]
+lea rcx [ rw-data ]
+call [ UnhandledExceptionFilter@IAT ]
+call [ GetCurrentProcess@IAT ]
+mov edx 0xc0000409
+mov rcx rax
+call [ TerminateProcess@IAT ]
+call abort
+sub_403b00
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x28
+lea rcx [ rw-data ]
+call [ EnterCriticalSection@IAT ]
+mov rbx [ rw-data ]
+test rbx rbx
+je r-xdata
+mov rax [ LeaveCriticalSection@IAT ]
+lea rcx [ rw-data ]
+add rsp 0x28
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+jmp rax
+mov rdi [ TlsGetValue@IAT ]
+mov rsi [ GetLastError@IAT ]
+nop
+mov rbx [ rbx + 0x10 ]
+test rbx rbx
+jne r-xdata
+test rbp rbp
+je r-xdata
+mov ecx [ rbx ]
+call rdi
+mov rbp rax
+call rsi
+test eax eax
+jne r-xdata
+mov rax [ rbx + 0x8 ]
+mov rcx rbp
+call rax
+sub_403b70
+push rbp
+push rdi
+push rsi
+push rbx
+sub rsp 0x28
+mov eax [ rw-data ]
+xor ebx ebx
+mov edi ecx
+mov rsi rdx
+test eax eax
+jne r-xdata
+mov edx 0x18
+mov ecx 0x1
+call calloc
+test rax rax
+mov rbp rax
+je r-xdata
+mov eax ebx
+add rsp 0x28
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+retn
+mov ebx 0xffffffff
+jmp r-xdata
+mov [ rax ] edi
+mov [ rax + 0x8 ] rsi
+lea rcx [ rw-data ]
+call [ EnterCriticalSection@IAT ]
+mov rax [ rw-data ]
+lea rcx [ rw-data ]
+mov [ rw-data ] rbp
+mov [ rbp + 0x10 ] rax
+call [ LeaveCriticalSection@IAT ]
+mov eax ebx
+add rsp 0x28
+pop rbx
+pop rsi
+pop rdi
+pop rbp
+retn
+sub_403bf0
+push rbx
+sub rsp 0x20
+mov eax [ rw-data ]
+mov ebx ecx
+test eax eax
+jne r-xdata
+lea rcx [ rw-data ]
+call [ EnterCriticalSection@IAT ]
+mov rax [ rw-data ]
+test rax rax
+je r-xdata
+xor eax eax
+add rsp 0x20
+pop rbx
+retn
+lea rcx [ rw-data ]
+call [ LeaveCriticalSection@IAT ]
+mov edx [ rax ]
+cmp edx ebx
+jne r-xdata
+mov rcx [ rax + 0x10 ]
+test rcx rcx
+jne r-xdata
+jmp r-xdata
+mov edx [ rcx ]
+cmp edx ebx
+je r-xdata
+mov rdx [ rax + 0x10 ]
+mov rcx rax
+mov [ rw-data ] rdx
+jmp r-xdata
+mov rdx [ rcx + 0x10 ]
+mov [ rax + 0x10 ] rdx
+mov rax rcx
+call free
+lea rcx [ rw-data ]
+call [ LeaveCriticalSection@IAT ]
+jmp r-xdata
+xor eax eax
+add rsp 0x20
+pop rbx
+retn
+sub_403c90
+sub rsp 0x28
+cmp edx 0x1
+je r-xdata
+mov eax [ rw-data ]
+test eax eax
+je r-xdata
+jb r-xdata
+lea rcx [ rw-data ]
+call [ InitializeCriticalSection@IAT ]
+jmp r-xdata
+mov eax 0x1
+mov [ rw-data ] 0x1
+add rsp 0x28
+retn
+mov eax [ rw-data ]
+test eax eax
+jne r-xdata
+cmp edx 0x3
+je r-xdata
+call sub_403b00
+jmp r-xdata
+mov eax [ rw-data ]
+cmp eax 0x1
+jne r-xdata
+mov eax [ rw-data ]
+test eax eax
+je r-xdata
+mov eax 0x1
+add rsp 0x28
+retn
+lea rcx [ rw-data ]
+mov [ rw-data ] 0x0
+call [ DeleteCriticalSection@IAT ]
+jmp r-xdata
+call sub_403b00
+jmp r-xdata
+sub_403d30
+push rcx
+push rax
+cmp rax 0x1000
+lea rcx [ rsp + 0x18 ]
+jb r-xdata
+sub rcx rax
+or [ rcx ] 0x0
+pop rax
+pop rcx
+retn
+sub rcx 0x1000
+or [ rcx ] 0x0
+sub rax 0x1000
+cmp rax 0x1000
+ja r-xdata
+sub_404060
+sub rsp 0x48
+call sub_403910
+lea rax [ r--data ]
+lea rcx [ rsp + 0x20 ]
+mov [ rsp + 0x30 ] 0x0
+mov [ rsp + 0x38 ] 0x0
+mov [ rsp + 0x20 ] rax
+lea rax [ sub_4014f0 ]
+mov [ rsp + 0x28 ] rax
+call [ StartServiceCtrlDispatcherA@IAT ]
+xor eax eax
+add rsp 0x48
+retn
+sub_401000
+retn
+sub_4014b0
+sub rsp 0x28
+mov [ rw-data ] 0x1
+call sub_403930
+call sub_401180
+nop
+nop
+add rsp 0x28
+retn
+_start
+sub rsp 0x28
+mov [ rw-data ] 0x0
+call sub_403930
+call sub_401180
+nop
+nop
+add rsp 0x28
+retn
+LoadUserProfileA
+jmp [ LoadUserProfileA@IAT ]
+_TLS_Entry_1
+sub rsp 0x28
+test edx edx
+je r-xdata
+call sub_403c90
+mov eax 0x1
+add rsp 0x28
+retn
+cmp edx 0x3
+je r-xdata
+mov eax 0x1
+add rsp 0x28
+retn
+sub_402790
+xor eax eax
+retn
+__lconv_init
+mov rax [ __lconv_init@IAT ]
+jmp rax
+sub_402880
+sub rsp 0x28
+call sub_4027d0
+cmp rax 0x1
+sbb eax eax
+add rsp 0x28
+retn
+sub_402da0
+mov [ rw-data ] rcx
+jmp __setusermatherr
+sub_402e90
+xor eax eax
+retn
+sub_403470
+xor eax eax
+cmp [ rcx ] 0x5a4d
+je r-xdata
+movsxd rdx [ rcx + 0x3c ]
+add rcx rdx
+cmp [ rcx ] 0x4550
+jne r-xdata
+retn
+xor eax eax
+cmp [ rcx + 0x18 ] 0x20b
+sete al
+retn
+sub_4035d0
+sub rsp 0x28
+lea rcx [ __dos_header ]
+call sub_403470
+xor edx edx
+test eax eax
+je r-xdata
+mov eax edx
+add rsp 0x28
+retn
+movsxd rax [ r--data ]
+lea rdx [ __dos_header ]
+movzx edx [ rdx + rax + 0x6 ]
+sub_403680
+sub rsp 0x28
+lea rcx [ __dos_header ]
+call sub_403470
+xor edx edx
+test eax eax
+lea rax [ __dos_header ]
+cmovne rdx rax
+mov rax rdx
+add rsp 0x28
+retn
+sub_403860
+fninit
+retn
+sub_403910
+mov eax [ rw-data ]
+test eax eax
+je r-xdata
+mov [ rw-data ] 0x1
+jmp sub_4038b0
+retn
+_strdup
+jmp [ _strdup@IAT ]
+sub_403d78
+add [ rax ] al
+add [ rax ] al
+add [ rax ] al
+add [ rax ] al
+jmp [ __C_specific_handler@IAT ]
+__getmainargs
+jmp [ __getmainargs@IAT ]
+__set_app_type
+jmp [ __set_app_type@IAT ]
+memcpy
+jmp [ memcpy@IAT ]
+malloc
+jmp [ malloc@IAT ]
+strlen
+jmp [ strlen@IAT ]
+_cexit
+jmp [ _cexit@IAT ]
+_amsg_exit
+jmp [ _amsg_exit@IAT ]
+_initterm
+jmp [ _initterm@IAT ]
+exit
+jmp [ exit@IAT ]
+_vsnprintf
+jmp [ _vsnprintf@IAT ]
+strchr
+jmp [ strchr@IAT ]
+strstr
+jmp [ strstr@IAT ]
+atoi
+jmp [ atoi@IAT ]
+sprintf
+jmp [ sprintf@IAT ]
+memset
+jmp [ memset@IAT ]
+free
+jmp [ free@IAT ]
+__imp___lconv_init
+jmp [ __lconv_init@IAT ]
+_onexit
+jmp [ _onexit@IAT ]
+_lock
+jmp [ _lock@IAT ]
+__dllonexit
+jmp [ __dllonexit@IAT ]
+_unlock
+jmp [ _unlock@IAT ]
+signal
+jmp [ signal@IAT ]
+__setusermatherr
+jmp [ __setusermatherr@IAT ]
+__iob_func
+jmp [ __iob_func@IAT ]
+fprintf
+jmp [ fprintf@IAT ]
+fwrite
+jmp [ fwrite@IAT ]
+vfprintf
+jmp [ vfprintf@IAT ]
+abort
+jmp [ abort@IAT ]
+strncmp
+jmp [ strncmp@IAT ]
+calloc
+jmp [ calloc@IAT ]
+sub_403e78
+add [ rax ] al
+add [ rax ] al
+add [ rax ] al
+add [ rax ] al
+jmp [ RegisterServiceCtrlHandlerA@IAT ]
+SetServiceStatus
+jmp [ SetServiceStatus@IAT ]
+StartServiceCtrlDispatcherA
+jmp [ StartServiceCtrlDispatcherA@IAT ]
+GetUserNameA
+jmp [ GetUserNameA@IAT ]
+LogonUserA
+jmp [ LogonUserA@IAT ]
+CreateProcessAsUserA
+jmp [ CreateProcessAsUserA@IAT ]
+OpenProcessToken
+jmp [ OpenProcessToken@IAT ]
+DuplicateTokenEx
+jmp [ DuplicateTokenEx@IAT ]
+ImpersonateNamedPipeClient
+jmp [ ImpersonateNamedPipeClient@IAT ]
+OpenThreadToken
+jmp [ OpenThreadToken@IAT ]
+RevertToSelf
+jmp [ RevertToSelf@IAT ]
+AllocateAndInitializeSid
+jmp [ AllocateAndInitializeSid@IAT ]
+SetEntriesInAclA
+jmp [ SetEntriesInAclA@IAT ]
+InitializeSecurityDescriptor
+jmp [ InitializeSecurityDescriptor@IAT ]
+SetSecurityDescriptorDacl
+jmp [ SetSecurityDescriptorDacl@IAT ]
+sub_403ef8
+add [ rax ] al
+add [ rax ] al
+add [ rax ] al
+add [ rax ] al
+jmp [ Sleep@IAT ]
+SetUnhandledExceptionFilter
+jmp [ SetUnhandledExceptionFilter@IAT ]
+GetProcAddress
+jmp [ GetProcAddress@IAT ]
+GetStartupInfoA
+jmp [ GetStartupInfoA@IAT ]
+CreateThread
+jmp [ CreateThread@IAT ]
+CloseHandle
+jmp [ CloseHandle@IAT ]
+GetLastError
+jmp [ GetLastError@IAT ]
+WriteFile
+jmp [ WriteFile@IAT ]
+FlushFileBuffers
+jmp [ FlushFileBuffers@IAT ]
+GetOverlappedResult
+jmp [ GetOverlappedResult@IAT ]
+GetOEMCP
+jmp [ GetOEMCP@IAT ]
+GetCurrentProcessId
+jmp [ GetCurrentProcessId@IAT ]
+CreateNamedPipeA
+jmp [ CreateNamedPipeA@IAT ]
+ConnectNamedPipe
+jmp [ ConnectNamedPipe@IAT ]
+SetHandleInformation
+jmp [ SetHandleInformation@IAT ]
+ResetEvent
+jmp [ ResetEvent@IAT ]
+ReadFile
+jmp [ ReadFile@IAT ]
+WaitForMultipleObjects
+jmp [ WaitForMultipleObjects@IAT ]
+GetExitCodeProcess
+jmp [ GetExitCodeProcess@IAT ]
+DisconnectNamedPipe
+jmp [ DisconnectNamedPipe@IAT ]
+GetCurrentProcess
+jmp [ GetCurrentProcess@IAT ]
+GetCurrentThread
+jmp [ GetCurrentThread@IAT ]
+TerminateProcess
+jmp [ TerminateProcess@IAT ]
+LocalAlloc
+jmp [ LocalAlloc@IAT ]
+CreateEventA
+jmp [ CreateEventA@IAT ]
+RtlAddFunctionTable
+jmp [ RtlAddFunctionTable@IAT ]
+VirtualQuery
+jmp [ VirtualQuery@IAT ]
+VirtualProtect
+jmp [ VirtualProtect@IAT ]
+GetModuleHandleA
+jmp [ GetModuleHandleA@IAT ]
+LoadLibraryW
+jmp [ LoadLibraryW@IAT ]
+GetSystemTimeAsFileTime
+jmp [ GetSystemTimeAsFileTime@IAT ]
+GetCurrentThreadId
+jmp [ GetCurrentThreadId@IAT ]
+GetTickCount
+jmp [ GetTickCount@IAT ]
+QueryPerformanceCounter
+jmp [ QueryPerformanceCounter@IAT ]
+RtlCaptureContext
+jmp [ RtlCaptureContext@IAT ]
+RtlLookupFunctionEntry
+jmp [ RtlLookupFunctionEntry@IAT ]
+RtlVirtualUnwind
+jmp [ RtlVirtualUnwind@IAT ]
+UnhandledExceptionFilter
+jmp [ UnhandledExceptionFilter@IAT ]
+EnterCriticalSection
+jmp [ EnterCriticalSection@IAT ]
+TlsGetValue
+jmp [ TlsGetValue@IAT ]
+LeaveCriticalSection
+jmp [ LeaveCriticalSection@IAT ]
+DeleteCriticalSection
+jmp [ DeleteCriticalSection@IAT ]
+InitializeCriticalSection
+jmp [ InitializeCriticalSection@IAT ]

@@ -1,0 +1,312 @@
+_start
+push ebp
+mov ebp esp
+push 0xffffffff
+push rwxdata
+push rwxdata
+mov eax [ fs : 0x0 ]
+push eax
+mov [ fs : 0x0 ] esp
+sub esp 0x68
+push ebx
+push esi
+push edi
+mov [ ebp - 0x12 ] esp
+xor ebx ebx
+mov [ ebp - 0x4 ] ebx
+push 0x2
+add eax 0x0
+add ebx 0x0
+pushad
+nop
+nop
+je rwxdata
+nop
+jne rwxdata
+call sub_40d455
+rcl eax 0x0
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add ch al
+rol [ eax ] 0x1
+add cl al
+rol [ eax ] 0x1
+add bh ah
+rol [ eax ] 0x1
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add ch dl
+rol [ eax ] cl
+add bh ah
+rol [ eax ] 0x1
+add bl dl
+rol [ eax ] 0x1
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add bh dl
+rol [ eax ] 0x1
+add bl dl
+rol [ eax ] 0x1
+add bl ah
+rol [ eax ] cl
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add bh ah
+rol [ eax ] cl
+add bl ah
+rol [ eax ] cl
+add ch dh
+rol [ eax ] cl
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add cl bh
+rol [ eax ] cl
+add ch dh
+rol [ eax ] cl
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+nop
+jne rwxdata
+nop
+jmp rwxdata
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ ebp + 0x59 ] cl
+dec ebp
+push ebx
+push esi
+inc ebx
+push edx
+push esp
+insb
+insb
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+dec ebp
+pop ecx
+inc ecx
+inc esp
+push esi
+inc ecx
+push eax
+dec ecx
+xor esi [ edx ]
+insb
+insb
+add [ eax ] al
+jae rwxdata
+add [ eax ] al
+test ecx edx
+add [ eax ] al
+cdq
+rol [ eax ] 0x1
+add [ ecx - 0x43ffff2f ] ch
+rol [ eax ] 0x1
+add dl cl
+rol [ eax ] 0x1
+add cl bl
+rol [ eax ] 0x1
+add ch ch
+rol [ eax ] 0x1
+add [ edx ] al
+rol [ eax ] cl
+add [ esi ] bl
+rol [ eax ] cl
+add [ edx + edx * 8 ] dh
+add [ eax ] al
+dec edi
+rol [ eax ] cl
+add [ edx - 0x2e ] ch
+add [ eax ] al
+adc edx 0xd29b0000
+add [ eax ] al
+mov ch 0xd2
+add [ eax ] al
+nop
+je rwxdata
+sub_40d455
+pop ebp
+add ebp 0xffffffb7
+mov eax [ ebp + 0x44d ]
+or eax eax
+je rwxdata
+inc [ ebp + 0x44d ]
+mov eax [ esp + 0x24 ]
+mov [ ebp + 0x449 ] eax
+lea esi [ ebp + 0x3d5 ]
+push esi
+call [ ebp + 0xeb ]
+lea esi [ ebp + 0x438 ]
+push esi
+push eax
+call [ ebp + 0xe7 ]
+mov [ ebp + 0x445 ] eax
+push 0x4
+push 0x1000
+push [ ebp + 0x418 ]
+push 0x0
+call [ ebp + 0x445 ]
+push eax
+mov [ ebp + 0x451 ] eax
+mov ebx [ ebp + 0x414 ]
+add ebx ebp
+push ebx
+push [ ebp + 0x434 ]
+call sub_40d4d9
+push eax
+push ebx
+call sub_40d500
+pop edx
+push ebp
+jmp edx
+push ebp
+jmp [ ebp + 0x451 ]
+sub_40d4d9
+pushad
+mov ecx [ esp + 0x24 ]
+mov esi [ esp + 0x28 ]
+mov ah 0x0
+mov al [ esi ]
+sub al ah
+xor al 0x25
+mov dl al
+shl al 0x4
+shr dl 0x4
+add dl al
+mov [ esi ] dl
+inc esi
+inc ah
+dec ecx
+jne rwxdata
+popad
+retn 0x8
+sub_40d500
+pushad
+mov esi [ esp + 0x24 ]
+mov edi [ esp + 0x28 ]
+cld
+mov dl 0x80
+xor ebx ebx
+movsb [ edi ] [ esi ]
+mov bl 0x2
+xor ecx ecx
+call sub_40d5a3
+nop
+jae rwxdata
+nop
+call sub_40d5b2
+nop
+sub ecx ebx
+nop
+jne rwxdata
+nop
+xor eax eax
+nop
+call sub_40d5a3
+nop
+jae rwxdata
+nop
+xchg ecx eax
+dec eax
+shl eax 0x8
+lodsb [ esi ]
+nop
+call sub_40d5af
+nop
+cmp eax 0x7d00
+jae rwxdata
+call sub_40d5af
+nop
+jmp rwxdata
+nop
+lodsb [ esi ]
+nop
+shr eax 0x1
+nop
+je rwxdata
+nop
+mov bl 0x2
+nop
+inc ecx
+mov al 0x10
+nop
+inc ecx
+nop
+cmp ah 0x5
+jae rwxdata
+mov eax ebp
+nop
+mov bl 0x1
+sub edi [ esp + 0x28 ]
+nop
+mov [ esp + 0x1c ] edi
+popad
+retn 0x8
+nop
+adc ecx ecx
+nop
+jmp rwxdata
+nop
+call sub_40d5a3
+nop
+adc al al
+nop
+jae rwxdata
+nop
+jne rwxdata
+call sub_40d5a3
+jae rwxdata
+nop
+inc ecx
+cmp eax 0x7f
+ja rwxdata
+nop
+push esi
+mov esi edi
+sub esi eax
+[ edi ] [ esi ]
+pop esi
+nop
+jmp rwxdata
+stosb [ edi ]
+jmp rwxdata
+nop
+xchg ebp eax
+sub_40d5a3
+add dl dl
+jne rwxdata
+retn
+nop
+mov dl [ esi ]
+inc esi
+adc dl dl
+nop
+sub_40d5af
+nop
+xor ecx ecx
+sub_40d5b2
+inc ecx
+call sub_40d5a3
+adc ecx ecx
+call sub_40d5a3
+jb rwxdata
+retn

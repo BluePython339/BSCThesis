@@ -1,0 +1,5582 @@
+sub_4023e4
+add [ eax ] al
+jo r-xdata
+jpo r-xdata
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x2b
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+retn
+
+add [ eax ] al
+add al 0x72
+sub_4023f6
+add [ eax ] al
+jo r-xdata
+jpo r-xdata
+adc [ eax ] eax
+add [ esi ] al
+adc al [ eax ]
+sub [ 0x260a0000 ] bl
+add al [ esi ]
+sub [ esi ] ch
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+
+add [ eax ] al
+add al 0x72
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x6
+outsd
+add [ cs : eax ] al
+or al [ edx ]
+jpo r-xdata
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x6
+outsd
+das
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+mov [ eax ] 0x116f7000
+add [ eax ] al
+push es
+sub al 0x2b
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+mov [ eax ] 0x116f7000
+add [ eax ] al
+push es
+adc al [ eax ]
+sub [ 0x260a0000 ] bl
+add al [ esi ]
+sub [ edi ] ch
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+add [ eax ] al
+add al 0x72
+
+add [ eax ] al
+add al 0x72
+sub_40245e
+add [ eax ] al
+jo r-xdata
+add al 0x72
+mov edi 0x6f700000
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x23
+add bh [ ebx + 0x3 ]
+add [ eax ] al
+add al 0x73
+add [ ss : eax ] al
+or cl [ edx ]
+push es
+add bh [ ebx + 0x9 ]
+add [ eax ] al
+add al 0x6f
+xor [ eax ] eax
+add [ edx ] cl
+outsd
+aaa
+add [ eax ] al
+or al [ esi ]
+outsd
+cmp [ eax ] al
+add [ edx ] cl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+rol [ eax ] cl
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+cmp [ edx + 0x73000000 ] eax
+cmp [ eax ] eax
+add [ edx ] cl
+or eax [ edx ]
+jpo r-xdata
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x23
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+
+fild [ eax ]
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x1b
+pop es
+outsd
+cmp al [ eax ]
+add [ edx ] cl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+fild [ eax ]
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+outsd
+cmp eax [ eax ]
+add [ edx ] cl
+pop es
+outsd
+cmp al [ eax ]
+add [ edx ] cl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+rol [ eax ] cl
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+outsd
+cmp al 0x0
+add [ edx ] cl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+rol [ eax ] cl
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+sub [ 0x70a0000 ] bh
+outsd
+cmp al [ eax ]
+add [ edx ] cl
+pop ss
+outsd
+add [ eax ] al
+or al [ edi ]
+outsd
+cmp al [ eax ]
+add [ edx ] cl
+push ss
+outsd
+aas
+add [ eax ] al
+or al [ edi ]
+outsd
+inc eax
+add [ eax ] al
+or ah [ esi ]
+add ch [ eax ]
+inc ecx
+add [ eax ] al
+or ch [ edx ]
+and al [ edx ]
+sub [ edx ] al
+add [ edx ] cl
+sub al [ es : edx + 0x436f04 ]
+add [ edx ] cl
+add [ eax ] al
+add al 0x72
+sub_4025b0
+xor al 0x0
+add [ ecx ] al
+pop ds
+sbb ecx [ esp + esi + 0x6f010000 ]
+inc esp
+add [ eax ] al
+or ch [ esi + eax ]
+add ch [ eax ]
+or [ eax ] al
+add [ esi ] al
+sub bh [ edx + 0x3 ]
+sub al 0x13
+add bh [ ebx + 0x8 ]
+add [ eax ] al
+add al 0x2c
+or eax [ edx ]
+jpo r-xdata
+add al [ ebx ]
+sub [ esi ] al
+add [ edx ] cl
+sub al [ ebx ]
+xor [ edi ] al
+add [ ebp + 0x1 ] bh
+add [ eax ] al
+add [ edx ] al
+jae r-xdata
+add [ eax ] al
+add al 0x6f
+inc ebp
+add [ eax ] al
+or al [ edx ]
+add ebp [ eax ]
+inc esi
+add [ eax ] al
+or ch [ edx ]
+add esi [ eax ]
+pop es
+add bh [ ebx + 0x9 ]
+add [ eax ] al
+or bh [ ebp + 0x9 ]
+add [ eax ] al
+add al 0x2
+sub [ eax ] cl
+add [ edx ] cl
+add bh [ ebx + 0x9 ]
+add [ eax ] al
+add al 0x28
+dec ecx
+add [ eax ] al
+or ch [ edi + 0x21 ]
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+add bh [ ebx + 0x9 ]
+add [ eax ] al
+add al 0x17
+outsd
+dec ebp
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+add bh [ ebx + 0x9 ]
+add [ eax ] al
+add al 0x16
+outsd
+dec edx
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+enter 0x0 0x0
+jae r-xdata
+add [ eax ] al
+add al 0x20
+enter 0x0 0x0
+and al cl
+add [ eax ] al
+add [ ebx + 0x4f ] dh
+dec esi
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+add [ eax ] al
+add al 0x72
+out 0x0 eax
+add [ eax + 0x6f ] dh
+or al [ edx ]
+jpo r-xdata
+add [ eax ] al
+add al 0x41
+push ss
+sbb [ esi ] edx
+jae r-xdata
+add [ eax ] al
+add al 0x72
+dec edi
+add [ eax ] al
+jo r-xdata
+add [ eax ] al
+or ch [ eax ]
+push edi
+add [ eax ] al
+or al [ edx ]
+pop ss
+sub [ eax ] bl
+add [ edx ] cl
+add dl [ edi ]
+outsd
+pop ecx
+add [ eax ] al
+or al [ edx ]
+push ss
+sub [ edx ] bl
+add [ edx ] cl
+add ch [ eax ]
+dec ecx
+add [ eax ] al
+or ch [ edi + 0x21 ]
+add [ eax ] al
+or al [ edx ]
+and bl cl
+add [ eax ] al
+add [ eax ] ah
+
+add [ eax ] al
+or ch [ edi + 0x50 ]
+add bh [ ebx + 0x9 ]
+add [ eax ] al
+add al 0x16
+outsd
+push ecx
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+outsd
+push eax
+add [ eax ] al
+or ch [ edi + 0x24 ]
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+add [ edx ] cl
+add ah [ eax ]
+
+add [ eax ] al
+or ch [ edi + 0x53 ]
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+jae r-xdata
+push es
+add [ eax ] al
+add al 0x2
+inc [ esi ]
+or al [ eax ]
+add [ esi ] al
+or ch [ edi + 0x4c ]
+add [ eax ] al
+add [ eax ] al
+add al 0x1a
+sbb al 0x73
+daa
+add [ eax ] al
+push es
+jae r-xdata
+add [ eax ] al
+add al 0x2
+inc [ esi ]
+pop es
+add [ eax ] al
+pop esp
+add [ eax ] al
+or al [ edx ]
+jpo r-xdata
+add [ eax ] al
+or ch [ edi + 0x55 ]
+add [ eax ] al
+or al [ edx ]
+and al [ eax ]
+add al al
+inc eax
+and al [ eax ]
+add [ eax + 0x41 ] dl
+jae r-xdata
+push ss
+sub [ esi ] bl
+add [ edx ] cl
+add dl [ esi ]
+add [ eax ] al
+add al 0x6f
+pop ebp
+add [ eax ] al
+or al [ edx ]
+sub [ edi ] bl
+add [ edx ] cl
+add dl [ esi ]
+sub [ eax ] ah
+add [ edx ] cl
+add dh [ edx - 0x7 ]
+add [ eax ] al
+jo r-xdata
+push ss
+add [ eax ] al
+or al [ edx ]
+sub [ ecx ] cl
+add [ edx ] cl
+sub [ ebp ] ah
+add [ edx ] cl
+add al [ edx ]
+inc [ esi ]
+dec esi
+add [ eax ] al
+or al [ edx ]
+push ss
+sub [ ecx ] ah
+add [ edx ] cl
+add dl [ esi ]
+sub [ edx ] ah
+add [ edx ] cl
+add bl [ eax ]
+sub [ ebx ] ah
+add [ edx ] cl
+add dl [ esi ]
+sub [ eax + eax ] ah
+add [ edx + ebp ] al
+add [ eax ] al
+or ch [ eax ]
+add [ eax ] al
+or al [ edx ]
+add bh dh
+push es
+pop es
+add [ eax ] al
+push es
+jae r-xdata
+or al [ edx ]
+jb r-xdata
+add [ fs : eax ] al
+add [ eax ] al
+jo r-xdata
+jo r-xdata
+add [ eax ] al
+add [ eax + eax ] al
+add [ ecx ] dl
+add ch [ eax ]
+pop ss
+add [ eax ] al
+or al [ edx ]
+jae r-xdata
+add [ eax ] eax
+add [ eax ] al
+or ch [ eax ]
+push ebp
+add [ eax ] al
+or al [ edx ]
+add bh dh
+push es
+or [ eax ] eax
+add [ esi ] al
+jae r-xdata
+add ch [ eax ]
+imul eax [ eax ] 0x0
+or ch [ edx ]
+add [ eax ] al
+adc esi [ eax ]
+add eax 0x15200
+sub bl [ esi ]
+pop es
+add [ eax ] al
+push es
+jae r-xdata
+sub al 0x0
+add [ edx ] cl
+add ch [ eax ]
+dec ecx
+add [ eax ] al
+or ch [ eax ]
+add [ gs : eax ] al
+or al [ edx ]
+add bh dh
+push es
+add [ edx ] cl
+sub eax 0x7160920
+push es
+add [ eax ] eax
+jo r-xdata
+or bh [ ebp + 0xb ]
+add [ eax ] al
+add al 0x72
+add eax 0x1f700001
+or [ ebx + 0x6e ] esi
+add [ eax ] al
+or cl [ edx ]
+jb r-xdata
+add [ eax ] al
+or ch [ eax ]
+add [ bx + si ] al
+or al [ edx ]
+push ss
+sub [ eax ] ch
+add [ edx ] cl
+add ch [ eax ]
+imul eax [ eax ] 0x1a2a0a00
+jle r-xdata
+add [ edx ] cl
+mov [ 0xb7b02 ] al
+add [ eax + ecx ] al
+or [ esi ] edx
+0x726f 0x140a
+or al 0x2b
+jle r-xdata
+or [ esi ] edx
+0x14372 0x6f70
+jno r-xdata
+or [ esi ] edx
+pop es
+add [ eax ] al
+add al 0x8
+outsd
+outsd
+outsd
+add [ eax ] al
+or cl [ 0x13698e09 ]
+pop es
+adc [ edi ] eax
+pop ss
+pop ecx
+inc ebp
+add eax [ eax ]
+add [ eax ] al
+add eax 0x3d000000
+add [ eax ] al
+add [ ebp ] ah
+add [ eax ] al
+cmp [ esi + 0x8000000 ] dh
+cmp [ eax + 0x2000000 ] esi
+jpo r-xdata
+adc [ ecx + ebx ] eax
+or [ ebx + 0x6e ] esi
+add [ eax ] al
+or cl [ ebx ]
+adc al 0xc
+add edx [ ebx ]
+add eax 0x38061316
+in al dx
+add [ eax ] al
+add [ ecx ] dl
+add eax 0x139a0611
+add al 0x6
+sub [ edx ] ch
+add [ edx ] cl
+je r-xdata
+add [ eax ] al
+add al 0x2a
+push esi
+jae r-xdata
+or [ edi + 0x70 ] ch
+add [ eax ] al
+or ch [ 0xb7b0211 ]
+sub al 0x1f
+add bh [ ebx + 0xb ]
+add [ eax ] al
+add al 0x8
+outsd
+jo r-xdata
+push ds
+add [ eax ] al
+add al 0x2a
+add [ eax ] al
+add al [ eax + 0x400000a ]
+or al [ eax ]
+add [ eax ] al
+push es
+inc ebx
+add [ eax ] eax
+jo r-xdata
+add [ eax ] eax
+jo r-xdata
+add [ eax ] al
+add al 0x8
+jb r-xdata
+add [ edx ] cl
+sub eax 0xb7b0211
+jae r-xdata
+jno r-xdata
+jb r-xdata
+jne r-xdata
+insd
+push edx
+jae r-xdata
+add [ edx ] cl
+mov [ 0xb7b02 ] al
+add [ eax + ecx ] al
+or [ eax ] ebx
+0x726f 0x140a
+or al 0x11
+push es
+pop ss
+pop eax
+adc eax [ esi ]
+adc [ esi ] eax
+adc [ 0x93f698e ] eax
+add [ edx ] cl
+or [ edi ] edx
+0x8562b0c 0x1f2c
+add bh [ ebx + 0xb ]
+add [ eax ] al
+add al 0x8
+outsd
+jo r-xdata
+xor [ cs : esi ] ch
+arpl [ ebp + 0x73 ] sp
+push edx
+jne r-xdata
+add [ edx ] cl
+sub eax 0xb7b0211
+add [ eax ] al
+add al 0x8
+jb r-xdata
+add [ eax ] eax
+add [ eax ] eax
+add [ eax ] al
+add [ eax ] al
+or al 0x0
+je r-xdata
+xor [ esi ] ch
+je r-xdata
+jne r-xdata
+arpl [ ebp + 0x73 ] sp
+push edx
+jae r-xdata
+or edi edi
+add [ eax ] eax
+jo r-xdata
+push esp
+xor [ cs : esi ] ch
+add [ esi + 0x32 ] dh
+jb r-xdata
+insd
+push edx
+jae r-xdata
+jne r-xdata
+or eax [ eax ]
+add [ ebx + eax ] al
+outsd
+jae r-xdata
+jb r-xdata
+add [ eax ] al
+push ss
+add [ eax ] al
+add [ eax + eax ] al
+add [ eax ] al
+add eax [ eax ]
+add [ eax ] al
+add al 0x0
+add [ eax ] al
+add eax 0x1000000
+add [ eax ] al
+add [ eax + eax ] al
+add [ eax ] al
+add al [ eax ]
+add [ eax ] al
+add [ eax ] al
+or al [ eax ]
+add [ eax ] eax
+add [ eax ] al
+add [ eax ] al
+push es
+add [ ecx ] bh
+jb r-xdata
+add [ eax ] al
+add al 0x0
+outsb
+jae r-xdata
+push ebx
+dec edx
+inc edx
+cmp eax 0x7475656e
+jne r-xdata
+jne r-xdata
+arpl [ ebp + 0x52 ] sp
+popad
+jb r-xdata
+add [ edx ] cl
+sub al [ eax ]
+add [ eax ] al
+add [ eax + eax - 0x35320000 ] dh
+out dx eax
+mov esi 0x1
+xchg ecx eax
+add [ eax ] al
+add [ ebx + edx * 2 + 0x79 ] ch
+add [ edx ] cl
+or [ edi ] edx
+0xb7b020c 0x0
+add al 0x8
+outsd
+jo r-xdata
+or al [ eax ]
+xchg ebp eax
+add [ eax - 0x50fff200 ] al
+add [ edx - 0x22fffa00 ] bl
+add ah cl
+add [ esi ] al
+add [ esi ] cl
+add ecx edi
+add [ edx ] dl
+add [ edx + 0x6017301 ] al
+add [ eax + 0xa007201 ] bl
+add ah al
+add [ eax - 0x7fff200 ] eax
+add edx esp
+add [ edx ] ecx
+add [ edx ] ch
+add al [ eax + 0x7e000e00 ]
+add bl [ edi + 0x2 ]
+push es
+add bl ah
+add dl cl
+add al [ esi ]
+add dl bh
+add dl cl
+add al [ esi ]
+add [ edi ] dl
+add edx ecx
+add al [ esi ]
+add [ esi ] dh
+add edx ecx
+add al [ esi ]
+add [ edi + 0x3 ] cl
+rol [ edx ] 0x1
+push es
+add [ eax + 0x3 ] ch
+rol [ edx ] 0x1
+push es
+add [ ebx + 0x602d103 ] al
+add [ esi + 0x602d103 ] bl
+add dh dl
+add esi [ edi - 0x15fff9fd ]
+add esi [ edi - 0x7fff9fd ]
+add edx ecx
+add al [ esi ]
+add [ ecx ] dl
+add al 0xd1
+add al [ esi ]
+add [ ecx + 0x4 ] al
+add al 0x63
+add [ ebp + 0x4 ] dl
+add [ eax ] al
+push es
+add [ esp + eax + 0x60464 ] al
+movsb [ edi ] [ esi ]
+add al 0x64
+add al 0x6
+add dl al
+add al 0x72
+add [ edx ] cl
+add ch dl
+add al 0x80
+add [ esi ] cl
+add [ edx ] dh
+add eax 0x6051a
+dec ecx
+add eax 0x6042e
+add ax 0x464
+push es
+add [ ecx + 0x6007205 ] al
+add [ esi + 0x6007205 ] al
+add [ edx + 0xe02d105 ] ch
+add al al
+add eax 0xe01e2
+fld [ 0x601e2 ]
+out dx al
+add eax 0x120072
+or [ esi ] eax
+jae r-xdata
+add [ ebx ] ah
+push ebp
+push ebx
+add [ eax ] al
+add [ ebx + edx ] al
+insb
+sub al 0x20
+push eax
+jne r-xdata
+add [ eax ] al
+jb r-xdata
+cmp eax 0x7475656e
+jne r-xdata
+arpl [ ebp + 0x53 ] sp
+je r-xdata
+and [ eax + 0x75 ] dl
+bound ebp [ ecx + ebp * 2 + 0x63 ]
+dec ebx
+jns r-xdata
+and [ ebp + 0x73 ] ch
+arpl [ edi + 0x72 ] bp
+insb
+imul esp [ edx + 0x2c ] 0x72655620
+jae r-xdata
+add [ edx ] cl
+sub eax 0x7180920
+or [ eax ] ebx
+0x14372 0x6f70
+add [ eax ] bl
+push es
+add [ eax ] 0x6
+add [ esi + eax ] bh
+jb r-xdata
+or al [ eax ]
+sbb [ esi ] al
+add [ eax ] al
+jbe r-xdata
+add [ eax + eax ] cl
+insb
+imul esp [ ebx + 0x4b ] 0x6f547965
+xor eax 0x37323730
+add [ eax ] al
+add [ eax ] al
+add eax 0x6c00
+add ah dl
+pop es
+add [ eax ] al
+and edi [ esi ]
+add [ eax + 0x8 ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+into
+outsd
+add [ eax ] al
+add [ eax + 0x41 ] dl
+inc esp
+push eax
+inc ecx
+inc esp
+push eax
+mov ah 0x0
+add [ eax ] al
+mov ah 0x0
+add [ eax ] al
+outsd
+outsb
+cmp eax 0x2e302e32
+xor [ esi ] ch
+xor [ eax ] ch
+inc ebx
+jne r-xdata
+adc al [ eax ]
+dec esp
+push es
+jae r-xdata
+add [ ecx + eax ] dl
+add [ eax ] al
+je r-xdata
+push esi
+jb r-xdata
+je r-xdata
+je r-xdata
+add [ edx + 0x6067806 ] al
+add [ edi + 0x6067806 ] cl
+add ch bl
+push es
+jb r-xdata
+push es
+add al 0xb
+add [ eax ] al
+and edx [ ebx + 0x74 ]
+jb r-xdata
+insd
+push eax
+mov ah 0x0
+add [ eax ] al
+inc edx
+xor [ eax ] ch
+inc ebx
+jne r-xdata
+imul ebp [ edi + 0x6e ] 0x302e323d
+xor [ cs : esi ] ch
+sub al 0x20
+insd
+jae r-xdata
+insd
+push edx
+jae r-xdata
+add [ ebx + edx * 2 + 0x79 ] ch
+jae r-xdata
+jb r-xdata
+or al [ eax ]
+out dx eax
+push es
+add [ eax ] 0x6
+add [ edx ] ah
+pop es
+js r-xdata
+inc esp
+adc eax [ eax ]
+jne r-xdata
+jae r-xdata
+outsd
+jb r-xdata
+insd
+0xbeef
+add [ eax ] al
+add dh cl
+cmp eax 0x7475656e
+jb r-xdata
+push cs
+add [ eax + 0x7 ] al
+add al 0xe
+push es
+add [ edi ] ch
+pop es
+js r-xdata
+add [ eax ] eax
+arpl [ ebp + 0x73 ] sp
+push edx
+add [ eax ] al
+add [ ebx ] ah
+inc edi
+jne r-xdata
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+imul esp [ edx + 0x2c ] 0x72655620
+jae r-xdata
+jne r-xdata
+insb
+sub al 0x20
+push eax
+jne r-xdata
+or al [ eax ]
+add [ eax ] ecx
+add [ eax ] 0x12
+add [ 0x12017308 ] bl
+add [ edi ] ah
+or [ ebx + 0x1 ] dh
+adc al [ eax ]
+dec ebx
+or [ ebx + 0x1 ] dh
+or al [ eax ]
+or [ eax - 0x7dfffa00 ] al
+or [ edx ] dh
+adc al [ eax ]
+cdq
+or [ ebx + 0x1 ] dh
+or al [ eax ]
+lahf
+or [ eax - 0x37fff600 ] al
+or [ eax - 0xafff600 ] al
+or [ eax + 0x2200a300 ] al
+or [ eax ] eax
+add [ edx ] cl
+add [ ebp + 0x9 ] al
+add [ eax ] 0xa
+add [ eax + 0xa008009 ] ch
+add al cl
+or [ eax + 0x40000e00 ] eax
+or bl [ edx + 0x5a000600 ]
+or dl cl
+add cl [ esi ]
+add [ eax + 0xe0a710a ] dl
+add [ esi + 0xa710a ] dl
+add [ eax ] al
+add [ ecx ] al
+add [ eax ] al
+add [ eax ] al
+add [ ecx ] al
+add [ ecx ] al
+add [ eax + 0x1a001001 ] al
+add [ edx ] ah
+add [ 0x1000100 ] al
+add [ eax ] al
+add [ eax ] dl
+add [ esi ] ch
+add [ eax ] bh
+add [ 0x2000100 ] al
+add [ ecx ] al
+add [ eax ] dl
+add [ edi ] cl
+and al [ eax ]
+or [ eax ] eax
+add eax [ eax ]
+push es
+add [ eax ] al
+add [ eax ] edx
+add [ ebp ] dl
+cmp [ eax ] al
+or eax 0xd000a00
+add [ ecx ] al
+add [ eax ] dl
+add [ esi ] bl
+and al [ eax ]
+add eax 0x10000b00
+add [ ecx ] dl
+add ch ch
+add [ eax ] dl
+add [ ecx ] dl
+add [ edx ] bl
+add [ eax + eax ] edx
+add [ eax ] eax
+add [ fs : esi ] esi
+add [ ecx ] al
+add [ ecx + 0x1 ] dh
+cmp [ eax ] eax
+add [ eax ] eax
+xchg [ ecx ] eax
+inc esi
+add [ ecx ] al
+add [ edx + 0x1003601 ] cl
+add [ ecx + 0x1004a01 ] dl
+add [ ebx ] al
+add ah [ ecx ]
+add [ eax ] eax
+xor al [ edx ]
+push 0x0
+adc [ eax ] eax
+cmp eax [ edx ]
+outsb
+add [ ecx ] al
+add [ edi + 0x50007c02 ] cl
+and [ eax ] al
+add [ eax ] al
+add [ ecx + 0xa00c700 ] dl
+add [ ecx ] al
+add [ eax + 0x20 ] ch
+add [ eax ] al
+add [ eax ] al
+sbb [ eax ] 0x2a
+add [ eax ] ebx
+add [ edx ] al
+add [ eax + 0x20 ] dh
+add [ eax ] al
+add [ eax ] al
+xchg ebx eax
+or [ eax ] dh
+add [ eax + eax ] ebx
+add al [ eax ]
+test eax 0x20
+add [ ebx + 0x21014408 ] dl
+add [ edx ] al
+add [ eax + 0x20 ] dh
+add [ ebx + 0x26015008 ] dl
+add [ edx ] al
+add [ eax + 0x20 ] bh
+add [ esi + 0x4d012a18 ] al
+add [ ebx ] al
+add [ ebp + 0x24 ] ch
+add [ ecx + 0x5301a200 ] al
+add [ eax + eax ] al
+shl [ eax + eax ] 0x0
+add [ eax ] al
+add [ eax ] 0x1801ae
+push es
+add [ edi + 0x25 ] bl
+add [ ecx + 0x5301b300 ] al
+add [ esi ] al
+add [ eax + 0x25 ] ch
+add [ ecx + 0x5a01d100 ] al
+add [ eax ] cl
+add cl cl
+and eax 0x0
+les eax [ eax ]
+push cs
+add ah [ ebp ]
+or al [ eax ]
+call sub_402e86
+add [ eax + 0x7 ] cl
+add al 0x6
+add [ edx + 0xa007207 ] al
+add ah al
+pop es
+add [ eax ] 0x6
+add ah bl
+pop es
+jb r-xdata
+push cs
+add [ eax + 0x10000014 ] bl
+and edx [ ebp + 0x53 ]
+je r-xdata
+push ebp
+dec ecx
+inc esp
+add [ eax ] al
+add [ eax + 0x3c000014 ] ch
+add eax [ eax ]
+add [ ebx ] ah
+inc edx
+insb
+outsd
+bound eax [ eax ]
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add al [ eax ]
+add [ ecx ] al
+push edi
+adc eax 0x10901a2
+add [ eax ] al
+add dl bh
+add [ ebx ] esi
+add [ esi ] dl
+add [ eax ] al
+add [ eax ] eax
+add [ eax ] al
+inc edi
+add [ eax ] al
+add [ esi ] al
+add [ eax ] al
+add [ ebx ] cl
+add [ eax ] al
+add [ ecx ] dl
+add [ eax ] al
+add [ eax + eax ] cl
+add [ eax ] al
+jae r-xdata
+arpl [ ebp + 0x53 ] sp
+je r-xdata
+add [ eax ] al
+add [ eax + 0x41 ] dl
+inc esp
+push eax
+inc ecx
+inc esp
+outsd
+outsb
+cmp eax 0x2e302e32
+jne r-xdata
+arpl [ ebp + 0x73 ] sp
+push edx
+jae r-xdata
+add [ ecx + 0x6c000000 ] dl
+push ebx
+jns r-xdata
+imul esp [ ebp + 0x6e ] 0x3d
+bound esi [ edi ]
+aaa
+popad
+xor eax 0x31363563
+cmp [ ebx ] esi
+xor al 0x65
+xor [ eax ] bh
+cmp [ ebx ] esp
+push ebx
+jns r-xdata
+insb
+imul esp [ ebx + 0x4b ] 0x6f547965
+insd
+add [ eax ] al
+push edx
+jae r-xdata
+jne r-xdata
+jae r-xdata
+je r-xdata
+arpl [ ebp + 0x52 ] sp
+popad
+jb r-xdata
+cmp [ ecx ] bh
+and edx [ ebx + 0x79 ]
+jae r-xdata
+push edx
+jae r-xdata
+insd
+and [ eax + 0x75 ] dl
+bound ebp [ ecx + ebp * 2 + 0x63 ]
+dec ebx
+jns r-xdata
+and [ ebp + 0x73 ] ch
+arpl [ edi + 0x72 ] bp
+insb
+add [ eax ] al
+push edx
+jae r-xdata
+insd
+imul esp [ ebp + 0x6e ] 0x3d
+bound esi [ edi ]
+aaa
+popad
+xor eax 0x31363563
+cmp [ ebx ] esi
+xor al 0x65
+xor [ eax ] bh
+cmp [ ebx ] esp
+push ebx
+jns r-xdata
+outsd
+sub_402e86
+mov eax 0x27
+add [ ecx - 0x60f5c6e8 ] dl
+add [ ebx ] cl
+add al bl
+daa
+add [ eax ] al
+add [ eax ] al
+xchg [ eax ] bl
+sub al [ ecx ]
+dec ebp
+add [ ebx ] cl
+add [ esi ] dh
+sub [ eax ] eax
+add [ eax ] al
+add [ esi - 0x7ffd65f8 ] al
+add [ eax + eax ] cl
+add [ eax ] al
+add [ eax ] eax
+test al 0x2
+add [ eax ] al
+add [ eax ] eax
+lodsd [ esi ]
+add al [ eax ]
+add [ ecx ] al
+add [ eax + 0x1000002 ] ch
+add [ ebx + 0x2000002 ] dh
+add [ edx + 0x1000002 ] bh
+add [ ebx + 0x2000002 ] dh
+add [ edx + 0x1000002 ] bh
+add [ ebx + 0x2000002 ] dh
+add [ edx + 0x1000002 ] bh
+add [ edx + eax + 0x10000 ] bh
+mov [ edx ] 0x0
+add [ ecx ] al
+add bl cl
+add ah [ ecx ]
+sub al [ ecx ]
+mov al [ eax ]
+imul eax [ eax ] 0x8a012a
+jno r-xdata
+sub al [ ecx ]
+mov al [ eax ]
+jns r-xdata
+sub al [ ecx ]
+mov al [ eax ]
+add [ eax ] 0x8a012a
+mov [ eax ] eax
+sub al [ ecx ]
+mov al [ eax ]
+xchg ecx eax
+add [ edx ] ch
+add [ edx + 0x2a009900 ] ecx
+add [ edx + 0x2a00a100 ] ecx
+add [ ebp ] esp
+test eax 0x8a012a00
+add [ ecx - 0x75fed600 ] dh
+add [ ecx - 0x75fed600 ] bh
+add cl al
+add [ edx ] ch
+add [ edi + 0x2a00d100 ] ecx
+add [ ebp + 0x2a00d900 ] edx
+add [ eax ] ebx
+add cl ah
+add [ edx ] ch
+add [ eax ] ebx
+add cl ch
+add cl ah
+add al 0x9f
+add cl ch
+add ah dh
+add al 0xa3
+add cl ch
+add [ esi ] dl
+add eax 0xf100a8
+sub al [ ecx ]
+scasb [ edi ]
+add cl bh
+add [ edx ] ch
+add [ eax ] ebx
+add [ ecx ] al
+add [ edx ] ebp
+add [ eax ] ebx
+add [ ecx ] cl
+add [ edx ] ch
+add [ eax ] ebx
+add [ ecx ] cl
+add [ eax + 0x900f505 ] ebx
+add [ ebx + 0x2100fe05 ] esi
+add [ edx ] ch
+add [ ecx + eax ] eax
+and [ ecx ] eax
+sub al [ ecx ]
+adc [ ecx ] eax
+adc [ eax ] eax
+sub al [ ecx ]
+sbb [ eax ] al
+xor [ ecx ] eax
+hlt
+sub_4042b8
+push edx
+push ebx
+inc esp
+push ebx
+stc
+shl [ edx - 0x78baf8 ] 0x49
+mov ebx 0x94efe3b0
+mov bl 0xca
+xchg esi eax
+pop es
+add [ eax ] al
+add [ ebx + 0x3a ] al
+pop esp
+inc esp
+outsd
+arpl [ ebp + 0x6d ] si
+outsb
+je r-xdata
+add [ eax + 0x43 ] bh
+and [ ecx + 0x6e ] ah
+and [ fs : ebx + 0x65 ] dl
+je r-xdata
+js r-xdata
+and [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ esi + 0x43 ] cl
+imul ebp [ esi + 0x67 ] 0x65645c73
+popa
+jne r-xdata
+dec ebp
+popad
+imul ebp [ esi ] 0x6f63736d
+jb r-xdata
+mov es [ ebx ]
+add [ eax ] al
+je r-xdata
+insb
+add [ eax ] al
+js r-xdata
+dec ebp
+jns r-xdata
+insb
+add [ eax ] al
+insb
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+push 0x65
+arpl [ ebx + esi * 2 + 0x5c ] si
+push esp
+js r-xdata
+inc esp
+outsd
+arpl [ ebp + 0x6d ] si
+outsb
+je r-xdata
+insb
+inc edx
+outsd
+js r-xdata
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+pop esp
+push esi
+imul esi [ ebx + 0x75 ] 0x53206c61
+je r-xdata
+add [ eax + 0x43 ] al
+add [ eax ] al
+add [ eax ] al
+add [ edi + 0x43 ] bl
+outsd
+outsd
+insb
+pop esp
+push esp
+js r-xdata
+outsd
+jb r-xdata
+add [ eax ] al
+add [ eax ] al
+pop edi
+imul ebp [ fs : edi + 0x20 ] 0x38303032
+pop esp
+push eax
+jb r-xdata
+and eax _CorExeMain@IAT
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add al [ eax ]
+adc [ eax ] al
+add [ eax ] al
+and [ eax ] al
+add [ eax + 0x18 ] al
+cmp [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] eax
+add [ eax ] eax
+add [ eax ] al
+push eax
+add [ eax ] al
+add [ eax ] 0x0
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] eax
+add [ eax ] eax
+add [ eax ] al
+push 0x800000
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ ecx ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ ecx ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax - 0x60000000 ] dl
+pushad
+add [ eax ] al
+rol [ edx ] 0x0
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax + 0x63 ] ah
+add [ eax ] al
+fiadd [ 0x0 ]
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+rol [ edx ] 0x34
+add [ eax ] al
+add [ esi ] dl
+push ebx
+add [ edi ] bl
+push esi
+add [ ebp ] al
+push edx
+add [ ebx ] dl
+dec ecx
+add [ edi ] cl
+dec esi
+add [ edi ] bl
+dec ecx
+add [ esi ] cl
+inc esi
+add [ edi ] cl
+add [ eax ] al
+add [ eax ] al
+mov ebp 0xfeef04
+add [ ecx ] al
+add [ eax ] al
+add [ ecx ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ ecx ] al
+add [ eax ] al
+add [ eax ] al
+add [ edi ] bh
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax + eax ] al
+add [ eax ] al
+add [ eax ] eax
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+inc esp
+add [ eax ] al
+add [ ecx ] al
+add [ esi ] dl
+popad
+add [ edx ] dh
+inc esi
+add [ ecx ] ch
+insb
+add [ ebp ] ah
+dec ecx
+add [ esi ] ch
+add [ edi ] ch
+add [ eax ] al
+add [ eax ] al
+and al 0x0
+add al 0x0
+add [ eax ] al
+push esp
+add [ edx ] dh
+popad
+add [ esi ] ch
+jae r--data
+inc edx
+outsd
+js r-xdata
+inc ebx
+outsd
+outsd
+insb
+pop esp
+outsd
+bound ebp [ edx + 0x5c ]
+push edx
+insb
+popad
+jae r-xdata
+pop esp
+push esp
+js r-xdata
+inc edx
+outsd
+js r-xdata
+add [ eax ] al
+add bh bh
+outsd
+outsd
+insb
+r-xdata
+bound eax [ eax ]
+_start
+pop esi
+sub [ ecx ] dl
+add [ eax ] al
+or dl [ esi ]
+sub [ edx ] dl
+add [ edx ] cl
+sub bl [ esi ]
+add ch [ eax ]
+pop ss
+add [ eax ] al
+or ch [ edx ]
+adc esi [ eax ]
+add eax [ eax ]
+sub eax 0x1000000
+add [ eax ] al
+adc [ esi + 0x1 ] edi
+add [ eax ] al
+add al 0x2d
+and [ edx + 0x1 ] dh
+add [ eax ] al
+jo ---data
+add [ eax ] al
+push es
+sub [ ebx ] dl
+add [ eax ] al
+or ch [ edx ]
+push ds
+add [ eax ] al
+or al [ edx ]
+jae ---data
+add eax [ eax ]
+add [ edx ] al
+sub [ eax ] bl
+add [ eax ] al
+or ch [ edi + 0x19 ]
+add [ eax ] al
+or dh [ ebx + 0x1a ]
+add [ eax ] al
+or cl [ edx ]
+push es
+add [ ecx ] 0x0
+add [ esi + edi * 2 ] al
+add [ eax ] eax
+add [ edx + ebp ] al
+sbb bh [ esi + 0x2 ]
+add [ eax ] al
+add al 0x2a
+push ds
+add al [ eax + 0x4000002 ]
+sub dl [ ebx ]
+xor [ 0x3e900 ] al
+add [ edx ] al
+add [ eax ] al
+adc [ edx ] eax
+jb ---data
+add eax 0xff20
+add [ eax ] al
+jo ---data
+add [ eax ] al
+jo ---data
+add [ eax ] al
+push es
+jge ---data
+adc [ esi ] eax
+insb
+adc eax [ edi ]
+add dl [ ecx ]
+pop es
+and eax [ eax ]
+add [ eax ] al
+add [ eax ] al
+add [ ecx + 0x40 ] bl
+add eax [ eax ]
+add [ edx + eax ] al
+jb ---data
+sub al 0x18
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+add [ eax ] 0x116f7000
+add [ eax ] al
+push es
+adc al [ edx ]
+sub [ 0x260a0000 ] bl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+test [ eax ] eax
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x18
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+test [ eax ] eax
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+adc al [ ecx ]
+sub [ 0x260a0000 ] bl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+mov [ eax ] eax
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x18
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+mov [ eax ] eax
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+adc al [ ebx ]
+sub [ 0x260a0000 ] bl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+pop [ eax ]
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x18
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+pop [ eax ]
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+adc al [ 0x1d28 ]
+or ah [ esi ]
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+xchg ebp eax
+add [ eax ] al
+jo ---data
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x2f
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+jns ---data
+jpo ---data
+add [ eax ] al
+add al 0x2
+jge ---data
+add [ eax ] al
+add al 0x72
+add [ eax ] al
+add al 0x72
+add [ eax ] al
+jo ---data
+adc [ eax ] eax
+add [ esi ] al
+jge ---data
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x18
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+xchg ebp eax
+add [ eax ] al
+jo ---data
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+adc al [ esi ]
+sub [ 0x260a0000 ] bl
+jns ---data
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x18
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+jge ---data
+add [ eax + 0x6f ] dh
+pop ebx
+sub [ esi ] bl
+add [ eax ] al
+or al [ edx ]
+jpo ---data
+add [ eax ] al
+add [ eax ] al
+pop ecx
+inc eax
+push es
+add [ eax ] al
+add al 0x2
+and al [ eax ]
+add [ ecx + eax * 2 ] al
+jge ---data
+add [ eax ] al
+add al 0x72
+add [ eax ] al
+add al 0x2
+jpo ---data
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+adc al [ eax + ebp ]
+sbb eax 0x260a0000
+add bh [ ebx + 0x9 ]
+add [ eax ] al
+add al 0x20
+inc [ eax ]
+add [ eax ] al
+push es
+pop es
+or [ eax ] ch
+pop ds
+add [ eax ] al
+or ch [ edi + 0x20 ]
+add [ eax ] al
+or al [ edx ]
+jpo ---data
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+adc al [ eax ]
+sub [ 0x260a0000 ] bl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+add [ eax ] 0x116f7000
+add [ eax ] al
+push es
+add [ ebx ] dl
+push es
+add al [ ebx ]
+jae ---data
+add [ edx ] cl
+add ch [ eax ]
+or al 0x0
+add [ esi ] al
+and bh bh
+add [ eax ] al
+add [ edx ] cl
+and bh bh
+add [ eax ] al
+add [ ebx ] cl
+and bh bh
+add [ eax ] al
+add [ esi + edx ] cl
+or eax 0x16041316
+adc eax [ 0xff20 ]
+add [ eax ] al
+add al 0x2
+sub [ eax + eax ] bl
+sub [ esi ] ah
+add [ eax ] al
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x1c
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+movsd [ edi ] [ esi ]
+add [ eax ] al
+jo ---data
+movsd [ edi ] [ esi ]
+add [ eax ] al
+jo ---data
+add [ eax ] al
+add al 0x72
+mov ebx 0x6f700000
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x33
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+mov ebx 0x6f700000
+adc [ eax ] eax
+add [ esi ] al
+adc al [ eax ]
+sub [ 0x260a0000 ] bl
+add al [ edx ]
+sub [ 0x130a0000 ] ah
+or dl [ edx ]
+or ch [ eax ]
+sub [ eax ] eax
+add [ edx ] cl
+push es
+jae ---data
+adc [ eax ] eax
+add [ esi ] al
+add bh [ edi + eax ]
+add [ eax + ebp ] al
+and al [ eax ]
+add [ edx ] cl
+add al [ es : edx ]
+jpo ---data
+adc [ ecx + edx ] eax
+add eax 0x1f28
+or ch [ edi + 0x21 ]
+add [ eax ] al
+or al [ edx ]
+jpo ---data
+add [ eax ] al
+add al 0x20
+inc [ eax ]
+add [ eax ] al
+or [ ecx ] edx
+add al 0x11
+add [ eax ] al
+push es
+jae ---data
+add [ eax ] al
+or ch [ eax ]
+sub [ eax ] al
+add [ edx ] cl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+mov edi 0x6f700000
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x46
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+mov edi 0x6f700000
+adc [ eax ] eax
+add [ esi ] al
+or dh [ ebx + 0x27 ]
+add [ eax ] al
+or ch [ eax ]
+sub [ eax ] al
+add [ edx ] cl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x73
+and eax [ eax ]
+add [ edx ] cl
+outsd
+and al 0x0
+add [ edx ] cl
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x2
+jpo ---data
+fwait
+add [ eax ] al
+jo ---data
+add [ eax ] al
+add al 0x72
+add [ eax ] al
+or dl [ ecx ]
+or [ edi + 0x2d ] ch
+add [ eax ] al
+or al [ edx ]
+jpo ---data
+add [ eax ] al
+or dl [ ebx ]
+or [ edx ] al
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+mov edi 0x6f700000
+adc [ eax ] eax
+add [ esi ] al
+jge ---data
+or ch [ edi + 0x24 ]
+add [ eax ] al
+or al [ edx ]
+jpo ---data
+add [ esi ] al
+sub al 0x33
+add bh [ ebx + 0x4 ]
+add [ eax ] al
+add al 0x72
+mov bh 0x0
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ esi ] al
+adc [ eax ] eax
+add [ esi ] al
+sub al 0x16
+add al [ edx ]
+jpo ---data
+retn
+add [ eax ] al
+add al 0x72
+add bh [ ebx + 0x9 ]
+add [ eax ] al
+add al 0x2
+jpo ---data
+mov bh 0x0
+add [ eax + 0x6f ] dh
+adc [ eax ] eax
+add [ eax ] al
+add al 0x72
+fwait
+add [ eax ] al
+jo ---data
+add [ eax ] al
+add al 0x72
+or ch [ edi + 0x2c ]
+add [ eax ] al
+add al 0x11
+or [ edi + 0x2b ] ch
+add [ eax ] al
+adc al [ eax ]
+sub [ 0x260a0000 ] bl
+add al [ esi ]
+add ch [ eax ]
+and eax 0x130a0000
+or [ edx ] edx
+or [ eax ] ebp
+add [ es : eax ] al
+push es

@@ -1,0 +1,865 @@
+_start
+pushad
+mov esi rwxdata
+lea edi [ esi - 0xb015 ]
+push edi
+mov ebp esp
+lea ebx [ esp - 0x3e80 ]
+xor eax eax
+push eax
+cmp esp ebx
+jne rwxdata
+inc esi
+inc esi
+push ebx
+push 0xe9a3
+push edi
+add ebx 0x4
+push ebx
+push 0x453e
+push esi
+add ebx 0x4
+push ebx
+push eax
+mov [ ebx ] 0x20003
+nop
+nop
+nop
+nop
+nop
+push ebp
+push edi
+push esi
+push ebx
+sub esp 0x7c
+mov edx [ esp + 0x90 ]
+mov [ esp + 0x74 ] 0x0
+mov [ esp + 0x73 ] 0x0
+mov ebp [ esp + 0x9c ]
+lea eax [ edx + 0x4 ]
+mov [ esp + 0x78 ] eax
+mov eax 0x1
+movzx ecx [ edx + 0x2 ]
+mov ebx eax
+shl ebx cl
+mov ecx ebx
+dec ecx
+mov [ esp + 0x6c ] ecx
+movzx ecx [ edx + 0x1 ]
+shl eax cl
+dec eax
+mov [ esp + 0x68 ] eax
+mov eax [ esp + 0xa8 ]
+movzx esi [ edx ]
+mov [ ebp ] 0x0
+mov [ esp + 0x60 ] 0x0
+mov [ eax ] 0x0
+mov eax 0x300
+mov [ esp + 0x64 ] esi
+mov [ esp + 0x5c ] 0x1
+mov [ esp + 0x58 ] 0x1
+mov [ esp + 0x54 ] 0x1
+mov [ esp + 0x50 ] 0x1
+movzx ecx [ edx + 0x1 ]
+add ecx esi
+shl eax cl
+lea ecx [ eax + 0x736 ]
+cmp [ esp + 0x74 ] ecx
+jae rwxdata
+mov ebx [ esp + 0x94 ]
+xor edi edi
+mov [ esp + 0x48 ] 0xffffffff
+mov edx ebx
+add edx [ esp + 0x98 ]
+mov [ esp + 0x4c ] edx
+xor edx edx
+mov eax [ esp + 0x78 ]
+mov eax 0x1
+jmp rwxdata
+movzx eax [ ebx ]
+shl edi 0x8
+inc edx
+inc ebx
+or edi eax
+cmp edx 0x4
+jle rwxdata
+mov [ eax ] 0x400
+add eax 0x2
+loop rwxdata
+add esp 0x7c
+pop ebx
+pop esi
+pop edi
+pop ebp
+add esi [ ebx - 0x4 ]
+add edi [ ebx - 0x8 ]
+xor eax eax
+lea ecx [ esp - 0x100 ]
+mov esp ebp
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+mov ecx [ esp + 0xa4 ]
+cmp [ esp + 0x74 ] ecx
+jae rwxdata
+push eax
+cmp esp ecx
+jne rwxdata
+mov esp ebp
+xor ecx ecx
+pop esi
+mov edi esi
+mov ecx 0x220
+sub ebx [ esp + 0x94 ]
+xor eax eax
+mov edx [ esp + 0x9c ]
+mov ecx [ esp + 0x74 ]
+mov [ edx ] ebx
+mov ebx [ esp + 0xa8 ]
+mov [ ebx ] ecx
+mov esi [ esp + 0x74 ]
+and esi [ esp + 0x6c ]
+mov eax [ esp + 0x60 ]
+mov edx [ esp + 0x78 ]
+shl eax 0x4
+mov [ esp + 0x44 ] esi
+add eax esi
+cmp [ esp + 0x48 ] 0xffffff
+lea ebp [ edx + eax * 2 ]
+ja rwxdata
+mov al [ edi ]
+inc edi
+sub al 0xe8
+cmp [ edi ] 0x5
+jne rwxdata
+mov eax [ esp + 0x48 ]
+mov dx [ ebp ]
+shr eax 0xb
+movzx ecx dx
+imul eax ecx
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+mov eax [ edi ]
+mov bl [ edi + 0x4 ]
+shr ax 0x8
+rol eax 0x10
+xchg ah al
+sub eax edi
+sub bl 0xe8
+add eax esi
+mov [ edi ] eax
+add edi 0x5
+mov al bl
+loop rwxdata
+mov ecx [ esp + 0x48 ]
+sub edi eax
+mov esi [ esp + 0x60 ]
+sub ecx eax
+mov eax edx
+shr ax 0x5
+sub dx ax
+cmp ecx 0xffffff
+mov [ ebp ] dx
+mov ebp [ esp + 0x78 ]
+lea esi [ ebp + esi * 2 ]
+mov [ esp + 0x38 ] esi
+ja rwxdata
+mov [ esp + 0x48 ] eax
+mov eax 0x800
+sub eax ecx
+mov cl [ esp + 0x64 ]
+sar eax 0x5
+mov esi 0x1
+lea eax [ edx + eax ]
+movzx edx [ esp + 0x73 ]
+mov [ ebp ] ax
+mov eax [ esp + 0x74 ]
+and eax [ esp + 0x68 ]
+mov ebp [ esp + 0x78 ]
+shl eax cl
+mov ecx 0x8
+sub ecx [ esp + 0x64 ]
+sar edx cl
+add eax edx
+imul eax eax 0x600
+cmp [ esp + 0x60 ] 0x6
+lea eax [ ebp + eax + 0xe6c ]
+mov [ esp + 0x14 ] eax
+jle rwxdata
+shl [ esp + 0x48 ] 0x8
+movzx eax [ ebx ]
+shl edi 0x8
+inc ebx
+or edi eax
+cmp al 0x1
+ja rwxdata
+lea edi [ esi + 0xe000 ]
+mov ebp [ esp + 0x38 ]
+mov eax ecx
+shr eax 0xb
+mov dx [ ebp + 0x180 ]
+movzx ebp dx
+imul eax ebp
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+lea edx [ esi + esi ]
+mov ebp [ esp + 0x14 ]
+add ebp edx
+cmp [ esp + 0x48 ] 0xffffff
+ja rwxdata
+mov eax [ esp + 0x74 ]
+sub eax [ esp + 0x5c ]
+mov edx [ esp + 0xa0 ]
+movzx eax [ edx + eax ]
+mov [ esp + 0x40 ] eax
+mov ebp [ esi + 0x11464 ]
+lea edi [ esi - 0x1000 ]
+mov ebx 0x1000
+push eax
+push esp
+push 0x4
+push ebx
+push edi
+call ebp
+lea eax [ edi + 0x19f ]
+and [ eax ] 0x7f
+and [ eax + 0x28 ] 0x7f
+pop eax
+push eax
+push esp
+push eax
+push ebx
+push edi
+call ebp
+pop eax
+popad
+lea eax [ esp - 0x80 ]
+mov ebx [ edi + 0x4 ]
+lea eax [ eax + esi + 0x113a8 ]
+add ebx esi
+push eax
+add edi 0x8
+call [ esi + 0x1145c ]
+xchg ebp eax
+mov esi ecx
+sub edi eax
+sub esi eax
+mov eax edx
+shr ax 0x5
+mov ecx [ esp + 0x38 ]
+sub dx ax
+cmp esi 0xffffff
+mov [ ecx + 0x180 ] dx
+ja rwxdata
+mov esi eax
+mov eax 0x800
+sub eax ebp
+mov ebp [ esp + 0x58 ]
+sar eax 0x5
+mov ecx [ esp + 0x54 ]
+lea eax [ edx + eax ]
+mov edx [ esp + 0x38 ]
+mov [ esp + 0x50 ] ecx
+mov ecx [ esp + 0x78 ]
+mov [ edx + 0x180 ] ax
+mov eax [ esp + 0x5c ]
+mov [ esp + 0x54 ] ebp
+mov [ esp + 0x58 ] eax
+xor eax eax
+cmp [ esp + 0x60 ] 0x6
+setg al
+add ecx 0x664
+lea eax [ eax + eax * 2 ]
+mov [ esp + 0x60 ] eax
+jmp rwxdata
+movzx eax [ ebx ]
+shl edi 0x8
+shl ecx 0x8
+inc ebx
+or edi eax
+mov eax [ esp + 0x48 ]
+mov cx [ ebp ]
+shr eax 0xb
+movzx esi cx
+imul eax esi
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+mov eax [ esp + 0x48 ]
+mov cx [ ebp + 0x200 ]
+shr eax 0xb
+movzx esi cx
+imul eax esi
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+push 0x0
+cmp esp eax
+jne rwxdata
+sub esp 0xffffff80
+jmp rwxdata
+mov eax [ edi ]
+or eax eax
+je rwxdata
+mov ecx edi
+push edi
+dec eax
+[ edi ]
+push ebp
+call [ esi + 0x11460 ]
+or eax eax
+je rwxdata
+mov ebp [ esp + 0x38 ]
+mov edx esi
+shr edx 0xb
+mov cx [ ebp + 0x198 ]
+movzx eax cx
+imul edx eax
+cmp edi edx
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+cmp esi 0xffffff
+ja rwxdata
+sub [ esp + 0x48 ] eax
+sub edi eax
+mov eax ecx
+lea esi [ edx + 0x1 ]
+shr ax 0x5
+sub cx ax
+mov [ ebp ] cx
+jmp rwxdata
+mov [ esp + 0x48 ] eax
+mov eax 0x800
+sub eax esi
+mov esi edx
+sar eax 0x5
+lea eax [ ecx + eax ]
+mov [ ebp ] ax
+jmp rwxdata
+shl [ esp + 0x48 ] 0x8
+movzx eax [ ebx ]
+shl edi 0x8
+inc ebx
+or edi eax
+sub [ esp + 0x48 ] eax
+sub edi eax
+mov eax ecx
+lea esi [ edx + 0x1 ]
+shr ax 0x5
+sub cx ax
+cmp [ esp + 0x3c ] 0x0
+mov [ ebp + 0x200 ] cx
+je rwxdata
+mov [ esp + 0x48 ] eax
+mov eax 0x800
+sub eax esi
+mov esi edx
+sar eax 0x5
+cmp [ esp + 0x3c ] 0x0
+lea eax [ ecx + eax ]
+mov [ ebp + 0x200 ] ax
+je rwxdata
+shl [ esp + 0x48 ] 0x8
+movzx eax [ ebx ]
+shl edi 0x8
+inc ebx
+or edi eax
+call [ esi + 0x11470 ]
+mov [ ebx ] eax
+add ebx 0x4
+jmp rwxdata
+mov eax ecx
+sub esi edx
+shr ax 0x5
+mov ebp [ esp + 0x38 ]
+sub cx ax
+sub edi edx
+cmp esi 0xffffff
+mov [ ebp + 0x198 ] cx
+ja rwxdata
+mov ebp 0x800
+mov esi edx
+sub ebp eax
+mov [ esp + 0x34 ] 0x800
+mov eax ebp
+sar eax 0x5
+lea eax [ ecx + eax ]
+mov ecx [ esp + 0x38 ]
+mov [ ecx + 0x198 ] ax
+mov eax [ esp + 0x60 ]
+mov ecx [ esp + 0x44 ]
+shl eax 0x5
+add eax [ esp + 0x78 ]
+cmp edx 0xffffff
+lea ebp [ eax + ecx * 2 ]
+ja rwxdata
+movzx eax [ ebx ]
+shl edi 0x8
+shl esi 0x8
+inc ebx
+or edi eax
+mov dx [ ecx ]
+mov eax esi
+shr eax 0xb
+movzx ebp dx
+imul eax ebp
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+cmp esi 0xff
+jg rwxdata
+cmp esi 0xff
+jle rwxdata
+jmp rwxdata
+mov al [ edi ]
+inc edi
+or al al
+je rwxdata
+mov ecx [ esp + 0x38 ]
+mov eax esi
+shr eax 0xb
+mov dx [ ecx + 0x1b0 ]
+movzx ecx dx
+imul eax ecx
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+mov dx [ ebp + 0x1e0 ]
+mov eax esi
+shr eax 0xb
+movzx ecx dx
+imul eax ecx
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+sub esi eax
+sub edi eax
+mov eax edx
+shr ax 0x5
+sub dx ax
+cmp esi 0xffffff
+mov [ ecx ] dx
+ja rwxdata
+mov [ esp + 0x48 ] eax
+mov eax 0x800
+sub eax ebp
+shl [ esp + 0x44 ] 0x4
+sar eax 0x5
+mov [ esp + 0x2c ] 0x0
+lea eax [ edx + eax ]
+mov [ ecx ] ax
+mov eax [ esp + 0x44 ]
+lea ecx [ ecx + eax + 0x4 ]
+mov [ esp + 0x10 ] ecx
+jmp rwxdata
+movzx eax [ ebx ]
+shl edi 0x8
+shl esi 0x8
+inc ebx
+or edi eax
+mov edx [ esp + 0x74 ]
+mov eax esi
+mov ecx [ esp + 0xa0 ]
+mov [ esp + 0x73 ] al
+mov [ edx + ecx ] al
+inc edx
+cmp [ esp + 0x60 ] 0x3
+mov [ esp + 0x74 ] edx
+jg rwxdata
+shl [ esp + 0x40 ] 0x1
+mov ecx [ esp + 0x40 ]
+lea edx [ esi + esi ]
+mov ebp [ esp + 0x14 ]
+and ecx 0x100
+cmp [ esp + 0x48 ] 0xffffff
+lea eax [ ebp + ecx * 2 ]
+mov [ esp + 0x3c ] ecx
+lea ebp [ eax + edx ]
+ja rwxdata
+jmp rwxdata
+mov ecx esi
+sub edi eax
+sub ecx eax
+mov eax edx
+shr ax 0x5
+sub dx ax
+mov eax [ esp + 0x38 ]
+cmp ecx 0xffffff
+mov [ eax + 0x1b0 ] dx
+ja rwxdata
+mov esi eax
+mov eax 0x800
+sub eax ecx
+mov ebp [ esp + 0x38 ]
+sar eax 0x5
+lea eax [ edx + eax ]
+mov [ ebp + 0x1b0 ] ax
+mov eax [ esp + 0x58 ]
+jmp rwxdata
+movzx eax [ ebx ]
+shl edi 0x8
+shl esi 0x8
+inc ebx
+or edi eax
+sub esi eax
+sub edi eax
+mov eax edx
+shr ax 0x5
+sub dx ax
+mov [ ebp + 0x1e0 ] dx
+jmp rwxdata
+sub [ esp + 0x34 ] ecx
+sar [ esp + 0x34 ] 0x5
+mov esi [ esp + 0x34 ]
+mov [ esp + 0x48 ] eax
+cmp [ esp + 0x74 ] 0x0
+lea eax [ edx + esi ]
+mov [ ebp + 0x1e0 ] ax
+je rwxdata
+movzx eax [ ebx ]
+shl edi 0x8
+shl esi 0x8
+inc ebx
+or edi eax
+mov dx [ ecx + 0x2 ]
+mov eax esi
+shr eax 0xb
+movzx ebp dx
+imul eax ebp
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+mov [ esp + 0x30 ] 0x3
+jmp rwxdata
+cmp [ esp + 0x60 ] 0x9
+jg rwxdata
+mov [ esp + 0x60 ] 0x0
+jmp rwxdata
+mov esi [ esp + 0x38 ]
+mov eax ecx
+shr eax 0xb
+mov dx [ esi + 0x1c8 ]
+movzx ebp dx
+imul eax ebp
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+mov ebp [ esp + 0x5c ]
+mov [ esp + 0x5c ] eax
+mov [ esp + 0x58 ] ebp
+xor eax eax
+cmp [ esp + 0x60 ] 0x6
+mov ecx [ esp + 0x78 ]
+setg al
+add ecx 0xa68
+lea eax [ eax + eax * 2 + 0x8 ]
+mov [ esp + 0x60 ] eax
+xor eax eax
+cmp [ esp + 0x60 ] 0x6
+mov ebp [ esp + 0xa0 ]
+mov edx [ esp + 0x74 ]
+setg al
+lea eax [ eax + eax + 0x9 ]
+mov [ esp + 0x60 ] eax
+mov eax [ esp + 0x74 ]
+sub eax [ esp + 0x5c ]
+mov al [ ebp + eax ]
+mov [ esp + 0x73 ] al
+mov [ edx + ebp ] al
+inc edx
+mov [ esp + 0x74 ] edx
+jmp rwxdata
+sub esi eax
+sub edi eax
+mov eax edx
+mov [ esp + 0x48 ] esi
+shr ax 0x5
+mov [ esp + 0x2c ] 0x10
+sub dx ax
+mov [ esp + 0x30 ] 0x8
+mov [ ecx + 0x2 ] dx
+add ecx 0x204
+mov [ esp + 0x10 ] ecx
+mov [ esp + 0x48 ] eax
+mov eax 0x800
+sub eax ebp
+shl [ esp + 0x44 ] 0x4
+sar eax 0x5
+mov [ esp + 0x2c ] 0x8
+lea eax [ edx + eax ]
+mov edx [ esp + 0x44 ]
+mov [ ecx + 0x2 ] ax
+lea ecx [ ecx + edx + 0x104 ]
+mov [ esp + 0x10 ] ecx
+movzx eax [ ebx ]
+shl edi 0x8
+shl esi 0x8
+inc ebx
+or edi eax
+mov ecx [ esp + 0x30 ]
+mov edx 0x1
+mov [ esp + 0x28 ] ecx
+sub [ esp + 0x60 ] 0x6
+jmp rwxdata
+sub [ esp + 0x60 ] 0x3
+jmp rwxdata
+mov eax [ esp + 0xa4 ]
+cmp [ esp + 0x74 ] eax
+jb rwxdata
+mov esi ecx
+sub edi eax
+sub esi eax
+mov eax edx
+shr ax 0x5
+sub dx ax
+mov eax [ esp + 0x38 ]
+mov [ eax + 0x1c8 ] dx
+mov edx [ esp + 0x54 ]
+mov eax [ esp + 0x50 ]
+mov [ esp + 0x50 ] edx
+mov esi eax
+mov eax 0x800
+sub eax ebp
+mov ebp [ esp + 0x38 ]
+sar eax 0x5
+lea eax [ edx + eax ]
+mov [ ebp + 0x1c8 ] ax
+mov eax [ esp + 0x54 ]
+jmp rwxdata
+movzx eax [ ebx ]
+shl edi 0x8
+shl ecx 0x8
+inc ebx
+or edi eax
+mov eax [ esp + 0x48 ]
+mov dx [ esi ]
+shr eax 0xb
+movzx ecx dx
+imul eax ecx
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+cmp [ esp + 0x48 ] 0xffffff
+ja rwxdata
+mov ecx [ esp + 0x58 ]
+mov [ esp + 0x54 ] ecx
+sub [ esp + 0x48 ] eax
+sub edi eax
+mov eax edx
+shr ax 0x5
+sub dx ax
+mov [ esi ] dx
+lea edx [ ebp + 0x1 ]
+mov [ esp + 0x48 ] eax
+mov eax 0x800
+sub eax ecx
+sar eax 0x5
+lea eax [ edx + eax ]
+mov edx ebp
+mov [ esi ] ax
+jmp rwxdata
+shl [ esp + 0x48 ] 0x8
+movzx eax [ ebx ]
+shl edi 0x8
+inc ebx
+or edi eax
+cmp ebx [ esp + 0x4c ]
+mov eax 0x1
+je rwxdata
+lea ebp [ edx + edx ]
+mov esi [ esp + 0x10 ]
+add esi ebp
+cmp [ esp + 0x48 ] 0xffffff
+ja rwxdata
+mov cl [ esp + 0x30 ]
+mov eax 0x1
+shl eax cl
+sub edx eax
+add edx [ esp + 0x2c ]
+cmp [ esp + 0x60 ] 0x3
+mov [ esp + 0xc ] edx
+jg rwxdata
+mov esi [ esp + 0x28 ]
+dec esi
+mov [ esp + 0x28 ] esi
+jne rwxdata
+jmp rwxdata
+mov ecx [ esp + 0xc ]
+mov ebp [ esp + 0x74 ]
+add ecx 0x2
+cmp [ esp + 0x5c ] ebp
+ja rwxdata
+add [ esp + 0x60 ] 0x7
+cmp edx 0x3
+mov eax edx
+jle rwxdata
+inc ebx
+mov eax [ esp + 0xa0 ]
+mov edx ebp
+sub eax [ esp + 0x5c ]
+add edx [ esp + 0xa0 ]
+lea esi [ eax + ebp ]
+mov esi [ esp + 0x78 ]
+shl eax 0x7
+mov [ esp + 0x24 ] 0x6
+lea eax [ esi + eax + 0x360 ]
+mov [ esp + 0x8 ] eax
+mov eax 0x1
+mov eax 0x3
+mov ebp [ esp + 0xa4 ]
+cmp [ esp + 0x74 ] ebp
+jb rwxdata
+mov eax [ esp + 0x48 ]
+mov dx [ esi ]
+shr eax 0xb
+movzx ecx dx
+imul eax ecx
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+mov al [ esi ]
+inc esi
+mov [ esp + 0x73 ] al
+mov [ edx ] al
+inc edx
+inc [ esp + 0x74 ]
+dec ecx
+je rwxdata
+jmp rwxdata
+sub [ esp + 0x48 ] eax
+sub edi eax
+mov eax edx
+shr ax 0x5
+sub dx ax
+lea eax [ ebp + 0x1 ]
+mov [ esi ] dx
+mov [ esp + 0x48 ] eax
+mov eax 0x800
+sub eax ecx
+sar eax 0x5
+lea eax [ edx + eax ]
+mov [ esi ] ax
+mov eax ebp
+jmp rwxdata
+shl [ esp + 0x48 ] 0x8
+movzx eax [ ebx ]
+shl edi 0x8
+inc ebx
+or edi eax
+lea ebp [ eax + eax ]
+mov esi [ esp + 0x8 ]
+add esi ebp
+cmp [ esp + 0x48 ] 0xffffff
+ja rwxdata
+lea edx [ eax - 0x40 ]
+cmp edx 0x3
+mov [ esp ] edx
+jle rwxdata
+mov ebp [ esp + 0x24 ]
+dec ebp
+mov [ esp + 0x24 ] ebp
+jne rwxdata
+mov esi [ esp ]
+inc esi
+mov [ esp + 0x5c ] esi
+je rwxdata
+mov eax edx
+mov esi edx
+sar eax 0x1
+and esi 0x1
+lea ecx [ eax - 0x1 ]
+or esi 0x2
+cmp edx 0xd
+mov [ esp + 0x20 ] ecx
+jg rwxdata
+lea edx [ eax - 0x5 ]
+mov ebp [ esp + 0x78 ]
+shl esi cl
+add edx edx
+mov [ esp ] esi
+lea eax [ ebp + esi * 2 ]
+sub eax edx
+add eax 0x55e
+mov [ esp + 0x4 ] eax
+jmp rwxdata
+shr [ esp + 0x48 ] 0x1
+add esi esi
+cmp edi [ esp + 0x48 ]
+jb rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+mov [ esp + 0x1c ] 0x1
+mov eax 0x1
+dec edx
+jne rwxdata
+sub edi [ esp + 0x48 ]
+or esi 0x1
+shl [ esp + 0x48 ] 0x8
+movzx eax [ ebx ]
+shl edi 0x8
+inc ebx
+or edi eax
+mov eax [ esp + 0x48 ]
+mov dx [ ebp ]
+shr eax 0xb
+movzx esi dx
+imul eax esi
+cmp edi eax
+jae rwxdata
+cmp ebx [ esp + 0x4c ]
+je rwxdata
+cmp [ esp + 0x48 ] 0xffffff
+ja rwxdata
+mov eax [ esp + 0x78 ]
+shl esi 0x4
+mov [ esp ] esi
+add eax 0x644
+mov [ esp + 0x20 ] 0x4
+mov [ esp + 0x4 ] eax
+sub [ esp + 0x48 ] eax
+sub edi eax
+mov eax edx
+shr ax 0x5
+sub dx ax
+mov eax [ esp + 0x18 ]
+mov [ ebp ] dx
+mov edx [ esp + 0x1c ]
+inc eax
+or [ esp ] edx
+mov [ esp + 0x48 ] eax
+mov eax 0x800
+sub eax esi
+sar eax 0x5
+lea eax [ edx + eax ]
+mov [ ebp ] ax
+mov eax [ esp + 0x18 ]
+jmp rwxdata
+shl [ esp + 0x48 ] 0x8
+movzx eax [ ebx ]
+shl edi 0x8
+inc ebx
+or edi eax
+mov ebp [ esp + 0x4 ]
+add eax eax
+mov [ esp + 0x18 ] eax
+add ebp eax
+cmp [ esp + 0x48 ] 0xffffff
+ja rwxdata
+mov ecx [ esp + 0x20 ]
+shl [ esp + 0x1c ] 0x1
+dec ecx
+mov [ esp + 0x20 ] ecx
+jne rwxdata

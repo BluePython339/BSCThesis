@@ -1,0 +1,52 @@
+sub_8ad009
+pop eax
+mov ebx eax
+inc eax
+sub eax 0x1b5000
+sub eax 0x100c1744
+add eax 0x100c173b
+cmp [ ebx ] 0xcc
+jne rwxdata
+add eax 0x0
+mov [ esp + 0x8 ] eax
+pop ebx
+pop eax
+retn
+mov [ ebx ] 0x0
+mov ebx 0x1000
+push 0x527107a5
+push 0x7891fb29
+push ebx
+push eax
+call sub_8ad044
+sub_8ad044
+push ebp
+mov ebp esp
+push eax
+push ebx
+push ecx
+push esi
+mov esi [ ebp + 0x8 ]
+mov ecx [ ebp + 0xc ]
+shr ecx 0x2
+mov eax [ ebp + 0x10 ]
+mov ebx [ ebp + 0x14 ]
+pop esi
+pop ecx
+pop ebx
+pop eax
+leave
+retn 0x10
+xor [ esi ] eax
+add [ esi ] ebx
+add esi 0x4
+dec ecx
+jmp rwxdata
+test ecx ecx
+je rwxdata
+_start
+push esi
+push eax
+push ebx
+call sub_8ad009
+int3

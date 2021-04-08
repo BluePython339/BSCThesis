@@ -1,0 +1,147 @@
+_start
+mov esi rwxdata
+lodsd [ esi ]
+push eax
+push [ esi + 0x34 ]
+jmp rwxdata
+push [ esi + 0x38 ]
+lodsd [ esi ]
+push eax
+mov edi [ esi ]
+mov esi rwxdata
+push 0x27
+pop ecx
+[ edi ] [ esi ]
+push [ esi + 0x4 ]
+or eax 0xffffffff
+mov ebx edi
+stosd [ edi ]
+jmp rwxdata
+inc eax
+stosd [ edi ]
+inc eax
+mov cl 0x4
+[ edi ]
+shl eax 0xa
+mov ch 0x1c
+[ edi ]
+mov edi [ esi + 0xc ]
+push edi
+push ecx
+jmp rwxdata
+pop eax
+lea edx [ ebx + eax * 4 + 0x58 ]
+call [ esi ]
+jb rwxdata
+add al 0xf9
+sbb al al
+mov cl 0x30
+and al 0x3
+mov ebp [ ebx + 0x8 ]
+add al 0x8
+add edx ecx
+call [ esi ]
+jae rwxdata
+add al 0xfd
+sbb dl dl
+and al dl
+cmp al 0x7
+jae rwxdata
+dec eax
+xchg [ ebx + 0xc ] ebp
+push eax
+xchg [ ebx + 0x10 ] ebp
+lea edx [ ebx + 0xbc0 ]
+mov [ ebx + 0x14 ] ebp
+call [ esi + 0x54 ]
+push 0x3
+pop ecx
+push eax
+dec eax
+cmp eax ecx
+jb rwxdata
+add edx ecx
+call [ esi ]
+jb rwxdata
+push eax
+movzx ebp [ edi - 0x1 ]
+shr ebp 0x5
+imul bp bp 0x300
+lea ebp [ ebx + ebp * 4 + 0x1008 ]
+push edi
+mov al 0x1
+jecxz rwxdata
+mov cl 0x40
+mul cl
+lea ebp [ ebx + eax * 4 + 0x378 ]
+call [ esi + 0x4c ]
+cmp al 0x4
+mov ebp eax
+jb rwxdata
+mov eax ecx
+add edx 0x60
+call [ esi ]
+xchg [ ebx + 0xc ] ebp
+jae rwxdata
+add edx ecx
+call [ esi ]
+jb rwxdata
+mov ch 0x1
+call [ esi + 0x50 ]
+sub edi [ ebx + 0x8 ]
+xor ebp ebp
+shr eax 0x1
+adc ebp 0x2
+dec eax
+xchg ecx eax
+shl ebp cl
+cmp cl 0x5
+lea edx [ ebx + ebp * 4 + 0x178 ]
+jbe rwxdata
+push eax
+push ebp
+lea edx [ ebx + 0x778 ]
+call [ esi + 0x54 ]
+pop ebp
+xchg ecx eax
+jmp rwxdata
+add edx ecx
+call [ esi ]
+xchg [ ebx + 0x10 ] ebp
+jae rwxdata
+or al 0x1
+push eax
+mov eax edi
+sub eax [ ebx + 0x8 ]
+mov cl 0x80
+mov al [ eax ]
+jmp rwxdata
+xor ecx ecx
+pop edi
+sub ah al
+and ah 0x1
+jne rwxdata
+sub cl 0x4
+xor eax eax
+mov edx [ ebx - 0x4 ]
+shr [ ebx ] 0x1
+mov edx [ edx ]
+bswap edx
+sub edx [ ebx + 0x4 ]
+add eax eax
+cmp edx [ ebx ]
+jb rwxdata
+xchg [ ebx + 0x14 ] ebp
+jmp rwxdata
+test [ edi ] cl
+setne ah
+inc ah
+lea edx [ ebp + eax * 4 ]
+call [ esi ]
+adc al al
+shr cl 0x1
+je rwxdata
+xor ecx ecx
+mov edx [ ebx ]
+inc eax
+add [ ebx + 0x4 ] edx

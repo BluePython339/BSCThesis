@@ -1,0 +1,81 @@
+sub_404264
+and eax 0xf28
+or dl [ ebx ]
+or [ eax ] ch
+adc [ eax ] al
+add [ edx ] cl
+fiadd [ eax ]
+push ss
+adc [ edx ] 0x0
+add [ eax + ebp ] al
+push ds
+add [ eax ] al
+push es
+sub eax 0x17b72b02
+adc [ edx ] 0x0
+add [ eax + edi ] al
+jmp r-xdata
+cmp bl ch
+std
+sub_40504d
+add esp [ 0x3bb800 ]
+add [ eax ] al
+add [ esi ] dl
+add bh dl
+push cs
+scasb [ edi ]
+add [ esi ] ah
+add [ esp + edi ] cl
+add [ eax ] al
+add [ eax ] al
+push ss
+add bl bl
+push cs
+push ebp
+add [ edi ] esp
+add [ eax + 0x3c ] dl
+add [ eax ] al
+add [ eax ] al
+push ss
+add al ah
+push cs
+rol [ ebx ] 0x1
+sub [ eax ] al
+push eax
+cmp eax 0x0
+push ss
+add [ eax + 0x9 ] dh
+or al [ eax ]
+sub [ eax ] eax
+insb
+cmp eax 0x0
+push ss
+add dh ah
+push cs
+mov eax 0x6c002a03
+inc eax
+add [ eax ] al
+add [ eax ] al
+push ss
+add dh ch
+push cs
+cmp al [ eax ]
+sub al [ eax ]
+les eax [ edx ]
+add [ eax ] al
+add [ esi ] dl
+add cl dh
+push cs
+cmp al [ eax ]
+sub al [ eax ]
+inc esi
+add [ eax ] al
+add [ eax ] al
+adc [ eax ] ecx
+hlt
+sub_404138
+[ ebx ]
+sub_404af8
+jmp [ 0xf28 ]
+_CorExeMain
+jmp [ _CorExeMain@IAT ]

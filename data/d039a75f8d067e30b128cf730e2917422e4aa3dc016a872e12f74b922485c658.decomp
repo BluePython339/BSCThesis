@@ -1,0 +1,3188 @@
+sub_4062c4
+add [ eax ] al
+push es
+cmp [ esi + 0x28ffffec ] al
+stosd [ edi ]
+add [ eax ] al
+push es
+cmp [ edx + 0x28ffffec ] ah
+stosd [ edi ]
+add [ eax ] al
+push es
+cmp [ ebp + 0x28ffffed ] ah
+mov [ 0x38060000 ] al
+int3
+sub_407197
+push [ ebp + 0x21000025 ]
+and [ eax ] al
+add [ edi + 0x5900001f ] dh
+and eax 0x1aa80000
+add [ eax ] al
+in eax 0xc
+add [ eax ] al
+stosd [ edi ]
+and al [ eax ]
+add bl ch
+or eax 0x40b0000
+add [ eax ] al
+insd
+add [ eax ] al
+add [ edx - 0x5bfffff9 ] dh
+hlt
+sub_40c0ab
+push es
+cmp [ eax ] bl
+add [ eax ] al
+add [ ecx ] dl
+jo r-xdata
+adc [ ebx ] esp
+mov gs [ ecx + 0x3a ]
+push esi
+add [ eax ] al
+add [ eax ] bh
+or eax [ eax ]
+add [ eax ] al
+and [ es : eax + eax ] al
+adc [ eax ] al
+add [ eax + ebp ] al
+push esi
+add [ eax ] al
+or ch [ eax ]
+out dx eax
+add [ eax ] al
+push es
+push ss
+push ds
+sub dl cl
+add [ eax ] al
+push es
+adc [ eax + 0x28 ] esi
+rol [ eax ] 0x1
+add [ esi ] al
+lea esi [ ebx ]
+add [ eax ] al
+add [ esi ] edx
+sub al dl
+add [ eax ] al
+push es
+sub dl cl
+add [ eax ] al
+push es
+adc [ eax + 0x28 ] esi
+rol [ eax ] 0x1
+add [ esi ] al
+lea esi [ ebx ]
+add [ eax ] al
+add [ esi ] edx
+sub al dl
+add [ eax ] al
+push es
+sub dl cl
+add [ eax ] al
+push es
+adc [ eax + 0x16 ] esi
+push 0x28
+mov ebx 0x11060000
+jo r-xdata
+inc ebp
+push es
+insb
+cmp [ eax ] bh
+add [ eax ] al
+add [ eax ] ah
+add al [ eax ]
+add [ eax ] al
+dec [ esi ]
+je r-xdata
+add [ eax ] al
+cmp [ esi ] cl
+add [ eax ] al
+add [ esi ] dl
+loopne r-xdata
+add [ eax ] al
+add [ eax ] bh
+daa
+add [ eax ] al
+add [ ecx ] dl
+and ecx [ esi + 0x563a69 ]
+add [ eax ] al
+cmp [ ebx ] cl
+add [ eax ] al
+add [ esi ] ah
+and [ eax + eax ] al
+int3
+add [ eax ] al
+add [ edi + edi * 8 - r-xdata ] dh
+dec [ esp + esi * 2 ]
+add [ ebp + 0x6 ] al
+sub_40cb51
+push es
+push ss
+0xc328 0x3806
+int 0x2c
+add [ eax ] al
+and [ ebp + 0x2 ] bh
+add [ eax ] al
+cmp [ ebx + 0x2000000f ] al
+push ecx
+add [ eax ] al
+add [ eax ] ah
+pop ss
+add [ eax ] al
+add [ eax - 0x2 ] bl
+push cs
+push ds
+add [ eax ] ah
+insd
+add al [ eax ]
+add [ eax ] bh
+bound ecx [ edi ]
+add [ eax ] al
+cmp [ esp + ebp + 0x5110000 ] ch
+sbb [ eax + 0x11 ] bl
+daa
+sbb [ ecx + 0x23a209c ] dl
+add [ eax ] al
+cmp [ edx + 0xf ] cl
+add [ eax ] al
+adc [ ebx + 0x16 ] edx
+cmp [ eax + 0x2600002c ] bl
+and al dl
+add [ eax ] eax
+add [ eax ] bh
+aaa
+sldt [ eax ]
+adc [ ecx + 0x20 ] esp
+int1
+hlt
+sub_415ab9
+push es
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add dh ah
+sbb al 0x52
+push es
+add [ gs : edi + eax ] al
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add bh bh
+sbb al 0xdb
+add [ ebp ] ah
+adc [ edi ] al
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ 0x6506431d ] bl
+add [ edi + eax ] bl
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ 0x6500db1d ] bh
+add [ eax ] ch
+pop es
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ eax + 0x1d ] dl
+out 0x0 al
+add [ gs : edi + eax ] dh
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ ebx + 0x1d ] ah
+out 0x0 al
+add [ gs : eax + 0x7 ] al
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ esi + 0x1d ] dh
+rol [ eax ] 0x1
+add [ gs : eax + 0x7 ] cl
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ ecx + 0x6505e51d ] cl
+add [ eax + 0x7 ] bl
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ ebp + ebx + 0x6505f4 ] bl
+insb
+pop es
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ edi + 0x6506051d ] ch
+add [ edi + eax + 0x80001 ] al
+xchg ebx eax
+add dl al
+sbb eax 0x6500bf
+nop
+pop es
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add ch dl
+sbb eax 0x6500db
+pushfd
+pop es
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add al ch
+sbb eax 0x6500bf
+test al 0x7
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add bl bh
+sbb eax 0x6500bf
+mov ah 0x7
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ esi ] cl
+push ds
+out 0x0 al
+add al al
+pop es
+add [ eax ] eax
+or [ eax ] al
+xchg ebx eax
+add [ eax ] ch
+push ds
+cli
+add esp [ ebp ]
+enter 0x107 0x0
+or [ eax ] al
+xchg ebx eax
+add [ ebx ] bh
+push ds
+hlt
+sub_416b2b
+push ss
+clc
+add al 0x89
+add dl bh
+push ss
+clc
+add al 0x89
+add bl dh
+push ss
+nop
+add eax 0x16ee02e1
+xchg esi eax
+add eax 0x16f402e1
+aaa
+add [ ecx - 0x61e905fe ] bh
+add eax 0x16b50049
+jmp r-xdata
+stc
+add [ ecx + 0x17 ] edi
+rol [ 0x17a602c9 ] 0xc7
+add eax 0x17c802e1
+inc [ ecx + ecx * 8 ]
+add bh bl
+pop ss
+fadd [ 0x16f402c9 ]
+aaa
+add [ ecx - 0x21e7d4ff ] ch
+add eax 0x18590329
+sahf
+add eax 0x189c0289
+in eax dx
+add eax 0x16de0289
+sti
+add eax 0x18de02c1
+aaa
+add [ ecx + 0x2 ] bh
+inc ecx
+adc eax 0x2f10613
+adc eax 0xf106221b
+add bh [ edi + 0x1b ]
+sub [ esi ] al
+dec ecx
+add esi edx
+sbb esi [ edi ]
+push es
+dec ecx
+add ebx edi
+sbb edi [ 0x1d02f906 ]
+sbb al 0x48
+push es
+xor [ edx ] eax
+inc eax
+sbb al 0x4c
+push es
+test eax 0x591cf901
+push es
+stc
+add [ edx ] edx
+sbb eax 0x2f10662
+xor [ 0x2c90669 ] bl
+pushfd
+adc al 0xeb
+add [ ecx + 0x1 ] cl
+and [ esi ] ebx
+jmp r-xdata
+jns r-xdata
+jo r-xdata
+adc [ edx ] 0x70
+push es
+int1
+add dl ah
+adc al 0x76
+push es
+popad
+add dl [ esi + ebx + 0x1d90276 ]
+inc ecx
+adc eax 0x191067c
+rcr [ esi ] 0x1
+jge r-xdata
+loope r-xdata
+hlt
+popad
+push ds
+add al [ eax ]
+pop ds
+dec esp
+push es
+int1
+add bl [ esp + edx + 0x2f1055b ]
+cmpsb [ esi ] [ edi ]
+adc al 0x89
+push es
+int1
+add ch [ ebx + 0x1f ]
+mov es [ esi ]
+dec ecx
+add [ edi + ebx + 0x3610695 ] ebx
+rcr [ edi ] cl
+fwait
+push es
+or [ ebx ] eax
+pop ds
+or [ ebx ] al
+stc
+add dl [ edx ]
+and [ ecx + 0x3 ] cl
+dec ecx
+add [ eax ] al
+pop ds
+cmpsd [ esi ] [ edi ]
+push es
+stc
+add al [ edi + 0x20 ]
+jmp r-xdata
+xor [ edx ] eax
+add [ edi ] bl
+stc
+add [ edi + 0x20 ] ebp
+lodsd [ esi ]
+push es
+or [ ebx ] eax
+xchg ecx eax
+and [ eax - 0x3dfdd6fa ] bh
+and [ ebp - 0xafe1efa ] ch
+and [ esi + eax + 0x21390219 ] bh
+0x1106
+sub_418e82
+push 0x44616c65
+insb
+insb
+jno r-xdata
+push edx
+dec ecx
+dec ecx
+js r-xdata
+dec ebx
+xor al 0x42
+add [ edx + 0x61 ] bh
+dec esi
+jae r-xdata
+push 0x54306e32
+imul esi [ ebx ] 0x6a
+ja r-xdata
+add [ eax + 0x45 ] cl
+dec eax
+dec esp
+insb
+jo r-xdata
+je r-xdata
+ja r-xdata
+jno r-xdata
+insb
+xor al 0x56
+ja r-xdata
+jne r-xdata
+aaa
+inc ebx
+xor [ edx + esi + 0x54 ] dl
+xor eax 0x45306a
+push edx
+inc ebx
+insd
+dec ebp
+cmp [ eax + 0x68 ] bh
+dec esi
+dec esi
+inc esp
+cmp [ esi ] esi
+add [ edi + 0x65 ] ah
+je r-xdata
+push eax
+outsd
+jae r-xdata
+dec edi
+pop eax
+inc esi
+insb
+js r-xdata
+popad
+add [ ecx + 0x79 ] dh
+dec ecx
+aaa
+inc ecx
+inc ebx
+jns r-xdata
+inc ebp
+jo r-xdata
+dec esi
+push ebp
+push esp
+inc esi
+cmp [ eax ] al
+pop ecx
+push 0x65
+inc ebp
+je r-xdata
+je r-xdata
+dec esi
+dec eax
+push 0x71
+dec esi
+inc ebx
+outsb
+add [ esi + 0x6f ] al
+imul esp [ ebx + 0x58 ] 0x75
+push ebp
+inc ebp
+bound esi [ edx + 0x73 ]
+aaa
+push edi
+push esi
+add [ ecx + 0x6e ] dl
+dec esi
+push edi
+push esp
+dec edx
+push 0x35
+jns r-xdata
+dec ecx
+insb
+inc edi
+je r-xdata
+dec esp
+xor eax 0x4c327233
+inc esi
+inc ecx
+xor eax 0x65470066
+je r-xdata
+pop edx
+push esp
+push ebp
+add [ ebp + 0x65 ] dl
+xor al 0x43
+push edi
+xor al 0x67
+jo r-xdata
+ja r-xdata
+dec eax
+add [ edi + 0x70 ] ch
+pop edi
+inc ebp
+jno r-xdata
+pop eax
+dec esi
+inc ecx
+outsb
+insb
+jns r-xdata
+inc ecx
+push edi
+inc esi
+dec ebx
+xor cl [ ss : ebx + 0x56 ]
+xor dl [ esi + 0x33 ]
+push edx
+pop edi
+outsd
+outsb
+bound ebp [ eax + 0x36 ]
+outsb
+insb
+add [ ecx + 0x64 ] al
+add [ fs : ebp + ebp * 2 + 0x52 ] dl
+inc esi
+inc ecx
+arpl [ eax + 0x54 ] cx
+jo r-xdata
+je r-xdata
+inc ebp
+dec ecx
+jne r-xdata
+inc ebp
+jne r-xdata
+js r-xdata
+imul esp [ edx + 0x64 ] 0x51
+push esp
+inc edi
+inc ebx
+popad
+je r-xdata
+dec ecx
+jbe r-xdata
+jb r-xdata
+popad
+insb
+imul esi [ ecx + edi * 2 ] 0x586c436d
+jbe r-xdata
+dec esp
+dec ebp
+dec edi
+xor [ edx + 0x64 ] al
+insd
+aaa
+bound ebx [ edx ]
+je r-xdata
+outsd
+push edx
+cmp [ ecx + 0x6b ] esp
+dec ecx
+jns r-xdata
+pop ecx
+push ebx
+pop ecx
+dec edx
+pop edx
+dec esp
+dec esp
+add [ ebx + 0x67 ] dl
+jne r-xdata
+add [ edi + 0x65 ] ah
+je r-xdata
+push edx
+inc edi
+dec edx
+push esi
+push esi
+inc esi
+je r-xdata
+add [ ecx + 0x78 ] cl
+xor [ eax + 0x30 ] ebx
+pop ecx
+xor eax 0x516b4365
+ja r-xdata
+arpl [ ecx + ebp * 2 + 0x6f ] si
+outsb
+push eax
+outsd
+imul ebp [ esi + 0x74 ] 0x6f467265
+push edx
+xor esi [ eax ]
+pop eax
+add [ edx + 0x65 ] dl
+popad
+dec edi
+xor eax 0x45324267
+push eax
+jb r-xdata
+popad
+je r-xdata
+dec esi
+dec ebx
+bound ecx [ esi + 0x59 ]
+xor eax 0x784b4568
+outsb
+aaa
+cmp [ ecx ] ah
+jno r-xdata
+jae r-xdata
+cmp [ edi + 0x73 ] eax
+push edx
+push edx
+jb r-xdata
+jb r-xdata
+outsd
+push esi
+add [ eax + 0x6c ] cl
+xor edi [ eax + 0x54 ]
+inc ebp
+push 0x53736548
+je r-xdata
+dec ebp
+outsd
+jne r-xdata
+imul esi [ edx ] 0x3439564a
+push eax
+add [ edi + 0x65 ] al
+je r-xdata
+push esp
+arpl [ eax + 0x75 ] bx
+dec ecx
+add [ fs : edi + 0x31 ] dh
+push eax
+push esp
+dec edi
+jno r-xdata
+dec ebp
+outsd
+jne r-xdata
+insd
+outsd
+cmp [ eax + 0x44 ] bh
+outsd
+add [ edi + 0x65 ] ah
+je r-xdata
+insb
+insb
+arpl [ gs : ecx + ebp * 2 + 0x6f ] si
+outsb
+inc edx
+popad
+jae r-xdata
+insb
+add [ ecx + 0x30 ] bl
+dec esp
+push edi
+jb r-xdata
+inc edi
+je r-xdata
+dec esi
+xor [ eax + 0x72 ] dh
+inc ebx
+add [ esi + 0x61 ] ch
+dec esi
+dec ebx
+push 0x57477768
+dec ecx
+inc esp
+push 0x4b
+cmp [ esi ] esi
+dec ebp
+push ebp
+xor eax [ eax ]
+jns r-xdata
+inc edx
+push ecx
+ja r-xdata
+inc esi
+inc esp
+jns r-xdata
+jns r-xdata
+cmp [ 0x35363545 ] dh
+dec esi
+popad
+insd
+add [ gs : esi + edx * 2 + 0x48 ] dh
+dec edx
+pop dx
+popad
+dec esi
+popad
+dec eax
+cmp [ esi + 0x4c ] ah
+dec ebx
+imul esp [ ecx + 0x6a ] 0x64490058
+pop ecx
+dec ebp
+outsd
+outsb
+jne r-xdata
+inc edi
+push ebx
+add [ ebp + 0x73 ] ah
+inc esi
+push esi
+inc esi
+imul ecx [ edi + 0x38 ] 0x304c5347
+inc esp
+dec esp
+popad
+bound esi [ 0x46584f4b ]
+add [ edi + 0x65 ] ah
+jae r-xdata
+dec ebp
+aaa
+push ebx
+jns r-xdata
+inc ebx
+jne r-xdata
+xor [ eax + edi + 0x78 ] dh
+push ebx
+dec esi
+outsb
+xor edx [ ebx + 0x71 ]
+jbe r-xdata
+outsb
+push eax
+jns r-xdata
+push 0x4d00646f
+inc edi
+outsd
+imul ebp [ esi + 0x74 ] 0x444f7200
+cmp [ ebx + 0x42 ] ecx
+jpe r-xdata
+jb r-xdata
+dec esi
+js r-xdata
+inc ebp
+dec esi
+dec ebp
+je r-xdata
+je r-xdata
+outsd
+jb r-xdata
+dec ebp
+insd
+add [ edi + 0x65 ] ah
+je r-xdata
+jb r-xdata
+outsb
+inc esp
+dec ecx
+dec edx
+push esp
+jns r-xdata
+outsb
+outsw
+add [ eax + 0x46 ] cl
+push ecx
+xor esi [ esi ]
+add [ ebx + 0x6f ] ch
+inc esi
+push ebp
+arpl [ eax + 0x63 ] dx
+xor eax [ edi + 0x6c ]
+jne r-xdata
+inc edx
+push ecx
+bound ecx [ esi + 0x6c ]
+xor eax 0x486b4c73
+push ecx
+dec ebx
+add [ edi + 0x6a ] cl
+inc edx
+pop edx
+push esp
+pop eax
+push eax
+push eax
+inc esp
+dec edx
+cmp [ ebx + 0x35 ] ah
+push 0x75447574
+imul edi [ edx + 0x65 ] 0x31666500
+jae r-xdata
+push ebp
+xor [ eax ] eax
+je r-xdata
+jb r-xdata
+aaa
+push 0x54
+dec esi
+inc edx
+dec eax
+popad
+push eax
+js r-xdata
+inc ebp
+pop ecx
+dec ebx
+push ecx
+dec esp
+add [ ebp + 0x4e ] al
+push eax
+push esp
+inc ebx
+ja r-xdata
+inc edi
+je r-xdata
+jo r-xdata
+add [ edx + 0x53 ] ch
+je r-xdata
+insd
+je r-xdata
+add [ edx + 0x69 ] cl
+inc edi
+jb r-xdata
+jo r-xdata
+jne r-xdata
+js r-xdata
+pop eax
+outsd
+add [ fs : ebp + 0x47 ] cl
+push 0x68444d77
+add [ edi + 0x65 ] ah
+je r-xdata
+inc esp
+jne r-xdata
+dec ebx
+bound ebp [ ecx + 0x6c ]
+inc ebx
+dec esi
+cmp [ ecx ] dh
+push eax
+je r-xdata
+inc edx
+arpl [ eax + 0x44 ] dx
+push eax
+inc ebp
+outsb
+outsb
+outsd
+dec eax
+pop eax
+push edi
+aaa
+bound ebp [ edi + 0x50 ]
+popad
+outsb
+insb
+add [ gs : ebx + 0x61 ] cl
+jbe r-xdata
+dec esp
+imul esp [ si + 0x36 ] 0x5a433768
+xor [ ebx + 0x68 ] dl
+add [ eax + 0x72 ] dl
+add [ esi + 0x4b ] cl
+popad
+push edx
+dec esp
+aaa
+push edi
+add [ ebp + 0x6f ] cl
+jbe r-xdata
+xor eax 0x35363545
+jb r-xdata
+push 0x38504658
+inc edx
+xor [ ebx + 0x50 ] ch
+cmp [ eax + 0x57 ] edx
+inc ecx
+bound ebp [ esi + esi * 2 + 0x53 ]
+arpl [ edi ] si
+je r-xdata
+je r-xdata
+jb r-xdata
+jns r-xdata
+inc edi
+js r-xdata
+ja r-xdata
+dec ebp
+outsd
+jne r-xdata
+dec ecx
+add [ edi + 0x65 ] ah
+je r-xdata
+jne r-xdata
+jb r-xdata
+push eax
+pop eax
+inc esp
+push esi
+push eax
+dec sp
+outsb
+jae r-xdata
+insd
+insd
+pop edx
+push eax
+imul ecx [ ecx + 0x69 ] 0x41313166
+push ebx
+push ecx
+xor [ di ] dl
+add [ eax + 0x61 ] dl
+jb r-xdata
+popad
+dec ebx
+outsd
+add [ fs : edx + 0x55 ] dl
+cmp [ edx + 0x4b ] ch
+cmp [ eax + 0x71 ] dl
+inc esi
+push ebp
+inc esp
+insb
+popad
+je r-xdata
+jb r-xdata
+imul edi [ ecx ] 0x59
+inc ebx
+push eax
+push ecx
+pop edx
+xor [ edi + 0x73 ] esi
+ja r-xdata
+xor [ ebp ] dl
+inc esp
+push 0x74656700
+pop edi
+inc ecx
+inc edi
+xor [ eax ] dh
+xor edx [ eax + 0x41 ]
+dec edx
+dec eax
+popad
+outsb
+insb
+add [ gs : esi + 0x4b ] cl
+dec ecx
+js r-xdata
+pop eax
+inc edi
+pop eax
+inc esp
+dec esi
+jno r-xdata
+cmp [ edi + 0x58 ] al
+push 0x42644c36
+push 0x79
+dec edx
+insd
+je r-xdata
+jae r-xdata
+push esp
+insd
+add [ ss : eax + 0x58 ] bl
+push 0x4b
+push esi
+insb
+dec bx
+outsb
+xor al 0x70
+xor [ ecx + 0x72 ] esp
+jbe r-xdata
+push eax
+jbe r-xdata
+add [ esi + esi * 2 + 0x30 ] dh
+jae r-xdata
+jo r-xdata
+push edx
+dec ebp
+cmp [ ebx ] cl
+push edx
+jne r-xdata
+push edi
+dec eax
+push ecx
+dec edx
+je r-xdata
+je r-xdata
+pop eax
+xor [ ecx + 0x35 ] bl
+inc ebx
+imul edx [ ecx + 0x77 ] 0x66
+add [ edx + 0x41 ] cl
+push 0x66
+jae r-xdata
+add [ ebx + 0x65 ] ah
+xor al 0x44
+insd
+jae r-xdata
+bound esi [ esi ]
+jb r-xdata
+push esi
+push 0x43
+jb r-xdata
+imul eax [ eax ] 0x7a
+push esp
+push eax
+jb r-xdata
+jb r-xdata
+push ebx
+jb r-xdata
+imul eax [ edx + 0x33 ] 0x55
+je r-xdata
+dec ebx
+add [ eax + 0x63 ] dh
+dec esi
+insb
+add [ eax + 0x72 ] dl
+jo r-xdata
+dec esp
+inc edx
+push ax
+inc esi
+arpl [ fs : eax + 0x72 ] si
+bound edx [ edi + 0x48 ]
+outsb
+dec edi
+jbe r-xdata
+dec esi
+dec esi
+jno r-xdata
+add [ ebp + 0x56 ] al
+insd
+dec ebp
+je r-xdata
+inc ecx
+pop eax
+pop eax
+dec edi
+jo r-xdata
+dec edi
+pop edx
+push esi
+imul ecx [ ebp + 0x62 ] 0x0
+dec edx
+dec esp
+push esp
+dec ebp
+dec ebx
+inc esi
+push ecx
+push eax
+inc esp
+push 0x34386d00
+aaa
+xor esi [ edx + 0x43 ]
+je r-xdata
+dec ebx
+add [ eax + 0x6e ] bl
+jne r-xdata
+dec ebp
+je r-xdata
+push 0x71
+inc esi
+inc esi
+push eax
+je r-xdata
+bound edx [ ebp + 0x35 ]
+dec edi
+inc esi
+dec ecx
+xor [ ecx + 0x58 ] esi
+inc ebp
+xor eax 0x54007974
+outsd
+inc edx
+popad
+jae r-xdata
+push esp
+cmp [ 0x67447436 ] dh
+jb r-xdata
+xor [ esi + 0x56 ] ebp
+push 0x6a564945
+inc ebx
+insd
+cmp [ edi + esi ] dh
+push eax
+jo r-xdata
+inc ebx
+push eax
+outsd
+dec eax
+popad
+outsb
+insb
+add [ gs : edi + 0x65 ] ah
+je r-xdata
+push ebx
+dec ebp
+cmp [ ebx ] esi
+xor al 0x53
+outsd
+jb r-xdata
+jno r-xdata
+dec edx
+inc ecx
+push esp
+dec edx
+jns r-xdata
+pop eax
+inc ebp
+pop edx
+jns r-xdata
+push ebp
+cmp [ edi ] esi
+xor al 0x6f
+push ecx
+ja r-xdata
+xor al 0x36
+push esp
+add [ edi + 0x6f ] al
+popad
+xor al 0x4b
+outsd
+push esi
+xor edx [ edi + 0x54 ]
+xor al 0x44
+cmp [ ecx + eax * 2 + 0x4e ] ch
+pop edx
+pop edx
+jb r-xdata
+push esp
+inc di
+cmp [ ecx ] ebp
+je r-xdata
+je r-xdata
+xor al 0x53
+push esi
+add [ ebx + 0x6e ] dh
+push ebp
+popad
+cmp [ edx + 0x4c ] dl
+dec edx
+pop ecx
+push eax
+dec edx
+js r-xdata
+dec ebp
+bound eax [ eax ]
+push 0x70
+xor eax 0x72003550
+insd
+cmp [ gs : esi ] esi
+push 0x4d6f3451
+dec esp
+dec edi
+jbe r-xdata
+imul esi [ ecx + 0x34 ] 0x46335352
+outsd
+dec eax
+add [ esi + 0x58 ] dh
+dec ebp
+je r-xdata
+push 0x75005a64
+xor al 0x4c
+push ebx
+insd
+add [ ss : ebx + 0x47 ] cl
+outsb
+je r-xdata
+inc edx
+inc edx
+ja r-xdata
+insb
+imul ebp [ esi + 0x67 ] 0x68396100
+cmp [ edx + 0x44 ] esi
+push esi
+jpe r-xdata
+insd
+dec esp
+jb r-xdata
+jo r-xdata
+jns r-xdata
+inc ecx
+js r-xdata
+push ebx
+push ebp
+jbe r-xdata
+cmp [ ecx + 0x5a ] esi
+xor ch [ edx ]
+js r-xdata
+ja r-xdata
+jns r-xdata
+popad
+dec esp
+xor ebp [ gs : ebp + eax * 2 + 0x77 ]
+popad
+je r-xdata
+push esi
+outsw
+xor eax 0x526a3070
+push esi
+insb
+popad
+push eax
+dec ebp
+inc ecx
+jb r-xdata
+jns r-xdata
+dec edi
+dec ebx
+push edx
+add [ edx + 0x71 ] al
+xor al 0x51
+inc esp
+arpl [ esi + 0x48 ] dx
+imul ebp [ ebp + 0x70 ] 0x33
+jae r-xdata
+xor al 0x0
+dec ebx
+ja r-xdata
+jns r-xdata
+dec bp
+push ebx
+push esi
+push esi
+xor ecx [ edi + 0x6b ]
+imul ebp [ fs : eax + 0x64 ] 0x5a
+add [ ebp + 0x34 ] dh
+dec ebp
+push esi
+xor [ edi + 0x4b ] cl
+cmp [ esi + eax * 2 + 0x4c ] al
+cmp [ ecx + 0x63 ] esi
+dec ebx
+insd
+add [ edx + 0x30 ] ch
+push edi
+push esi
+pop ecx
+jo r-xdata
+inc edx
+jne r-xdata
+push esi
+pop edx
+dec ecx
+je r-xdata
+push esi
+aaa
+cmp [ eax + 0x51 ] ch
+xor al 0x6f
+dec ebp
+jbe r-xdata
+dec edx
+dec esi
+xor [ eax + 0x57 ] ebx
+dec edi
+push esi
+cmp [ eax ] eax
+push ecx
+je r-xdata
+je r-xdata
+js r-xdata
+dec edi
+inc ebp
+outsb
+arpl [ edx + 0x79 ] si
+jo r-xdata
+add [ ecx + 0x72 ] ch
+inc esp
+pop edx
+xor [ ecx + 0x56 ] ch
+push eax
+pop eax
+ja r-xdata
+jns r-xdata
+popad
+dec edx
+pop edx
+push esp
+push eax
+push esi
+inc ebp
+add [ edi + 0x53 ] dl
+push ebx
+imul ebp [ ebp + 0x37 ] 0x43
+jb r-xdata
+inc esi
+outsb
+push esi
+insd
+jo r-xdata
+dec edx
+cmp [ eax ] esi
+add [ eax + 0x4c ] bh
+cmp [ esi + 0x44 ] ch
+push esi
+xor eax 0x7875376a
+popad
+jbe r-xdata
+cmp [ ecx ] esi
+inc edx
+dec ebx
+aaa
+inc ebx
+push esi
+add [ ecx + 0x62 ] cl
+jns r-xdata
+jno r-xdata
+cmp [ edx + 0x75 ] al
+dec eax
+dec ebp
+dec ebx
+jae r-xdata
+jo r-xdata
+add [ ecx + 0x64 ] dl
+jae r-xdata
+dec edx
+xor esi [ edx ]
+popad
+jae r-xdata
+push ebp
+jne r-xdata
+jb r-xdata
+outsb
+add [ ecx + 0x69 ] ch
+push ecx
+arpl [ ebx ] si
+push esi
+inc esi
+push edx
+push edx
+dec edi
+xor dl [ edi + 0x33 ]
+push ebx
+imul esi [ ebx ] 0x706d6f63
+add [ ecx + 0x6e ] ch
+outsw
+add [ esi + 0x6c ] ah
+imul esi [ esi + 0x65 ] 0x657a6953
+dec edi
+inc bx
+outsd
+inc ebx
+inc ebp
+arpl [ esi + edx * 2 + 0x32 ] cx
+ja r-xdata
+add [ ecx + 0x4a ] bh
+jae r-xdata
+jo r-xdata
+outsd
+jb r-xdata
+pop edx
+inc esi
+imul edx [ esi + 0x46 ] 0x0
+jbe r-xdata
+je r-xdata
+push esi
+ja r-xdata
+cmp [ esi + 0x70 ] dl
+push ecx
+pop eax
+xor edi [ ecx + 0x33 ]
+imul edi [ eax + 0x56 ] 0x4a
+outsd
+dec edx
+push eax
+inc ecx
+arpl [ eax + 0x68 ] cx
+dec esp
+inc edi
+pop eax
+dec eax
+inc edx
+add [ eax + 0x4f ] bh
+xor [ eax ] eax
+push esi
+jo r-xdata
+arpl [ ebx + 0x4c ] sp
+inc esi
+push ecx
+xor al 0x70
+dec edx
+xor eax 0x4d520070
+outsd
+imul esp [ ebp + 0x6e ] 0x0
+insb
+popad
+imul edx [ ecx + 0x63 ] 0x52465633
+jne r-xdata
+outsb
+popad
+je r-xdata
+inc ebp
+push esp
+inc esp
+add [ eax + edi + 0x69 ] dh
+push edx
+jae r-xdata
+xor ch [ esi + ebp * 2 + 0x44 ]
+pop eax
+dec eax
+push edi
+dec ebp
+insd
+add [ eax + 0x31 ] ch
+push ecx
+jns r-xdata
+jbe r-xdata
+imul esi [ eax ] 0x53
+jpe r-xdata
+insd
+cmp [ ecx + 0x52 ] ch
+xor edx [ ebx + 0x70 ]
+add [ ebx + 0x6c ] ah
+popad
+jae r-xdata
+imul ebp [ esi + 0x66 ] 0x6c66006f
+push 0x71
+outsd
+outsb
+inc ecx
+jno r-xdata
+jb r-xdata
+insb
+jne r-xdata
+inc ebp
+push ebx
+inc ebx
+jno r-xdata
+push ebp
+push ebx
+push ebp
+dec edi
+push ebp
+push ebx
+jb r-xdata
+jae r-xdata
+cmp [ eax ] dh
+push ecx
+xor dh [ ecx + 0x4a ]
+dec eax
+outsb
+dec eax
+insb
+push esi
+je r-xdata
+je r-xdata
+dec eax
+xor eax 0x74795a
+inc ecx
+xor al 0x42
+xor eax 0x4a72306b
+jbe r-xdata
+push eax
+push esi
+xor [ edi + 0x57 ] ebp
+push eax
+inc edi
+je r-xdata
+outsb
+insb
+push ebp
+jns r-xdata
+jae r-xdata
+xor al 0x6b
+pop ecx
+dec eax
+bound ebx [ eax + 0x56 ]
+insd
+dec ebp
+je r-xdata
+popad
+je r-xdata
+pop edi
+pop edi
+add [ edi + eax * 2 + 0x71 ] cl
+push edx
+xor eax 0x6f465473
+inc ebp
+jns r-xdata
+push ebx
+inc esi
+add [ ss : ebx + 0x72 ] al
+outsb
+insb
+jb r-xdata
+push edx
+jae r-xdata
+dec esi
+xor [ ecx + 0x61 ] ah
+xor eax 0x46367100
+push ebx
+jae r-xdata
+inc ebp
+dec esi
+add [ ebx + 0x58 ] ch
+jbe r-xdata
+xor [ edx + 0x44 ] bl
+insd
+push esp
+jns r-xdata
+inc ebp
+outsb
+je r-xdata
+inc esi
+push esi
+xor [ edx ] dh
+pop edx
+add [ ebx + 0x32 ] dh
+push edi
+xor edx [ ebx + 0x45 ]
+arpl [ ebx + 0x4a ] ax
+add [ gs : esi + 0x41 ] al
+inc esp
+add [ gs : esi + 0x41 ] al
+push esp
+outsd
+imul esp [ ebp + 0x6e ] 0x0
+dec esp
+inc ebx
+push esi
+xor eax 0x4e72306b
+pop dx
+pop ecx
+push edx
+dec esp
+add [ edi + 0x65 ] al
+je r-xdata
+insb
+jae r-xdata
+popad
+pop edi
+popad
+jne r-xdata
+inc ecx
+push edx
+popad
+outsb
+add [ gs : bx + di + 0x45 ] cl
+outsb
+jne r-xdata
+outsd
+push edx
+add [ si + 0x69 ] cl
+jae r-xdata
+jno r-xdata
+pop eax
+dec ecx
+push esi
+push ebx
+aaa
+jae r-xdata
+dec eax
+popad
+outsb
+xor eax 0x764a42
+jns r-xdata
+inc edi
+pop eax
+xor [ ebx ] dh
+xor [ eax + 0x56 ] ecx
+jbe r-xdata
+jne r-xdata
+pop ecx
+jne r-xdata
+jb r-xdata
+popad
+insd
+jae r-xdata
+arpl [ ebp + 0x4e ] sp
+outsd
+jb r-xdata
+jo r-xdata
+pushad
+xor [ eax ] eax
+push ebx
+jns r-xdata
+imul esp [ esi + 0x65 ] 0x65527473
+jae r-xdata
+add [ ecx + 0x62 ] dl
+aaa
+push edx
+inc ebp
+arpl [ edx + 0x30 ] si
+pop edx
+xor eax 0x30514f00
+push edx
+jne r-xdata
+xor [ ecx + 0x32 ] dl
+xor eax 0x66756959
+outsb
+popad
+je r-xdata
+outsd
+xor al 0x0
+dec esi
+push 0x67
+je r-xdata
+je r-xdata
+jae r-xdata
+ja r-xdata
+arpl [ ebp + 0x52 ] sp
+jae r-xdata
+jne r-xdata
+pop ecx
+add [ esi + 0x59 ] dh
+jb r-xdata
+jae r-xdata
+bound ebp [ ebp + 0x60 ]
+xor [ eax ] eax
+arpl [ gs : ebx + 0x52 ] cx
+inc edx
+pop edx
+bound ebp [ ebx + 0x47 ]
+push 0x73655200
+outsd
+insb
+jbe r-xdata
+push esp
+inc esp
+popad
+imul ebp [ esi ] 0x5f746567
+je r-xdata
+inc edi
+push esi
+jb r-xdata
+jbe r-xdata
+jne r-xdata
+insd
+inc esi
+imul esp [ ebp + 0x6c ] 0x6e614864
+imul esp [ ebx + 0x6d ] 0x57
+inc edx
+js r-xdata
+dec eax
+imul eax [ ebx + 0x50 ] 0x42357339
+xor eax 0x56616d00
+insb
+jbe r-xdata
+dec ecx
+xor [ ebx + 0x54 ] esi
+xor edx [ eax + edx * 2 + 0x4f ]
+jb r-xdata
+insd
+popad
+push esi
+inc ebx
+insd
+bound ebp [ ss : ebx + 0x58 ]
+outsd
+jns r-xdata
+pop ecx
+jbe r-xdata
+inc ebp
+jbe r-xdata
+push edi
+outsd
+add [ edi + 0x41 ] dl
+dec esi
+dec eax
+inc edx
+add [ edx + 0x52 ] ah
+dec esi
+je r-xdata
+jb r-xdata
+pop edi
+insd
+add [ ebx + 0x79 ] dl
+jae r-xdata
+arpl [ edx + 0x69 ] dx
+outsb
+arpl [ 0x49006477 ] si
+dec eax
+push edi
+bound esi [ eax + edi ]
+insb
+inc esi
+jb r-xdata
+popad
+outsb
+xor esi [ 0x764a42 ]
+imul esi [ eax ] 0x72
+dec edx
+add [ gs : ecx + 0x30 ] bh
+push edx
+pop eax
+dec esp
+jno r-xdata
+push ebx
+imul edi [ edx + 0x65 ] 0x6f43664f
+push edx
+inc ecx
+dec esi
+jbe r-xdata
+push ebx
+pop eax
+push 0x45640058
+arpl [ bx + di + 0x56 ] dx
+bound edx [ edx + 0x4a ]
+cmp [ eax + 0x43 ] bh
+inc esi
+dec ebx
+arpl [ ebp + 0x6d ] bp
+dec esp
+add [ ebp + 0x37 ] cl
+xor edx [ edx + 0x48 ]
+dec eax
+inc ebx
+cmp [ ecx + 0x31 ] edx
+add [ esi + 0x48 ] dl
+insd
+dec ebp
+je r-xdata
+outsb
+inc esi
+cmp [ ecx + 0x6b ] edx
+add [ ecx + 0x4c ] cl
+jno r-xdata
+dec ecx
+dec esp
+push eax
+imul edx [ ebx + esi + 0x79 ] 0x6b
+cmp [ eax ] al
+imul esi [ esi + 0x79 ] 0x67574952
+push esp
+jae r-xdata
+je r-xdata
+arpl [ edx + ecx * 2 + 0x6b ] cx
+jns r-xdata
+dec ecx
+push esp
+jno r-xdata
+outsb
+je r-xdata
+jno r-xdata
+dec ebx
+jb r-xdata
+dec ebp
+dec edi
+pop ecx
+pop edx
+jns r-xdata
+push esp
+arpl [ edx + 0x4f ] bx
+push ecx
+xor ecx [ ebx + 0x58 ]
+push eax
+dec ebx
+outsb
+je r-xdata
+bound edx [ edx + 0x4e ]
+outsb
+outsd
+insd
+insd
+inc edi
+outsb
+jb r-xdata
+outsb
+add [ edi + 0x65 ] ah
+je r-xdata
+inc ebx
+outsd
+insb
+insb
+arpl [ gs : ecx + ebp * 2 + 0x6f ] si
+outsb
+jae r-xdata
+insd
+push ebp
+insd
+jae r-xdata
+popad
+je r-xdata
+dec esi
+inc ebx
+pop edx
+inc ebx
+add [ ecx + 0x57 ] cl
+jne r-xdata
+push eax
+push eax
+cmp [ edi + edx * 2 ] cl
+push 0x63524d49
+dec ecx
+inc ebx
+add [ ebp + 0x79 ] dl
+outsd
+push edx
+push ebx
+inc edx
+insb
+bound eax [ eax ]
+dec ecx
+ja r-xdata
+push ebx
+push eax
+add [ edi + 0x66 ] ch
+imul esi [ esp + esi * 2 + 0x6c ] 0x646e4565
+imul esp [ ecx + 0x6e ] 0x676a5300
+push edx
+imul ebp [ ss : ebx + 0x5a ] 0x48005979
+dec esp
+xor eax 0x6d636b52
+push edi
+jne r-xdata
+dec ecx
+jns r-xdata
+cmp [ ebp + 0x4d ] cl
+add [ esi + 0x70 ] dh
+imul esp [ ebx + 0x4c ] 0x39796b4a
+cmp [ ebx + 0x42 ] dl
+push edx
+jae r-xdata
+jb r-xdata
+push edx
+push edx
+dec ebp
+push 0x494e5545
+inc edx
+inc esi
+xor al 0x0
+push esp
+arpl [ esi + 0x30 ] sp
+push ecx
+je r-xdata
+pop ecx
+cmp [ esi + 0x59 ] esi
+inc edx
+imul eax [ ebp + ebp * 2 + 0x34 ] 0x47
+outsd
+push 0x586d394c
+inc ebx
+add [ ebp + 0x70 ] ch
+dec ebp
+ja r-xdata
+push ebx
+inc edx
+outsd
+insd
+popad
+imul ebp [ esi ] 0x6f736552
+insb
+jbe r-xdata
+je r-xdata
+outsb
+arpl [ eax ] ax
+inc edi
+je r-xdata
+push ebp
+xor eax 0x73505749
+inc ebx
+jne r-xdata
+push esp
+push 0x4e
+inc ebx
+jbe r-xdata
+dec ebx
+ja r-xdata
+inc ebx
+add [ edx + 0x4f ] ch
+je r-xdata
+push esp
+dec ecx
+push esi
+imul esp [ ebx + 0x55 ] 0x4e535200
+cmp [ edx + 0x44 ] esi
+jb r-xdata
+add [ eax + 0x4f ] bh
+push 0x73797452
+dec esi
+jbe r-xdata
+push edx
+jns r-xdata
+push esi
+jae r-xdata
+dec esp
+push 0x32
+add [ esi + 0x78 ] ah
+dec edi
+jne r-xdata
+js r-xdata
+insd
+inc esi
+dec esp
+imul esi [ ss : esi ] 0x0
+dec ebp
+xor al 0x39
+insd
+xor ch [ ecx + 0x4f ]
+inc edx
+popad
+jbe r-xdata
+aaa
+dec eax
+popad
+jae r-xdata
+cmp [ ebx + 0x35 ] esi
+jae r-xdata
+add [ edi + 0x4b ] ch
+pop edx
+dec edi
+inc ebp
+jbe r-xdata
+popad
+insd
+add [ gs : ecx + 0x70 ] al
+jo r-xdata
+popad
+outsb
+cmp [ eax + edi + 0x55 ] ecx
+add [ ecx + 0x43 ] ch
+inc esi
+dec edi
+jne r-xdata
+jno r-xdata
+dec ebp
+dec ecx
+add [ ebp + 0x59 ] ch
+inc esi
+imul cx [ ebx + 0x56 ] 0x4b
+cmp [ edi + 0x76 ] al
+dec ecx
+imul esi [ edx + ecx * 2 ] 0x49
+xor eax 0x354d68
+dec edx
+xor dh [ ecx + 0x46 ]
+xor al [ esi + 0x56 ]
+popad
+pop ecx
+jae r-xdata
+jno r-xdata
+dec ebx
+push esp
+add [ ecx + 0x46 ] bh
+bound edx [ edx + 0x4e ]
+js r-xdata
+push edx
+xor bl [ eax + 0x76 ]
+add [ edx + 0x53 ] dl
+dec esi
+add [ ecx + 0x4e ] ch
+xor [ ebx + 0x62 ] esp
+add [ esi + 0x75 ] ch
+jno r-xdata
+add [ ebp + 0x58 ] cl
+jo r-xdata
+add [ esi + 0x76 ] dh
+push edx
+jno r-xdata
+add [ edx + 0x4a ] dl
+push ebx
+push edx
+xor ebp [ edx + edx * 2 + 0x73 ]
+dec esi
+inc esi
+add [ ecx + 0x69 ] bl
+dec ebp
+push edx
+pop edx
+dec ebx
+xor [ ecx ] edx
+push 0x5a527948
+dec eax
+imul ebp [ esi + ebp * 2 + 0x43 ] 0x75574900
+push edx
+push eax
+xor [ esi + 0x6e ] ah
+dec ebp
+inc esi
+jno r-xdata
+push edx
+jbe r-xdata
+dec ecx
+push edi
+push esp
+push esp
+inc ebp
+je r-xdata
+jae r-xdata
+outsd
+dec ebx
+outsb
+je r-xdata
+pop eax
+push edx
+popad
+outsd
+dec ecx
+bound esi [ edx + 0x5a ]
+push ebp
+jo r-xdata
+add [ edx + 0x69 ] al
+push 0x45
+cmp [ eax + 0x43 ] bl
+outsd
+dec ebx
+js r-xdata
+inc ebx
+push ecx
+inc ecx
+push ebp
+add [ ebx + 0x34 ] cl
+pop ecx
+jo r-xdata
+add [ eax + 0x34 ] cl
+inc ebp
+outsb
+add [ edx + 0x64 ] ch
+dec eax
+xor esp [ esi + 0x78 ]
+push ecx
+push 0x59
+ja r-xdata
+inc ebp
+imul esi [ edx + esi * 2 ] 0x6e
+dec esp
+push edi
+xor eax [ eax ]
+push esp
+xor al 0x35
+insb
+add [ esi + 0x6b ] cl
+cmp [ ecx + eax * 2 + 0x64 ] ch
+inc ebx
+push ebx
+push esi
+jns r-xdata
+jo r-xdata
+dec ebp
+inc ecx
+aaa
+inc ecx
+add [ ecx + 0x38 ] ch
+push edx
+push edx
+outsb
+dec esi
+jbe r-xdata
+add [ esi + 0x6d ] al
+push 0x52
+dec ebx
+dec esp
+je r-xdata
+inc esp
+push ecx
+push 0x4e
+cmp [ ecx ] edi
+inc esi
+pop edx
+push 0x32
+push ebx
+push esi
+jb r-xdata
+push eax
+pop ecx
+inc ebp
+popad
+push esi
+jpe r-xdata
+inc ebx
+inc ebp
+inc ecx
+xor al 0x4e
+jne r-xdata
+dec edi
+dec esi
+push eax
+jae r-xdata
+cmp [ ebp + 0x73 ] dh
+outsb
+add [ edi + ebp * 2 + 0x55 ] dl
+dec ecx
+outsb
+xor esi [ edx ]
+add [ ebx + 0x5a ] ah
+inc ebp
+push 0x45717200
+xor [ eax + 0x6b ] ebx
+xor [ ebp + 0x6e ] dh
+je r-xdata
+outsd
+outsd
+jno r-xdata
+jne r-xdata
+xor eax 0x72556843
+push esp
+je r-xdata
+add [ esi + 0x42 ] cl
+outsb
+push ebx
+inc ebx
+pop eax
+jbe r-xdata
+jne r-xdata
+dec eax
+push esp
+inc edx
+jae r-xdata
+insb
+jns r-xdata
+inc edx
+push ecx
+inc edi
+arpl [ ebx + 0x36 ] ax
+xor [ eax + 0x59 ] edx
+dec eax
+xor ebp [ esi + 0x63 ]
+bound ebp [ ebp + esi * 2 + 0x6a ]
+dec esi
+xor [ ebx + 0x44 ] ecx
+dec ebx
+push edi
+jno r-xdata
+xor [ eax ] dh
+xor [ edi ] dh
+sub eax 0x24240031
+insd
+je r-xdata
+add [ edx + eax * 2 + 0x35 ] dh
+xor ah [ ebx + 0x76 ]
+inc ebx
+dec edi
+cmp [ edx + 0x65 ] ch
+pop ecx
+inc ecx
+jo r-xdata
+push 0x6c436b6f
+pop edx
+push ebp
+xor al [ eax ]
+arpl [ edx + 0x45 ] bx
+jne r-xdata
+dec edx
+dec esp
+outsd
+add [ edi + 0x69 ] ch
+push 0x43694f4c
+push 0x6d
+je r-xdata
+dec edi
+inc ecx
+xor ah [ ebx ]
+jpe r-xdata
+bound ecx [ edx + 0x54 ]
+push edi
+jbe r-xdata
+add [ esp + esi + 0x41 ] ch
+xor dh [ ebx ]
+xor eax 0x4c394772
+cmp [ ebp + 0x41 ] dl
+push esi
+push ebp
+push edi
+push esp
+bound ecx [ edx + 0x6a ]
+jne r-xdata
+xor [ ecx + 0x4e ] ebp
+jae r-xdata
+dec ebp
+cmp [ edi + 0x35 ] eax
+inc ebx
+push 0x74547255
+outsb
+jae r-xdata
+dec esp
+pop edx
+pop eax
+jae r-xdata
+js r-xdata
+je r-xdata
+push 0x4c436d62
+popad
+push 0x49346472
+insb
+dec edx
+aaa
+jno r-xdata
+inc esi
+dec esp
+push eax
+dec esi
+xor [ ecx ] ah
+dec edi
+jo r-xdata
+inc edi
+outsb
+xor [ ss : eax ] dh
+outsd
+xor [ fs : eax + 0x36 ] bh
+inc edx
+xor eax 0x6d435765
+pop eax
+js r-xdata
+xor [ ss : eax ] dh
+dec ebx
+push esp
+cmp [ ebp + 0x49 ] esi
+arpl [ esi + 0x43 ] si
+outsb
+aaa
+inc ebx
+aaa
+inc edi
+inc ebp
+dec ecx
+inc edx
+xor ch [ edx + 0x36 ]
+push 0x45717200
+xor [ eax ] dh
+xor [ eax ] dh
+xor dh [ eax ]
+sub eax 0x24240031
+insd
+je r-xdata
+inc ebx
+dec edx
+arpl [ esi + esi + 0x44 ] bp
+jno r-xdata
+imul ecx [ esi + 0x73 ] 0x73784345
+inc edx
+dec edi
+inc edi
+insb
+inc ebx
+jae r-xdata
+inc ebx
+push ebp
+jae r-xdata
+cmp [ eax + eax + 0x4e ] ch
+imul edi [ eax ] 0x6c
+inc ecx
+inc ebx
+dec eax
+jns r-xdata
+inc ebx
+js r-xdata
+arpl [ edx + 0x42 ] cx
+dec ebx
+jbe r-xdata
+cmp [ edi + 0x70 ] dh
+inc ebp
+xor al 0x0
+dec eax
+xor al 0x45
+pop eax
+js r-xdata
+push esi
+inc edx
+cmp [ ecx + 0x59 ] bh
+add [ edi + 0x70 ] al
+outsd
+xor [ fs : eax + 0x36 ] bh
+xor [ eax ] dh
+xor [ edx ] dh
+cmp [ ebx + 0x2d ] ah
+xor [ eax ] eax
+and al 0x24
+insd
+je r-xdata
+xor [ ss : eax ] dh
+outsd
+xor [ fs : eax + 0x36 ] bh
+xor [ eax ] dh
+xor [ eax ] dh
+xor dh [ eax ]
+sub eax 0x24240032
+insd
+je r-xdata
+js r-xdata
+inc ebx
+add [ esp ] ah
+insd
+je r-xdata
+push 0x7830646f
+inc ebp
+add [ ebx + 0x78 ] ch
+js r-xdata
+xor [ fs : eax + 0x36 ] bh
+insb
+inc edi
+aaa
+push ebp
+push eax
+xor esp [ fs : ebx + 0x4a ]
+inc edx
+add [ ecx + 0x66 ] ch
+pop edx
+jne r-xdata
+cmp [ eax ] al
+push ebx
+push edi
+dec edx
+inc edi
+outsd
+push edi
+inc ebx
+insd
+je r-xdata
+push esp
+arpl [ edi + 0x43 ] cx
+dec edi
+jb r-xdata
+add [ gs : edi + 0x65 ] al
+outsb
+jb r-xdata
+pop edx
+dec edx
+imul esp [ ecx + 0x52 ] 0x38
+push edi
+jns r-xdata
+cmp [ edi + 0x79 ] dl
+inc ecx
+outsd
+xor [ fs : eax + 0x36 ] bh
+xor [ eax ] dh
+xor [ edx ] dh
+cmp [ ebp + ebp + 0x31 ] ah
+add [ esi ] dh
+dec ecx
+dec edx
+inc esi
+popad
+je r-xdata
+xor [ ss : eax ] dh
+outsd
+push 0x7830646f
+xor [ eax ] dh
+xor [ eax ] dh
+xor ah [ ecx + 0x2d ]
+xor [ eax ] eax
+and al 0x24
+insd
+je r-xdata
+xor [ ss : eax ] dh
+outsd
+xor [ fs : eax + 0x36 ] bh
+xor [ eax ] dh
+je r-xdata
+jno r-xdata
+dec ecx
+push edi
+arpl [ ecx + esi + 0x39 ] si
+pop edx
+js r-xdata
+outsd
+xor [ fs : eax + 0x36 ] bh
+xor [ eax ] dh
+xor [ eax ] dh
+xor ah [ ecx + 0x2d ]
+xor al [ eax ]
+and al 0x24
+insd
+je r-xdata
+xor [ esi ] dh
+popad
+xor [ esp + esi * 2 + 0x4e ] edx
+add [ edi + ebp * 2 + 0x73 ] ah
+push 0x52
+dec ebx
+inc ebx
+jb r-xdata
+insb
+inc esp
+jno r-xdata
+inc ebp
+imul esi [ fs : edi + ebp * 2 + 0x72 ] 0x776f7242
+je r-xdata
+popad
+inc ecx
+dec edx
+xor dh [ gs : ebx ]
+jne r-xdata
+insd
+jo r-xdata
+push esi
+inc ebx
+push edi
+imul ecx [ ebp + 0x4d ] 0x41
+jbe r-xdata
+jne r-xdata
+jbe r-xdata
+xor [ eax ] dh
+xor eax 0x312d66
+and al 0x24
+insd
+je r-xdata
+outsd
+xor [ fs : eax + 0x36 ] bh
+xor [ eax ] dh
+inc edi
+inc ebx
+jo r-xdata
+inc ebp
+aaa
+bound esi [ ebp + 0x79 ]
+push edx
+insd
+push esi
+inc esi
+inc ebx
+dec eax
+popad
+jno r-xdata
+jno r-xdata
+xor [ eax ] dh
+xor edi [ ecx ]
+sub eax 0x24240031
+insd
+je r-xdata
+outsd
+xor [ fs : eax + 0x36 ] bh
+xor [ eax ] dh
+pop eax
+js r-xdata
+outsb
+jae r-xdata
+jne r-xdata
+bound ebp [ ebp + 0x41 ]
+je r-xdata
+inc edx
+jb r-xdata
+inc ebx
+outsd
+inc ecx
+je r-xdata
+jb r-xdata
+add [ ebp + 0x6e ] dl
+insd
+popad
+outsb
+popad
+inc esi
+insb
+jb r-xdata
+inc ecx
+inc edi
+push edi
+dec esi
+bound edx [ edi + 0x5a ]
+xor esi [ 0x3741392e ]
+push edi
+js r-xdata
+inc esp
+dec eax
+xor al 0x5a
+add [ ecx + 0x6d ] bl
+dec eax
+aaa
+xor [ esi + 0x6a ] dh
+push esi
+jno r-xdata
+cmp [ ebp + 0x4b ] ch
+dec edi
+dec esi
+js r-xdata
+dec esi
+inc ecx
+jbe r-xdata
+push 0x39784c74
+dec edx
+je r-xdata
+pop ecx
+push 0x0
+push ebx
+push esp
+inc ecx
+push esp
+push 0x64616572
+inc ecx
+js r-xdata
+add [ ebx + 0x74 ] dh
+xor [ ecx + 0x31 ] cl
+push ecx
+inc ebx
+dec esi
+push 0x77
+push edx
+push ecx
+add [ esi ] ch
+add [ gs : eax ] al
+add [ eax ] al
+add [ eax ] al
+inc ebp
+push ebp
+jb r-xdata
+add [ edi ] dl
+push ecx
+add [ ecx ] al
+pop edx
+add [ edx ] cl
+jb r-xdata
+add [ ebp ] dl
+push ebp
+add [ ebp ] dl
+push ebp
+add [ ecx ] cl
+push ebp
+add [ ebx ] dl
+push edi
+add [ ecx ] dl
+inc ecx
+ja r-xdata
+outsd
+jb r-xdata
+jb r-xdata
+je r-xdata
+bound esi [ ebp + 0x74 ]
+add [ edx ] dl
+arpl [ ecx + ebp * 2 + 0x6f ] si
+inc esp
+bound esi [ gs : ebp + 0x67 ]
+jb r-xdata
+insb
+jb r-xdata
+outsd
+outsb
+push ebp
+jae r-xdata
+jb r-xdata
+push 0x384b6576
+insd
+dec ebx
+dec edx
+outsb
+cmp [ ebx + 0x44 ] eax
+inc ecx
+xor eax 0x66454955
+aaa
+dec ebx
+push edx
+outsb
+add [ ebx + 0x79 ] ah
+xor edx [ edx + 0x6f ]
+push esi
+jno r-xdata
+jb r-xdata
+outsd
+add [ eax ] dh
+add [ gs : edx ] dh
+je r-xdata
+push ebp
+bound esi [ ebp + 0x74 ]
+add [ gs : ebp + 0x64 ] al
+add [ ebp ] dl
+dec ecx
+add [ ebp ] dl
+push ebx
+popad
+inc esi
+insb
+jb r-xdata
+bound esi [ ebp + 0x74 ]
+add [ gs : ebx + 0x79 ] dl
+jae r-xdata
+popad
+jae r-xdata
+jae r-xdata
+add [ ebp + 0x64 ] al
+arpl [ eax ] ax
+sbb [ ebp + 0x790053 ] 0x73
+add [ eax + eax + 0x65 ] dh
+add [ ebp ] ch
+imul esp [ edx + 0x75 ] 0x43006574
+popad
+inc edx
+outsd
+add [ edx ] dh
+add [ gs : eax + eax ] ch
+and [ eax ] al
+push esi
+add [ ebp ] ah
+jb r-xdata
+insd
+add [ esi ] ch
+add [ ebx ] al
+outsd
+outsb
+add [ esi + 0x6c ] al
+jb r-xdata
+bound esi [ ebp + 0x74 ]
+add [ gs : ebx + 0x6f ] al
+insd
+jo r-xdata
+je r-xdata
+jb r-xdata
+inc ebx
+outsd
+inc edi
+jns r-xdata
+push eax
+bound ebx [ edx + 0x76 ]
+aaa
+popad
+add [ eax + eax + 0x2c ] ch
+add [ eax ] ah
+add [ eax ] dl
+jne r-xdata
+add [ gs : ebx ] dh
+imul eax [ eax ] 0x730065
+add [ cs : edx ] dl
+bound ebp [ ebp + 0x53 ]
+push edx
+add [ ebp ] ah
+jae r-xdata
+je r-xdata
+add [ cs : eax ] dl
+ja r-xdata
+je r-xdata
+push ebx
+insd
+inc ebx
+outsd
+inc esp
+outsd
+insd
+add [ cs : ebx ] al
+add [ gs : ebp ] ch
+jae r-xdata
+add [ gs : ebx ] dh
+add [ eax + 0x7900539d ] al
+add [ ebx ] ah
+bound esi [ ebp + 0x74 ]
+add [ gs : ebx + 0x61 ] al
+insb
+insb
+jb r-xdata
+add [ esi ] ch
+outsb
+push eax
+outsd
+imul ebp [ esi + 0x74 ] 0x74417265
+je r-xdata
+outsd
+imul esi [ edi + ebp * 2 + 0x72 ] 0x776f7242
+jae r-xdata
+je r-xdata
+outsd
+inc ecx
+imul ebp [ ebp + 0x72 ] 0x656e6547
+jb r-xdata
+push 0x77417856
+bound eax [ eax ]
+insb
+add [ ecx ] ch
+arpl [ eax ] ax
+dec ebx
+add [ ebp ] ah
+jns r-xdata
+add [ edx ] bl
+dec edx
+add [ esi ] ch
+je r-xdata
+outsd
+add [ ebp ] dh
+jb r-xdata
+jb r-xdata
+popad
+cmp eax 0x2e003300
+add [ 0x30002e00 ] dh
+add [ esi ] ch
+add [ eax ] dh
+add [ eax + eax ] ch
+and [ eax ] al
+inc ebx
+add [ ebp ] dh
+insb
+add [ eax + eax + 0x75 ] dh
+add [ edx ] dh
+add [ gs : 0x65006e00 ] bh
+add [ ebp ] dh
+je r-xdata
+imul eax [ eax ] 0x6e006f
+jne r-xdata
+inc esi
+outsb
+jb r-xdata
+imul ebp [ esi + 0x67 ] 0x766e6f43
+outsb
+je r-xdata
+push esp
+add [ edi ] ch
+imul eax [ eax ] 0x65
+add [ esi ] ch
+cmp eax 0x37006200
+add [ edi ] dh
+add [ ecx ] ah
+xor eax 0x35006300
+add [ esi ] dh
+add [ ecx ] dh
+add [ ecx ] bh
+add [ ebx ] dh
+add [ eax + eax ] dh
+add [ gs : eax ] dh
+add [ eax ] bh
+add [ ecx ] bh
+add [ eax ] al
+imul edx [ ebx ] 0x79
+add [ ebx ] dh
+je r-xdata
+add [ eax ] dl
+add [ eax ] ah
+add [ esi ] dl
+add [ gs : edx ] dh
+bound esi [ ebp + 0x74 ]
+jbe r-xdata
+inc ecx
+je r-xdata
+add [ gs : ebp ] ch
+add [ cs : ebx ] dl
+add [ gs : ebx ] ah
+jne r-xdata
+add [ ebx ] dh
+je r-xdata
+je r-xdata
+outsb
+jb r-xdata
+jb r-xdata
+imul esi [ edi + ebp * 2 + 0x72 ] 0x776f7242
+bound esi [ ebp + 0x74 ]
+add [ gs : ebp + 0x64 ] al
+imul eax [ eax ] 0x790074
+add [ cs : ebx ] al
+jb r-xdata
+jns r-xdata
+jo r-xdata
+je r-xdata
+outsd
+add [ edi ] ah
+jb r-xdata
+popad
+add [ eax ] dh
+push 0x2e007900
+add [ ecx ] al
+add [ gs : ebx ] dh
+inc ebx
+add [ edx ] dh
+jns r-xdata
+jo r-xdata
+je r-xdata
+outsd
+add [ ebx ] dl
+add [ gs : edx ] dh
+jbe r-xdata
+imul eax [ eax ] 0x650063
+push eax
+add [ edx ] dh
+outsd
+add [ esi ] dh
+imul eax [ eax ] 0x650064
+jb r-xdata
+add [ ebx + 0x59 ] cl
+add [ ebp ] ch
+dec eax
+add [ edi ] dh
+add [ eax ] dh
+add [ esi ] dh
+push 0x0
+push esi
+add [ ecx ] dh
+jno r-xdata
+inc edi
+add [ edi ] dl
+dec esi
+add [ edx ] ah
+push edi
+add [ edx ] bl
+xor eax [ eax ]
+xor eax 0x39002e00
+add [ ecx ] al
+aaa
+add [ edi ] dl
+js r-xdata
+pop eax
+add [ edx ] dh
+inc ebx
+add [ edi ] al
+jns r-xdata
+imul eax [ eax ] 0x68
+add [ esi ] dl
+js r-xdata
+inc ecx
+add [ edi ] dh
+pop ecx
+add [ edx ] ch
+add [ ebx + 0x47 ] cl
+add [ eax ] dh
+push edi
+add [ ebx ] ch
+dec ebp
+add [ ebp ] cl
+inc ecx
+add [ esi ] dh
+push esp
+add [ edx ] bl
+dec edx
+add [ ebx ] ch
+popad
+add [ edx ] dl
+cmp [ eax ] al
+push edi
+add [ ecx ] bh
+inc ecx
+add [ esi ] ch
+add [ edx ] cl
+add [ gs : edx ] dh
+add [ ebx ] dh
+add [ ebp ] dh
+outsb
+add [ esi ] dl
+inc ebx
+add [ eax ] ch
+jbe r-xdata
+add [ gs : ebx ] cl
+cmp [ eax ] al
+insd
+add [ ebx ] cl
+dec eax
+add [ eax + eax ] dh
+pop edx
+add [ eax ] al
+add [ eax ] eax
+xor edi [ ebx ]
+xor [ eax ] eax
+xor [ eax ] eax
+xor [ eax ] eax
+xor [ eax ] eax
+xor [ eax ] eax
+sub eax 0x32003200
+add [ edx ] dh
+add [ edx ] dh
+add [ edx ] dh
+add [ 0x30003500 ] ch
+add [ eax ] dh
+add [ eax ] dh
+add [ ecx ] dh
+add [ 0x30003000 ] ch
+add [ eax ] dh
+add [ eax ] dh
+add [ eax ] dh
+add [ ebp ] bh
+add [ ebx ] bh
+inc edi
+add [ ebp ] ah
+je r-xdata
+inc esp
+add [ ebp ] ah
+insb
+add [ ebp ] ah
+add [ bx + di ] ah
+je r-xdata
+add [ gs : esi ] al
+outsd
+add [ edx ] dh
+inc esi
+add [ ebp ] dh
+outsb
+add [ ebx ] ah
+je r-xdata
+imul eax [ eax ] 0x6e006f
+push eax
+add [ edi ] ch
+imul eax [ eax ] 0x74006e
+add [ gs : edx ] dh
+add [ ebx + 0x36 ] cl
+add [ ecx ] cl
+dec edx
+add [ esi ] al
+popad
+add [ eax + eax + 0x47 ] dh
+add [ ebp ] dh
+push ebp
+add [ eax + eax + 0x49 ] al
+add [ edi ] dl
+arpl [ eax ] ax
+je r-xdata
+xor [ eax ] eax
+cmp [ eax ] eax
+pop edx
+add [ eax ] bh
+add [ cs : edx ] ah
+jne r-xdata
+jns r-xdata
+push edx
+add [ ebp ] ch
+push esi
+add [ esi ] al
+inc ebx
+add [ eax ] cl
+popad
+add [ eax + eax + 0x71 ] ah
+add [ ebp ] dh
+js r-xdata
+dec eax
+add [ eax + eax + 0x52 ] ah
+add [ esi ] ch
+add [ 0x5f005f ] al
+add [ ebx ] cl
+insd
+add [ edi ] bl
+jo r-xdata
+je r-xdata
+jb r-xdata
+add [ edi ] bh
+push ebx
+add [ ecx ] bh
+jae r-xdata
+je r-xdata
+add [ gs : ebp ] ch
+add [ cs : edx ] dl
+add [ gs : esi ] ah
+insb
+add [ ebp ] ah
+arpl [ eax ] ax
+je r-xdata
+imul eax [ eax ] 0x6e006f
+add [ cs : edx ] dl
+jne r-xdata
+outsb
+add [ eax + eax + 0x69 ] dh
+add [ ebp ] ch
+add [ gs : ebp ] cl
+outsd
+add [ eax + eax + 0x75 ] ah
+add [ eax + eax + 0x65 ] ch
+add [ eax ] al
+sub_402292
+[ eax ]
+sub_40234c
+jmp [ esi ]
+sub_40596f
+push esp
+hlt
+sub_405e0f
+push ebx
+idiv bh
+jmp [ ebx - 0x292a0001 ]
+sub_406217
+push [ ebx + 0x4a ]
+add [ eax ] al
+or bh [ eax ]
+sahf
+out 0xff al
+[ eax ]
+sub_406224
+add [ eax ] al
+push es
+cmp [ ecx ] cl
+out 0xff eax
+[ eax ]
+sub_406235
+[ eax ]
+sub_406253
+[ eax ]
+sub_406267
+[ eax ]
+sub_406271
+[ eax ]
+sub_406274
+add [ eax ] al
+push es
+cmp [ eax ] al
+jmp r-xdata
+sub_40627b
+[ eax ]
+sub_406285
+[ eax ]
+sub_40628f
+[ eax ]
+sub_406292
+add [ eax ] al
+push es
+cmp [ ebx + ebp * 8 - 0x54d70001 ] cl
+add [ eax ] al
+push es
+cmp cl al
+jmp r-xdata
+sub_4062a3
+[ eax ]
+sub_4062a6
+add [ eax ] al
+push es
+cmp bh bh
+jmp r-xdata
+sub_4062ad
+[ eax ]
+sub_4062b7
+[ eax ]
+sub_4062c1
+[ eax ]
+sub_406fab
+push [ 0x75fffff9 ]
+or eax [ eax ]
+add [ edx + 0x1c ] dl
+add [ eax ] al
+cwde
+idiv edi
+jmp [ ebp + 0x1c ]
+sub_40807c
+push es
+add [ eax ] al
+add [ eax ] ah
+sbb eax 0x58000000
+dec [ esi ]
+adc [ eax ] al
+and ah al
+add [ eax ] al
+add [ eax ] bh
+dec edi
+jmp r-xdata
+sub_4080a9
+jmp [ eax ]
+sub_40de9b
+push ecx
+fcos
+jmp eax
+sub_40dfe3
+push [ eax ]
+add [ eax ] al
+pmulhw mm7 mm7
+[ esi - 0x3e000038 ]
+sub_40dff7
+jmp ecx
+sub_40e121
+retn 0xffff
+sub_40e127
+jmp esp
+sub_40e129
+retn 0xffff
+sub_40e12c
+retn
+sub_40e130
+out dx al
+out 0xff al
+dec esi
+add eax [ eax ]
+add dh bh
+or [ eax ] eax
+add dh dl
+out 0xff al
+call eax
+enter 0xffff 0xfa
+
+sub_40e14c
+0x9effffdf 0xffdf
+sub_40e163
+push edi
+sar edi cl
+call edi
+jmp r-xdata
+sub_40e177
+dec [ ebx + ecx * 8 - 0x1 ]
+jmp [ ebx + 0x1fffffbf ]
+sub_40e407
+push [ eax + 0x7200000c ]
+add al [ eax ]
+add [ 0x30ffffe6 ] bl
+iretd
+sub_40e42b
+[ edx - 0x36 ]
+sub_40e43a
+add [ eax ] al
+lodsd [ esi ]
+retn 0xffff
+sub_40e447
+dec [ eax ]
+0xffff
+sub_40e45f
+dec [ esi ]
+add [ eax ] al
+add [ edx - 0x20000035 ] bh
+aad 0xff
+jmp [ edi ]
+sub_40e4b7
+push ecx
+in al 0xff
+[ ebp + 0x76ffffed ]
+sub_40e4c7
+jmp [ edx ]
+sub_40f5b1
+push ebx
+add [ eax ] al
+add [ eax ] bh
+push ds
+retn 0xffff
+sub_40f5ba
+cmp [ 0x1938ffff ] ah
+retn 0xffff
+sub_40f5c4
+and [ esi + 0x2 ] bl
+add [ eax ] al
+cmp [ ecx + 0x7effffc2 ] ah
+sbb al [ eax ]
+add [ eax + edi ] al
+clc
+retn 0xffff
+sub_40f5d8
+and [ eax + 0x1 ] dh
+add [ eax ] al
+cmp al bh
+retn 0xffff
+sub_40f5e2
+cmp [ 0x938ffff ] al
+retn
+sub_40f5f1
+cmp [ edi + 0x11ffffc3 ] al
+inc esi
+cmp dh bl
+retn
+sub_40f5fc
+call [ ecx ]
+outsd
+cmp dh bl
+retn
+sub_40f609
+cmp bh dh
+retn
+sub_40f614
+[ eax ]
+sub_40f64a
+[ eax ]
+sub_40f65e
+call [ ecx ]
+adc eax 0xffc55238
+jmp [ eax ]
+sub_40f7ac
+pop esp
+add [ eax ] al
+add [ eax ] bh
+sar bh 0x1
+call [ ecx ]
+and eax 0xffd14038
+jmp [ eax ]
+sub_4138b7
+push [ edx - 0xd000014 ]
+0xdd2effff 0xffff
+sub_4138c8
+0xa9ffffe7 0xffd9
+sub_4138e3
+inc [ eax - 0x2900002f ]
+sar edi 0x1
+push [ 0x3dfffff8 ]
+fdiv st7
+jmp eax
+sub_413928
+mov esp 0x14ffffcf
+add [ eax ] eax
+add [ edx ] cl
+jmp r-xdata
+sub_41393b
+jmp [ edx - 0x6f00001a ]
+sub_4139cb
+[ eax + 0x64fffff0 ]
+fcos
+jmp [ ebx - 0x1200000c ]
+sub_413ab7
+push [ ecx - 0x4600000f ]
+aad 0xff
+jmp [ esi - 0x10 ]
+sub_413c37
+push ecx
+jmp r-xdata
+sub_413c43
+[ ebx - 0xe ]
+sub_413c47
+[ esi + 0x39ffffd6 ]
+sub_413c4d
+aam 0xff
+jmp [ ebp - 0x17 ]
+sub_413ccf
+push ebx
+in al 0xff
+jmp esi
+sub_413ee7
+push [ eax ]
+in al 0xff
+[ edi - 0x31 ]
+sub_413f15
+call [ ecx ]
+or [ ecx ] dl
+or eax 0xffefa93f
+jmp [ eax ]
+sub_416e59
+add esi [ 0x19043e04 ]
+add eax 0x5820560
+mov [ 0xffffffffb805ad05 ] eax
+add eax 0x7850711
+int3
+_CorExeMain
+jmp [ _CorExeMain@IAT ]

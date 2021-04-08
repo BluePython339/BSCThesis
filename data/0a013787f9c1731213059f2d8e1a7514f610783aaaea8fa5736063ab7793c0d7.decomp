@@ -1,0 +1,417 @@
+sub_401000
+cmp eax 0x1000
+jae r-xdata
+push ecx
+lea ecx [ esp + 0x8 ]
+neg eax
+add eax esp
+add eax 0x4
+test [ eax ] eax
+xchg esp eax
+mov eax [ eax ]
+push eax
+retn
+sub ecx 0x1000
+sub eax 0x1000
+test [ ecx ] eax
+cmp eax 0x1000
+jae r-xdata
+sub ecx eax
+mov eax esp
+test [ ecx ] eax
+mov esp ecx
+mov ecx [ eax ]
+mov eax [ eax + 0x4 ]
+push eax
+retn
+_start
+push esi
+call sub_4010c6
+mov esi eax
+call sub_401092
+push rw-data
+push rw-data
+call sub_401078
+push 0x0
+push rw-data
+push esi
+call sub_401464
+add esp 0x14
+mov esi eax
+call sub_4010aa
+push esi
+call [ ExitProcess@IAT ]
+sub_4010c6
+push ebx
+push esi
+xor ebx ebx
+push edi
+mov [ rw-data ] ebx
+call [ GetCommandLineA@IAT ]
+mov edi eax
+push edi
+call [ lstrlenA@IAT ]
+inc eax
+push eax
+push ebx
+call [ GetProcessHeap@IAT ]
+push eax
+call [ HeapAlloc@IAT ]
+mov esi eax
+cmp esi ebx
+jne r-xdata
+push edi
+push esi
+call [ lstrcpyA@IAT ]
+cmp [ esi ] 0x22
+jne r-xdata
+xor eax eax
+jmp r-xdata
+mov [ rw-data ] esi
+inc esi
+mov [ rw-data ] esi
+pop edi
+pop esi
+pop ebx
+retn
+cmp [ esi ] bl
+je r-xdata
+cmp al 0x20
+je r-xdata
+cmp [ esi ] bl
+jne r-xdata
+cmp al 0x22
+je r-xdata
+push 0x1
+mov ecx rw-data
+pop eax
+mov [ esi ] bl
+inc esi
+cmp al 0x9
+je r-xdata
+jmp r-xdata
+inc esi
+jmp r-xdata
+cmp dl 0x9
+jne r-xdata
+cmp dl 0x20
+je r-xdata
+inc esi
+jmp r-xdata
+mov al [ esi ]
+cmp al bl
+je r-xdata
+mov dl [ esi ]
+cmp dl bl
+je r-xdata
+inc esi
+jmp r-xdata
+mov al [ esi ]
+cmp al bl
+je r-xdata
+cmp dl 0x22
+jne r-xdata
+mov dl [ esi ]
+cmp dl bl
+je r-xdata
+mov [ ecx ] esi
+inc eax
+add ecx 0x4
+mov [ ecx ] ebx
+inc esi
+inc eax
+mov [ ecx ] esi
+add ecx 0x4
+mov [ ecx ] ebx
+cmp [ esi ] bl
+je r-xdata
+cmp dl 0x20
+je r-xdata
+cmp dl 0x22
+je r-xdata
+mov [ esi ] bl
+inc esi
+cmp ecx rw-data
+jl r-xdata
+cmp dl 0x9
+je r-xdata
+inc esi
+jmp r-xdata
+inc esi
+jmp r-xdata
+mov dl [ esi ]
+cmp dl bl
+je r-xdata
+mov dl [ esi ]
+cmp dl bl
+je r-xdata
+sub_401205
+push ebp
+mov ebp esp
+sub esp 0x268
+push esi
+lea eax [ ebp - 0x4 ]
+push eax
+push r--data
+push 0x80000002
+call [ RegOpenKeyW@IAT ]
+push r--data
+lea eax [ ebp - 0x268 ]
+push eax
+call [ lstrcpyW@IAT ]
+xor esi esi
+cmp [ ebp - 0x4 ] esi
+je r-xdata
+lea eax [ ebp - 0x60 ]
+push eax
+lea eax [ ebp - 0x50 ]
+push eax
+push esi
+push esi
+push 0x8000000
+push esi
+push esi
+push esi
+lea eax [ ebp - 0x268 ]
+push eax
+push esi
+mov [ ebp - 0x50 ] 0x44
+mov [ ebp - 0x1e ] si
+mov [ ebp - 0x28 ] esi
+mov [ ebp - 0x24 ] 0x1
+mov [ ebp - 0x14 ] esi
+mov [ ebp - 0x18 ] esi
+mov [ ebp - 0x10 ] esi
+mov [ ebp - 0x48 ] esi
+mov [ ebp - 0x4c ] esi
+mov [ ebp - 0x1c ] esi
+mov [ ebp - 0x44 ] esi
+mov [ ebp - 0x34 ] esi
+mov [ ebp - 0x38 ] esi
+mov [ ebp - 0x3c ] esi
+mov [ ebp - 0x40 ] esi
+mov [ ebp - 0x2c ] esi
+mov [ ebp - 0x30 ] esi
+mov [ ebp - 0x20 ] si
+call [ CreateProcessW@IAT ]
+pop esi
+leave
+retn
+lea eax [ ebp - 0xc ]
+push eax
+lea eax [ ebp - 0x268 ]
+push eax
+lea eax [ ebp - 0x8 ]
+push eax
+push esi
+push r--data
+push [ ebp - 0x4 ]
+mov [ ebp - 0xc ] 0x208
+mov [ ebp - 0x8 ] 0x3
+call [ RegQueryValueExW@IAT ]
+push [ ebp - 0x4 ]
+call [ RegCloseKey@IAT ]
+sub_4012d4
+push ebp
+mov ebp esp
+sub esp 0x214
+push esi
+push 0x2
+xor esi esi
+push esi
+push esi
+call [ OpenSCManagerW@IAT ]
+cmp eax esi
+mov [ ebp - 0x4 ] eax
+je r-xdata
+pop esi
+leave
+retn
+push ebx
+push edi
+push 0x208
+lea eax [ ebp - 0x214 ]
+push eax
+push esi
+call [ GetModuleFileNameW@IAT ]
+push esi
+push esi
+push esi
+push esi
+push esi
+lea eax [ ebp - 0x214 ]
+push eax
+push 0x1
+push 0x2
+push 0x110
+mov edi 0xf01ff
+push edi
+push r--data
+push r--data
+push [ ebp - 0x4 ]
+mov [ ebp - 0xe ] si
+call [ CreateServiceW@IAT ]
+cmp eax esi
+mov ebx [ CloseServiceHandle@IAT ]
+mov [ ebp - 0xc ] eax
+jne r-xdata
+lea ecx [ ebp - 0x8 ]
+push ecx
+push 0x1
+push eax
+mov [ ebp - 0x8 ] r--data
+call [ ChangeServiceConfig2W@IAT ]
+push [ ebp - 0xc ]
+call [ GetLastError@IAT ]
+cmp eax 0x431
+je r-xdata
+push edi
+push r--data
+push [ ebp - 0x4 ]
+call [ OpenServiceW@IAT ]
+mov edi eax
+cmp edi esi
+je r-xdata
+cmp eax 0x436
+jne r-xdata
+push [ ebp - 0x4 ]
+call ebx
+pop edi
+pop ebx
+push esi
+push esi
+push esi
+push esi
+push esi
+push esi
+lea eax [ ebp - 0x214 ]
+push eax
+push 0xffffffff
+push 0x2
+push 0xffffffff
+push edi
+call [ ChangeServiceConfigW@IAT ]
+push edi
+jmp r-xdata
+call ebx
+sub_4013b2
+push ebx
+push esi
+push 0x4
+pop esi
+xor ebx ebx
+push sub_4011ca
+push r--data
+mov [ rw-data ] 0x30
+mov [ rw-data ] 0x2
+mov [ rw-data ] esi
+mov [ rw-data ] ebx
+mov [ rw-data ] ebx
+mov [ rw-data ] ebx
+mov [ rw-data ] ebx
+call [ RegisterServiceCtrlHandlerW@IAT ]
+push rw-data
+push eax
+mov [ rw-data ] eax
+mov [ rw-data ] esi
+mov [ rw-data ] ebx
+mov [ rw-data ] ebx
+call [ SetServiceStatus@IAT ]
+push 0xffffffff
+call [ GetCurrentThread@IAT ]
+push eax
+call [ SetThreadPriority@IAT ]
+mov [ rw-data ] bl
+pop esi
+pop ebx
+retn 0x8
+inc esi
+cmp esi 0x5460
+jl r-xdata
+push 0x7530
+call [ Sleep@IAT ]
+cmp [ rw-data ] bl
+jne r-xdata
+jmp r-xdata
+push ebx
+call [ SetLastError@IAT ]
+call sub_401205
+xor esi esi
+sub_401464
+push ebp
+mov ebp esp
+sub esp 0x10
+cmp [ ebp + 0x8 ] 0x1
+jle r-xdata
+and [ ebp - 0x8 ] 0x0
+and [ ebp - 0x4 ] 0x0
+lea eax [ ebp - 0x10 ]
+push eax
+mov [ ebp - 0x10 ] r--data
+mov [ ebp - 0xc ] sub_4013b2
+call [ StartServiceCtrlDispatcherW@IAT ]
+xor eax eax
+leave
+retn
+call sub_4012d4
+sub_401078
+push esi
+mov esi [ esp + 0x8 ]
+pop esi
+retn
+mov eax [ esi ]
+test eax eax
+je r-xdata
+add esi 0x4
+jmp r-xdata
+call eax
+cmp esi [ esp + 0xc ]
+jae r-xdata
+sub_401092
+push 0x20
+pop eax
+push 0x4
+push eax
+mov [ rw-data ] eax
+call sub_4011ad
+pop ecx
+mov [ rw-data ] eax
+pop ecx
+retn
+sub_4010aa
+mov ecx [ rw-data ]
+test ecx ecx
+je r-xdata
+retn
+mov eax [ rw-data ]
+lea ecx [ eax + ecx * 4 ]
+push ecx
+push eax
+call sub_401078
+pop ecx
+pop ecx
+sub_4011ad
+mov eax [ esp + 0x4 ]
+imul eax [ esp + 0x8 ]
+push eax
+push 0x8
+call [ GetProcessHeap@IAT ]
+push eax
+call [ HeapAlloc@IAT ]
+retn
+sub_4011c7
+mov al 0x1
+retn
+sub_4011ca
+mov eax [ esp + 0x4 ]
+dec eax
+push rw-data
+push [ rw-data ]
+jne r-xdata
+call [ SetServiceStatus@IAT ]
+retn 0x4
+mov [ rw-data ] 0x1
+mov [ rw-data ] eax
+mov [ rw-data ] 0x1
+mov [ rw-data ] eax
+mov [ rw-data ] eax

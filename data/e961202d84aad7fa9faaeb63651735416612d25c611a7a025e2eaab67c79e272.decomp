@@ -1,0 +1,45 @@
+_start
+pushad
+xor ebx ebx
+push esp
+clc
+adc ebx 0x1
+lea esp [ esp + 0x4 ]
+mov ecx [ esp - 0x4 ]
+stc
+adc ebx 0x0
+push ecx
+sub [ esp ] 0x4
+lea esp [ esp + 0x4 ]
+mov ecx [ esp - 0x4 ]
+add ebx 0x1
+call $+5
+add [ ecx ] ebx
+retn
+sub_403038
+mov [ esp - 0x4 ] eax
+lea esp [ esp - 0x4 ]
+sub esp 0xfffffffc
+xor eax [ esp - 0x4 ]
+mov ecx 0x0
+xor ecx eax
+dec ch
+stc
+sbb ch 0x0
+mov cl ch
+push eax
+pop ebp
+call $+5
+mov esi [ esp ]
+add ebp 0x1
+movzx edx [ esi + ebp - 0x2 ]
+sub esp 0x4
+mov [ esp ] edx
+sub edx ecx
+mov edx [ esp ]
+lea esp [ esp + 0x4 ]
+jne r-xdata
+add [ esp ] eax
+jmp [ esp ]
+mov eax 0x0
+add eax ebp

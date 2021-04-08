@@ -1,0 +1,168 @@
+sub_4039f2
+mov bh 0x11
+and edx ebx
+outsd
+pop edi
+add [ eax ] al
+or dl [ ecx ]
+and ch [ edi + 0x60 ]
+adc esi [ ebx ]
+adc [ ebx ] esi
+push ss
+add al 0x0
+jo r-xdata
+adc al 0x28
+add [ bx + si ] al
+or bh [ esi + 0x18 ]
+add [ eax ] al
+add al 0xa2
+adc [ ebx ] esi
+adc al 0x14
+sub [ edi ] ah
+adc al 0x0
+add [ esi ] al
+sub [ edx ] dl
+add [ eax ] al
+or al [ eax + 0x4000018 ]
+jle r-xdata
+jle r-xdata
+lea eax [ ebx ]
+add [ eax ] al
+add [ ebx ] edx
+xor edx [ ecx ]
+xor edx [ esi ]
+add al 0x0
+jo r-xdata
+add al 0xa2
+adc [ ebx ] esi
+adc al 0x14
+add [ eax ] al
+add al 0x14
+jb r-xdata
+add [ eax ] al
+add al 0x14
+jb r-xdata
+add [ edx ] cl
+jle r-xdata
+lea eax [ ebx ]
+add [ eax ] al
+add al 0xa2
+adc [ ebx ] esi
+adc al 0x14
+sub [ edi ] ah
+add [ eax ] al
+add al 0x14
+jb r-xdata
+add [ eax ] al
+or ch [ eax ]
+adc [ eax ] al
+add [ esi ] al
+jb r-xdata
+pushad
+add al 0x0
+jo r-xdata
+sub [ edi ] ah
+add [ eax ] al
+add [ ebx ] edx
+xor edx [ ecx ]
+xor edx [ esi ]
+jle r-xdata
+add al 0x0
+jo r-xdata
+add [ edx ] cl
+jle r-xdata
+add [ edx ] cl
+fst [ edx + 0x25000000 ]
+sub [ edi ] cl
+add [ eax ] al
+lea eax [ ebx ]
+add [ eax ] al
+add [ ebx ] edx
+xor edx [ ecx ]
+xor edx [ esi ]
+jle r-xdata
+or dl [ ebx ]
+and eax [ esi ]
+sldt [ eax ]
+add [ eax ] al
+sub_403a99
+mov bh 0x16
+xor [ ebx ] ebp
+push es
+push ss
+0x4c572 0x1670
+sub [ ebp ] al
+add [ edx ] cl
+push ss
+inc [ ecx ]
+push es
+push ss
+0x4cb72 0x1670
+sub [ ebp ] al
+add [ edx ] cl
+push ss
+inc [ ecx ]
+pushad
+sub al 0x6
+adc al 0x80
+sbb [ eax ] al
+add [ ebx + ebx ] al
+lea edx [ ecx ]
+add [ eax ] al
+add [ ebx ] edx
+daa
+adc [ edi ] esp
+push ss
+jb r-xdata
+add al 0x0
+jo r-xdata
+jle r-xdata
+adc [ edi ] esp
+pop ss
+jle r-xdata
+sldt [ eax ]
+or dl [ ebx ]
+and eax [ esi ]
+add [ eax ] al
+add al 0xa2
+adc [ ebx ] esi
+adc al 0x14
+sub [ edi ] ah
+add [ edx ] cl
+fst [ edx + 0x25000000 ]
+sub [ edi ] cl
+add [ eax ] al
+0x192711a2 0x97e
+add [ eax ] al
+add al 0xa2
+adc [ edi ] esp
+sbb dl [ ecx ]
+and ebp [ edi + 0x65 ]
+add [ eax ] al
+or ah [ edx + 0x5a282711 ]
+add [ eax ] al
+or ch [ eax ]
+sbb eax 0x26060000
+fimul [ esi ]
+and eax 0xf28
+or ah [ esi ]
+sub [ eax ] dl
+add [ eax ] al
+or bl dh
+add [ eax ] ch
+adc [ eax ] al
+add [ edx ] cl
+fiadd [ eax ]
+sub al [ eax ]
+add [ ecx - 0x24 ] al
+add [ eax ] al
+add [ eax ] al
+add [ eax ] al
+hlt
+add [ eax ] al
+add al 0xa2
+adc [ edi ] esp
+sbb [ esi ] al
+push ss
+_CorExeMain
+jmp [ _CorExeMain@IAT ]

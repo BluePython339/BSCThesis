@@ -1,0 +1,198 @@
+sub_10001000
+cmp eax 0x1000
+jae r-xdata
+push ecx
+lea ecx [ esp + 0x8 ]
+neg eax
+add eax esp
+add eax 0x4
+test [ eax ] eax
+xchg esp eax
+mov eax [ eax ]
+push eax
+retn
+sub ecx 0x1000
+sub eax 0x1000
+test [ ecx ] eax
+cmp eax 0x1000
+jae r-xdata
+sub ecx eax
+mov eax esp
+test [ ecx ] eax
+mov esp ecx
+mov ecx [ eax ]
+mov eax [ eax + 0x4 ]
+push eax
+retn
+_start
+push ebp
+mov ebp esp
+cmp [ ebp + 0xc ] 0x1
+jne r-xdata
+push esi
+push [ ebp + 0x10 ]
+push [ ebp + 0xc ]
+push [ ebp + 0x8 ]
+call sub_1000124e
+cmp [ ebp + 0xc ] 0x0
+mov esi eax
+jne r-xdata
+call sub_10001099
+push rw-data
+push rw-data
+call sub_1000107f
+pop ecx
+pop ecx
+mov eax esi
+pop esi
+pop ebp
+retn 0xc
+call sub_100010b1
+sub_100010e7
+push ebx
+push 0x0
+mov bl 0x1
+call [ SetLastError@IAT ]
+push r--data
+push 0x0
+push 0x0
+call [ CreateMutexW@IAT ]
+mov [ rw-data ] eax
+call [ GetLastError@IAT ]
+cmp eax 0x5
+je r-xdata
+xor bl bl
+cmp eax 0xb7
+jne r-xdata
+mov al bl
+pop ebx
+retn
+push eax
+call [ ReleaseMutex@IAT ]
+push [ rw-data ]
+call [ CloseHandle@IAT ]
+mov eax [ rw-data ]
+test eax eax
+je r-xdata
+sub_1000113a
+push ebp
+mov ebp esp
+sub esp 0x214
+call sub_100010e7
+test al al
+je r-xdata
+leave
+retn
+push esi
+lea eax [ ebp - 0x4 ]
+push eax
+push r--data
+push 0x80000002
+call [ RegOpenKeyW@IAT ]
+push r--data
+lea eax [ ebp - 0x214 ]
+push eax
+call [ lstrcpyW@IAT ]
+xor esi esi
+cmp [ ebp - 0x4 ] esi
+je r-xdata
+push rw-data
+push rw-data
+push esi
+push esi
+push 0x8000000
+push esi
+push esi
+push esi
+push esi
+lea eax [ ebp - 0x214 ]
+push eax
+mov [ rw-data ] 0x44
+mov [ rw-data ] si
+mov [ rw-data ] esi
+mov [ rw-data ] 0x1
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] esi
+mov [ rw-data ] si
+call [ CreateProcessW@IAT ]
+pop esi
+lea eax [ ebp - 0x8 ]
+push eax
+lea eax [ ebp - 0x214 ]
+push eax
+lea eax [ ebp - 0xc ]
+push eax
+push esi
+push r--data
+push [ ebp - 0x4 ]
+mov [ ebp - 0x8 ] 0x208
+mov [ ebp - 0xc ] 0x3
+call [ RegQueryValueExW@IAT ]
+push [ ebp - 0x4 ]
+call [ RegCloseKey@IAT ]
+sub_1000107f
+push esi
+mov esi [ esp + 0x8 ]
+pop esi
+retn
+mov eax [ esi ]
+test eax eax
+je r-xdata
+add esi 0x4
+jmp r-xdata
+call eax
+cmp esi [ esp + 0xc ]
+jae r-xdata
+sub_10001099
+push 0x20
+pop eax
+push 0x4
+push eax
+mov [ rw-data ] eax
+call sub_100010cd
+pop ecx
+mov [ rw-data ] eax
+pop ecx
+retn
+sub_100010b1
+mov ecx [ rw-data ]
+test ecx ecx
+je r-xdata
+retn
+mov eax [ rw-data ]
+lea ecx [ eax + ecx * 4 ]
+push ecx
+push eax
+call sub_1000107f
+pop ecx
+pop ecx
+sub_100010cd
+mov eax [ esp + 0x4 ]
+imul eax [ esp + 0x8 ]
+push eax
+push 0x8
+call [ GetProcessHeap@IAT ]
+push eax
+call [ HeapAlloc@IAT ]
+retn
+sub_1000124e
+mov eax [ esp + 0x8 ]
+dec eax
+jne r-xdata
+xor eax eax
+inc eax
+retn 0xc
+push [ esp + 0x4 ]
+call [ DisableThreadLibraryCalls@IAT ]
+call sub_1000113a

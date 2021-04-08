@@ -1,0 +1,31 @@
+_start
+mov eax rwxdata
+push eax
+push [ fs : 0x0 ]
+mov [ fs : 0x0 ] esp
+or esi ebx
+fbstp [ eax - 0x614707e3 ]
+pop es
+jl rwxdata
+arpl [ edx + esi ] si
+mov edi 0x9896abaf
+push 0x42
+mov bl 0x60
+xor eax eax
+mov [ eax ] ecx
+push eax
+inc ebp
+inc ebx
+outsd
+insd
+jo rwxdata
+and eax 0x0
+push ebp
+cmp esp [ esi + 0x13 ]
+push 0x30
+test esp edx
+sub_49ce03
+mov eax [ 0xffffffffb7630007 ]
+cmp edi [ esi - 0x63 ]
+popad
+hlt
